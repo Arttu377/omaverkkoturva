@@ -11,23 +11,20 @@ const PortalAuthGuard: React.FC<PortalAuthGuardProps> = ({ children }) => {
 	const navigate = useNavigate();
 	const location = useLocation();
 
-	// HashRouter: derive currentPath from hash
-	const currentPath = location.pathname === '/' && location.hash ? location.hash.slice(1) : location.pathname;
-
 	// Public routes: only login
-	const isPublicRoute = currentPath === '' || currentPath === '/';
+	const isPublicRoute = location.pathname === '/';
 
 	useEffect(() => {
 		if (!loading) {
 			if (!user && !isPublicRoute) {
 				navigate('/', { replace: true });
-			} else if (user && currentPath.startsWith('/admin') && !isAdmin) {
+			} else if (user && location.pathname.startsWith('/admin') && !isAdmin) {
 				navigate('/dashboard', { replace: true });
-			} else if (user && (currentPath === '' || currentPath === '/')) {
+			} else if (user && location.pathname === '/') {
 				navigate('/dashboard', { replace: true });
 			}
 		}
-	}, [user, loading, navigate, currentPath, isPublicRoute, isAdmin]);
+	}, [user, loading, navigate, location.pathname, isPublicRoute, isAdmin]);
 
 	if (loading) {
 		return (
