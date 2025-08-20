@@ -5,9 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
-import { AuthProvider } from "@/contexts/AuthContext";
 import { ShoppingCartProvider } from "@/contexts/ShoppingCartContext";
-import AuthGuard from "@/components/AuthGuard";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import FireCatProject from "./pages/FireCatProject";
@@ -27,15 +25,6 @@ import Irtisanomislomake from "./pages/Irtisanomislomake";
 import Contact from "./pages/Contact";
 import { LogoTool } from "./pages/LogoTool";
 import Verkkokauppa from "./pages/Verkkokauppa";
-import Portaalinverkkokauppa from "./pages/Portaalinverkkokauppa";
-import AdminPortal from "./pages/AdminPortal";
-import Dashboard from "./pages/Dashboard";
-import ConfirmOrder from "./pages/ConfirmOrder";
-import OrderOverview from "./pages/OrderOverview";
-import UnconfirmedOrders from "./pages/UnconfirmedOrders";
-import ConfirmedOrders from "./pages/ConfirmedOrders";
-import Login from "./pages/Login";
-import AuthCallback from "./pages/AuthCallback";
 import OrderConfirmation from "./pages/OrderConfirmation";
 
 const App = () => {
@@ -43,54 +32,40 @@ const App = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <AuthProvider>
-        <ShoppingCartProvider>
-          <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <AuthGuard>
-              <Routes>
-                {/* Julkiset sivut (eivät vaadi kirjautumista) */}
-                <Route path="/confirm-order/:token" element={<ConfirmOrder />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/auth/callback" element={<AuthCallback />} />
-                {/* Julkinen vahvistusreititys vanhalle ja uudelle polulle */}
-                <Route path="/vahvista-tilaus/:token" element={<OrderConfirmation />} />
-                
-                {/* Suojatut sivut (vaativat kirjautumisen) */}
-                <Route path="/" element={<Index />} />
-                <Route path="/projects/firecat" element={<FireCatProject />} />
-                <Route path="/projects/sport-retail" element={<SportRetailProject />} />
-                <Route path="/projects/workwear" element={<WorkwearProject />} />
-                <Route path="/projects/hockey" element={<HockeyProject />} />
-                <Route path="/projects/pet-tracker" element={<PetProject />} />
-                <Route path="/tech-details" element={<TechDetails />} />
-                <Route path="/development-process" element={<DevelopmentProcess />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/meista" element={<About />} />
-                <Route path="/careers" element={<Careers />} />
-                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-                <Route path="/blog" element={<Blog />} />
-                <Route path="/blog/:slug" element={<BlogPostDetail />} />
-                <Route path="/identiteettiturva" element={<Identiteettiturva />} />
-                <Route path="/verkkokauppa" element={<Verkkokauppa />} />
-                <Route path="/portaalin-verkkokauppa" element={<Portaalinverkkokauppa />} />
-                <Route path="/irtisanomislomake" element={<Irtisanomislomake />} />
-                <Route path="/ota-yhteytta" element={<Contact />} />
-                <Route path="/logo-tool" element={<LogoTool />} />
-                <Route path="/admin" element={<AdminPortal />} />
-                <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/tilaukset" element={<OrderOverview />} />
-                <Route path="/tilaukset/vahvistamattomat" element={<UnconfirmedOrders />} />
-                <Route path="/tilaukset/vahvistetut" element={<ConfirmedOrders />} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </AuthGuard>
-          </BrowserRouter>
-          </TooltipProvider>
-        </ShoppingCartProvider>
-      </AuthProvider>
+      <ShoppingCartProvider>
+        <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            {/* Julkiset sivut (eivät vaadi kirjautumista) */}
+            <Route path="/vahvista-tilaus/:token" element={<OrderConfirmation />} />
+            
+            {/* Pääsivuston sivut */}
+            <Route path="/" element={<Index />} />
+            <Route path="/projects/firecat" element={<FireCatProject />} />
+            <Route path="/projects/sport-retail" element={<SportRetailProject />} />
+            <Route path="/projects/workwear" element={<WorkwearProject />} />
+            <Route path="/projects/hockey" element={<HockeyProject />} />
+            <Route path="/projects/pet-tracker" element={<PetProject />} />
+            <Route path="/tech-details" element={<TechDetails />} />
+            <Route path="/development-process" element={<DevelopmentProcess />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/meista" element={<About />} />
+            <Route path="/careers" element={<Careers />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPostDetail />} />
+            <Route path="/identiteettiturva" element={<Identiteettiturva />} />
+            <Route path="/verkkokauppa" element={<Verkkokauppa />} />
+            <Route path="/irtisanomislomake" element={<Irtisanomislomake />} />
+            <Route path="/ota-yhteytta" element={<Contact />} />
+            <Route path="/logo-tool" element={<LogoTool />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+        </TooltipProvider>
+      </ShoppingCartProvider>
     </QueryClientProvider>
   );
 };

@@ -1,8 +1,8 @@
-name: Deploy portal to GitHub Pages
+name: Deploy main site to GitHub Pages
 on:
   push:
     branches: [ main ]
-    paths:
+    paths-ignore:
       - 'src/PortalApp.tsx'
       - 'src/portal-main.tsx'
       - 'src/components/PortalAuthGuard.tsx'
@@ -15,6 +15,7 @@ on:
       - 'src/pages/ConfirmedOrders.tsx'
       - 'vite-portal.config.ts'
       - 'index-portal.html'
+      - '.github/workflows/deploy.yml'
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
@@ -24,17 +25,10 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 20 }
       - run: npm ci
-      - run: npm run build:portal
-        env:
-          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
-          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
-      - run: cp dist/index-portal.html dist/index.html
-      - run: cp public/_redirects dist/_redirects
-      - run: cp public/404.html dist/404.html
+      - run: npm run build
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           publish_branch: gh-pages
-          cname: portaali.omaverkkoturva.fi
-          
+          cname: omaverkkoturva.fi
