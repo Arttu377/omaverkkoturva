@@ -130,9 +130,6 @@ const OrderConfirmation = () => {
               <p className="text-gray-500 text-sm mb-4">
                 Voit nyt sulkea tämän sivun.
               </p>
-              <Button onClick={() => navigate('/')} className="w-full">
-                Palaa portaaliin
-              </Button>
             </div>
           </CardContent>
         </Card>

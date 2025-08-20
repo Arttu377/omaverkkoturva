@@ -28,8 +28,12 @@ const PortalApp = () => {
             <Toaster />
             <Sonner />
             <HashRouter>
-              <PortalAuthGuard>
-                <Routes>
+              <Routes>
+                {/* Public route - ei tarvitse kirjautumista */}
+                <Route path="/vahvista-tilaus/:token" element={<OrderConfirmation />} />
+                
+                {/* Protected routes - tarvitsevat kirjautumisen */}
+                <PortalAuthGuard>
                   <Route path="/" element={<PortalLogin />} />
                   <Route path="/dashboard" element={<Dashboard />} />
                   <Route path="/admin" element={<AdminPortal />} />
@@ -37,10 +41,9 @@ const PortalApp = () => {
                   <Route path="/tilaukset" element={<OrderOverview />} />
                   <Route path="/tilaukset/vahvistamattomat" element={<UnconfirmedOrders />} />
                   <Route path="/tilaukset/vahvistetut" element={<ConfirmedOrders />} />
-                  <Route path="/vahvista-tilaus/:token" element={<OrderConfirmation />} />
                   <Route path="*" element={<NotFound />} />
-                </Routes>
-              </PortalAuthGuard>
+                </PortalAuthGuard>
+              </Routes>
             </HashRouter>
           </TooltipProvider>
         </ShoppingCartProvider>

@@ -14,17 +14,11 @@ const PortalAuthGuard: React.FC<PortalAuthGuardProps> = ({ children }) => {
 	// HashRouter: derive currentPath from hash
 	const currentPath = location.pathname === '/' && location.hash ? location.hash.slice(1) : location.pathname;
 
-	// Public routes: login and order confirmation URL
-	const isOrderConfirmation = currentPath.startsWith('/vahvista-tilaus/');
-	const isPublicRoute = currentPath === '' || currentPath === '/' || isOrderConfirmation;
+	// Public routes: only login
+	const isPublicRoute = currentPath === '' || currentPath === '/';
 
 	useEffect(() => {
 		if (!loading) {
-			// Vahvistuslinkit pysyvät portaalissa
-			if (isOrderConfirmation) {
-				// Ei ohjata minnekään, näytetään vahvistussivu
-				return;
-			}
 			if (!user && !isPublicRoute) {
 				navigate('/', { replace: true });
 			} else if (user && currentPath.startsWith('/admin') && !isAdmin) {
@@ -46,7 +40,7 @@ const PortalAuthGuard: React.FC<PortalAuthGuardProps> = ({ children }) => {
 		);
 	}
 
-	if ((isPublicRoute && !user) || (!isPublicRoute && user) || isOrderConfirmation) {
+	if ((isPublicRoute && !user) || (!isPublicRoute && user)) {
 		return <>{children}</>;
 	}
 
