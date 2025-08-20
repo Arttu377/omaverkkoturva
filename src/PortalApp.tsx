@@ -22,17 +22,17 @@ const PortalApp = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <AuthProvider>
-        <ShoppingCartProvider>
-          <TooltipProvider>
-            <Toaster />
-            <Sonner />
-            <HashRouter>
-              <Routes>
-                {/* Public route - ei tarvitse kirjautumista */}
-                <Route path="/vahvista-tilaus/:token" element={<OrderConfirmation />} />
-                
-                {/* Protected routes - tarvitsevat kirjautumisen */}
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <HashRouter>
+          <Routes>
+            {/* Public route - ei tarvitse kirjautumista tai AuthContext:ia */}
+            <Route path="/vahvista-tilaus/:token" element={<OrderConfirmation />} />
+            
+            {/* Protected routes - tarvitsevat kirjautumisen */}
+            <AuthProvider>
+              <ShoppingCartProvider>
                 <PortalAuthGuard>
                   <Route path="/" element={<PortalLogin />} />
                   <Route path="/dashboard" element={<Dashboard />} />
@@ -43,11 +43,11 @@ const PortalApp = () => {
                   <Route path="/tilaukset/vahvistetut" element={<ConfirmedOrders />} />
                   <Route path="*" element={<NotFound />} />
                 </PortalAuthGuard>
-              </Routes>
-            </HashRouter>
-          </TooltipProvider>
-        </ShoppingCartProvider>
-      </AuthProvider>
+              </ShoppingCartProvider>
+            </AuthProvider>
+          </Routes>
+        </HashRouter>
+      </TooltipProvider>
     </QueryClientProvider>
   );
 };

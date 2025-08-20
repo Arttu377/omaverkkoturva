@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { CheckCircle, XCircle, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -14,7 +14,6 @@ interface OrderConfirmationResponse {
 
 const OrderConfirmation = () => {
   const { token } = useParams<{ token: string }>();
-  const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [success, setSuccess] = useState(false);
   const [orderData, setOrderData] = useState<OrderConfirmationResponse | null>(null);
@@ -77,9 +76,9 @@ const OrderConfirmation = () => {
           </CardHeader>
           <CardContent className="text-center">
             <p className="text-gray-600 mb-6">{error}</p>
-            <Button onClick={() => navigate('/')} className="w-full">
-              Palaa etusivulle
-            </Button>
+            <p className="text-gray-500 text-sm">
+              Sulje tämä sivu ja palaa portaaliin kirjautumalla sisään.
+            </p>
           </CardContent>
         </Card>
       </div>
