@@ -20,6 +20,9 @@ import NotFound from "./pages/NotFound";
 const PortalApp = () => {
   const [queryClient] = useState(() => new QueryClient());
 
+  // Test portal deployment - trigger GitHub Actions
+  console.log('Portal app loaded');
+
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
