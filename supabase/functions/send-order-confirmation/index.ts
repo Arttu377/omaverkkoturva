@@ -40,7 +40,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Link to portal confirmation page
     const portalBase = "https://portaali.omaverkkoturva.fi";
-    const confirmationUrl = `${portalBase}/vahvista-tilaus/${confirmationToken}`;
+    const confirmationUrl = `${portalBase}/#/vahvista-tilaus/${confirmationToken}`;
     
     // Extract first name from customer name
     const firstName = customerName.split(' ')[0];

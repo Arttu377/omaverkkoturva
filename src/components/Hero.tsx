@@ -1131,9 +1131,9 @@ const Hero = memo(() => {
                   Ajankohtaista
                 </div>
                 <h3 className="text-lg font-bold text-black mb-2">
-                  Ajankohtaisia huijauksia (07/2025)
+                  
                 </h3>
-                <p className="text-sm text-gray-600">4.8.2025</p>
+                <p className="text-sm text-gray-600"></p>
               </div>
             </div>
             
@@ -1149,9 +1149,9 @@ const Hero = memo(() => {
                   Ajankohtaista
                 </div>
                 <h3 className="text-lg font-bold text-black mb-2">
-                  Ajankohtaisia huijauksia (06/2025)
+                  
                 </h3>
-                <p className="text-sm text-gray-600">1.7.2025</p>
+                <p className="text-sm text-gray-600"></p>
               </div>
             </div>
             
@@ -1167,9 +1167,9 @@ const Hero = memo(() => {
                   Artikkelit
                 </div>
                 <h3 className="text-lg font-bold text-black mb-2">
-                  Sähköpostin tietoturvallinen käyttö
+                  
                 </h3>
-                <p className="text-sm text-gray-600">16.6.2025</p>
+                <p className="text-sm text-gray-600"></p>
               </div>
             </div>
           </div>
