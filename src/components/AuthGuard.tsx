@@ -10,6 +10,7 @@ const AuthGuard: React.FC<AuthGuardProps> = ({ children }) => {
   const { user, loading, isAdmin } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
+  const pathname = location.pathname === '/index.html' ? '/' : location.pathname;
 
   // Sivut jotka eivät vaadi autentikaatiota
   const publicRoutes = [
@@ -33,22 +34,22 @@ const AuthGuard: React.FC<AuthGuardProps> = ({ children }) => {
   // Tarkista onko nykyinen sivu julkinen
   const isPublicRoute = publicRoutes.some(route => {
     if (route === '/') {
-      return location.pathname === '/';
+      return pathname === '/';
     }
     if (route === '/confirm-order') {
-      return location.pathname.startsWith('/confirm-order/');
+      return pathname.startsWith('/confirm-order/');
     }
     if (route === '/vahvista-tilaus') {
-      return location.pathname.startsWith('/vahvista-tilaus/');
+      return pathname.startsWith('/vahvista-tilaus/');
     }
     if (route === '/blog') {
-      return location.pathname.startsWith('/blog');
+      return pathname.startsWith('/blog');
     }
-    return location.pathname === route || location.pathname.startsWith(route + '/');
+    return pathname === route || pathname.startsWith(route + '/');
   });
 
   // Debug lokit
-  console.log('AuthGuard - location.pathname:', location.pathname);
+  console.log('AuthGuard - location.pathname:', location.pathname, 'normalized:', pathname);
   console.log('AuthGuard - isPublicRoute:', isPublicRoute);
   console.log('AuthGuard - user:', user);
   console.log('AuthGuard - loading:', loading);
