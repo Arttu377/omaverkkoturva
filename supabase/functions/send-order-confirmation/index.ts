@@ -48,7 +48,7 @@ const handler = async (req: Request): Promise<Response> => {
     const emailResponse = await resend.emails.send({
       from: "tuki@omaverkkoturva.fi",
       to: [customerEmail],
-      subject: "TEST: Tilausvahvistus - Vahvista tilaus nyt!",
+      subject: "Tervetuloa OmaVerkkoturva-palveluun!",
       html: `
         <div style="font-family: Arial, Helvetica, sans-serif; max-width: 600px; margin: 0 auto; background-color: #ffffff; color: #333333; padding: 40px; border-radius: 12px; border: 1px solid #e5e7eb;">
           <div style="text-align: center; margin-bottom: 32px;">

@@ -13,8 +13,11 @@ on:
       - 'src/pages/OrderOverview.tsx'
       - 'src/pages/UnconfirmedOrders.tsx'
       - 'src/pages/ConfirmedOrders.tsx'
+      - 'src/pages/OrderConfirmation.tsx'
       - 'vite-portal.config.ts'
       - 'index-portal.html'
+      - 'public/404.html'
+      - 'public/_redirects'
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
