@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
+import { AuthProvider } from "@/contexts/AuthContext";
 import { ShoppingCartProvider } from "@/contexts/ShoppingCartContext";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
@@ -32,40 +33,42 @@ const App = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ShoppingCartProvider>
-        <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Routes>
-            {/* Julkiset sivut (eivät vaadi kirjautumista) */}
-            <Route path="/vahvista-tilaus/:token" element={<OrderConfirmation />} />
-            
-            {/* Pääsivuston sivut */}
-            <Route path="/" element={<Index />} />
-            <Route path="/projects/firecat" element={<FireCatProject />} />
-            <Route path="/projects/sport-retail" element={<SportRetailProject />} />
-            <Route path="/projects/workwear" element={<WorkwearProject />} />
-            <Route path="/projects/hockey" element={<HockeyProject />} />
-            <Route path="/projects/pet-tracker" element={<PetProject />} />
-            <Route path="/tech-details" element={<TechDetails />} />
-            <Route path="/development-process" element={<DevelopmentProcess />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/meista" element={<About />} />
-            <Route path="/careers" element={<Careers />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/:slug" element={<BlogPostDetail />} />
-            <Route path="/identiteettiturva" element={<Identiteettiturva />} />
-            <Route path="/verkkokauppa" element={<Verkkokauppa />} />
-            <Route path="/irtisanomislomake" element={<Irtisanomislomake />} />
-            <Route path="/ota-yhteytta" element={<Contact />} />
-            <Route path="/logo-tool" element={<LogoTool />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
-        </TooltipProvider>
-      </ShoppingCartProvider>
+      <AuthProvider>
+        <ShoppingCartProvider>
+          <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <Routes>
+              {/* Julkiset sivut (eivät vaadi kirjautumista) */}
+              <Route path="/vahvista-tilaus/:token" element={<OrderConfirmation />} />
+              
+              {/* Pääsivuston sivut */}
+              <Route path="/" element={<Index />} />
+              <Route path="/projects/firecat" element={<FireCatProject />} />
+              <Route path="/projects/sport-retail" element={<SportRetailProject />} />
+              <Route path="/projects/workwear" element={<WorkwearProject />} />
+              <Route path="/projects/hockey" element={<HockeyProject />} />
+              <Route path="/projects/pet-tracker" element={<PetProject />} />
+              <Route path="/tech-details" element={<TechDetails />} />
+              <Route path="/development-process" element={<DevelopmentProcess />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/meista" element={<About />} />
+              <Route path="/careers" element={<Careers />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:slug" element={<BlogPostDetail />} />
+              <Route path="/identiteettiturva" element={<Identiteettiturva />} />
+              <Route path="/verkkokauppa" element={<Verkkokauppa />} />
+              <Route path="/irtisanomislomake" element={<Irtisanomislomake />} />
+              <Route path="/ota-yhteytta" element={<Contact />} />
+              <Route path="/logo-tool" element={<LogoTool />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </BrowserRouter>
+          </TooltipProvider>
+        </ShoppingCartProvider>
+      </AuthProvider>
     </QueryClientProvider>
   );
 };
