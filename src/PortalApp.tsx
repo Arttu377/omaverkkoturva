@@ -27,24 +27,20 @@ const PortalApp = () => {
         <Sonner />
         <HashRouter>
           <Routes>
-            {/* Public route - ei tarvitse kirjautumista tai AuthContext:ia */}
+            {/* Public route - totally outside providers */}
             <Route path="/vahvista-tilaus/:token" element={<OrderConfirmation />} />
-            
-            {/* Protected routes - tarvitsevat kirjautumisen */}
-            <AuthProvider>
-              <ShoppingCartProvider>
-                <PortalAuthGuard>
-                  <Route path="/" element={<PortalLogin />} />
-                  <Route path="/dashboard" element={<Dashboard />} />
-                  <Route path="/admin" element={<AdminPortal />} />
-                  <Route path="/verkkokauppa" element={<Portaalinverkkokauppa />} />
-                  <Route path="/tilaukset" element={<OrderOverview />} />
-                  <Route path="/tilaukset/vahvistamattomat" element={<UnconfirmedOrders />} />
-                  <Route path="/tilaukset/vahvistetut" element={<ConfirmedOrders />} />
-                  <Route path="*" element={<NotFound />} />
-                </PortalAuthGuard>
-              </ShoppingCartProvider>
-            </AuthProvider>
+
+            {/* Protected app under Auth/Shopping providers */}
+            <Route element={<AuthProvider><ShoppingCartProvider><PortalAuthGuard /></ShoppingCartProvider></AuthProvider>}>
+              <Route path="/" element={<PortalLogin />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/admin" element={<AdminPortal />} />
+              <Route path="/verkkokauppa" element={<Portaalinverkkokauppa />} />
+              <Route path="/tilaukset" element={<OrderOverview />} />
+              <Route path="/tilaukset/vahvistamattomat" element={<UnconfirmedOrders />} />
+              <Route path="/tilaukset/vahvistetut" element={<ConfirmedOrders />} />
+              <Route path="*" element={<NotFound />} />
+            </Route>
           </Routes>
         </HashRouter>
       </TooltipProvider>

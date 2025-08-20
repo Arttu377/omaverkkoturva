@@ -1,12 +1,8 @@
 import React, { useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Outlet } from 'react-router-dom';
 
-interface PortalAuthGuardProps {
-	children: React.ReactNode;
-}
-
-const PortalAuthGuard: React.FC<PortalAuthGuardProps> = ({ children }) => {
+const PortalAuthGuard: React.FC = () => {
 	const { user, loading, isAdmin } = useAuth();
 	const navigate = useNavigate();
 	const location = useLocation();
@@ -41,7 +37,7 @@ const PortalAuthGuard: React.FC<PortalAuthGuardProps> = ({ children }) => {
 	}
 
 	if ((isPublicRoute && !user) || (!isPublicRoute && user)) {
-		return <>{children}</>;
+		return <Outlet />;
 	}
 
 	return null;

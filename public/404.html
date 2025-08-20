@@ -3,13 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OmaVerkkoturva</title>
+    <title>OmaVerkkoturva - Portaali</title>
     <script>
-        // Ohjaa kaikki 404 reitit pääsivuston React reititykseen
-        window.location.href = '/';
+        (function() {
+            var path = window.location.pathname || '/';
+            // If order confirmation deep-link without hash, redirect to hash route
+            if (path.startsWith('/vahvista-tilaus/')) {
+                window.location.replace('/#' + path);
+                return;
+            }
+            // Generic SPA fallback: preserve path as hash
+            window.location.replace('/#' + path);
+        })();
     </script>
 </head>
 <body>
-    <p>Ohjataan pääsivustolle...</p>
+    <p>Ohjataan portaaliin...</p>
 </body>
 </html>
