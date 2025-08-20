@@ -2,20 +2,6 @@ name: Deploy main site to GitHub Pages
 on:
   push:
     branches: [ main ]
-    paths-ignore:
-      - 'src/PortalApp.tsx'
-      - 'src/portal-main.tsx'
-      - 'src/components/PortalAuthGuard.tsx'
-      - 'src/pages/PortalLogin.tsx'
-      - 'src/pages/AdminPortal.tsx'
-      - 'src/pages/Dashboard.tsx'
-      - 'src/pages/Portaalinverkkokauppa.tsx'
-      - 'src/pages/OrderOverview.tsx'
-      - 'src/pages/UnconfirmedOrders.tsx'
-      - 'src/pages/ConfirmedOrders.tsx'
-      - 'vite-portal.config.ts'
-      - 'index-portal.html'
-      - '.github/workflows/deploy.yml'
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
