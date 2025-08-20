@@ -124,8 +124,14 @@ const OrderConfirmation = () => {
             </div>
 
             <div className="text-center pt-4">
+              <p className="text-gray-600 mb-4">
+                Tilauksesi on nyt vahvistettu ja se näkyy portaalin vahvistetut tilaukset -osiossa.
+              </p>
+              <p className="text-gray-500 text-sm mb-4">
+                Voit nyt sulkea tämän sivun.
+              </p>
               <Button onClick={() => navigate('/')} className="w-full">
-                Palaa etusivulle
+                Palaa portaaliin
               </Button>
             </div>
           </CardContent>

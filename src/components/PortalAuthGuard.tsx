@@ -20,9 +20,9 @@ const PortalAuthGuard: React.FC<PortalAuthGuardProps> = ({ children }) => {
 
 	useEffect(() => {
 		if (!loading) {
-			// Jos tullaan vahvistuslinkillä portaalin domainiin, ohjataan heti pääsivustolle
+			// Vahvistuslinkit pysyvät portaalissa
 			if (isOrderConfirmation) {
-				window.location.replace(`https://omaverkkoturva.fi${currentPath}`);
+				// Ei ohjata minnekään, näytetään vahvistussivu
 				return;
 			}
 			if (!user && !isPublicRoute) {

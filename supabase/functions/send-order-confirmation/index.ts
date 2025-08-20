@@ -38,9 +38,9 @@ const handler = async (req: Request): Promise<Response> => {
       totalAmount 
     }: OrderConfirmationRequest = await req.json();
 
-    // Always link to main site confirmation page regardless of request origin
-    const mainSiteBase = Deno.env.get("PUBLIC_MAIN_SITE_URL") || "https://omaverkkoturva.fi";
-    const confirmationUrl = `${mainSiteBase}/vahvista-tilaus/${confirmationToken}`;
+    // Link to portal confirmation page
+    const portalBase = "https://portaali.omaverkkoturva.fi";
+    const confirmationUrl = `${portalBase}/vahvista-tilaus/${confirmationToken}`;
     
     // Extract first name from customer name
     const firstName = customerName.split(' ')[0];
