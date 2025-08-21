@@ -3,20 +3,13 @@ on:
   push:
     branches: [ main ]
     paths:
-      - 'src/PortalApp.tsx'
-      - 'src/portal-main.tsx'
-      - 'src/components/PortalAuthGuard.tsx'
-      - 'src/pages/PortalLogin.tsx'
-      - 'src/pages/AdminPortal.tsx'
-      - 'src/pages/Dashboard.tsx'
-      - 'src/pages/Portaalinverkkokauppa.tsx'
-      - 'src/pages/OrderOverview.tsx'
-      - 'src/pages/UnconfirmedOrders.tsx'
-      - 'src/pages/ConfirmedOrders.tsx'
+      - 'src/App.tsx'
+      - 'src/main.tsx'
+      - 'src/pages/Home.tsx'
       - 'src/pages/OrderConfirmation.tsx'
-      - 'vite-portal.config.ts'
-      - 'index-portal.html'
-      - 'public/404.html'
+      - 'src/components/TilausModal.tsx'
+      - 'vite.config.ts'
+      - 'index.html'
       - 'public/_redirects'
 jobs:
   build-deploy:
@@ -27,13 +20,11 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 20 }
       - run: npm ci
-      - run: npm run build:portal
+      - run: npm run build
         env:
           VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
           VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
-      - run: cp dist/index-portal.html dist/index.html
-      - run: cp public/_redirects-portal dist/_redirects
-      - run: cp public/404-portal.html dist/404.html
+      - run: cp public/_redirects dist/_redirects
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
