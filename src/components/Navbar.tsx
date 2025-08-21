@@ -181,42 +181,36 @@ const Navbar = () => {
             <>
               <Link to="/" className="block px-3 py-1.5 rounded-md text-sm text-white hover:bg-white/10" onClick={() => {
                 setIsMenuOpen(false);
-                window.scrollTo(0, 0);
               }}>
                 Etusivu
               </Link>
               
               <Link to="/identiteettiturva" className="block px-3 py-1.5 rounded-md text-sm text-white hover:bg-white/10" onClick={() => {
                 setIsMenuOpen(false);
-                window.scrollTo(0, 0);
               }}>
                 Henkilösuoja
               </Link>
               
               <Link to="/meista" className="block px-3 py-1.5 rounded-md text-sm text-white hover:bg-white/10" onClick={() => {
                 setIsMenuOpen(false);
-                window.scrollTo(0, 0);
               }}>
                 Meistä
               </Link>
               
               <Link to="/artikkelit" className="block px-3 py-1.5 rounded-md text-sm text-white hover:bg-white/10" onClick={() => {
                 setIsMenuOpen(false);
-                window.scrollTo(0, 0);
               }}>
                 Artikkelit
               </Link>
               
               <Link to="/ota-yhteytta" className="block px-3 py-1.5 rounded-md text-sm text-white hover:bg-white/10" onClick={() => {
                 setIsMenuOpen(false);
-                window.scrollTo(0, 0);
               }}>
                 Ota yhteyttä
               </Link>
               
               <a href="https://tietosuoja.omaverkkoturva.fi/" target="_blank" rel="noopener noreferrer" className="block px-3 py-1.5 rounded-md text-sm font-medium text-white hover:bg-blue-800 border border-white/20 hover:border-white/40" style={{backgroundColor: '#1e3a8a'}} onClick={() => {
                 setIsMenuOpen(false);
-                window.scrollTo(0, 0);
               }}>
                 Kirjaudu
               </a>
