@@ -87,13 +87,13 @@ const TilausModal = ({ isOpen, onClose }: TilausModalProps) => {
         promo_code: formData.promoCode || null
       };
 
-                    const response = await fetch('https://fsirlcxhtyppecjjdqbp.supabase.co/functions/v1/save-order', {
+                    const response = await fetch('https://fsirlcxhtyppecjjdqbp.supabase.co/functions/v1/send-order-confirmation', {
          method: 'POST',
          headers: {
            'Content-Type': 'application/json',
-           'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZzaXJsY3hodHlwcGVjampkcWJwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM2OTk0NTgsImV4cCI6MjA2OTI3NTQ1OH0.7HZENU4G4fRpemRp44Xj6cGIobhDaxqbJEa7U4gVHVU'
+           'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZzaXJsY3hodHlwcGVjampkcWJwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM2OTk0NTgsImV4cCI6MjA2OTI3NTQ1OH0.7HZENU4G4fRpemRp44Xj6cGIobhDaxqbJEa7U4gVHVU'
          },
-        body: JSON.stringify({ orderData }),
+        body: JSON.stringify(orderData),
       });
 
       const result = await response.json();
