@@ -70,6 +70,7 @@ const AdminPortal = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [loading, setLoading] = useState(false);
   const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
   const { toast } = useToast();
 
   useEffect(() => {

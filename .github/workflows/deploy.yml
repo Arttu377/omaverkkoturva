@@ -1,4 +1,4 @@
-name: Deploy portal to GitHub Pages
+name: Deploy main site to GitHub Pages
 on:
   push:
     branches: [ main ]
@@ -40,5 +40,5 @@ jobs:
           publish_dir: ./dist
           publish_branch: gh-pages
           force_orphan: true
-          cname: portaali.omaverkkoturva.fi
+          cname: omaverkkoturva.fi
           
