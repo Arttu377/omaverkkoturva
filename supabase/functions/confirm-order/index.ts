@@ -1,69 +1,105 @@
-import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
-import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 const corsHeaders = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
-}
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type"
+};
 
-serve(async (req) => {
-  // CORS preflight
-  if (req.method === 'OPTIONS') {
-    return new Response('ok', { headers: corsHeaders })
+const handler = async (req) => {
+  // Handle CORS preflight requests
+  if (req.method === "OPTIONS") {
+    return new Response(null, {
+      headers: corsHeaders
+    });
   }
-
+  
   try {
-    const { confirmation_token } = await req.json()
+    const { confirmation_token } = await req.json();
+    
     if (!confirmation_token) {
-      throw new Error('Confirmation token is required')
+      throw new Error("Vahvistustoken puuttuu");
     }
 
-    // Use service role to allow public confirmation without auth
-    const supabaseUrl = Deno.env.get('SUPABASE_URL')!
-    const supabaseServiceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
-    const supabase = createClient(supabaseUrl, supabaseServiceKey)
+    // Create Supabase client
+    const supabaseUrl = Deno.env.get("SUPABASE_URL");
+    const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
+    
+    if (!supabaseUrl || !supabaseServiceKey) {
+      throw new Error("Supabase ympäristömuuttujat puuttuvat");
+    }
 
-    // Find order by token
+    const supabase = createClient(supabaseUrl, supabaseServiceKey);
+
+    // Find order by confirmation token
     const { data: order, error: findError } = await supabase
-      .from('orders')
-      .select('*')
-      .eq('confirmation_token', confirmation_token)
-      .eq('status', 'pending')
-      .single()
+      .from("orders")
+      .select("*")
+      .eq("confirmation_token", confirmation_token)
+      .single();
 
     if (findError || !order) {
-      throw new Error('Invalid or expired confirmation token')
+      throw new Error("Tilausta ei löytynyt tai token on virheellinen");
     }
 
-    // Confirm order
-    const { data: updatedOrder, error: updateError } = await supabase
-      .from('orders')
-      .update({ status: 'confirmed', confirmed_at: new Date().toISOString() })
-      .eq('id', order.id)
-      .select()
-      .single()
+    if (order.status === "confirmed") {
+      // Order already confirmed
+      return new Response(JSON.stringify({
+        success: true,
+        order_id: order.id,
+        message: "Tilaus on jo vahvistettu",
+        customer_name: order.customer_name,
+        customer_email: order.customer_email
+      }), {
+        status: 200,
+        headers: {
+          "Content-Type": "application/json",
+          ...corsHeaders
+        }
+      });
+    }
+
+    // Update order status to confirmed
+    const { error: updateError } = await supabase
+      .from("orders")
+      .update({ 
+        status: "confirmed",
+        confirmed_at: new Date().toISOString()
+      })
+      .eq("id", order.id);
 
     if (updateError) {
-      console.error('Error updating order:', updateError)
-      throw new Error('Failed to confirm order')
+      throw new Error("Tilauksen päivitys epäonnistui");
     }
 
-    return new Response(
-      JSON.stringify({
-        success: true,
-        order_id: updatedOrder.order_id,
-        message: 'Order confirmed successfully',
-        customer_name: `${updatedOrder.customer_first_name} ${updatedOrder.customer_last_name}`,
-        customer_email: updatedOrder.customer_email
-      }),
-      { headers: { ...corsHeaders, 'Content-Type': 'application/json' }, status: 200 }
-    )
+    // Return success response
+    return new Response(JSON.stringify({
+      success: true,
+      order_id: order.id,
+      message: "Tilaus vahvistettu onnistuneesti",
+      customer_name: order.customer_name,
+      customer_email: order.customer_email
+    }), {
+      status: 200,
+      headers: {
+        "Content-Type": "application/json",
+        ...corsHeaders
+      }
+    });
 
   } catch (error) {
-    console.error('Error in confirm-order function:', error)
-    return new Response(
-      JSON.stringify({ success: false, error: (error as any).message || 'Internal server error' }),
-      { headers: { ...corsHeaders, 'Content-Type': 'application/json' }, status: 400 }
-    )
+    console.error("Error confirming order:", error);
+    return new Response(JSON.stringify({
+      success: false,
+      error: error.message
+    }), {
+      status: 400,
+      headers: {
+        "Content-Type": "application/json",
+        ...corsHeaders
+      }
+    });
   }
-})
+};
+
+serve(handler);
