@@ -30,9 +30,6 @@ const PortalApp = () => {
         <Sonner />
         <BrowserRouter>
           <Routes>
-            {/* Public route - totally outside providers */}
-            <Route path="/vahvista-tilaus/:token" element={<OrderConfirmation />} />
-
             {/* Protected app under Auth/Shopping providers */}
             <Route element={<AuthProvider><ShoppingCartProvider><PortalAuthGuard /></ShoppingCartProvider></AuthProvider>}>
               <Route path="/" element={<PortalLogin />} />

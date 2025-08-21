@@ -38,9 +38,9 @@ const handler = async (req: Request): Promise<Response> => {
       totalAmount 
     }: OrderConfirmationRequest = await req.json();
 
-    // Link to portal confirmation page
-    const portalBase = "https://portaali.omaverkkoturva.fi";
-    const confirmationUrl = `${portalBase}/vahvista-tilaus/${confirmationToken}`;
+    // Link to main site confirmation page
+    const mainSiteBase = "https://omaverkkoturva.fi";
+    const confirmationUrl = `${mainSiteBase}/vahvista-tilaus/${confirmationToken}`;
     
     // Extract first name from customer name
     const firstName = customerName.split(' ')[0];

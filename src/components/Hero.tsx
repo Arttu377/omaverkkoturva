@@ -4,11 +4,12 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { memo, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useShoppingCart } from "@/contexts/ShoppingCartContext";
 
 const Hero = memo(() => {
   const isMobile = useIsMobile();
+  const navigate = useNavigate();
 
   // State for expanding/collapsing cards
   const [showPhishing, setShowPhishing] = useState(false);
@@ -323,7 +324,7 @@ const Hero = memo(() => {
                   <button 
                     className="px-6 py-3 bg-blue-900 text-white rounded-md hover:bg-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl font-medium text-base mt-20"
                     onClick={() => {
-                      window.location.href = '/identiteettiturva';
+                      navigate('/identiteettiturva');
                     }}
                   >
                     Lue lisää
@@ -927,7 +928,7 @@ const Hero = memo(() => {
                     cart.push(product);
                     localStorage.setItem('cart', JSON.stringify(cart));
                     // Siirry verkkokauppa-sivulle
-                    window.location.href = '/verkkokauppa';
+                    navigate('/verkkokauppa');
                   }}
                 >
                   Suojaa laite
@@ -968,7 +969,7 @@ const Hero = memo(() => {
                     cart.push(product);
                     localStorage.setItem('cart', JSON.stringify(cart));
                     // Siirry verkkokauppa-sivulle
-                    window.location.href = '/verkkokauppa';
+                    navigate('/verkkokauppa');
                   }}
                 >
                   Suojaa laite
@@ -1009,7 +1010,7 @@ const Hero = memo(() => {
                     cart.push(product);
                     localStorage.setItem('cart', JSON.stringify(cart));
                     // Siirry verkkokauppa-sivulle
-                    window.location.href = '/verkkokauppa';
+                    navigate('/verkkokauppa');
                   }}
                 >
                   Suojaa laite
@@ -1052,7 +1053,7 @@ const Hero = memo(() => {
                   cart.push(freeTrial);
                   localStorage.setItem('cart', JSON.stringify(cart));
                   // Siirry verkkokauppa-sivulle
-                  window.location.href = '/verkkokauppa';
+                  navigate('/verkkokauppa');
                 }}
               >
                 Kokeile

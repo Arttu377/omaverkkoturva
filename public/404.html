@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OmaVerkkoturva - Portaali</title>
+    <title>OmaVerkkoturva</title>
+    <meta name="robots" content="noindex,nofollow">
     <script>
-        (function() {
-            var path = window.location.pathname || '/';
-            // If order confirmation deep-link without hash, redirect to hash route
-            if (path.startsWith('/vahvista-tilaus/')) {
-                window.location.replace('/#' + path);
-                return;
-            }
-            // Generic SPA fallback: preserve path as hash
-            window.location.replace('/#' + path);
-        })();
+      // Main site (BrowserRouter) fallback: send users to the root.
+      // The SPA will mount and handle client-side routing.
+      (function(){
+        if (window.location.pathname !== '/') {
+          window.location.replace('/');
+        }
+      })();
     </script>
 </head>
 <body>
-    <p>Ohjataan portaaliin...</p>
+  <noscript>
+    <p>Sovellus vaatii JavaScriptin. Siirrytään etusivulle...</p>
+    <meta http-equiv="refresh" content="0; url=/">
+  </noscript>
 </body>
 </html>
