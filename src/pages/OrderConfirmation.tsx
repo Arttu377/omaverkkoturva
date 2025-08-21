@@ -100,7 +100,7 @@ const OrderConfirmation = () => {
                 Kiitos, {orderData.customer_name}! Tilauksesi on nyt vahvistettu.
               </p>
               <div className="bg-gray-50 p-4 rounded-lg">
-                <p className="font-semibold text-gray-800">Tilausnumero: {orderData.order_id}</p>
+                <p className="font-semibold text-gray-800">Tilausnumero: {String(orderData.order_id).slice(-5).padStart(5, '0')}</p>
                 <p className="text-gray-600">Sähköposti: {orderData.customer_email}</p>
               </div>
             </div>
@@ -114,19 +114,12 @@ const OrderConfirmation = () => {
                 </li>
                 <li className="flex items-start">
                   <span className="text-green-500 mr-2">✓</span>
-                  Palvelu aktivoituu 24 tunnin sisällä
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✓</span>
-                  Ensimmäinen laskutus lähetetään aktivointia seuraavana kuukautena
+                  Palvelu on heti käytössä
                 </li>
               </ul>
             </div>
 
             <div className="text-center pt-4">
-              <p className="text-gray-600 mb-4">
-                Tilauksesi on nyt vahvistettu ja se näkyy portaalin vahvistetut tilaukset -osiossa.
-              </p>
               <p className="text-gray-500 text-sm mb-4">
                 Voit nyt sulkea tämän sivun.
               </p>
