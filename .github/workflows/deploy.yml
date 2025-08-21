@@ -62,7 +62,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
-          publish_branch: gh-pages-portal
+          publish_branch: gh-pages
           force_orphan: true
           cname: portaali.omaverkkoturva.fi
           
