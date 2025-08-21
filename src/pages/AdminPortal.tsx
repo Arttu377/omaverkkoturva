@@ -10,7 +10,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useToast } from '@/hooks/use-toast';
-import { Users, UserPlus, Shield, Package, CheckCircle, Clock, Home, ShoppingCart, LogOut, ChevronDown, Search } from 'lucide-react';
+import { Users, UserPlus, Shield, Package, Clock, Home, ShoppingCart, LogOut, ChevronDown, CheckCircle, Search } from 'lucide-react';
 import { useNavigate, Navigate } from 'react-router-dom';
 
 interface Profile {
@@ -70,7 +70,6 @@ const AdminPortal = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [loading, setLoading] = useState(false);
   const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState('');
   const { toast } = useToast();
 
   useEffect(() => {
@@ -483,10 +482,9 @@ const AdminPortal = () => {
            </div>
 
                      <Tabs defaultValue="users" className="space-y-4">
-             <TabsList>
+             <TabsList className="grid w-full grid-cols-3">
                <TabsTrigger value="users">Käyttäjät</TabsTrigger>
                <TabsTrigger value="orders">Tilaukset</TabsTrigger>
-               <TabsTrigger value="confirmations">Vahvistuslogi</TabsTrigger>
              </TabsList>
             <TabsContent value="users">
               <Card>
@@ -939,81 +937,6 @@ const AdminPortal = () => {
                   </Tabs>
                 </CardContent>
                              </Card>
-             </TabsContent>
-             
-             <TabsContent value="confirmations">
-               <Card>
-                 <CardHeader>
-                   <CardTitle className="flex items-center gap-2">
-                     <CheckCircle className="h-5 w-5" />
-                     Vahvistuslogi
-                   </CardTitle>
-                 </CardHeader>
-                                   <CardContent>
-                    <div className="text-sm text-muted-foreground mb-4">
-                      Kaikki vahvistusyritykset ja -tapahtumat järjestelmässä
-                    </div>
-                    
-                    {/* Hakukenttä vahvistuslogiin */}
-                    <div className="mb-4">
-                      <div className="relative">
-                        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                        <Input
-                          placeholder="Hae vahvistuslogista tilausnumerolla, asiakastiedoilla tai myyjän tiedoilla..."
-                          value={searchTerm}
-                          onChange={(e) => setSearchTerm(e.target.value)}
-                          className="pl-10"
-                        />
-                      </div>
-                    </div>
-                    
-                                        <div className="space-y-3">
-                      {filteredOrders
-                        .filter(order => order.order_confirmations && order.order_confirmations.length > 0)
-                        .flatMap(order => 
-                          order.order_confirmations!.map((confirmation, index) => ({
-                            order,
-                            confirmation,
-                            key: `${order.id}-${index}`
-                          }))
-                        )
-                        .sort((a, b) => new Date(b.confirmation.created_at).getTime() - new Date(a.confirmation.created_at).getTime())
-                        .map(({ order, confirmation, key }) => (
-                         <div key={key} className="border rounded-lg p-4 bg-white shadow-sm">
-                           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-                             <div>
-                               <span className="font-medium">Tilaus:</span> {order.order_number || order.id.slice(0, 6)}
-                             </div>
-                             <div>
-                               <span className="font-medium">Asiakas:</span> {order.customer_name}
-                             </div>
-                             <div>
-                               <span className="font-medium">Aika:</span> {new Date(confirmation.created_at).toLocaleString('fi-FI')}
-                             </div>
-                             {confirmation.ip_address && (
-                               <div>
-                                 <span className="font-medium">IP-osoite:</span> {confirmation.ip_address}
-                               </div>
-                             )}
-                             {confirmation.user_agent && (
-                               <div className="md:col-span-2">
-                                 <span className="font-medium">Selain:</span> {confirmation.user_agent}
-                               </div>
-                             )}
-                           </div>
-                         </div>
-                       ))}
-                     
-                                           {filteredOrders.filter(order => order.order_confirmations && order.order_confirmations.length > 0).length === 0 && (
-                        <div className="text-center py-8">
-                          <p className="text-muted-foreground">
-                            {searchTerm ? 'Ei hakutuloksia vahvistuslogista.' : 'Ei vahvistustapahtumia.'}
-                          </p>
-                        </div>
-                      )}
-                   </div>
-                 </CardContent>
-               </Card>
              </TabsContent>
            </Tabs>
          </div>
