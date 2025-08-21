@@ -66,6 +66,7 @@ const AdminPortal = () => {
   const navigate = useNavigate();
   const [profiles, setProfiles] = useState<Profile[]>([]);
   const [orders, setOrders] = useState<Order[]>([]);
+  const [confirmationLogs, setConfirmationLogs] = useState<any[]>([]);
   const [expandedOrders, setExpandedOrders] = useState<ExpandedOrder>({});
   const [isLoading, setIsLoading] = useState(true);
   const [loading, setLoading] = useState(false);
@@ -80,6 +81,7 @@ const AdminPortal = () => {
     }
     fetchProfiles();
     fetchOrders();
+    fetchConfirmationLogs();
     
     // Set up real-time subscription for order confirmations
     const channel = supabase
@@ -93,6 +95,7 @@ const AdminPortal = () => {
         },
         () => {
           fetchOrders(); // Refresh orders when confirmation is received
+          fetchConfirmationLogs(); // Refresh confirmation logs
           toast({
             title: "Tilaus vahvistettu",
             description: "Asiakas on vahvistanut tilauksen.",
@@ -181,6 +184,46 @@ const AdminPortal = () => {
       toast({
         title: "Virhe",
         description: "Tilausten lataaminen epäonnistui.",
+        variant: "destructive",
+      });
+    }
+  };
+
+  const fetchConfirmationLogs = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('order_confirmations')
+        .select(`
+          *,
+          orders (
+            order_number,
+            customer_name,
+            customer_email,
+            customer_phone,
+            billing_address (
+              address,
+              postalCode,
+              city
+            ),
+            profiles (
+              first_name,
+              last_name,
+              email
+            )
+          )
+        `)
+        .order('created_at', { ascending: false });
+
+      if (error) {
+        console.error('Supabase error fetching confirmations:', error);
+        throw error;
+      }
+      setConfirmationLogs(data || []);
+    } catch (error) {
+      console.error('Error fetching confirmation logs:', error);
+      toast({
+        title: "Virhe",
+        description: "Vahvistuslogien lataaminen epäonnistui.",
         variant: "destructive",
       });
     }
@@ -967,51 +1010,41 @@ const AdminPortal = () => {
                       </div>
                     </div>
                     
-                                        <div className="space-y-3">
-                      {filteredOrders
-                        .filter(order => order.order_confirmations && order.order_confirmations.length > 0)
-                        .flatMap(order => 
-                          order.order_confirmations!.map((confirmation, index) => ({
-                            order,
-                            confirmation,
-                            key: `${order.id}-${index}`
-                          }))
-                        )
-                        .sort((a, b) => new Date(b.confirmation.created_at).getTime() - new Date(a.confirmation.created_at).getTime())
-                        .map(({ order, confirmation, key }) => (
-                         <div key={key} className="border rounded-lg p-4 bg-white shadow-sm">
-                           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-                             <div>
-                               <span className="font-medium">Tilaus:</span> {order.order_number || order.id.slice(0, 6)}
-                             </div>
-                             <div>
-                               <span className="font-medium">Asiakas:</span> {order.customer_name}
-                             </div>
-                             <div>
-                               <span className="font-medium">Aika:</span> {new Date(confirmation.created_at).toLocaleString('fi-FI')}
-                             </div>
-                             {confirmation.ip_address && (
-                               <div>
-                                 <span className="font-medium">IP-osoite:</span> {confirmation.ip_address}
-                               </div>
-                             )}
-                             {confirmation.user_agent && (
-                               <div className="md:col-span-2">
-                                 <span className="font-medium">Selain:</span> {confirmation.user_agent}
-                               </div>
-                             )}
-                           </div>
-                         </div>
-                       ))}
-                     
-                                           {filteredOrders.filter(order => order.order_confirmations && order.order_confirmations.length > 0).length === 0 && (
+                    <div className="space-y-3">
+                      {confirmationLogs.length > 0 ? (
+                        confirmationLogs.map((log) => (
+                          <div key={log.id} className="border rounded-lg p-4 bg-white shadow-sm">
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                              <div>
+                                <span className="font-medium">Tilaus:</span> {log.order_number || log.orders?.order_number || log.id.slice(0, 6)}
+                              </div>
+                              <div>
+                                <span className="font-medium">Asiakas:</span> {log.customer_name || log.orders?.customer_name || 'Tuntematon'}
+                              </div>
+                              <div>
+                                <span className="font-medium">Aika:</span> {new Date(log.confirmed_at || log.created_at).toLocaleString('fi-FI')}
+                              </div>
+                              {log.ip_address && (
+                                <div>
+                                  <span className="font-medium">IP-osoite:</span> {log.ip_address}
+                                </div>
+                              )}
+                              {log.user_agent && (
+                                <div className="md:col-span-2">
+                                  <span className="font-medium">Selain:</span> {log.user_agent}
+                                </div>
+                              )}
+                            </div>
+                          </div>
+                        ))
+                      ) : (
                         <div className="text-center py-8">
                           <p className="text-muted-foreground">
                             {searchTerm ? 'Ei hakutuloksia vahvistuslogista.' : 'Ei vahvistustapahtumia.'}
                           </p>
                         </div>
                       )}
-                   </div>
+                    </div>
                  </CardContent>
                </Card>
              </TabsContent>
