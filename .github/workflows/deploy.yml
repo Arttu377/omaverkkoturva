@@ -1,4 +1,4 @@
-name: Deploy main site to GitHub Pages
+name: Deploy main site and portal to GitHub Pages
 on:
   push:
     branches: [ main ]
@@ -8,11 +8,17 @@ on:
       - 'src/pages/Home.tsx'
       - 'src/pages/OrderConfirmation.tsx'
       - 'src/components/TilausModal.tsx'
+      - 'src/PortalApp.tsx'
+      - 'src/portal-main.tsx'
+      - 'src/pages/AdminPortal.tsx'
+      - 'src/pages/Dashboard.tsx'
       - 'vite.config.ts'
+      - 'vite-portal.config.ts'
       - 'index.html'
+      - 'index-portal.html'
       - 'public/_redirects'
 jobs:
-  build-deploy:
+  build-deploy-main:
     runs-on: ubuntu-latest
     permissions: { contents: write, pages: write, id-token: write }
     steps:
@@ -32,4 +38,27 @@ jobs:
           publish_branch: gh-pages
           force_orphan: true
           cname: omaverkkoturva.fi
+          
+  build-deploy-portal:
+    runs-on: ubuntu-latest
+    permissions: { contents: write, pages: write, id-token: write }
+    needs: build-deploy-main
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: npm ci
+      - run: npm run build:portal
+        env:
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
+      - run: cp dist/index-portal.html dist/index.html
+      - run: cp public/_redirects-portal dist/_redirects
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: gh-pages-portal
+          force_orphan: true
+          cname: portaali.omaverkkoturva.fi
           
