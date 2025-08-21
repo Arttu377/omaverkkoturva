@@ -49,12 +49,7 @@ interface Order {
     last_name: string | null;
     email: string;
   } | null;
-  order_confirmations?: Array<{
-    confirmed_at: string;
-    ip_address: string | null;
-    user_agent: string | null;
-    created_at: string;
-  }> | null;
+
 }
 
 interface ExpandedOrder {
@@ -81,29 +76,9 @@ const AdminPortal = () => {
     fetchProfiles();
     fetchOrders();
     
-    // Set up real-time subscription for order confirmations
-    const channel = supabase
-      .channel('admin-order-updates')
-      .on(
-        'postgres_changes',
-        {
-          event: 'INSERT',
-          schema: 'public',
-          table: 'order_confirmations'
-        },
-        () => {
-          fetchOrders(); // Refresh orders when confirmation is received
-          toast({
-            title: "Tilaus vahvistettu",
-            description: "Asiakas on vahvistanut tilauksen.",
-          });
-        }
-      )
-      .subscribe();
 
-    return () => {
-      supabase.removeChannel(channel);
-    };
+
+
   }, [toast, isAdmin]);
 
   const fetchProfiles = async () => {
@@ -160,12 +135,7 @@ const AdminPortal = () => {
             last_name,
             email
           ),
-          order_confirmations (
-            confirmed_at,
-            ip_address,
-            user_agent,
-            created_at
-          )
+
         `)
         .order('created_at', { ascending: false });
 
@@ -280,9 +250,7 @@ const AdminPortal = () => {
    const regularUsers = profiles.filter(profile => profile.role === 'user').length;
    const pendingOrders = orders.filter(order => !order.confirmed_at).length;
    const confirmedOrders = orders.filter(order => order.confirmed_at).length;
-   const totalConfirmations = orders.reduce((total, order) => 
-     total + (order.order_confirmations?.length || 0), 0
-   );
+   
 
   const getStatusIcon = (order: Order) => {
     if (order.confirmed_at) {
@@ -471,22 +439,14 @@ const AdminPortal = () => {
                  <div className="text-2xl font-bold">{confirmedOrders}</div>
                </CardContent>
              </Card>
-             <Card>
-               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                 <CardTitle className="text-sm font-medium">Vahvistustapahtumia</CardTitle>
-                 <CheckCircle className="h-4 w-4 text-muted-foreground" />
-               </CardHeader>
-               <CardContent>
-                 <div className="text-2xl font-bold">{totalConfirmations}</div>
-               </CardContent>
-             </Card>
+             
            </div>
 
-                     <Tabs defaultValue="users" className="space-y-4">
-             <TabsList className="grid w-full grid-cols-3">
-               <TabsTrigger value="users">Käyttäjät</TabsTrigger>
-               <TabsTrigger value="orders">Tilaukset</TabsTrigger>
-             </TabsList>
+                                           <Tabs defaultValue="users" className="space-y-4">
+              <TabsList className="grid w-full grid-cols-2">
+                <TabsTrigger value="users">Käyttäjät</TabsTrigger>
+                <TabsTrigger value="orders">Tilaukset</TabsTrigger>
+              </TabsList>
             <TabsContent value="users">
               <Card>
                 <CardHeader>
@@ -736,33 +696,7 @@ const AdminPortal = () => {
                                         </div>
                                       </div>
                                       
-                                      {/* Vahvistusyritykset (jos on) */}
-                                      {order.order_confirmations && order.order_confirmations.length > 0 && (
-                                        <div>
-                                          <h4 className="font-medium text-sm mb-2">Vahvistusyritykset</h4>
-                                          <div className="space-y-2 text-sm">
-                                            {order.order_confirmations.map((confirmation, index) => (
-                                              <div key={index} className="bg-yellow-50 p-3 rounded-lg border border-yellow-200">
-                                                <div className="grid grid-cols-2 gap-2">
-                                                  <div>
-                                                    <span className="font-medium">Yritys:</span> {new Date(confirmation.created_at).toLocaleString('fi-FI')}
-                                                  </div>
-                                                  {confirmation.ip_address && (
-                                                    <div>
-                                                      <span className="font-medium">IP-osoite:</span> {confirmation.ip_address}
-                                                    </div>
-                                                  )}
-                                                  {confirmation.user_agent && (
-                                                    <div className="col-span-2">
-                                                      <span className="font-medium">Selain:</span> {confirmation.user_agent}
-                                                    </div>
-                                                  )}
-                                                </div>
-                                              </div>
-                                            ))}
-                                          </div>
-                                        </div>
-                                      )}
+                                      
                                       
                                       {/* Tuotteet */}
                                       <div>
@@ -889,33 +823,7 @@ const AdminPortal = () => {
                                         </div>
                                       </div>
                                       
-                                      {/* Vahvistustiedot */}
-                                      {order.order_confirmations && order.order_confirmations.length > 0 && (
-                                        <div>
-                                          <h4 className="font-medium text-sm mb-2">Vahvistustiedot</h4>
-                                          <div className="space-y-2 text-sm">
-                                            {order.order_confirmations.map((confirmation, index) => (
-                                              <div key={index} className="bg-gray-50 p-3 rounded-lg border">
-                                                <div className="grid grid-cols-2 gap-2">
-                                                  <div>
-                                                    <span className="font-medium">Vahvistettu:</span> {new Date(confirmation.confirmed_at).toLocaleString('fi-FI')}
-                                                  </div>
-                                                  {confirmation.ip_address && (
-                                                    <div>
-                                                      <span className="font-medium">IP-osoite:</span> {confirmation.ip_address}
-                                                    </div>
-                                                  )}
-                                                  {confirmation.user_agent && (
-                                                    <div className="col-span-2">
-                                                      <span className="font-medium">Selain:</span> {confirmation.user_agent}
-                                                    </div>
-                                                  )}
-                                                </div>
-                                              </div>
-                                            ))}
-                                          </div>
-                                        </div>
-                                      )}
+                                      
                                       
                                       {/* Tuotteet */}
                                       <div>

@@ -175,7 +175,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           title: "Uloskirjautunut",
           description: "Session oli jo vanhentunut.",
         });
-        window.location.href = '/';
+        window.location.href = '/login';
         return;
       }
 
@@ -196,7 +196,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         setSession(null);
         setUserRole(null);
         // Ohjataan etusivulle uloskirjautumisen jälkeen
-        window.location.href = '/';
+        window.location.href = '/login';
       }
     } catch (error) {
       console.error('Error signing out:', error);
@@ -208,7 +208,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         title: "Uloskirjautunut",
         description: "Virhe tapahtui, mutta olet kirjautunut ulos.",
       });
-      window.location.href = '/';
+      window.location.href = '/login';
     }
   };
 
