@@ -35,7 +35,7 @@ const OrderConfirmation = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZzaXJsY3hodHlwcGVjampkcWJwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM2OTk0NTgsImV4cCI6MjA2OTI3NTQ1OH0.7HZENU4G4fRpemRp44Xj6cGIobhDaxqbJEa7U4gVHVU'
+          'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZzaXJsY3hodHlwcGVjampkcWJwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM2OTk0NTgsImV4cCI6MjA2OTI3NTQ1OH0.7HZENU4G4fRpemRp44Xj6cGIobhDaxqbJEa7U4gVHVU'
         },
         body: JSON.stringify({ confirmation_token: token }),
       });
