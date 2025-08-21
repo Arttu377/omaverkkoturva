@@ -164,6 +164,21 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const signOut = async () => {
     try {
+      // Tarkista session ensin
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) {
+        // Jos session puuttuu, tyhjennä vain local state
+        setUser(null);
+        setSession(null);
+        setUserRole(null);
+        toast({
+          title: "Uloskirjautunut",
+          description: "Session oli jo vanhentunut.",
+        });
+        window.location.href = '/';
+        return;
+      }
+
       const { error } = await supabase.auth.signOut();
       if (error) {
         toast({
@@ -176,16 +191,24 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           title: "Uloskirjautunut",
           description: "Olet kirjautunut ulos onnistuneesti.",
         });
+        // Tyhjennä local state
+        setUser(null);
+        setSession(null);
+        setUserRole(null);
         // Ohjataan etusivulle uloskirjautumisen jälkeen
         window.location.href = '/';
       }
     } catch (error) {
       console.error('Error signing out:', error);
+      // Jos virhe tapahtuu, tyhjennä local state silti
+      setUser(null);
+      setSession(null);
+      setUserRole(null);
       toast({
-        title: "Uloskirjautuminen epäonnistui",
-        description: "Tuntematon virhe",
-        variant: "destructive",
+        title: "Uloskirjautunut",
+        description: "Virhe tapahtui, mutta olet kirjautunut ulos.",
       });
+      window.location.href = '/';
     }
   };
 
