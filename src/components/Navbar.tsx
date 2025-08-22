@@ -59,7 +59,7 @@ const Navbar = () => {
             <Link to={user ? "/dashboard" : "/"} className="flex items-center space-x-3">
               {/* WiFi Logo with background removal */}
               <ProcessedLogo 
-                originalImageUrl="/lovable-uploads/296f9efc-c5a2-4029-bb1d-02f258233174.png"
+                originalImageUrl="/kuvapankki/296f9efc-c5a2-4029-bb1d-02f258233174.png"
                 alt="WiFi Logo"
                 width={40}
                 height={40}
@@ -103,7 +103,7 @@ const Navbar = () => {
                      <NavigationMenuContent>
                       <ul className="grid gap-3 p-4 w-[300px] bg-white shadow-lg border rounded-md">
                         <li>
-                          <Link to="/identiteettiturva" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
+                          <Link to="/henkilosuoja" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
                             <div className="font-medium text-gray-900">Henkilösuoja</div>
                             <p className="text-sm text-gray-500">Suojaa henkilöllisyytesi verkossa</p>
                           </Link>
@@ -185,7 +185,7 @@ const Navbar = () => {
                 Etusivu
               </Link>
               
-              <Link to="/identiteettiturva" className="block px-3 py-1.5 rounded-md text-sm text-white hover:bg-white/10" onClick={() => {
+              <Link to="/henkilosuoja" className="block px-3 py-1.5 rounded-md text-sm text-white hover:bg-white/10" onClick={() => {
                 setIsMenuOpen(false);
               }}>
                 Henkilösuoja

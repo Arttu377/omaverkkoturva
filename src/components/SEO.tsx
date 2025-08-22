@@ -21,7 +21,7 @@ const SEO: React.FC<SEOProps> = ({
   description = 'OmaVerkkoturva: Suomalainen identiteettisuoja ja verkkoturvallisuuspalvelu. Suojaa henkilötietojasi ja estä identiteettivarkauksia.',
   type = 'website',
   name = 'OmaVerkkoturva',
-  imageUrl = '/lovable-uploads/logo123.png',
+  imageUrl = '/kuvapankki/logo123.png',
   publishDate,
   modifiedDate,
   author,
@@ -73,7 +73,7 @@ const SEO: React.FC<SEOProps> = ({
     '@type': 'Organization',
     name: 'OmaVerkkoturva',
     url: 'https://omaverkkoturva.fi',
-    logo: 'https://omaverkkoturva.fi/lovable-uploads/logo123.png',
+    logo: 'https://omaverkkoturva.fi/kuvapankki/logo123.png',
     description: 'Suomalainen identiteettisuoja ja verkkoturvallisuuspalvelu',
     contactPoint: {
       '@type': 'ContactPoint',
@@ -113,7 +113,7 @@ const SEO: React.FC<SEOProps> = ({
       name: 'OmaVerkkoturva',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://omaverkkoturva.fi/lovable-uploads/logo123.png',
+        url: 'https://omaverkkoturva.fi/kuvapankki/logo123.png',
         width: 512,
         height: 512
       },
@@ -236,10 +236,11 @@ const SEO: React.FC<SEOProps> = ({
       <meta name="pinterest:image" content={absoluteImageUrl} />
       
       {/* Additional SEO meta tags */}
-      <meta name="theme-color" content="#000000" />
-      <meta name="msapplication-TileColor" content="#000000" />
-      
-      {/* JSON-LD structured data */}
+              <meta name="theme-color" content="#1e3a8a" />
+                      <meta name="msapplication-TileColor" content="#1e3a8a" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        
+        {/* JSON-LD structured data */}
       <script type="application/ld+json">
         {JSON.stringify(organizationStructuredData)}
       </script>

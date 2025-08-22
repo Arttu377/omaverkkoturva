@@ -9,7 +9,7 @@ Sitemap: https://omaverkkoturva.fi/sitemap.xml
 Crawl-delay: 5
 
 # Allow all important directories
-Allow: /identiteettiturva/
+Allow: /henkilosuoja/
 Allow: /meista/
 Allow: /artikkelit/
 Allow: /blog/

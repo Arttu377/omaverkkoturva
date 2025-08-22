@@ -9,7 +9,7 @@ Sitemap: https://omaverkkoturva.fi/sitemap.xml
 Crawl-delay: 5
 
 # Allow all important directories
-Allow: /identiteettiturva/
+Allow: /henkilosuoja/
 Allow: /meista/
 Allow: /artikkelit/
 Allow: /blog/
@@ -23,7 +23,7 @@ Disallow: /_next/
 Disallow: /static/
 
 # Allow search engines to index all content
-Allow: /lovable-uploads/
+Allow: /kuvapankki/
 Allow: /public/
 
 # Optimize for search engines

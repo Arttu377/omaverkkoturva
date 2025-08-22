@@ -24,7 +24,7 @@ const AuthGuard: React.FC<AuthGuardProps> = ({ children }) => {
     '/careers',
     '/privacy-policy',
     '/blog',
-    '/identiteettiturva',
+    '/henkilosuoja',
     '/verkkokauppa',
     '/ota-yhteytta',
     '/logo-tool',

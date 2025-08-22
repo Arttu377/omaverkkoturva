@@ -115,18 +115,18 @@ const Identiteettiturva = () => {
                 </div>
               </div>
               
-              {/* Mobile image - shown before Verkkokauppaan button on mobile */}
-              <div className="lg:hidden flex justify-center mb-6">
-                <img 
-                  src="/lovable-uploads/henkilösuoja 2.png" 
-                  alt="Henkilösuoja kuva" 
-                  className="w-full h-auto max-w-sm"
-                  style={{ 
-                    background: 'transparent', 
-                    backgroundColor: 'transparent'
-                  }}
-                />
-              </div>
+                                    {/* Mobile image - shown before Verkkokauppaan button on mobile */}
+                      <div className="lg:hidden flex justify-center mb-6">
+                        <img 
+                          src="/kuvapankki/henkilösuoja 2.png" 
+                          alt="Henkilösuoja kuva" 
+                          className="w-full h-auto max-w-sm"
+                          style={{ 
+                            background: 'transparent', 
+                            backgroundColor: 'transparent'
+                          }}
+                        />
+                      </div>
               
               {/* Verkkokauppaan button */}
               <div className="mt-8">
@@ -143,7 +143,7 @@ const Identiteettiturva = () => {
             {/* Right side - henkilösuoja 2.png image */}
             <div className="hidden lg:block lg:flex lg:justify-center lg:items-center">
               <img 
-                src="/lovable-uploads/henkilösuoja 2.png" 
+                src="/kuvapankki/henkilösuoja 2.png" 
                 alt="Henkilösuoja kuva" 
                 className="w-full h-auto max-w-md lg:max-w-lg xl:max-w-xl"
                 style={{ 
@@ -192,7 +192,7 @@ const Identiteettiturva = () => {
                {/* Right side - henkilösuoja 5.png image */}
                <div className="hidden lg:block lg:flex lg:justify-center lg:items-center">
                  <img 
-                   src="/lovable-uploads/henkilösuoja 5.png" 
+                   src="/kuvapankki/henkilösuoja 5.png" 
                    alt="Henkilösuoja 5 kuva" 
                    className="w-full h-auto max-w-md lg:max-w-lg xl:max-w-xl"
                    style={{ 
@@ -206,7 +206,7 @@ const Identiteettiturva = () => {
             {/* Mobile image - shown after content on mobile */}
             <div className="lg:hidden flex justify-center mt-8 mb-8">
               <img 
-                src="/lovable-uploads/henkilösuoja 5.png" 
+                src="/kuvapankki/henkilösuoja 5.png" 
                 alt="Henkilösuoja 5 kuva" 
                 className="w-full h-auto max-w-sm"
                 style={{ 
@@ -276,7 +276,7 @@ const Identiteettiturva = () => {
              {/* Background image for this section only */}
              <div className="absolute inset-0 w-full h-full z-0">
                <img 
-                 src="/lovable-uploads/iStock-1394172078.jpg" 
+                 src="/kuvapankki/iStock-1394172078.jpg" 
                  alt="Scam Cases Background" 
                  className="w-full h-full object-cover object-top"
                />
@@ -724,7 +724,7 @@ const Identiteettiturva = () => {
              {/* Background image for this section only */}
              <div className="absolute inset-0 w-full h-full z-0">
                <img 
-                 src="/lovable-uploads/iStock-2222199654.jpg" 
+                 src="/kuvapankki/iStock-2222199654.jpg" 
                  alt="Identity Protection Background" 
                  className="w-full h-full object-cover"
                />

@@ -197,7 +197,7 @@ const Hero = memo(() => {
       {/* Fixed background image for parallax effect */}
       <div className="fixed inset-0 w-full h-full z-0">
         <motion.img 
-          src="/lovable-uploads/iStock-2222199654.jpg" 
+          src="/kuvapankki/iStock-2222199654.jpg" 
           alt="Identity Protection - Secure Digital Life" 
           className={`w-full h-full object-cover ${isMobile ? 'object-center' : 'object-center'}`}
           initial={{ scale: 1.05 }}
@@ -330,7 +330,7 @@ const Hero = memo(() => {
                       {/* Mobile image - shown after Jatkuva valvonta on mobile */}
                       <div className="lg:hidden flex justify-center mb-6">
                         <img 
-                          src="/lovable-uploads/etusivu 4.png" 
+                          src="/kuvapankki/etusivu 4.png" 
                           alt="Etusivu 4 kuva" 
                           className="w-full h-auto max-w-sm"
                           loading="eager"
@@ -345,7 +345,7 @@ const Hero = memo(() => {
                       <button 
                         className="px-6 py-3 bg-blue-900 text-white rounded-md hover:bg-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl font-medium text-base"
                         onClick={() => {
-                          navigate('/identiteettiturva');
+                          navigate('/henkilosuoja');
                         }}
                       >
                         Lue lisää
@@ -356,7 +356,7 @@ const Hero = memo(() => {
                   {/* Desktop image - hidden on mobile, shown on desktop */}
                   <div className="hidden lg:flex lg:w-1/2 lg:justify-center lg:items-start">
                     <img 
-                      src="/lovable-uploads/etusivu 4.png" 
+                      src="/kuvapankki/etusivu 4.png" 
                       alt="Etusivu 4 kuva" 
                       className="w-full h-auto max-w-md lg:max-w-lg xl:max-w-xl mt-28 lg:mt-48"
                       loading="eager"
@@ -1131,7 +1131,7 @@ const Hero = memo(() => {
                     video.controls = false;
                   }}
                 >
-                  <source src="/lovable-uploads/Nimetön malli (1).mp4" type="video/mp4" />
+                  <source src="/kuvapankki/Nimetön malli (1).mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               </div>

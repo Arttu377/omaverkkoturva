@@ -110,7 +110,7 @@ const Verkkokauppa = () => {
                 {index === 0 && (
                   <div className="flex justify-center mb-2">
                     <img 
-                      src="/lovable-uploads/viisi 1.png" 
+                      src="/kuvapankki/viisi 1.png" 
                       alt="Henkilösuoja Yhdelle kuva" 
                       className="w-full h-auto max-w-sm lg:max-w-md xl:max-w-lg"
                       style={{ 
@@ -125,7 +125,7 @@ const Verkkokauppa = () => {
                 {index === 1 && (
                   <div className="flex justify-center mb-2">
                     <img 
-                      src="/lovable-uploads/kaksi 1.png" 
+                      src="/kuvapankki/kaksi 1.png" 
                       alt="Henkilösuoja Tupla kuva" 
                       className="w-full h-auto max-w-sm lg:max-w-md xl:max-w-lg"
                       style={{ 
@@ -140,7 +140,7 @@ const Verkkokauppa = () => {
                 {index === 2 && (
                   <div className="flex justify-center mb-2">
                     <img 
-                      src="/lovable-uploads/yksi 1.png" 
+                      src="/kuvapankki/yksi 1.png" 
                       alt="Henkilösuoja Perhe kuva" 
                       className="w-full h-auto max-w-sm lg:max-w-md xl:max-w-lg"
                       style={{ 

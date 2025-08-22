@@ -153,7 +153,7 @@ Vahvistus: ${data.confirmation ? 'Kyllä' : 'Ei'}`,
             {/* Oikeanpuoleinen kuva */}
             <div className="flex items-center justify-center">
               <img 
-                src="/lovable-uploads/e965541f-fa90-41e5-a251-5e576e0ac7bd.png" 
+                src="/kuvapankki/e965541f-fa90-41e5-a251-5e576e0ac7bd.png" 
                 alt="Tiimityö ja yhteistyö" 
                 className="w-full h-auto rounded-lg shadow-lg"
               />
