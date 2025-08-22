@@ -126,6 +126,8 @@
     background-color: var(--status-bar-color);
   }
 }
+
+.banner-title {
   font-weight: 700;
   margin-bottom: 1rem;
   line-height: 1.2;
