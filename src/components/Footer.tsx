@@ -103,16 +103,7 @@ const Footer = () => {
                     Kirjaudu ulos
                   </Button>
                 </div>
-              ) : (
-                <a 
-                  href="https://portaali.omaverkkoturva.fi" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-sm text-black hover:text-blue-900 transition-colors"
-                >
-                  Portaali
-                </a>
-              )}
+              ) : null}
               <Link to="/tietosuojaseloste" className="text-sm text-black hover:text-blue-900 transition-colors">
                 Tietosuojaseloste
               </Link>

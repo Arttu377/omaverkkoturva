@@ -333,6 +333,8 @@ const Hero = memo(() => {
                           src="/lovable-uploads/etusivu 4.png" 
                           alt="Etusivu 4 kuva" 
                           className="w-full h-auto max-w-sm"
+                          loading="eager"
+                          decoding="async"
                           style={{ 
                             background: 'transparent', 
                             backgroundColor: 'transparent'
@@ -357,6 +359,8 @@ const Hero = memo(() => {
                       src="/lovable-uploads/etusivu 4.png" 
                       alt="Etusivu 4 kuva" 
                       className="w-full h-auto max-w-md lg:max-w-lg xl:max-w-xl mt-28 lg:mt-48"
+                      loading="eager"
+                      decoding="async"
                       style={{ 
                         background: 'transparent', 
                         backgroundColor: 'transparent'
