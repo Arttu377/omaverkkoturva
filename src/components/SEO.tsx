@@ -236,9 +236,13 @@ const SEO: React.FC<SEOProps> = ({
       <meta name="pinterest:image" content={absoluteImageUrl} />
       
       {/* Additional SEO meta tags */}
-              <meta name="theme-color" content="#1e3a8a" />
-                      <meta name="msapplication-TileColor" content="#1e3a8a" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+      <meta name="theme-color" content="#1e3a8a" />
+      <meta name="msapplication-TileColor" content="#1e3a8a" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="mobile-web-app-capable" content="yes" />
+      <meta name="apple-mobile-web-app-title" content="OmaVerkkoturva" />
+      <meta name="application-name" content="OmaVerkkoturva" />
         
         {/* JSON-LD structured data */}
       <script type="application/ld+json">
