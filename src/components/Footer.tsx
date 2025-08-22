@@ -87,9 +87,9 @@ const Footer = () => {
             <p className="text-black text-sm mb-4 md:mb-0">
               © {new Date().getFullYear()} OmaVerkkoturva. Kaikki oikeudet pidätetään.
             </p>
-            <div className="flex space-x-6">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
               {user ? (
-                <div className="flex items-center space-x-4">
+                <div className="flex flex-col sm:flex-row items-center gap-4">
                   <span className="text-sm text-black">
                     Kirjautunut: {user.email}
                   </span>
@@ -113,10 +113,13 @@ const Footer = () => {
                   Portaali
                 </a>
               )}
-              <Link to="/privacy-policy" className="text-sm text-black hover:text-blue-900 transition-colors">
+              <Link to="/tietosuojaseloste" className="text-sm text-black hover:text-blue-900 transition-colors">
                 Tietosuojaseloste
               </Link>
-              <Link to="/terms" className="text-sm text-black hover:text-blue-900 transition-colors">
+              <Link to="/yleiset-sopimusehdot" className="text-sm text-black hover:text-blue-900 transition-colors">
+                Yleiset sopimusehdot
+              </Link>
+              <Link to="/palvelusopimuksen-kayttoehdot" className="text-sm text-black hover:text-blue-900 transition-colors">
                 Käyttöehdot
               </Link>
             </div>

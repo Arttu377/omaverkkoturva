@@ -48,10 +48,7 @@ const ConfirmOrder = () => {
           return;
         }
 
-        // Get user's IP and user agent for logging
-        const ipResponse = await fetch('https://api.ipify.org?format=json');
-        const { ip } = await ipResponse.json();
-        const userAgent = navigator.userAgent;
+
 
         // Confirm the order
         const { error: updateError } = await supabase
@@ -66,18 +63,7 @@ const ConfirmOrder = () => {
           throw updateError;
         }
 
-        // Log the confirmation
-        const { error: logError } = await supabase
-          .from('order_confirmations')
-          .insert({
-            order_id: order.id,
-            ip_address: ip,
-            user_agent: userAgent
-          });
 
-        if (logError) {
-          console.error('Failed to log confirmation:', logError);
-        }
 
         setOrderDetails(order);
         setConfirmed(true);

@@ -21,7 +21,7 @@ export default defineConfig({
         manualChunks: undefined,
       },
     },
-    outDir: 'dist',
+    outDir: 'dist-portal',
   },
   resolve: {
     alias: {

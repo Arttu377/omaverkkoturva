@@ -19,6 +19,8 @@ import DevelopmentProcess from "./pages/DevelopmentProcess";
 import About from "./pages/About";
 import Careers from "./pages/Careers";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import GeneralTerms from "./pages/GeneralTerms";
+import TermsOfService from "./pages/TermsOfService";
 import Blog from "./pages/Blog";
 import BlogPostDetail from "./pages/BlogPostDetail";
 import Identiteettiturva from "./pages/Identiteettiturva";
@@ -55,7 +57,9 @@ const App = () => {
               <Route path="/about" element={<About />} />
               <Route path="/meista" element={<About />} />
               <Route path="/careers" element={<Careers />} />
-              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/tietosuojaseloste" element={<PrivacyPolicy />} />
+              <Route path="/yleiset-sopimusehdot" element={<GeneralTerms />} />
+              <Route path="/palvelusopimuksen-kayttoehdot" element={<TermsOfService />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:slug" element={<BlogPostDetail />} />
               <Route path="/identiteettiturva" element={<Identiteettiturva />} />

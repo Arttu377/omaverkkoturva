@@ -106,6 +106,51 @@ const Verkkokauppa = () => {
                   </div>
                 </div>
                 
+                {/* Image for Henkilösuoja Yhdelle package */}
+                {index === 0 && (
+                  <div className="flex justify-center mb-2">
+                    <img 
+                      src="/lovable-uploads/viisi 1.png" 
+                      alt="Henkilösuoja Yhdelle kuva" 
+                      className="w-full h-auto max-w-sm lg:max-w-md xl:max-w-lg"
+                      style={{ 
+                        background: 'transparent', 
+                        backgroundColor: 'transparent'
+                      }}
+                    />
+                  </div>
+                )}
+                
+                {/* Image for Henkilösuoja Tupla package */}
+                {index === 1 && (
+                  <div className="flex justify-center mb-2">
+                    <img 
+                      src="/lovable-uploads/kaksi 1.png" 
+                      alt="Henkilösuoja Tupla kuva" 
+                      className="w-full h-auto max-w-sm lg:max-w-md xl:max-w-lg"
+                      style={{ 
+                        background: 'transparent', 
+                        backgroundColor: 'transparent'
+                      }}
+                    />
+                  </div>
+                )}
+                
+                {/* Image for Henkilösuoja Perhe package */}
+                {index === 2 && (
+                  <div className="flex justify-center mb-2">
+                    <img 
+                      src="/lovable-uploads/yksi 1.png" 
+                      alt="Henkilösuoja Perhe kuva" 
+                      className="w-full h-auto max-w-sm lg:max-w-md xl:max-w-lg"
+                      style={{ 
+                        background: 'transparent', 
+                        backgroundColor: 'transparent'
+                      }}
+                    />
+                  </div>
+                )}
+                
                 <ul className="space-y-3 mb-8 text-left">
                   {pkg.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-start">

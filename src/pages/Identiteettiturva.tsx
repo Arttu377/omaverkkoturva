@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import PageLayout from '@/components/PageLayout';
 import SEO from '@/components/SEO';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -114,23 +115,46 @@ const Identiteettiturva = () => {
                 </div>
               </div>
               
+              {/* Mobile image - shown before Verkkokauppaan button on mobile */}
+              <div className="lg:hidden flex justify-center mb-6">
+                <img 
+                  src="/lovable-uploads/henkilösuoja 2.png" 
+                  alt="Henkilösuoja kuva" 
+                  className="w-full h-auto max-w-sm"
+                  style={{ 
+                    background: 'transparent', 
+                    backgroundColor: 'transparent'
+                  }}
+                />
+              </div>
+              
               {/* Verkkokauppaan button */}
               <div className="mt-8">
-                <a 
-                  href="/verkkokauppa" 
+                <Link 
+                  to="/verkkokauppa" 
                    className="inline-flex items-center justify-center px-6 py-3 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity"
                   style={{ background: 'var(--gradient-navy)' }}
                 >
                   Verkkokauppaan
-                </a>
+                </Link>
               </div>
             </div>
             
-            {/* Right side - empty for future image */}
-            <div className="hidden lg:block">
-              {/* Image will be added here later */}
+            {/* Right side - henkilösuoja 2.png image */}
+            <div className="hidden lg:block lg:flex lg:justify-center lg:items-center">
+              <img 
+                src="/lovable-uploads/henkilösuoja 2.png" 
+                alt="Henkilösuoja kuva" 
+                className="w-full h-auto max-w-md lg:max-w-lg xl:max-w-xl"
+                style={{ 
+                  background: 'transparent', 
+                  backgroundColor: 'transparent'
+                }}
+              />
             </div>
           </div>
+          
+
         </div>
         
         {/* How identity protection works section */}
@@ -165,10 +189,31 @@ const Identiteettiturva = () => {
                     </div>
                   </div>
                
-               {/* Right side - empty */}
-               <div className="hidden lg:block">
-                 {/* Empty space */}
+               {/* Right side - henkilösuoja 5.png image */}
+               <div className="hidden lg:block lg:flex lg:justify-center lg:items-center">
+                 <img 
+                   src="/lovable-uploads/henkilösuoja 5.png" 
+                   alt="Henkilösuoja 5 kuva" 
+                   className="w-full h-auto max-w-md lg:max-w-lg xl:max-w-xl"
+                   style={{ 
+                     background: 'transparent', 
+                     backgroundColor: 'transparent'
+                   }}
+                 />
                </div>
+            </div>
+            
+            {/* Mobile image - shown after content on mobile */}
+            <div className="lg:hidden flex justify-center mt-8 mb-8">
+              <img 
+                src="/lovable-uploads/henkilösuoja 5.png" 
+                alt="Henkilösuoja 5 kuva" 
+                className="w-full h-auto max-w-sm"
+                style={{ 
+                  background: 'transparent', 
+                  backgroundColor: 'transparent'
+                }}
+              />
             </div>
           </div>
         </div>
@@ -227,7 +272,7 @@ const Identiteettiturva = () => {
         </div>
          
                    {/* Cases section */}
-           <div className="w-full py-16 mb-16 relative">
+           <div className="w-full py-16 mb-16 relative overflow-hidden">
              {/* Background image for this section only */}
              <div className="absolute inset-0 w-full h-full z-0">
                <img 
@@ -240,13 +285,13 @@ const Identiteettiturva = () => {
              
              {/* Content with higher z-index */}
              <div className="relative z-20">
-                               <div className="text-center mb-16">
-                  <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
-                    Esimerkkitapauksia<br />identiteettivarkaudesta
+                               <div className="text-center mb-16 px-4 sm:px-6 lg:px-8">
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-white leading-tight max-w-4xl mx-auto">
+                    Esimerkkitapauksia identiteettivarkaudesta
                   </h2>
                 </div>
                
-               <div className="max-w-6xl mx-auto">
+               <div className="max-w-6xl mx-auto px-4 sm:px-6">
                  <div className="grid grid-cols-1 gap-10 items-start">
                <motion.div
                  className={`p-6 rounded-2xl cursor-pointer transition-all duration-300 ${
@@ -708,27 +753,13 @@ const Identiteettiturva = () => {
                   <li>• Vakuutus, joka turvaa sinut vahinkojen varalta</li>
                   <li>• Apu ja tuki</li>
                 </ul>
-                <button 
-                  onClick={() => {
-                    // Lisää tuote ostoskoriin (Henkilösuoja Yhdelle)
-                    const product = {
-                      id: 'henkilosuoja-yhdelle',
-                      name: 'Henkilösuoja Yhdelle',
-                      price: 21.99,
-                      type: 'subscription'
-                    };
-                    // Tallenna ostoskoriin localStorageen
-                    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-                    cart.push(product);
-                    localStorage.setItem('cart', JSON.stringify(cart));
-                    // Siirry verkkokauppa-sivulle
-                    window.location.href = '/verkkokauppa';
-                  }}
+                <Link 
+                  to="/verkkokauppa" 
                   className="inline-flex items-center justify-center px-6 py-3 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity cursor-pointer"
                   style={{ background: 'var(--gradient-navy)' }}
                 >
                   Suojaa laite
-                </button>
+                </Link>
               </div>
                 
               {/* Plan 2 */}
@@ -740,27 +771,13 @@ const Identiteettiturva = () => {
                   <li>• Vakuutus, joka turvaa sinut ja läheisesi vahinkojen varalta</li>
                   <li>• Apu ja tuki</li>
                 </ul>
-                <button 
-                  onClick={() => {
-                    // Lisää tuote ostoskoriin (Henkilösuoja Tupla)
-                    const product = {
-                      id: 'henkilosuoja-tupla',
-                      name: 'Henkilösuoja Tupla',
-                      price: 28.99,
-                      type: 'subscription'
-                    };
-                    // Tallenna ostoskoriin localStorageen
-                    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-                    cart.push(product);
-                    localStorage.setItem('cart', JSON.stringify(cart));
-                    // Siirry verkkokauppa-sivulle
-                    window.location.href = '/verkkokauppa';
-                  }}
+                <Link 
+                  to="/verkkokauppa" 
                   className="inline-flex items-center justify-center px-6 py-3 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity cursor-pointer"
                   style={{ background: 'var(--gradient-navy)' }}
                 >
                   Suojaa laite
-                </button>
+                </Link>
               </div>
               
               {/* Plan 3 */}
@@ -772,27 +789,13 @@ const Identiteettiturva = () => {
                   <li>• Vakuutus, joka turvaa sinut ja koko perheesi vahinkojen varalta</li>
                   <li>• Apu ja tuki</li>
                 </ul>
-                <button 
-                  onClick={() => {
-                    // Lisää tuote ostoskoriin (Henkilösuoja Perhe)
-                    const product = {
-                      id: 'henkilosuoja-perhe',
-                      name: 'Henkilösuoja Perhe',
-                      price: 32.99,
-                      type: 'subscription'
-                    };
-                    // Tallenna ostoskoriin localStorageen
-                    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-                    cart.push(product);
-                    localStorage.setItem('cart', JSON.stringify(cart));
-                    // Siirry verkkokauppa-sivulle
-                    window.location.href = '/verkkokauppa';
-                  }}
+                <Link 
+                  to="/verkkokauppa" 
                   className="inline-flex items-center justify-center px-6 py-3 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity cursor-pointer"
                   style={{ background: 'var(--gradient-navy)' }}
                 >
                   Suojaa laite
-                </button>
+                </Link>
               </div>
             </div>
             </div>

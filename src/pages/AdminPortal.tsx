@@ -812,16 +812,7 @@ const AdminPortal = () => {
                                         </div>
                                       </div>
                                       
-                                      {/* Vahvistusajankohta */}
-                                      <div>
-                                        <h4 className="font-medium text-sm mb-2">Vahvistusajankohta</h4>
-                                        <div className="text-sm">
-                                          {order.confirmed_at 
-                                            ? new Date(order.confirmed_at).toLocaleString('fi-FI')
-                                            : 'Ei vahvistettu'
-                                          }
-                                        </div>
-                                      </div>
+
                                       
                                       
                                       

@@ -1,16 +1,21 @@
 
 import { ArrowRight, Bell, FileText, Shield, Clock, Search, AlertTriangle, CheckCircle, Loader2 } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { memo, useState, useEffect } from "react";
+import { memo, useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useShoppingCart } from "@/contexts/ShoppingCartContext";
 
 const Hero = memo(() => {
   const isMobile = useIsMobile();
   const navigate = useNavigate();
+  
+  // Ref for the features section to track scroll position
+  const featuresRef = useRef<HTMLDivElement>(null);
+  
 
+  
   // State for expanding/collapsing cards
   const [showPhishing, setShowPhishing] = useState(false);
   const [showShopping, setShowShopping] = useState(false);
@@ -86,8 +91,6 @@ const Hero = memo(() => {
     }
   };
 
-  // Removed scroll transforms for better performance
-  
   // Simplified animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -223,9 +226,9 @@ const Hero = memo(() => {
               <motion.p className="banner-subtitle text-white mt-4 sm:mt-6" variants={itemVariants}>
                 Yksi helppo keino suojata sekä rahasi että yksityiset tietosi.
               </motion.p>
-              <motion.div className="flex justify-start mt-6 sm:mt-8" variants={itemVariants}>
+              <motion.div className="flex justify-center sm:justify-start mt-6 sm:mt-8" variants={itemVariants}>
                 <motion.button 
-                  className="w-full sm:w-auto min-h-[44px] px-6 sm:px-8 py-3 bg-gradient-to-r from-blue-900 to-blue-800 text-white rounded-md hover:from-blue-800 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center group text-sm sm:text-base font-medium"
+                  className="w-auto max-w-[280px] sm:w-auto min-h-[44px] px-6 sm:px-8 py-3 bg-gradient-to-r from-blue-900 to-blue-800 text-white rounded-md hover:from-blue-800 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center group text-sm sm:text-base font-medium"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -246,6 +249,7 @@ const Hero = memo(() => {
         </motion.div>
       
         <motion.div 
+          ref={featuresRef}
           id="features"
           className="relative w-full bg-gradient-to-b from-white via-blue-100 to-blue-900 py-16 pb-24"
           style={{ position: 'relative', zIndex: 10 }}
@@ -264,78 +268,103 @@ const Hero = memo(() => {
                 OmaVerkkoturva tarjoaa kattavan suojan henkilötiedoillesi
               </p>
               
-                             {/* Features section */}
-                           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-              <div className="space-y-16 lg:space-y-32">
-                <div className="text-left max-w-lg mt-8 lg:mt-16">
-                  <div className="flex items-center space-x-3 mb-4">
-                    <div className="w-8 h-8 bg-gradient-to-br from-blue-900 to-blue-800 rounded-lg flex items-center justify-center shadow-lg">
-                      <Bell className="w-4 h-4 text-white" />
+              {/* Features section */}
+              <div className="max-w-6xl mx-auto">
+                <div className="flex flex-col lg:flex-row gap-8">
+                  <div className="space-y-8 lg:space-y-16 lg:w-1/2">
+                    <div className="text-left max-w-lg mt-8 lg:mt-16">
+                      <div className="flex items-center space-x-3 mb-4">
+                        <div className="w-8 h-8 bg-gradient-to-br from-blue-900 to-blue-800 rounded-lg flex items-center justify-center shadow-lg">
+                          <Bell className="w-4 h-4 text-white" />
+                        </div>
+                        <h3 className="text-xl font-bold text-gray-900">
+                          Reaaliaikainen hälytys
+                        </h3>
+                      </div>
+                      <p className="text-gray-900 leading-relaxed">
+                        Saat välittömän ilmoituksen, jos tietosi vuotavat verkkoon. Palvelu suojaa sähköpostisi, henkilötunnuksesi ja maksukorttitietosi sekä valvoo epäilyttäviä luotonhakuja ja osoitteenmuutoksia, jotka voivat viitata huijaukseen.
+                      </p>
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900">
-                      Reaaliaikainen hälytys
-                    </h3>
-                  </div>
-                  <p className="text-gray-900 leading-relaxed">
-                    Saat välittömän ilmoituksen, jos tietosi vuotavat verkkoon. Palvelu suojaa sähköpostisi, henkilötunnuksesi ja maksukorttitietosi sekä valvoo epäilyttäviä luotonhakuja ja osoitteenmuutoksia, jotka voivat viitata huijaukseen.
-                  </p>
-                </div>
-                
-                <div className="text-left max-w-lg">
-                  <div className="flex items-center space-x-3 mb-4">
-                    <div className="w-8 h-8 bg-gradient-to-br from-blue-900 to-blue-800 rounded-lg flex items-center justify-center shadow-lg">
-                      <FileText className="w-4 h-4 text-white" />
+                    
+                    <div className="text-left max-w-lg">
+                      <div className="flex items-center space-x-3 mb-4">
+                        <div className="w-8 h-8 bg-gradient-to-br from-blue-900 to-blue-800 rounded-lg flex items-center justify-center shadow-lg">
+                          <FileText className="w-4 h-4 text-white" />
+                        </div>
+                        <h3 className="text-xl font-bold text-gray-900">
+                          Saat ohjeet
+                        </h3>
+                      </div>
+                      <p className="text-gray-900 leading-relaxed">
+                        Jos riski havaitaan, saat heti selkeät ohjeet seuraaviin toimiin, kuten kortin sulkemiseen tai salasanan vaihtoon.
+                      </p>
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900">
-                      Saat ohjeet
-                    </h3>
-                  </div>
-                  <p className="text-gray-900 leading-relaxed">
-                    Jos riski havaitaan, saat heti selkeät ohjeet seuraaviin toimiin, kuten kortin sulkemiseen tai salasanan vaihtoon.
-                  </p>
-                </div>
-                
-                <div className="text-left max-w-lg">
-                  <div className="flex items-center space-x-3 mb-4">
-                    <div className="w-8 h-8 bg-gradient-to-br from-blue-900 to-blue-800 rounded-lg flex items-center justify-center shadow-lg">
-                      <Shield className="w-4 h-4 text-white" />
+                    
+                    <div className="text-left max-w-lg">
+                      <div className="flex items-center space-x-3 mb-4">
+                        <div className="w-8 h-8 bg-gradient-to-br from-blue-900 to-blue-800 rounded-lg flex items-center justify-center shadow-lg">
+                          <Shield className="w-4 h-4 text-white" />
+                        </div>
+                        <h3 className="text-xl font-bold text-gray-900">
+                          Vakuutus
+                        </h3>
+                      </div>
+                      <p className="text-gray-900 leading-relaxed">
+                        Kun identiteettisi joutuu vaaraan, tilanteen ratkaiseminen voi kestää viikkoja ja maksaa tuhansia euroja. Tuotteeseen sisältyvä vakuutus tuo mielenrauhaa myös pahimman sattuessa.
+                      </p>
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900">
-                      Vakuutus
-                    </h3>
-                  </div>
-                  <p className="text-gray-900 leading-relaxed">
-                    Kun identiteettisi joutuu vaaraan, tilanteen ratkaiseminen voi kestää viikkoja ja maksaa tuhansia euroja. Tuotteeseen sisältyvä vakuutus tuo mielenrauhaa myös pahimman sattuessa.
-                  </p>
-                </div>
-                
-                <div className="text-left max-w-lg">
-                  <div className="flex items-center space-x-3 mb-4">
-                    <div className="w-8 h-8 bg-gradient-to-br from-blue-900 to-blue-800 rounded-lg flex items-center justify-center shadow-lg">
-                      <Clock className="w-4 h-4 text-white" />
+                    
+                    <div className="text-left max-w-lg">
+                      <div className="flex items-center space-x-3 mb-4">
+                        <div className="w-8 h-8 bg-gradient-to-br from-blue-900 to-blue-800 rounded-lg flex items-center justify-center shadow-lg">
+                          <Clock className="w-4 h-4 text-white" />
+                        </div>
+                        <h3 className="text-xl font-bold text-gray-900">
+                          Jatkuva valvonta
+                        </h3>
+                      </div>
+                      <p className="text-gray-900 leading-relaxed mb-4">
+                        Valvomme automaattisesti Dark Webiä, sosiaalista mediaa ja tietovuototietokantoja, jotta tietosi pysyvät turvassa vuorokauden jokaisena hetkenä.
+                      </p>
+                      
+                      {/* Mobile image - shown after Jatkuva valvonta on mobile */}
+                      <div className="lg:hidden flex justify-center mb-6">
+                        <img 
+                          src="/lovable-uploads/etusivu 4.png" 
+                          alt="Etusivu 4 kuva" 
+                          className="w-full h-auto max-w-sm"
+                          style={{ 
+                            background: 'transparent', 
+                            backgroundColor: 'transparent'
+                          }}
+                        />
+                      </div>
+                      
+                      <button 
+                        className="px-6 py-3 bg-blue-900 text-white rounded-md hover:bg-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl font-medium text-base"
+                        onClick={() => {
+                          navigate('/identiteettiturva');
+                        }}
+                      >
+                        Lue lisää
+                      </button>
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900">
-                      Jatkuva valvonta
-                    </h3>
                   </div>
-                  <p className="text-gray-900 leading-relaxed mb-4">
-                    Valvomme automaattisesti Dark Webiä, sosiaalista mediaa ja tietovuototietokantoja, jotta tietosi pysyvät turvassa vuorokauden jokaisena hetkenä.
-                  </p>
-                  <button 
-                    className="px-6 py-3 bg-blue-900 text-white rounded-md hover:bg-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl font-medium text-base mt-20"
-                    onClick={() => {
-                      navigate('/identiteettiturva');
-                    }}
-                  >
-                    Lue lisää
-                  </button>
+                  
+                  {/* Desktop image - hidden on mobile, shown on desktop */}
+                  <div className="hidden lg:flex lg:w-1/2 lg:justify-center lg:items-start">
+                    <img 
+                      src="/lovable-uploads/etusivu 4.png" 
+                      alt="Etusivu 4 kuva" 
+                      className="w-full h-auto max-w-md lg:max-w-lg xl:max-w-xl mt-28 lg:mt-48"
+                      style={{ 
+                        background: 'transparent', 
+                        backgroundColor: 'transparent'
+                      }}
+                    />
+                  </div>
                 </div>
               </div>
-             
-             <div className="lg:flex lg:items-center lg:justify-center">
-               {/* Right side left empty for future images */}
-             </div>
-           </div>
             </motion.div>
           </div>
         </motion.div>
