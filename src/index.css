@@ -42,6 +42,10 @@
     
     /* Status bar color to match banner */
     --status-bar-color: #1e3a8a;
+    
+    /* Consistent blue colors */
+    --banner-blue: #1e3a8a;
+    --status-bar-blue: #1e3a8a;
   }
 }
 
@@ -116,16 +120,9 @@
   }
 }
 
-/* Ensure status bar color matches banner */
-@media screen and (max-width: 768px) {
-  html {
-    background-color: var(--status-bar-color);
-  }
-  
-  body {
-    background-color: var(--status-bar-color);
-  }
-}
+/* Status bar color is handled by meta tags only */
+
+/* Mobile pages can have their own background colors */
 
 .banner-title {
   font-weight: 700;

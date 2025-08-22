@@ -9,6 +9,7 @@ import { AuthProvider } from "@/contexts/AuthContext";
 import { ShoppingCartProvider } from "@/contexts/ShoppingCartContext";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import About from "./pages/About";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import GeneralTerms from "./pages/GeneralTerms";
 import TermsOfService from "./pages/TermsOfService";
@@ -35,6 +36,7 @@ const App = () => {
               
               {/* Pääsivuston sivut */}
               <Route path="/" element={<Index />} />
+              <Route path="/meista" element={<About />} />
               <Route path="/tietosuojaseloste" element={<PrivacyPolicy />} />
               <Route path="/yleiset-sopimusehdot" element={<GeneralTerms />} />
               <Route path="/palvelusopimuksen-kayttoehdot" element={<TermsOfService />} />

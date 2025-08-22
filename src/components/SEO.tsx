@@ -243,6 +243,11 @@ const SEO: React.FC<SEOProps> = ({
       <meta name="mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-title" content="OmaVerkkoturva" />
       <meta name="application-name" content="OmaVerkkoturva" />
+      
+      {/* Force status bar color */}
+      <meta name="theme-color" content="#1e3a8a" media="(prefers-color-scheme: light)" />
+      <meta name="theme-color" content="#1e3a8a" media="(prefers-color-scheme: dark)" />
+      <meta name="msapplication-navbutton-color" content="#1e3a8a" />
         
         {/* JSON-LD structured data */}
       <script type="application/ld+json">
