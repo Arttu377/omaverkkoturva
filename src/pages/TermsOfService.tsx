@@ -26,7 +26,7 @@ const TermsOfService = () => {
               
               <h3 className="text-xl font-semibold mt-6 mb-3">1.1 Palveluntarjoajan tehtävä</h3>
               <p className="text-gray-600 mb-4">
-                OmaVerkkoturva Oy tarjoaa palveluita, jotka auttavat suojaamaan asiakkaiden tietoja ja laitteita. Palveluihin voi kuulua muun muassa:
+                Telendor Oy (OmaVerkkoturva) tarjoaa palveluita, jotka auttavat suojaamaan asiakkaiden tietoja ja laitteita. Palveluihin voi kuulua muun muassa:
               </p>
               
               <ul className="list-disc pl-6 mb-4 text-gray-600">

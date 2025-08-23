@@ -113,21 +113,21 @@ const PrivacyPolicy = () => {
               
               <h3 className="text-xl font-semibold mt-6 mb-3">1. REKISTERINPITÄJÄ</h3>
               <p className="text-gray-600 mb-4">
-                OmaVerkkoturva Oy<br />
+                Telendor Oy (OmaVerkkoturva)<br />
                 Ytunnus: 3475096-9<br />
-                Osoite: Yliopistonkatu 21 A<br />
+                Osoite: Yliopistonkatu 21<br />
                 Puhelin: 0451211663
               </p>
               
               <h3 className="text-xl font-semibold mt-6 mb-3">2. TIETOSUOJAVASTAAVA</h3>
               <p className="text-gray-600 mb-4">
                 Arttu Aleksi Simanainen<br />
-                arttu.simanainen@telendor.fi
+                tuki@omaverkkoturva.fi
               </p>
               
               <h3 className="text-xl font-semibold mt-6 mb-3">3. REKISTERIN NIMI</h3>
               <p className="text-gray-600 mb-4">
-                OmaVerkkoturva Oy:n asiakas- ja markkinointirekisteri
+                Telendor Oy:n (OmaVerkkoturva) asiakas- ja markkinointirekisteri
               </p>
               
               <h3 className="text-xl font-semibold mt-6 mb-3">4. HENKILÖTIETOJEN KÄSITTELYN TARKOITUS, PERUSTE JA VAIKUTUKSET</h3>
@@ -267,7 +267,7 @@ const PrivacyPolicy = () => {
               
               <h3 className="text-xl font-semibold mt-6 mb-3">10. TIETOJEN SÄILYTYSAIKA</h3>
               <p className="text-gray-600 mb-4">
-                OmaVerkkoturva Oy säilyttää henkilötietoja rekisterissään vain niin kauan kuin se on liiketoiminnan kannalta tarpeellista, ellei rekisteröity pyydä tietojen poistamista aikaisemmin. Asiakkaiden tiedot pidetään tallessa koko asiakassuhteen ajan. Asiakassuhteen päätyttyä tiedot säilyvät enintään viiden vuoden ajan asiakassuhteen päättymisestä.
+                Telendor Oy (OmaVerkkoturva) säilyttää henkilötietoja rekisterissään vain niin kauan kuin se on liiketoiminnan kannalta tarpeellista, ellei rekisteröity pyydä tietojen poistamista aikaisemmin. Asiakkaiden tiedot pidetään tallessa koko asiakassuhteen ajan. Asiakassuhteen päätyttyä tiedot säilyvät enintään viiden vuoden ajan asiakassuhteen päättymisestä.
               </p>
               
               <p className="text-gray-600 mb-4">
@@ -304,7 +304,7 @@ const PrivacyPolicy = () => {
               
               <h3 className="text-xl font-semibold mt-6 mb-3">Yhteydenotot</h3>
               <p className="text-gray-600 mb-4">
-                Kaikki tietosuojaselostetta ja henkilötietojen käsittelyä koskevat pyynnöt tulee toimittaa rekisterinpitäjälle sähköpostitse: arttu.simanainen@telendor.fi
+                Kaikki tietosuojaselostetta ja henkilötietojen käsittelyä koskevat pyynnöt tulee toimittaa rekisterinpitäjälle sähköpostitse: tuki@omaverkkoturva.fi
               </p>
               
               <p className="text-gray-600 mb-4">
@@ -312,7 +312,7 @@ const PrivacyPolicy = () => {
               </p>
               
               <p className="text-gray-600 mb-4">
-                OmaVerkkoturva Oy<br />
+                Telendor Oy (OmaVerkkoturva)<br />
                 Arttu Aleksi Simanainen<br />
                 Yliopistonkatu 21 A, 40100 Jyväskylä
               </p>

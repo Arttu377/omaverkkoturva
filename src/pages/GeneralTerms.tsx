@@ -25,7 +25,7 @@ const GeneralTerms = () => {
               <h2 className="text-2xl font-semibold mt-8 mb-4">1. Sopimuksen kohde</h2>
               
               <p className="text-gray-600 mb-4">
-                Nämä yleiset sopimusehdot ("Sopimusehdot") määrittävät ehdot ja periaatteet, joiden mukaisesti OmaVerkkoturva Oy, y-tunnus 1234567-8 ("Palveluntarjoaja") tarjoaa ja ylläpitää Henkilösuoja-palvelua ("Palvelu") asiakkaalle ("Asiakas").
+                Nämä yleiset sopimusehdot ("Sopimusehdot") määrittävät ehdot ja periaatteet, joiden mukaisesti Telendor Oy (OmaVerkkoturva), y-tunnus 3475096-9 ("Palveluntarjoaja") tarjoaa ja ylläpitää Henkilösuoja-palvelua ("Palvelu") asiakkaalle ("Asiakas").
               </p>
               
               <h3 className="text-xl font-semibold mt-6 mb-3">Palvelun tarkoitus</h3>
@@ -58,12 +58,12 @@ const GeneralTerms = () => {
               
               <h3 className="text-xl font-semibold mt-6 mb-3">Palvelu</h3>
               <p className="text-gray-600 mb-4">
-                OmaVerkkoturva Oy:n tarjoama Henkilösuoja-palvelu, joka sisältää palvelukuvauksessa mainitut toiminnot, kuten henkilötietojen valvonnan, tietoturvahälytykset ja mahdolliset lisäpalvelut.
+                Telendor Oy:n (OmaVerkkoturva) tarjoama Henkilösuoja-palvelu, joka sisältää palvelukuvauksessa mainitut toiminnot, kuten henkilötietojen valvonnan, tietoturvahälytykset ja mahdolliset lisäpalvelut.
               </p>
               
               <h3 className="text-xl font-semibold mt-6 mb-3">Palveluntarjoaja</h3>
               <p className="text-gray-600 mb-4">
-                OmaVerkkoturva Oy (y-tunnus 3475096-9), joka tuottaa, ylläpitää ja kehittää Palvelua sekä täyttää sopimuksessa määritellyt velvoitteet.
+                Telendor Oy (OmaVerkkoturva) (y-tunnus 3475096-9), joka tuottaa, ylläpitää ja kehittää Palvelua sekä täyttää sopimuksessa määritellyt velvoitteet.
               </p>
               
               <h3 className="text-xl font-semibold mt-6 mb-3">Käyttäjätunnukset</h3>

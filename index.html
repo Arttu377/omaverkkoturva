@@ -276,21 +276,38 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     
-    <!-- GDPR Consent Banner -->
-    <div id="gdpr-banner" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; background: #1e3a8a; color: white; padding: 1rem; z-index: 9999; box-shadow: 0 -2px 10px rgba(0,0,0,0.1);">
-      <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-        <div style="flex: 1; min-width: 300px;">
-          <p style="margin: 0; font-size: 0.9rem;">
-            Käytämme evästeitä ja muita tekniikoita parantaaksemme sivuston toimintaa ja tarjotaksemme sinulle henkilökohtaisempaa sisältöä. 
-            <a href="/tietosuojaseloste" style="color: #93c5fd; text-decoration: underline;">Lue lisää tietosuojasta</a>
-          </p>
-        </div>
-        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-          <button onclick="acceptAllCookies()" style="background: #10b981; color: white; border: none; padding: 0.5rem 1rem; border-radius: 0.375rem; cursor: pointer; font-size: 0.9rem; font-weight: 500;">
-            Hyväksy kaikki
+    <!-- GDPR Consent Button -->
+    <div id="gdpr-button" style="display: none; position: fixed; bottom: 4; left: 4; z-index: 9999;">
+      <button 
+        onclick="showConsentModal()" 
+        style="background: #1e3a8a; color: white; border: none; padding: 0.75rem 1rem; border-radius: 0.5rem; cursor: pointer; font-size: 0.875rem; font-weight: 500; box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);"
+      >
+        🍪 Evästeet
+      </button>
+    </div>
+
+    <!-- GDPR Consent Modal -->
+    <div id="gdpr-modal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 10000; display: flex; align-items: center; justify-content: center;">
+      <div style="background: white; padding: 2rem; border-radius: 1rem; max-width: 500px; margin: 1rem; text-align: center;">
+        <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #1e3a8a;">
+          Evästeet ja yksityisyys
+        </h3>
+        <p style="color: #6b7280; margin-bottom: 1.5rem; line-height: 1.6;">
+          Käytämme evästeitä ja muita tekniikoita parantaaksemme sivuston toimintaa ja tarjotaksemme sinulle henkilökohtaisempaa sisältöä. 
+          <a href="/tietosuojaseloste" style="color: #1e3a8a; text-decoration: underline;">Lue lisää tietosuojasta</a>
+        </p>
+        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+          <button 
+            onclick="acceptAllCookies()" 
+            style="background: #1e3a8a; color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 0.5rem; cursor: pointer; font-size: 1rem; font-weight: 500; width: 100%;"
+          >
+            Hyväksy kaikki evästeet
           </button>
-          <button onclick="acceptEssentialCookies()" style="background: transparent; color: white; border: 1px solid white; padding: 0.5rem 1rem; border-radius: 0.375rem; cursor: pointer; font-size: 0.9rem;">
-            Vain välttämättömät
+          <button 
+            onclick="acceptEssentialCookies()" 
+            style="background: transparent; color: #1e3a8a; border: 1px solid #1e3a8a; padding: 0.75rem 1.5rem; border-radius: 0.5rem; cursor: pointer; font-size: 1rem; width: 100%;"
+          >
+            Vain välttämättömät evästeet
           </button>
         </div>
       </div>
@@ -300,30 +317,47 @@
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
     <script type="module" src="/src/main.tsx"></script>
     
-    <!-- GDPR Banner Logic -->
+    <!-- GDPR Button Logic -->
     <script>
-      // Show banner if no consent has been given
+      // Show button if no consent has been given
       if (!localStorage.getItem('gdpr_consent')) {
-        document.getElementById('gdpr-banner').style.display = 'block';
+        document.getElementById('gdpr-button').style.display = 'block';
+      }
+
+      function showConsentModal() {
+        document.getElementById('gdpr-modal').style.display = 'flex';
       }
 
       function acceptAllCookies() {
         localStorage.setItem('gdpr_consent', 'true');
         localStorage.setItem('gdpr_consent_type', 'all');
         updateConsent(true);
-        hideBanner();
+        hideConsentModal();
+        hideButton();
       }
 
       function acceptEssentialCookies() {
         localStorage.setItem('gdpr_consent', 'true');
         localStorage.setItem('gdpr_consent_type', 'essential');
         updateConsent(false);
-        hideBanner();
+        hideConsentModal();
+        hideButton();
       }
 
-      function hideBanner() {
-        document.getElementById('gdpr-banner').style.display = 'none';
+      function hideConsentModal() {
+        document.getElementById('gdpr-modal').style.display = 'none';
       }
+
+      function hideButton() {
+        document.getElementById('gdpr-button').style.display = 'none';
+      }
+
+      // Close modal when clicking outside
+      document.getElementById('gdpr-modal').addEventListener('click', function(e) {
+        if (e.target === this) {
+          hideConsentModal();
+        }
+      });
     </script>
   </body>
 </html>
