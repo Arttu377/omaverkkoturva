@@ -56,12 +56,12 @@ jobs:
         env:
           VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
           VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
-      - run: cp dist/index-portal.html dist/index.html
-      - run: cp public/_redirects-portal dist/_redirects
+      - run: echo "Portal build completed"
+      - run: cp public/_redirects-portal dist-portal/_redirects
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ./dist-portal
           publish_branch: gh-pages-portal
           force_orphan: true
           cname: portaali.omaverkkoturva.fi
