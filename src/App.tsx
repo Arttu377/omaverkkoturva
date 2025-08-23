@@ -14,6 +14,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import GeneralTerms from "./pages/GeneralTerms";
 import TermsOfService from "./pages/TermsOfService";
 import Identiteettiturva from "./pages/Identiteettiturva";
+import Blog from "./pages/Blog";
 import Irtisanomislomake from "./pages/Irtisanomislomake";
 import Contact from "./pages/Contact";
 import Verkkokauppa from "./pages/Verkkokauppa";
@@ -41,6 +42,7 @@ const App = () => {
               <Route path="/yleiset-sopimusehdot" element={<GeneralTerms />} />
               <Route path="/palvelusopimuksen-kayttoehdot" element={<TermsOfService />} />
               <Route path="/henkilosuoja" element={<Identiteettiturva />} />
+              <Route path="/blog" element={<Blog />} />
               <Route path="/verkkokauppa" element={<Verkkokauppa />} />
               <Route path="/irtisanomislomake" element={<Irtisanomislomake />} />
               <Route path="/ota-yhteytta" element={<Contact />} />
