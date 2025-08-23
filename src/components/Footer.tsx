@@ -59,8 +59,8 @@ const Footer = () => {
                   <h3 className="text-sm font-semibold text-black">Toimisto</h3>
                 </div>
                 <p className="text-black text-xs ml-10">
-                  Yliopistonkatu 4<br />
-                  0100 Jyväskylä<br />
+                  Yliopistonkatu 21<br />
+                  40100 Jyväskylä<br />
                   Suomi
                 </p>
               </div>

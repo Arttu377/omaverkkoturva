@@ -166,6 +166,8 @@ ${emailData.message}`,
                  </div>
                </div>
                
+               
+               
                <div className="space-y-4 text-gray-700">
                  <p>
                    Pyrimme vastaamaan sähköpostiyhteydenottoihin 1-2 arkipäivän sisällä. Asiakkaanamme olet oikeutettu nopeaan sekä veloituksettomaan apuun ja tukeen.
