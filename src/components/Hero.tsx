@@ -310,8 +310,8 @@ const Hero = memo(() => {
               
               {/* Features section */}
               <div className="max-w-6xl mx-auto">
-                <div className="flex flex-col lg:flex-row gap-8">
-                  <div className="space-y-8 lg:space-y-16 lg:w-1/2">
+                <div className="flex flex-col md:flex-row gap-8">
+                  <div className="space-y-8 lg:space-y-16 md:w-1/2">
                     <div className="text-left max-w-lg mt-8 lg:mt-16">
                       <div className="flex items-center space-x-3 mb-4">
                         <div className="w-8 h-8 bg-gradient-to-br from-blue-900 to-blue-800 rounded-lg flex items-center justify-center shadow-lg">
@@ -367,8 +367,8 @@ const Hero = memo(() => {
                         Valvomme automaattisesti Dark Webiä, sosiaalista mediaa ja tietovuototietokantoja, jotta tietosi pysyvät turvassa vuorokauden jokaisena hetkenä.
                       </p>
                       
-                      {/* Mobile image - shown after Jatkuva valvonta on mobile */}
-                      <div className="lg:hidden flex justify-center mb-6">
+                      {/* Mobile image - shown only on very small screens (below medium) */}
+                      <div className="md:hidden flex justify-center mb-6">
                         <img 
                           src="/kuvapankki/etusivu 4.png" 
                           alt="Etusivu 4 kuva" 
@@ -393,12 +393,12 @@ const Hero = memo(() => {
                     </div>
                   </div>
                   
-                  {/* Desktop image - hidden on mobile, shown on desktop */}
-                  <div className="hidden lg:flex lg:w-1/2 lg:justify-center lg:items-start">
+                  {/* Desktop/Tablet image - shown on medium screens and up */}
+                  <div className="hidden md:flex md:w-1/2 md:justify-center md:items-start">
                     <img 
                       src="/kuvapankki/etusivu 4.png" 
                       alt="Etusivu 4 kuva" 
-                      className="w-full h-auto max-w-md lg:max-w-lg xl:max-w-xl mt-28 lg:mt-48"
+                      className="w-full h-auto max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl mt-8 md:mt-16 lg:mt-28 xl:mt-48"
                       loading="eager"
                       decoding="async"
                       style={{ 
