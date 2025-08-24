@@ -61,8 +61,13 @@
   }
 
   body {
-    @apply bg-white text-foreground font-space;
-  }
+  @apply bg-white text-foreground font-space;
+}
+
+/* Add padding only to main content areas, not to hero sections */
+main, .main-content {
+  padding-top: 64px; /* Add top padding to account for fixed header height */
+}
 }
 
 .section-container {
@@ -118,6 +123,139 @@
     -ms-user-select: none;
     user-select: none;
   }
+}
+
+/* Mobile status bar styling */
+@supports (-webkit-touch-callout: none) {
+  /* iOS Safari */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: env(safe-area-inset-top);
+    background-color: #172554; /* blue-950 - darkest color from header */
+    z-index: 1; /* Lower z-index so it doesn't overlap header */
+    pointer-events: none; /* Prevents interference with header interactions */
+  }
+}
+
+/* Android Chrome and other mobile browsers */
+@media screen and (max-width: 768px) {
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 24px; /* Standard mobile status bar height */
+    background-color: #172554; /* blue-950 - darkest color from header */
+    z-index: 1; /* Lower z-index so it doesn't overlap header */
+    pointer-events: none; /* Prevents interference with header interactions */
+  }
+}
+
+/* Ensure header stays visible at all times */
+nav[class*="fixed"] {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 9999 !important;
+  background: linear-gradient(to right, #172554, #1e3a8a, #172554) !important;
+  width: 100% !important;
+  height: 64px !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Ensure all fixed navigation elements stay visible */
+.navbar, nav[class*="z-50"], nav[class*="fixed"] {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 9999 !important;
+}
+
+/* Additional header layering for mobile */
+@media screen and (max-width: 768px) {
+  nav[class*="fixed"] {
+    z-index: 9999 !important;
+  }
+  
+  /* Ensure header content is above status bar */
+  .header-content, .navbar-content {
+    position: relative;
+    z-index: 10000;
+  }
+}
+
+/* Hero section positioning - restore original text positioning */
+.hero-section, .banner-container {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Ensure hero text elements maintain their original positioning */
+.banner-overlay, .hero-content, .hero-text {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  position: relative;
+  z-index: 10;
+}
+
+/* Specific positioning for hero text elements */
+.banner-title, .hero-title, .hero-headline {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.banner-subtitle, .hero-subtitle, .hero-description {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Hero button positioning */
+.hero-button, .banner-button, .cta-button {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Specific Hero component positioning fixes */
+.h-screen {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Ensure the main hero content maintains original positioning */
+.relative.h-screen.w-full.flex.items-center {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Fix for the text container positioning */
+.w-full.max-w-2xl.text-left.ml-4.sm\\:ml-8 {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Ensure banner title and subtitle maintain original spacing */
+.banner-title {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  line-height: 1.2 !important;
+}
+
+.banner-subtitle {
+  margin-top: 1rem !important;
+  padding-top: 0 !important;
+}
+
+/* Fix for the button container */
+.flex.justify-center.sm\\:justify-start.mt-6.sm\\:mt-8 {
+  margin-top: 1.5rem !important;
+  padding-top: 0 !important;
 }
 
 /* Status bar color is handled by meta tags only */

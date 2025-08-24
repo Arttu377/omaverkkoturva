@@ -31,6 +31,14 @@
     
     <!-- Robots and Indexing -->
     <meta name="robots" content="noindex, nofollow" />
+    
+    <!-- Mobile Status Bar Colors -->
+    <meta name="theme-color" content="#172554" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="OmaVerkkoturva" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="OmaVerkkoturva" />
 
     <script>
       // Force deep links to HashRouter format to avoid login redirects
@@ -43,15 +51,7 @@
     </script>
   </head>
   <body>
-    <!-- GDPR Consent Button -->
-    <div id="gdpr-button" style="display: none; position: fixed; bottom: 4; left: 4; z-index: 9999;">
-      <button 
-        onclick="showConsentModal()" 
-        style="background: #1e3a8a; color: white; border: none; padding: 0.75rem 1rem; border-radius: 0.5rem; cursor: pointer; font-size: 0.875rem; font-weight: 500; box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);"
-      >
-        🍪 Evästeet
-      </button>
-    </div>
+
 
     <!-- GDPR Consent Modal -->
     <div id="gdpr-modal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 10000; display: flex; align-items: center; justify-content: center;">
@@ -85,12 +85,8 @@
     
     <!-- GDPR Button Logic -->
     <script>
-      // Show button if no consent has been given
+      // Show modal automatically if no consent has been given
       if (!localStorage.getItem('gdpr_consent')) {
-        document.getElementById('gdpr-button').style.display = 'block';
-      }
-
-      function showConsentModal() {
         document.getElementById('gdpr-modal').style.display = 'flex';
       }
 
@@ -99,7 +95,6 @@
         localStorage.setItem('gdpr_consent_type', 'all');
         updateConsent(true);
         hideConsentModal();
-        hideButton();
       }
 
       function acceptEssentialCookies() {
@@ -107,15 +102,10 @@
         localStorage.setItem('gdpr_consent_type', 'essential');
         updateConsent(false);
         hideConsentModal();
-        hideButton();
       }
 
       function hideConsentModal() {
         document.getElementById('gdpr-modal').style.display = 'none';
-      }
-
-      function hideButton() {
-        document.getElementById('gdpr-button').style.display = 'none';
       }
 
       // Close modal when clicking outside
