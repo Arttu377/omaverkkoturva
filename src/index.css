@@ -125,7 +125,7 @@ main, .main-content {
   }
 }
 
-/* Mobile status bar styling */
+/* Mobile status bar styling with gradient to match header */
 @supports (-webkit-touch-callout: none) {
   /* iOS Safari */
   body::before {
@@ -135,7 +135,7 @@ main, .main-content {
     left: 0;
     right: 0;
     height: env(safe-area-inset-top);
-    background-color: #172554; /* blue-950 - darkest color from header */
+    background: linear-gradient(to right, #172554, #1e3a8a, #172554); /* Same gradient as header */
     z-index: 1; /* Lower z-index so it doesn't overlap header */
     pointer-events: none; /* Prevents interference with header interactions */
   }
@@ -150,7 +150,7 @@ main, .main-content {
     left: 0;
     right: 0;
     height: 24px; /* Standard mobile status bar height */
-    background-color: #172554; /* blue-950 - darkest color from header */
+    background: linear-gradient(to right, #172554, #1e3a8a, #172554); /* Same gradient as header */
     z-index: 1; /* Lower z-index so it doesn't overlap header */
     pointer-events: none; /* Prevents interference with header interactions */
   }
