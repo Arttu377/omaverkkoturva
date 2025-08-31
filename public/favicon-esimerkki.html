@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ympyrän muotoinen favicon - Esimerkki</title>
+    
+    <!-- Ympyrän muotoinen favicon -->
+    <link rel="icon" href="/kuvapankki/Kappaleen teksti (52).png" type="image/png" />
+    <link rel="apple-touch-icon" href="/kuvapankki/Kappaleen teksti (52).png" />
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+        
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        
+        .favicon-demo {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .favicon-item {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid #e9ecef;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .favicon-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .favicon-preview {
+            margin: 20px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+        }
+        
+        .circular-favicon {
+            border-radius: 50%;
+            overflow: hidden;
+            display: inline-block;
+            border: 3px solid #ffffff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            background: white;
+            margin: 10px;
+        }
+        
+        .size-16 { width: 16px; height: 16px; }
+        .size-32 { width: 32px; height: 32px; }
+        .size-48 { width: 48px; height: 48px; }
+        .size-64 { width: 64px; height: 64px; }
+        .size-128 { width: 128px; height: 128px; }
+        
+        .favicon-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        
+        .code-example {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+        
+        .highlight {
+            background: #fef3c7;
+            color: #92400e;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        .info-box {
+            background: #dbeafe;
+            border-left: 4px solid #3b82f6;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .warning-box {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔄 Ympyrän muotoinen favicon</h1>
+        <p style="text-align: center; font-size: 1.2em; color: #666;">
+            <strong>Kappaleen teksti (52).png</strong> ympyrän muotoinen faviconina ja hakukoneen logona
+        </p>
+        
+        <div class="info-box">
+            <h3>✅ Mitä on päivitetty:</h3>
+            <ul>
+                <li><strong>Favicon</strong> - Selaimen välilehdessä näkyy ympyrän muotoinen logo</li>
+                <li><strong>Hakukoneen logo</strong> - Google, Bing ja muut hakukoneet käyttävät ympyrän muotoista logoa</li>
+                <li><strong>Sosiaalinen media</strong> - Facebook, Twitter, LinkedIn näyttävät ympyrän muotoisen logon</li>
+                <li><strong>Mobiililaitteet</strong> - Apple-touch-icon ja Android-ikoni ovat ympyrän muotoisia</li>
+            </ul>
+        </div>
+        
+        <div class="favicon-demo">
+            <div class="favicon-item">
+                <h3>🌐 Favicon</h3>
+                <p>Selaimen välilehdessä</p>
+                <div class="favicon-preview">
+                    <div class="circular-favicon size-32">
+                        <img src="/kuvapankki/Kappaleen teksti (52).png" alt="Favicon 32x32">
+                    </div>
+                </div>
+                <small>32x32 pikseliä</small>
+            </div>
+            
+            <div class="favicon-item">
+                <h3>📱 Apple Touch Icon</h3>
+                <p>iPhonella ja iPadilla</p>
+                <div class="favicon-preview">
+                    <div class="circular-favicon size-48">
+                        <img src="/kuvapankki/Kappaleen teksti (52).png" alt="Apple Touch Icon 48x48">
+                    </div>
+                </div>
+                <small>48x48 pikseliä</small>
+            </div>
+            
+            <div class="favicon-item">
+                <h3>🔍 Hakukoneen logo</h3>
+                <p>Google, Bing hakutuloksissa</p>
+                <div class="favicon-preview">
+                    <div class="circular-favicon size-64">
+                        <img src="/kuvapankki/Kappaleen teksti (52).png" alt="Hakukoneen logo 64x64">
+                    </div>
+                </div>
+                <small>64x64 pikseliä</small>
+            </div>
+            
+            <div class="favicon-item">
+                <h3>💻 Windows Tile</h3>
+                <p>Windows-käynnistysvalikossa</p>
+                <div class="favicon-preview">
+                    <div class="circular-favicon size-128">
+                        <img src="/kuvapankki/Kappaleen teksti (52).png" alt="Windows Tile 128x128">
+                    </div>
+                </div>
+                <small>128x128 pikseliä</small>
+            </div>
+        </div>
+        
+        <h2>📋 HTML-koodi</h2>
+        <p>Tässä on koodi miten ympyrän muotoinen favicon on lisätty:</p>
+        
+        <div class="code-example">
+&lt;!-- Ympyrän muotoinen favicon --&gt;
+&lt;link rel="icon" href="/kuvapankki/Kappaleen teksti (52).png" type="image/png" /&gt;
+&lt;link rel="apple-touch-icon" href="/kuvapankki/Kappaleen teksti (52).png" /&gt;
+&lt;link rel="apple-touch-icon" sizes="180x180" href="/kuvapankki/Kappaleen teksti (52).png" /&gt;
+        </div>
+        
+        <h2>🎨 CSS-tyylit</h2>
+        <p>Jos haluat tehdä kuvasta ympyrän CSS:llä:</p>
+        
+        <div class="code-example">
+.circular-favicon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #ffffff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.circular-favicon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+        </div>
+        
+        <h2>🔧 React-komponentti</h2>
+        <p>Käytä CircularLogo-komponenttia:</p>
+        
+        <div class="code-example">
+import { CircularLogo } from './components/CircularLogo';
+
+&lt;CircularLogo 
+    imageUrl="/kuvapankki/Kappaleen teksti (52).png"
+    alt="Ympyrän muotoinen logo"
+    size={40}
+    borderWidth={2}
+    borderColor="#ffffff"
+/&gt;
+        </div>
+        
+        <div class="warning-box">
+            <h3>⚠️ Tärkeä huomio</h3>
+            <p><strong>Yläbannerin logo EI ole muutettu!</strong> Se käyttää edelleen alkuperäistä logoa <span class="highlight">296f9efc-c5a2-4029-bb1d-02f258233174.png</span>.</p>
+            <p>Vain favicon ja hakukoneen logo on päivitetty käyttämään ympyrän muotoista versiota kuvasta "Kappaleen teksti (52).png".</p>
+        </div>
+        
+        <h2>🚀 Seuraavat vaiheet</h2>
+        <p>Nyt voit:</p>
+        <ol>
+            <li><strong>Testata faviconia</strong> - Avaa sivusto uudessa välilehdessä</li>
+            <li><strong>Käyttää ympyrän muotoista logoa</strong> missä tahansa komponentissa</li>
+            <li><strong>Päivittää sosiaalisen median</strong> - Facebook, Twitter, LinkedIn</li>
+            <li><strong>Optimoida hakukoneita varten</strong> - Google Search Console</li>
+        </ol>
+        
+        <div style="text-align: center; margin-top: 40px; padding: 20px; background: #f8f9fa; border-radius: 8px;">
+            <h3>🎯 Ympyrän muotoinen favicon on nyt käytössä!</h3>
+            <p>Kappaleen teksti (52).png näkyy ympyrän muotoisena kaikkialla paitsi yläbannerissa.</p>
+        </div>
+    </div>
+</body>
+</html>

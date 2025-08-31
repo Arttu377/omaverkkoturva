@@ -21,7 +21,7 @@ const SEO: React.FC<SEOProps> = ({
   description = 'OmaVerkkoturva: Suomalainen identiteettisuoja ja verkkoturvallisuuspalvelu. Suojaa henkilötietojasi ja estä identiteettivarkauksia.',
   type = 'website',
   name = 'OmaVerkkoturva',
-  imageUrl = '/kuvapankki/Kappaleen teksti (52).png',
+  imageUrl = '/kuvapankki/Kappaleen teksti (52).png', // Ympyrän muotoinen logo
   publishDate,
   modifiedDate,
   author,
@@ -73,7 +73,7 @@ const SEO: React.FC<SEOProps> = ({
     '@type': 'Organization',
     name: 'OmaVerkkoturva',
     url: 'https://omaverkkoturva.fi',
-    logo: 'https://omaverkkoturva.fi/kuvapankki/Kappaleen teksti (52).png',
+    logo: 'https://omaverkkoturva.fi/kuvapankki/Kappaleen teksti (52).png', // Ympyrän muotoinen logo
     description: 'Suomalainen identiteettisuoja ja verkkoturvallisuuspalvelu',
     contactPoint: {
       '@type': 'ContactPoint',
@@ -113,7 +113,7 @@ const SEO: React.FC<SEOProps> = ({
       name: 'OmaVerkkoturva',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://omaverkkoturva.fi/kuvapankki/Kappaleen teksti (52).png',
+        url: 'https://omaverkkoturva.fi/kuvapankki/Kappaleen teksti (52).png', // Ympyrän muotoinen logo
         width: 512,
         height: 512
       },
