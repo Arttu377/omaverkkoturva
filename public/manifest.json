@@ -1,0 +1,75 @@
+{
+  "name": "OmaVerkkoturva",
+  "short_name": "OmaVerkkoturva",
+  "description": "Suojaa identiteettisi verkossa",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#172554",
+  "theme_color": "#172554",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "16x16 32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/kuvapankki/Kappaleen teksti (52).png",
+      "sizes": "57x57",
+      "type": "image/png"
+    },
+    {
+      "src": "/kuvapankki/Kappaleen teksti (52).png",
+      "sizes": "60x60",
+      "type": "image/png"
+    },
+    {
+      "src": "/kuvapankki/Kappaleen teksti (52).png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "/kuvapankki/Kappaleen teksti (52).png",
+      "sizes": "76x76",
+      "type": "image/png"
+    },
+    {
+      "src": "/kuvapankki/Kappaleen teksti (52).png",
+      "sizes": "114x114",
+      "type": "image/png"
+    },
+    {
+      "src": "/kuvapankki/Kappaleen teksti (52).png",
+      "sizes": "120x120",
+      "type": "image/png"
+    },
+    {
+      "src": "/kuvapankki/Kappaleen teksti (52).png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "/kuvapankki/Kappaleen teksti (52).png",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "/kuvapankki/Kappaleen teksti (52).png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["security", "utilities"],
+  "lang": "fi",
+  "dir": "ltr"
+}
