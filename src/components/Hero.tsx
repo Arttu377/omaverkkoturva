@@ -300,12 +300,12 @@ const Hero = memo(() => {
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* New section with image on the right and space for text on the left */}
-            <motion.div className="mb-64" variants={fadeInUpVariants}>
-              <div className="flex flex-col md:flex-row gap-8 items-center">
+            <motion.div className="mb-32 md:mb-64" variants={fadeInUpVariants}>
+              <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-center">
                 {/* Left side - text content */}
-                <div className="md:w-1/2 space-y-6">
+                <div className="md:w-1/2 space-y-4 md:space-y-6">
                   <div>
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-12">
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-8 md:mb-12">
                       Henkilötietojasi on kaikkialla
                     </h2>
                     <p className="text-gray-700 leading-relaxed">
@@ -318,7 +318,7 @@ const Hero = memo(() => {
                 </div>
                 
                 {/* Right side - image */}
-                <div className="md:w-1/2 flex justify-center md:justify-end mt-32">
+                <div className="md:w-1/2 flex justify-center md:justify-end mt-6 md:mt-32">
                   <img 
                     src="/kuvapankki/Kappaleen teksti (21).png" 
                     alt="Kappaleen teksti kuva" 
@@ -334,20 +334,20 @@ const Hero = memo(() => {
               </div>
             </motion.div>
             
-            <motion.div className="text-center mb-24" variants={fadeInUpVariants}>
+            <motion.div className="text-center mb-16 md:mb-24" variants={fadeInUpVariants}>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                 Pidä identiteettisi turvassa<br />
                 edistyksellisin ratkaisuin
               </h2>
-              <p className="text-lg text-gray-700 mb-16">
+              <p className="text-lg text-gray-700 mb-12 md:mb-16">
                 OmaVerkkoturva tarjoaa kattavan suojan henkilötiedoillesi
               </p>
               
               {/* Features section */}
               <div className="max-w-6xl mx-auto">
-                <div className="flex flex-col md:flex-row gap-8">
-                  <div className="space-y-8 lg:space-y-16 md:w-1/2">
-                    <div className="text-left max-w-lg mt-8 lg:mt-16">
+                <div className="flex flex-col md:flex-row gap-6 md:gap-8">
+                  <div className="space-y-6 md:space-y-8 lg:space-y-16 md:w-1/2">
+                    <div className="text-left max-w-lg mt-6 md:mt-8 lg:mt-16">
                       <div className="flex items-center space-x-3 mb-4">
                         <div className="w-8 h-8 bg-gradient-to-br from-blue-900 to-blue-800 rounded-lg flex items-center justify-center shadow-lg">
                           <Bell className="w-4 h-4 text-white" />
