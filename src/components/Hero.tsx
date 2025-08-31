@@ -299,6 +299,41 @@ const Hero = memo(() => {
           variants={staggerContainer}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* New section with image on the right and space for text on the left */}
+            <motion.div className="mb-64" variants={fadeInUpVariants}>
+              <div className="flex flex-col md:flex-row gap-8 items-center">
+                {/* Left side - text content */}
+                <div className="md:w-1/2 space-y-6">
+                  <div>
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-12">
+                      Henkilötietojasi on kaikkialla
+                    </h2>
+                    <p className="text-gray-700 leading-relaxed">
+                      Nykyään henkilökohtaisia tietoja kertyy lukemattomiin paikkoihin, kuten some-tileihin, verkkokauppoihin, suoratoistopalveluihin ja viranomaisrekistereihin. Nämä tiedot voivat sisältää kaikkea sähköpostista, salasanoista ja maksukorteista aina terveystietoihin ja biometrisiin tunnisteisiin.
+                    </p>
+                    <p className="text-gray-700 leading-relaxed mt-4">
+                      Jos tiedot vuotavat tai päätyvät rikollisten käsiin, seuraukset voivat olla vakavia: identiteettivarkaudet, väärinkäytökset ja taloudelliset menetykset.
+                    </p>
+                  </div>
+                </div>
+                
+                {/* Right side - image */}
+                <div className="md:w-1/2 flex justify-center md:justify-end mt-32">
+                  <img 
+                    src="/kuvapankki/Kappaleen teksti (21).png" 
+                    alt="Kappaleen teksti kuva" 
+                    className="w-full h-auto max-w-xs md:max-w-sm lg:max-w-md"
+                    loading="eager"
+                    decoding="async"
+                    style={{ 
+                      background: 'transparent', 
+                      backgroundColor: 'transparent'
+                    }}
+                  />
+                </div>
+              </div>
+            </motion.div>
+            
             <motion.div className="text-center mb-24" variants={fadeInUpVariants}>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                 Pidä identiteettisi turvassa<br />
@@ -370,9 +405,9 @@ const Hero = memo(() => {
                       {/* Mobile image - shown only on very small screens (below medium) */}
                       <div className="md:hidden flex justify-center mb-6">
                         <img 
-                          src="/kuvapankki/etusivu 4.png" 
-                          alt="Etusivu 4 kuva" 
-                          className="w-full h-auto max-w-sm"
+                          src="/kuvapankki/Kappaleen teksti (15).png" 
+                          alt="Kappaleen teksti kuva" 
+                          className="w-full h-auto max-w-md"
                           loading="eager"
                           decoding="async"
                           style={{ 
@@ -396,9 +431,9 @@ const Hero = memo(() => {
                   {/* Desktop/Tablet image - shown on medium screens and up */}
                   <div className="hidden md:flex md:w-1/2 md:justify-center md:items-start">
                     <img 
-                      src="/kuvapankki/etusivu 4.png" 
-                      alt="Etusivu 4 kuva" 
-                      className="w-full h-auto max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl mt-8 md:mt-16 lg:mt-28 xl:mt-48"
+                      src="/kuvapankki/Kappaleen teksti (15).png" 
+                      alt="Kappaleen teksti kuva" 
+                      className="w-full h-auto max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl mt-8 md:mt-16 lg:mt-24 xl:mt-40"
                       loading="eager"
                       decoding="async"
                       style={{ 
@@ -412,6 +447,9 @@ const Hero = memo(() => {
             </motion.div>
           </div>
         </motion.div>
+
+
+
 
 
         

@@ -23,7 +23,7 @@ const Footer = () => {
             </h2>
             <div className="space-y-3 text-sm leading-relaxed text-black">
               <p>
-                OmaVerkkoturva on suomalainen yritys, joka on erikoistunut identiteettisuojaan ja verkkoturvallisuuteen. 
+                OmaVerkkoturva on suomalainen toimija, joka on erikoistunut identiteettisuojaan ja verkkoturvallisuuteen. 
                 Missiomme on suojata ihmisten henkilötietoja ja estää identiteettivarkauksia ennen kuin ne ehtivät tapahtua.
               </p>
               
@@ -85,7 +85,7 @@ const Footer = () => {
         <div className="border-t border-gray-300 pt-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-black text-sm mb-4 md:mb-0">
-              © {new Date().getFullYear()} OmaVerkkoturva. Kaikki oikeudet pidätetään.
+              © 2025 Telendor Oy (OmaVerkkoturva). Kaikki oikeudet pidätetään.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
               {user ? (

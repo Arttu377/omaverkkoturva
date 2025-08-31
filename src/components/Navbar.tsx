@@ -59,7 +59,7 @@ const Navbar = () => {
             <Link to={user ? "/dashboard" : "/"} className="flex items-center space-x-3">
               {/* WiFi Logo with background removal */}
               <ProcessedLogo 
-                originalImageUrl="/kuvapankki/296f9efc-c5a2-4029-bb1d-02f258233174.png"
+                originalImageUrl="/kuvapankki/Kappaleen teksti (52).png"
                 alt="WiFi Logo"
                 width={40}
                 height={40}

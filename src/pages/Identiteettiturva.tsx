@@ -118,7 +118,7 @@ const Identiteettiturva = () => {
                                     {/* Mobile image - shown before Verkkokauppaan button on mobile */}
                       <div className="lg:hidden flex justify-center mb-6">
                         <img 
-                          src="/kuvapankki/henkilösuoja 2.png" 
+                          src="/kuvapankki/Kappaleen teksti (41).png" 
                           alt="Henkilösuoja kuva" 
                           className="w-full h-auto max-w-sm"
                           style={{ 
@@ -141,11 +141,11 @@ const Identiteettiturva = () => {
             </div>
             
             {/* Right side - henkilösuoja 2.png image */}
-            <div className="hidden lg:block lg:flex lg:justify-center lg:items-center">
+            <div className="hidden lg:block lg:flex lg:justify-end lg:items-center lg:-translate-x-10">
               <img 
-                src="/kuvapankki/henkilösuoja 2.png" 
+                src="/kuvapankki/Kappaleen teksti (41).png" 
                 alt="Henkilösuoja kuva" 
-                className="w-full h-auto max-w-md lg:max-w-lg xl:max-w-xl"
+                className="w-full h-auto max-w-xs lg:max-w-sm xl:max-w-md"
                 style={{ 
                   background: 'transparent', 
                   backgroundColor: 'transparent'
@@ -168,33 +168,33 @@ const Identiteettiturva = () => {
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
                {/* Left side - content */}
-               <div className="space-y-12">
+               <div className="space-y-20">
                  <div>
-                   <h3 className="text-2xl font-bold text-foreground mb-4">Ympärivuorokautinen tietosuoja</h3>
+                   <h3 className="text-2xl font-bold text-foreground mb-4">Valvoo tärkeintä ennen kuin ongelmat alkavat</h3>
                    <p className="text-lg text-muted-foreground leading-relaxed">
-                     Henkilösuoja valvoo tärkeimpiä tietojasi, kuten puhelinnumeroa, sähköpostia, henkilötunnusta, passia ja maksukortteja ympäri vuorokauden.
+                     Henkilösuoja ei rajoitu vain tietovuotojen tarkkailuun. Palvelu seuraa henkilötietojasi, kuten sähköpostia, puhelinnumeroa, maksukortteja ja tunnuksia. Saat varoitukset ajoissa, jos tietojasi käytetään luvatta tai jos havaitsemme muutoksia, jotka voivat viitata väärinkäytökseen. Seuraamme myös luottoon liittyviä tapahtumia ja julkisia rekistereitä. Ilmoitamme luvattomista muutoksista, rikollisesta käytöstä ja varhaisista varoitusmerkeistä, jotta ehdit reagoida ajoissa ja pysyt turvassa.
                    </p>
-            </div>
+                 </div>
                  <div>
-                   <h3 className="text-2xl font-bold text-foreground mb-4">Hälytys heti, jos tietosi vuotavat</h3>
+                   <h3 className="text-2xl font-bold text-foreground mb-4">Suojaa ja opi reaaliajassa</h3>
                    <p className="text-lg text-muted-foreground leading-relaxed">
-                     Se tarkistaa ne jatkuvasti tietovuototietokannoista ja dark webistä. Jos tietojasi löytyy, saat heti hälytyksen ja selkeät ohjeet vahinkojen estämiseksi.
+                     Turva ei ole pelkkiä ilmoituksia. Henkilösuoja ohjaa käyttäjää heti riskien ilmetessä antamalla neuvoja, käytännön toimenpiteitä ja lyhyitä oppaita. Lisäksi poistamme paljastuneita henkilötietoja julkisista lähteistä, ennen kuin niitä voidaan hyödyntää väärin.
                    </p>
-                    </div>
-                    <div>
-                   <h3 className="text-2xl font-bold text-foreground mb-4">Taloudellinen turva vahinkotilanteissa</h3>
+                 </div>
+                 <div>
+                   <h3 className="text-2xl font-bold text-foreground mb-4">Vakuutusturva antaa turvaa pahimman sattuessa</h3>
                    <p className="text-lg text-muted-foreground leading-relaxed">
-                     Koska nettirikolliset kehittyvät jatkuvasti eikä mikään palvelu ole täysin aukoton, tuotteeseemme sisältyy myös vakuutus, joka tarjoaa taloudellista turvaa vahinkotilanteissa.
+                     Jos vahinko silti tapahtuu, et jää yksin. Henkilösuoja sisältää vakuutuksen ja tukipalvelut, jotka auttavat esimerkiksi identiteettivarkauden, SIM-kortin kaappauksen, verkkohäirinnän ja taloudellisten menetysten sattuessa. Käytössäsi on asiantuntijatuki ja korvaus turvaksi.
                    </p>
-                    </div>
+                 </div>
                   </div>
                
                {/* Right side - henkilösuoja 5.png image */}
-               <div className="hidden lg:block lg:flex lg:justify-center lg:items-center">
+               <div className="hidden lg:block lg:flex lg:justify-end lg:items-center mt-24 translate-x-32 lg:translate-x-48 xl:translate-x-64">
                  <img 
-                   src="/kuvapankki/henkilösuoja 5.png" 
+                   src="/kuvapankki/Kappaleen teksti (40).png" 
                    alt="Henkilösuoja 5 kuva" 
-                   className="w-full h-auto max-w-md lg:max-w-lg xl:max-w-xl"
+                   className="w-[800px] h-auto max-w-[800px] lg:max-w-[900px] xl:max-w-[1000px]"
                    style={{ 
                      background: 'transparent', 
                      backgroundColor: 'transparent'
@@ -204,11 +204,11 @@ const Identiteettiturva = () => {
             </div>
             
             {/* Mobile image - shown after content on mobile */}
-            <div className="lg:hidden flex justify-center mt-8 mb-8">
+            <div className="lg:hidden flex justify-center items-center mt-16 mb-8 mx-auto">
               <img 
-                src="/kuvapankki/henkilösuoja 5.png" 
+                src="/kuvapankki/Kappaleen teksti (40).png" 
                 alt="Henkilösuoja 5 kuva" 
-                className="w-full h-auto max-w-sm"
+                className="w-[600px] h-auto max-w-[600px] md:w-[800px] md:max-w-[800px]"
                 style={{ 
                   background: 'transparent', 
                   backgroundColor: 'transparent'
@@ -234,35 +234,35 @@ const Identiteettiturva = () => {
                    Verkkorikollisuus, tietovuodot ja identiteettivarkaudet ovat yleistyneet merkittävästi viime vuosina. Jo pelkän sähköpostiosoitteen ja salasanan avulla rikolliset voivat saada pääsyn henkilökohtaisiin tileihisi, tehdä ostoksia nimissäsi tai hakea lainaa luvattomasti. Digitaalinen identiteetti on nyky-yhteiskunnassa arvokas resurssi ja sen väärinkäyttö voi aiheuttaa vakavia taloudellisia sekä juridisia seurauksia. Siksi yksilön tunnistetietojen suojaaminen tulisi nähdä yhtä tärkeänä kuin pankkitunnusten turvaaminen.
                  </p>
                  
-                                                                       <div className="flex flex-col lg:flex-row justify-center space-y-6 lg:space-y-0 lg:space-x-6">
-                     <div className="bg-gradient-to-br from-blue-950 to-blue-900 rounded-2xl py-8 px-4 text-center max-w-md mx-auto lg:mx-0">
+                 <div className="flex flex-col lg:flex-row justify-center space-y-6 lg:space-y-0 lg:space-x-6">
+                   <div className="bg-gradient-to-br from-blue-950 to-blue-900 rounded-2xl py-8 px-4 text-center max-w-md mx-auto lg:mx-0">
+                    <div className="text-3xl lg:text-4xl font-bold text-white mb-2">
+                      62,9M €
+                    </div>
+                    <p className="text-white text-sm">
+                      Vuonna 2024 suomalaiset menettivät nettihuijauksiin 62,9 miljoonaa euroa, joka on 40 % enemmän kuin vuonna 2023, jolloin summa oli 44,2 miljoonaa euroa.
+                    </p>
+                      <p className="text-white/80 text-xs mt-2">* Finanssiala ry</p>
+                   </div>
+                   
+                   <div className="bg-gradient-to-br from-blue-950 to-blue-900 rounded-2xl py-8 px-4 text-center max-w-md mx-auto lg:mx-0">
                       <div className="text-3xl lg:text-4xl font-bold text-white mb-2">
-                        62,9M €
+                        107,8M €
                       </div>
                       <p className="text-white text-sm">
-                        Vuonna 2024 suomalaiset menettivät nettihuijauksiin 62,9 miljoonaa euroa, joka on 40 % enemmän kuin vuonna 2023, jolloin summa oli 44,2 miljoonaa euroa.
+                        Yritettyjä huijausyrityksiä oli 107,2 milj. euroa vuonna 2024, kun taas pankit onnistuivat estämään ja palauttamaan 44,3 milj. euroa.
                       </p>
-                        <p className="text-white/80 text-xs mt-2">* Finanssiala ry</p>
-                     </div>
-                     
-                     <div className="bg-gradient-to-br from-blue-950 to-blue-900 rounded-2xl py-8 px-4 text-center max-w-md mx-auto lg:mx-0">
-                        <div className="text-3xl lg:text-4xl font-bold text-white mb-2">
-                          107,8M €
-                        </div>
-                        <p className="text-white text-sm">
-                          Yritettyjä huijausyrityksiä oli 107,2 milj. euroa vuonna 2024, kun taas pankit onnistuivat estämään ja palauttamaan 44,3 milj. euroa.
-                        </p>
-                        <p className="text-white/80 text-xs mt-2">* Finanssiala ry</p>
-                     </div>
-                     
-                     <div className="bg-gradient-to-br from-blue-950 to-blue-900 rounded-2xl py-8 px-4 text-center max-w-md mx-auto lg:mx-0">
-                        <div className="text-3xl lg:text-4xl font-bold text-white mb-2">
-                          70%
-                        </div>
-                        <p className="text-white text-sm">
-                          Lähes 70 % suomalaisista on ollut digihuijausten uhreja tai kohdannut yrityksiä, joissa heitä on yritetty huijata.
-                        </p>
-                        <p className="text-white/80 text-xs mt-2">* Finanssiala ry</p>
+                      <p className="text-white/80 text-xs mt-2">* Finanssiala ry</p>
+                   </div>
+                   
+                   <div className="bg-gradient-to-br from-blue-950 to-blue-900 rounded-2xl py-8 px-4 text-center max-w-md mx-auto lg:mx-0">
+                      <div className="text-3xl lg:text-4xl font-bold text-white mb-2">
+                        70%
+                      </div>
+                      <p className="text-white text-sm">
+                        Lähes 70 % suomalaisista on ollut digihuijausten uhreja tai kohdannut yrityksiä, joissa heitä on yritetty huijata.
+                      </p>
+                      <p className="text-white/80 text-xs mt-2">* Finanssiala ry</p>
                    </div>
                  </div>
                </div>
@@ -643,7 +643,7 @@ const Identiteettiturva = () => {
                  >
                    <h3 className="text-2xl font-bold text-foreground mb-4">Tietojen suoja</h3>
                    <p className="text-foreground leading-relaxed">
-                     Valvo henkilökohtaisia tietojasi ja saa ilmoituksia, jos ne päätyvät luvattomiin käsiin. Se seuraa puhelinnumeroita, sähköposteja, henkilötunnuksia sekä pankki- ja korttitietoja ja ohjeistaa tietovuotojen estämisessä.
+                     Valvoo henkilökohtaisia tietojasi ja saat ilmoituksen, jos ne päätyvät luvattomiin käsiin. Se seuraa puhelinnumeroita, sähköposteja, henkilötunnuksia sekä pankki- ja korttitietoja ja ohjeistaa tietovuotojen estämisessä.
                    </p>
                  </motion.div>
                  
