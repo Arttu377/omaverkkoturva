@@ -40,6 +40,22 @@ const Hero = memo(() => {
   // All blog posts and articles data (ordered by publication date, newest first)
   const allPublications = [
     {
+      slug: 'verkkorikollisuus-suomessa-ja-pohjoismaissa',
+      title: 'Verkkorikollisuus Suomessa ja Pohjoismaissa: Tilannekuva ja torjunnan haasteet',
+      description: 'Vuonna 2024 suomalaisilta yritettiin huijata 107,2 miljoonaa euroa. Tutustu Pohjoismaiden verkkorikollisuuden tilannekuvaan.',
+      category: 'Artikkeli',
+      image: '/kuvapankki/Kappaleen teksti (73).png',
+      type: 'article'
+    },
+    {
+      slug: 'suomen-haavoittuvuus-ja-kyberuhkien-luonne',
+      title: 'Suomen haavoittuvuus ja kyberuhkien luonne',
+      description: 'Kyberturvallisuus ei ole enää vain teknisten järjestelmien ominaisuus, vaan yhteiskunnan ja yksilön turvallisuuden kulmakivi.',
+      category: 'Artikkeli',
+      image: '/kuvapankki/Kappaleen teksti (71).png',
+      type: 'article'
+    },
+    {
       slug: 'suomen-kyberturvallisuustilanne-2025',
       title: 'Suomen kyberturvallisuustilanne vuonna 2025',
       description: 'Suomen kyberturvallisuuden uhkataso pysyy korkealla. Tutustu ajankohtaiseen tilanteeseen.',

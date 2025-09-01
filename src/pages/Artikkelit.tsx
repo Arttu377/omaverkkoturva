@@ -12,23 +12,25 @@ const Artikkelit = () => {
   
   const articles = [
     {
+      slug: 'verkkorikollisuus-suomessa-ja-pohjoismaissa',
+      title: 'Verkkorikollisuus Suomessa ja Pohjoismaissa: Tilannekuva ja torjunnan haasteet',
+      description: 'Vuonna 2024 suomalaisilta yritettiin huijata 107,2 miljoonaa euroa. Tutustu Pohjoismaiden verkkorikollisuuden tilannekuvaan.',
+      category: 'Kyberturvallisuus',
+      image: '/kuvapankki/Kappaleen teksti (73).png'
+    },
+    {
+      slug: 'suomen-haavoittuvuus-ja-kyberuhkien-luonne',
+      title: 'Suomen haavoittuvuus ja kyberuhkien luonne',
+      description: 'Kyberturvallisuus ei ole enää vain teknisten järjestelmien ominaisuus, vaan yhteiskunnan ja yksilön turvallisuuden kulmakivi.',
+      category: 'Kyberturvallisuus',
+      image: '/kuvapankki/Kappaleen teksti (71).png'
+    },
+    {
       slug: 'suomen-kyberturvallisuustilanne-2025',
       title: 'Suomen kyberturvallisuustilanne vuonna 2025',
       description: 'Suomen kyberturvallisuuden uhkataso pysyy korkealla. Tutustu ajankohtaiseen tilanteeseen ja yhteiskunnallisiin haasteisiin.',
       category: 'Kyberturvallisuus',
       image: '/kuvapankki/Kappaleen teksti (70).png'
-    },
-    {
-      slug: 'coming-soon-2',
-      title: 'Tulossa pian...',
-      description: 'Uusi artikkeli tietoturvasta ja identiteettisuojasta.',
-      category: 'Identiteettisuoja'
-    },
-    {
-      slug: 'coming-soon-3',
-      title: 'Tulossa pian...',
-      description: 'Uusi artikkeli tietoturvasta ja identiteettisuojasta.',
-      category: 'Verkkoturvallisuus'
     }
   ];
 

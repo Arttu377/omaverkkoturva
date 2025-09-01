@@ -25,6 +25,8 @@ import TietojenkalastelunEstaminen from "./pages/blog/TietojenkalastelunEstamine
 import Verkkokauppahuijaukset from "./pages/blog/Verkkokauppahuijaukset";
 import Nettikiusaaminen from "./pages/blog/Nettikiusaaminen";
 import SuomenKyberturvallisuustilanne2025 from "./pages/blog/SuomenKyberturvallisuustilanne2025";
+import SuomenHaavoittuvuusJaKyberuhkienLuonne from "./pages/blog/SuomenHaavoittuvuusJaKyberuhkienLuonne";
+import VerkkorikollisuusSuomessaJaPohjoismaissa from "./pages/blog/VerkkorikollisuusSuomessaJaPohjoismaissa";
 import Irtisanomislomake from "./pages/Irtisanomislomake";
 import Contact from "./pages/Contact";
 import Verkkokauppa from "./pages/Verkkokauppa";
@@ -60,9 +62,11 @@ const App = () => {
               <Route path="/blog/kaksivaiheinen-tunnistus" element={<KaksivaiheinenTunnistus />} />
               <Route path="/blog/tietojenkalastelun-estaminen" element={<TietojenkalastelunEstaminen />} />
               <Route path="/blog/verkkokauppahuijaukset" element={<Verkkokauppahuijaukset />} />
-              <Route path="/blog/nettikiusaaminen" element={<Nettikiusaaminen />} />
-              <Route path="/blog/suomen-kyberturvallisuustilanne-2025" element={<SuomenKyberturvallisuustilanne2025 />} />
-              <Route path="/artikkelit" element={<Artikkelit />} />
+                          <Route path="/blog/nettikiusaaminen" element={<Nettikiusaaminen />} />
+            <Route path="/blog/suomen-kyberturvallisuustilanne-2025" element={<SuomenKyberturvallisuustilanne2025 />} />
+            <Route path="/blog/suomen-haavoittuvuus-ja-kyberuhkien-luonne" element={<SuomenHaavoittuvuusJaKyberuhkienLuonne />} />
+            <Route path="/blog/verkkorikollisuus-suomessa-ja-pohjoismaissa" element={<VerkkorikollisuusSuomessaJaPohjoismaissa />} />
+            <Route path="/artikkelit" element={<Artikkelit />} />
               <Route path="/verkkokauppa" element={<Verkkokauppa />} />
               <Route path="/irtisanomislomake" element={<Irtisanomislomake />} />
               <Route path="/ota-yhteytta" element={<Contact />} />

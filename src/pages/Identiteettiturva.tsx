@@ -254,11 +254,11 @@ const Identiteettiturva = () => {
                     </div>
                   </div>
                   
-                  <div className="hidden lg:flex lg:justify-end lg:items-start">
+                  <div className="flex justify-center lg:justify-end items-start">
                     <img 
                       src="/kuvapankki/Kappaleen teksti (60).png" 
                       alt="Identiteettiturva kuva" 
-                      className="w-[500px] h-auto max-w-[500px] lg:max-w-[600px] xl:max-w-[700px] -mt-16"
+                      className="w-full max-w-[400px] md:max-w-[500px] lg:max-w-[600px] xl:max-w-[700px] h-auto -mt-8 lg:-mt-16"
                       style={{ 
                         background: 'transparent', 
                         backgroundColor: 'transparent'
