@@ -24,6 +24,7 @@ import KaksivaiheinenTunnistus from "./pages/blog/KaksivaiheinenTunnistus";
 import TietojenkalastelunEstaminen from "./pages/blog/TietojenkalastelunEstaminen";
 import Verkkokauppahuijaukset from "./pages/blog/Verkkokauppahuijaukset";
 import Nettikiusaaminen from "./pages/blog/Nettikiusaaminen";
+import SuomenKyberturvallisuustilanne2025 from "./pages/blog/SuomenKyberturvallisuustilanne2025";
 import Irtisanomislomake from "./pages/Irtisanomislomake";
 import Contact from "./pages/Contact";
 import Verkkokauppa from "./pages/Verkkokauppa";
@@ -60,6 +61,7 @@ const App = () => {
               <Route path="/blog/tietojenkalastelun-estaminen" element={<TietojenkalastelunEstaminen />} />
               <Route path="/blog/verkkokauppahuijaukset" element={<Verkkokauppahuijaukset />} />
               <Route path="/blog/nettikiusaaminen" element={<Nettikiusaaminen />} />
+              <Route path="/blog/suomen-kyberturvallisuustilanne-2025" element={<SuomenKyberturvallisuustilanne2025 />} />
               <Route path="/artikkelit" element={<Artikkelit />} />
               <Route path="/verkkokauppa" element={<Verkkokauppa />} />
               <Route path="/irtisanomislomake" element={<Irtisanomislomake />} />

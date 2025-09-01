@@ -127,15 +127,17 @@ const Navbar = () => {
                           Julkaisut
                         </NavigationMenuTrigger>
                         <NavigationMenuContent>
-                          <ul className="grid gap-1 p-2 w-[200px] bg-white shadow-lg border rounded-md">
+                          <ul className="grid gap-3 p-4 w-[300px] bg-white shadow-lg border rounded-md">
                             <li>
-                              <Link to="/artikkelit" className="block px-3 py-2 rounded-md hover:bg-gray-100 text-gray-900 font-medium">
-                                Artikkelit
+                              <Link to="/artikkelit" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
+                                <div className="font-medium text-gray-900">Artikkelit</div>
+                                <p className="text-sm text-gray-500">Ajankohtaisia artikkeleita tietoturvasta</p>
                               </Link>
                             </li>
                             <li>
-                              <Link to="/blog" className="block px-3 py-2 rounded-md hover:bg-gray-100 text-gray-900 font-medium">
-                                Blogi
+                              <Link to="/blog" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
+                                <div className="font-medium text-gray-900">Blogi</div>
+                                <p className="text-sm text-gray-500">Vinkkejä ja ohjeita identiteettisuojasta</p>
                               </Link>
                             </li>
                           </ul>

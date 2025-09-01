@@ -1,5 +1,5 @@
 
-import { ArrowRight, Bell, FileText, Shield, Clock, Search, AlertTriangle, CheckCircle, Loader2 } from "lucide-react";
+import { ArrowRight, Bell, FileText, Shield, Clock, Search, AlertTriangle, CheckCircle, Loader2, ChevronDown } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -33,6 +33,100 @@ const Hero = memo(() => {
   const [isSearching, setIsSearching] = useState(false);
   const [searchResult, setSearchResult] = useState<any>(null);
   const [searchError, setSearchError] = useState("");
+
+  // State for publications navigation
+  const [currentPublicationIndex, setCurrentPublicationIndex] = useState(0);
+
+  // All blog posts and articles data (ordered by publication date, newest first)
+  const allPublications = [
+    {
+      slug: 'suomen-kyberturvallisuustilanne-2025',
+      title: 'Suomen kyberturvallisuustilanne vuonna 2025',
+      description: 'Suomen kyberturvallisuuden uhkataso pysyy korkealla. Tutustu ajankohtaiseen tilanteeseen.',
+      category: 'Artikkeli',
+      image: '/kuvapankki/Kappaleen teksti (70).png',
+      type: 'article'
+    },
+    {
+      slug: 'nettikiusaaminen',
+      title: 'Nettikiusaaminen',
+      description: 'Nettikiusaamisen tunnistaminen ja vastustaminen.',
+      category: 'Blogi',
+      image: '/kuvapankki/Kappaleen teksti (66).png',
+      type: 'blog'
+    },
+    {
+      slug: 'verkkokauppahuijaukset',
+      title: 'Verkkokauppahuijaukset',
+      description: 'Yleisimmät verkkokauppahuijaukset ja miten välttää niitä.',
+      category: 'Blogi',
+      image: '/kuvapankki/Kappaleen teksti (65).png',
+      type: 'blog'
+    },
+    {
+      slug: 'tietojenkalastelun-estaminen',
+      title: 'Tietojenkalastelun estäminen',
+      description: 'Miten tunnistaa ja välttää tietojenkalasteluyritykset.',
+      category: 'Blogi',
+      image: '/kuvapankki/Kappaleen teksti (64).png',
+      type: 'blog'
+    },
+    {
+      slug: 'kaksivaiheinen-tunnistus',
+      title: 'Kaksivaiheinen tunnistus',
+      description: 'Miksi kaksivaiheinen tunnistus on tärkeä ja miten se suojaa tilejäsi.',
+      category: 'Blogi',
+      image: '/kuvapankki/Kappaleen teksti (63).png',
+      type: 'blog'
+    },
+    {
+      slug: 'salasanan-suojaus',
+      title: 'Salasanan suojaus',
+      description: 'Vahvojen salasanojen luominen ja hallinta.',
+      category: 'Blogi',
+      image: '/kuvapankki/salasana.png',
+      type: 'blog'
+    },
+    {
+      slug: 'tietovuotojen-vaikutukset',
+      title: 'Tietovuotojen vaikutukset',
+      description: 'Mitä tietovuodot merkitsevät sinulle ja miten suojautua niiltä.',
+      category: 'Blogi',
+      image: '/kuvapankki/dataleak.png',
+      type: 'blog'
+    },
+    {
+      slug: 'verkkoturvallisuus-2025',
+      title: 'Verkkoturvallisuus 2025',
+      description: 'Uusimmat verkkoturvallisuuden uhkat ja suojautumiskeinot.',
+      category: 'Blogi',
+      image: '/kuvapankki/Cyper.jpg',
+      type: 'blog'
+    },
+    {
+      slug: 'identiteettivarkauden-estaminen',
+      title: 'Identiteettivarkauden estäminen',
+      description: 'Opas identiteettivarkauden estämiseen ja suojautumiseen verkossa.',
+      category: 'Blogi',
+      image: '/kuvapankki/identi.png',
+      type: 'blog'
+    }
+  ];
+
+  // Filter out articles that are not published yet
+  const publishedPosts = allPublications.filter(post => post.title !== 'Tulossa pian...');
+
+  // Get current 3 posts to display
+  const currentPosts = publishedPosts.slice(currentPublicationIndex, currentPublicationIndex + 3);
+
+  // Navigation functions
+  const goToPrevious = () => {
+    setCurrentPublicationIndex(prev => Math.max(0, prev - 3));
+  };
+
+  const goToNext = () => {
+    setCurrentPublicationIndex(prev => Math.min(publishedPosts.length - 3, prev + 3));
+  };
 
   // Function to open modal with content
   const openModal = (title: string, content: string) => {
@@ -1219,59 +1313,66 @@ const Hero = memo(() => {
             </h2>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {/* Article Card 1 */}
-            <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden">
-              <div className="h-48 bg-gray-200 flex items-center justify-center">
-                <div className="text-center text-gray-500">
-                  <p className="text-sm">Kuva tulossa pian</p>
-                </div>
-              </div>
-              <div className="p-6">
-                <div className="inline-block bg-blue-100 text-blue-900 text-xs font-medium px-3 py-1 rounded-full mb-3">
-                  Ajankohtaista
-                </div>
-                <h3 className="text-lg font-bold text-black mb-2">
-                  
-                </h3>
-                <p className="text-sm text-gray-600"></p>
-              </div>
-            </div>
+          <div className="relative max-w-6xl mx-auto">
+                              {/* Left arrow */}
+                  <button
+                    onClick={goToPrevious}
+                    disabled={currentPublicationIndex === 0}
+                    className={`absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-8 z-10 bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg hover:bg-white transition-colors ${
+                      currentPublicationIndex === 0 ? 'opacity-50 cursor-not-allowed' : ''
+                    }`}
+                  >
+                    <ChevronDown className="w-6 h-6 text-gray-600 rotate-90" />
+                  </button>
+
+                  {/* Right arrow */}
+                  <button
+                    onClick={goToNext}
+                    disabled={currentPublicationIndex >= publishedPosts.length - 3}
+                    className={`absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-8 z-10 bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg hover:bg-white transition-colors ${
+                      currentPublicationIndex >= publishedPosts.length - 3 ? 'opacity-50 cursor-not-allowed' : ''
+                    }`}
+                  >
+                    <ChevronDown className="w-6 h-6 text-gray-600 -rotate-90" />
+                  </button>
             
-            {/* Article Card 2 */}
-            <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden">
-              <div className="h-48 bg-gray-200 flex items-center justify-center">
-                <div className="text-center text-gray-500">
-                  <p className="text-sm">Kuva tulossa pian</p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {currentPosts.map((post, index) => (
+              <Link 
+                key={post.slug} 
+                to={post.type === 'blog' ? `/blog/${post.slug}` : `/artikkelit`}
+                className="block"
+              >
+                <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                  <div className="h-48 bg-gray-200 flex items-center justify-center overflow-hidden">
+                    {post.image ? (
+                      <img 
+                        src={post.image} 
+                        alt={post.title}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <div className="text-center text-gray-500">
+                        <p className="text-sm">Kuva tulossa pian</p>
+                      </div>
+                    )}
+                  </div>
+                  <div className="p-6">
+                    <div className={`inline-block text-xs font-medium px-3 py-1 rounded-full mb-3 ${
+                      post.type === 'blog' 
+                        ? 'bg-blue-100 text-blue-900' 
+                        : 'bg-blue-900 text-white'
+                    }`}>
+                      {post.category}
+                    </div>
+                    <h3 className="text-lg font-bold text-black mb-2">
+                      {post.title}
+                    </h3>
+                    <p className="text-sm text-gray-600">{post.description}</p>
+                  </div>
                 </div>
-              </div>
-              <div className="p-6">
-                <div className="inline-block bg-blue-100 text-blue-900 text-xs font-medium px-3 py-1 rounded-full mb-3">
-                  Ajankohtaista
-                </div>
-                <h3 className="text-lg font-bold text-black mb-2">
-                  
-                </h3>
-                <p className="text-sm text-gray-600"></p>
-              </div>
-            </div>
-            
-            {/* Article Card 3 */}
-            <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden">
-              <div className="h-48 bg-gray-200 flex items-center justify-center">
-                <div className="text-center text-gray-500">
-                  <p className="text-sm">Kuva tulossa pian</p>
-                </div>
-              </div>
-              <div className="p-6">
-                <div className="inline-block bg-blue-900 text-white text-xs font-medium px-3 py-1 rounded-full mb-3">
-                  Artikkelit
-                </div>
-                <h3 className="text-lg font-bold text-black mb-2">
-                  
-                </h3>
-                <p className="text-sm text-gray-600"></p>
-              </div>
+              </Link>
+            ))}
             </div>
           </div>
         </div>

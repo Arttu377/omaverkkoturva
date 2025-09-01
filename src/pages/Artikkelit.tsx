@@ -12,10 +12,11 @@ const Artikkelit = () => {
   
   const articles = [
     {
-      slug: 'coming-soon-1',
-      title: 'Tulossa pian...',
-      description: 'Uusi artikkeli tietoturvasta ja identiteettisuojasta.',
-      category: 'Tietoturva'
+      slug: 'suomen-kyberturvallisuustilanne-2025',
+      title: 'Suomen kyberturvallisuustilanne vuonna 2025',
+      description: 'Suomen kyberturvallisuuden uhkataso pysyy korkealla. Tutustu ajankohtaiseen tilanteeseen ja yhteiskunnallisiin haasteisiin.',
+      category: 'Kyberturvallisuus',
+      image: '/kuvapankki/Kappaleen teksti (70).png'
     },
     {
       slug: 'coming-soon-2',
@@ -44,7 +45,7 @@ const Artikkelit = () => {
           {/* Header */}
           <div className="text-center mb-16">
             <h1 className="text-6xl lg:text-7xl font-bold text-gray-900 mb-6">
-              Artikkelit
+              Artikkeli
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Seuraa uusimpia artikkeleita tietoturvasta ja identiteettisuojasta.
@@ -63,6 +64,13 @@ const Artikkelit = () => {
                       {article.category}
                     </Badge>
                   </div>
+                  {article.image && (
+                    <img
+                      src={article.image}
+                      alt={article.title}
+                      className="w-full h-32 object-cover rounded-lg mb-4"
+                    />
+                  )}
                   <CardTitle className="text-xl font-semibold text-gray-900 leading-tight">
                     {article.title}
                   </CardTitle>
