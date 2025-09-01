@@ -336,7 +336,7 @@ const Hero = memo(() => {
             
             <motion.div className="text-center mb-16 md:mb-24" variants={fadeInUpVariants}>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Pidä identiteettisi turvassa<br />
+                Pidämme identiteettisi turvassa<br />
                 edistyksellisin ratkaisuin
               </h2>
               <p className="text-lg text-gray-700 mb-12 md:mb-16">
@@ -859,10 +859,15 @@ const Hero = memo(() => {
           className="relative w-full bg-white py-24"
           style={{ position: 'relative', zIndex: 10 }}
         >
+          <img 
+            src="/kuvapankki/Kappaleen teksti (59).png" 
+            alt="Huijausmuotoja" 
+            className="hidden lg:block absolute -left-20 top-1/3 transform -translate-y-1/2 w-48 h-48 md:w-64 md:h-64 object-contain opacity-60"
+          />
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-4xl mx-auto mb-16">
+            <div className="text-center max-w-4xl mx-auto mb-24">
                                                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
-                              Esimerkkitapauksia<br />identiteettivarkaudesta
+                              Nykypäivän yleisimpiä<br />huijausmuotoja
                             </h2>
             </div>
             
@@ -883,15 +888,18 @@ const Hero = memo(() => {
                     repeatType: "reverse" 
                   } 
                 }}
-                onClick={() => openModal("Tietojenkalastelu", "Nina sai aidolta näyttävän sähköpostin pankiltaan. Hän klikkasi viestissä ollutta linkkiä ja kirjautui sisään sivulle, joka olikin huijaussivusto. Tietojen avulla rikollinen otti hänen nimissään kolme pikavippiä (yhteensä 11 200€), vaihdatutti hänen postiosoitteensa sekä puhelinnumeronsa ja yritti avata verkkopankkitilejä ja maksukortteja. Palveluun sisältyvä vakuutus korvaa jopa 13 500 € taloudelliset menetykset ja asiantuntijat auttavat asian läpiviennissä.")}
+                onClick={() => openModal("Kuinka suojatua kohdennetulta kalastelulta?", "• Tarkista lähettäjän tiedot: Ole epäilevä, jos viesti tulee tuntemattomalta tai henkilöltä, jonka sähköposti tai puhelinnumero ei näytä oikealta.<br><br>• Älä klikkaa linkkejä tai liitteitä suoraan: Jos viestissä on linkki, kirjoita URL itse selaimeen tai käytä virallista sovellusta.<br><br>• Vahvista pyyntöjä erikseen: Jos viesti pyytää rahaa tai tietoja, ota yhteyttä organisaatioon virallisen kanavan kautta ennen toimimista.<br><br>• Käytä kaksivaiheista tunnistautumista (2FA): Sähköpostin ja pankkitilien suojaaminen 2FA:lla vähentää riskin, vaikka tunnukset vuotaisivat.")}
               >
-                               <div className="flex items-center space-x-4 mb-4 md:mb-6">
+                <div className="flex items-center space-x-4 mb-4 md:mb-6">
                  <div className="w-8 h-8 bg-blue-900/80 rounded-lg flex items-center justify-center shadow-lg">
                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
                    </svg>
                  </div>
-                 <h3 className="text-xl md:text-2xl font-bold text-white">Tietojenkalastelu</h3>
+                 <h3 className="text-xl md:text-2xl font-bold text-white">Kohdennettu kalastelu</h3>
+               </div>
+               <div className="text-sm text-blue-100 leading-relaxed">
+                 Yleisempien huijausten lisäksi voi esiintyä myös kohdennetumpaa kalastelua, jossa hyödynnetään esimerkiksi aikaisemmista vuodoista saatuja tietoja uskottavuuden lisäämiseksi.
                </div>
               </motion.div>
               
@@ -911,15 +919,18 @@ const Hero = memo(() => {
                     repeatType: "reverse" 
                   } 
                 }}
-                onClick={() => openModal("Verkkokauppahuijaus", "Timo löysi verkosta edullisen tarjouksen uusista kuulokkeista tunnetulta brändiltä. Hinta oli lähes puolet halvempi kuin muualla, ja verkkosivusto näytti aidolla. Logo, arvostelut ja maksutavat kaikki kunnossa. Hän maksoi 129 € pankkikortilla. Tilauksen jälkeen tuotetta ei koskaan saapunut ja verkkokauppa katosi muutamassa päivässä. Koska ostoksen hinta oli 50-700 € välillä, Timo saa rahansa takaisin verkkokauppahuijaukset kattavan vakuutuksen ansiosta.")}
+                onClick={() => openModal("Kuinka suojautua pankkitietojen ja verkkopankkitunnusten kalastelulta", "• Älä koskaan anna tunnuksia sähköpostissa tai puhelimessa: Pankit ja verottaja eivät pyydä tunnuksia näin.<br><br>• Varmista sivuston osoite: Tarkista, että verkkosivun osoite alkaa https:// ja on pankin/viranomaisen virallinen domain.<br><br>• Hallitse salasanoja ja tunnuksia huolellisesti: Käytä vahvoja salasanoja ja erillisiä tunnuksia eri palveluissa.<br><br>• Ilmoita epäilyttävästä viestistä pankille: Useimmat pankit tarjoavat osoitteet huijausviestien raportointiin.")}
               >
-                               <div className="flex items-center space-x-4 mb-4 md:mb-6">
+                <div className="flex items-center space-x-4 mb-4 md:mb-6">
                  <div className="w-8 h-8 bg-blue-900/80 rounded-lg flex items-center justify-center shadow-lg">
                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
                    </svg>
                  </div>
-                 <h3 className="text-xl md:text-2xl font-bold text-white">Verkkokauppahuijaus</h3>
+                 <h3 className="text-xl md:text-2xl font-bold text-white">Pankkitietojen ja verkkopankkitunnusten kalastelu</h3>
+               </div>
+               <div className="text-sm text-blue-100 leading-relaxed">
+                 Näissä tapauksissa uhrilta pyydetään verkkopankkitunnuksia tai muita henkilökohtaisia tietoja, usein tekaistun "OmaVero"-sivuston tai muiden uskottavilta näyttävien tahojen nimissä.
                </div>
               </motion.div>
               
@@ -939,15 +950,18 @@ const Hero = memo(() => {
                     repeatType: "reverse" 
                   } 
                 }}
-                onClick={() => openModal("Sovellushankinnat", "Sannan 9-vuotias poika sai pelata hetken äidin puhelimella. Hän latasi vahingossa pelisovelluksen, joka näytti ilmaiselta mutta sisälsi kalliin 112 euron tilauksen. Maksu veloittui heti, koska maksukortti oli tallennettuna puhelimeen. Vakuutus korvaa kulut, jotka liittyvät alle 10-vuotiaan vahingossa tekemiin sovellusostoihin (alle 135 €) suurimmilla alustoilla, kuten mm. App Storessa, Google Playssa tai Steamissa.")}
+                onClick={() => openModal("Kuinka suojautua veronpalautushuijauksilta", "• Älä täytä tietoja epäilyttävillä sivustoilla: Veroilmoitukset ja palautukset tehdään aina virallisella OmaVero-palvelulla (vero.fi).<br><br>• Tarkista lähde: Viranomaiset eivät koskaan lähetä sähköpostia, jossa pyydetään salasanaa tai pankkitunnuksia.<br><br>• Poista epäilyttävät viestit: Älä avaa liitteitä tai linkkejä.<br><br>• Raportoi huijauksesta: Traficomin Kyberturvallisuuskeskus vastaanottaa ilmoituksia huijausviesteistä.")}
               >
-                               <div className="flex items-center space-x-4 mb-4 md:mb-6">
+                <div className="flex items-center space-x-4 mb-4 md:mb-6">
                  <div className="w-8 h-8 bg-blue-900/80 rounded-lg flex items-center justify-center shadow-lg">
                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                    </svg>
                  </div>
-                 <h3 className="text-xl md:text-2xl font-bold text-white">Sovellushankinnat</h3>
+                 <h3 className="text-xl md:text-2xl font-bold text-white">Veronpalautushuijaukset</h3>
+               </div>
+               <div className="text-sm text-blue-100 leading-relaxed">
+                 Traficomin Kyberturvallisuuskeskus on varoittanut veronpalautuksiin liittyvistä huijausviesteistä, joissa väitetään rahan olevan saatavilla täyttämällä tiedot huijaussivustolla.
                </div>
               </motion.div>
               
@@ -967,15 +981,18 @@ const Hero = memo(() => {
                     repeatType: "reverse" 
                   } 
                 }}
-                onClick={() => openModal("Nettikiusaaminen", "Emilia joutui nettikiusaamisen kohteeksi sen jälkeen, kun hänen TikTok-videonsa levisi yllättäen laajalle. Tuntemattomat ihmiset alkoivat kommentoida videoita loukkaavasti ja joku perusti tekaistun tilin hänen nimellään ja profiilikuvallaan. Väärennetyllä tilillä julkaistiin sisältöä, joka sai Emilian näyttämään nololta. Hän saa asiantuntijoilta neuvoja ja apuja (25 h) sisällön poistoon ja tilien palautukseen. Tarvittaessa hänen käytössä on myös oikeudellinen tuki ja psykologinen kriisiapu.")}
+                onClick={() => openModal("Kuinka suojautua pakettihuijauksilta?", "• Älä seuraa linkkejä epäilyttäviin sivustoihin: Jos viestissä väitetään paketin olevan jumissa, tarkista tilaus suoraan verkkokaupan tai kuriirin viralliselta sivulta.<br><br>• Tarkista lähettäjä: Katso, vastaako lähettäjän sähköposti tai numero oikeaa palvelua.<br><br>• Älä maksa ylimääräisiä maksuja tuntemattomille: Huijarit usein pyytävät ylimääräisiä 'maksuja' huijaussivustolla.<br><br>• Poista viesti ja raportoi: Useimmat kuriiripalvelut tarjoavat ohjeet huijausviestien raportointiin.")}
               >
-                               <div className="flex items-center space-x-4 mb-4 md:mb-6">
+                <div className="flex items-center space-x-4 mb-4 md:mb-6">
                  <div className="w-8 h-8 bg-blue-900/80 rounded-lg flex items-center justify-center shadow-lg">
                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
+                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                    </svg>
                  </div>
-                 <h3 className="text-xl md:text-2xl font-bold text-white">Nettikiusaaminen</h3>
+                 <h3 className="text-xl md:text-2xl font-bold text-white">Pakettihuijaukset</h3>
+               </div>
+               <div className="text-sm text-blue-100 leading-relaxed">
+                 Huijausviesteissä väitetään usein, että jokin paketti on jumissa tai että sinun tulee maksaa jotain pakettiin liittyen, ohjaten sinut huijaussivustolle pankkitunnistamisen toivossa.
                </div>
               </motion.div>
             </div>
@@ -1365,7 +1382,7 @@ const Hero = memo(() => {
           onClick={closeModal}
         >
           <motion.div
-            className="bg-white rounded-2xl p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto shadow-2xl"
+            className="bg-white rounded-2xl p-8 max-w-4xl w-full max-h-[80vh] overflow-y-auto shadow-2xl"
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
@@ -1380,7 +1397,7 @@ const Hero = memo(() => {
                 ×
               </button>
             </div>
-            <p className="text-gray-700 leading-relaxed text-lg">{modalContent}</p>
+            <div className="text-gray-700 leading-relaxed text-lg" dangerouslySetInnerHTML={{ __html: modalContent.replace(/\n/g, '<br>') }}></div>
           </motion.div>
         </motion.div>
       )}

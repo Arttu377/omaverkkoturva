@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import PageLayout from '@/components/PageLayout';
 import SEO from '@/components/SEO';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+
 const Identiteettiturva = () => {
   const [isAnimated, setIsAnimated] = useState(false);
   const [openCards, setOpenCards] = useState<{ [key: string]: boolean }>({});
@@ -38,10 +39,12 @@ const Identiteettiturva = () => {
     
     return () => observer.disconnect();
   }, []);
-  return <PageLayout>
+  
+  return (
+    <PageLayout>
       <SEO title="Identiteettiturva - Turvaa rahasi ja henkilötietosi" description="Kattava identiteettiturva joka havaitsee tietovuodot, tarjoaa vakuutusturvan 13 500 € asti ja suojaa huijauksilta." />
       
-              <div className="min-h-screen relative">
+      <div className="min-h-screen relative">
           {/* Navy blue gradient background for the entire page */}
           <div className="absolute inset-0 pointer-events-none" style={{
             background: `linear-gradient(
@@ -69,10 +72,11 @@ const Identiteettiturva = () => {
 
           
   
-        <div className="container mx-auto px-4 py-24">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="w-full py-24">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left side content */}
-            <div className="space-y-8">
+            <div className="space-y-8 pl-10 lg:pl-20">
               {/* Title section */}
               <div className="mb-8">
                 <h1 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight">
@@ -153,19 +157,19 @@ const Identiteettiturva = () => {
               />
             </div>
           </div>
-          
-
+        </div>
         </div>
         
         {/* How identity protection works section */}
-        <div className="container mx-auto px-4 py-24">
-          <div className="text-center mb-32">
-            <h2 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight">
-              Kuinka henkilösuoja sitten toimii?
-            </h2>
-          </div>
-          
-          <div className="max-w-6xl mx-auto">
+        <div className="w-full py-24">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-32">
+              <h2 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight">
+                Kuinka henkilösuoja sitten toimii?
+              </h2>
+            </div>
+            
+            <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
                {/* Left side - content */}
                <div className="space-y-20">
@@ -217,24 +221,55 @@ const Identiteettiturva = () => {
             </div>
           </div>
         </div>
+        </div>
         
         {/* Identity protection section */}
         <div className="relative py-12 px-6 lg:px-12">
           <div className="relative py-12">
           <div className="relative container mx-auto px-4">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight">
-                Identiteetti on nykyajan valuutta
-              </h2>
-              <h3 className="text-2xl lg:text-3xl font-semibold text-foreground mt-6 mb-8">
-                Yksi tietovuoto voi maksaa tuhansia euroja
-              </h3>
-               <div className="max-w-4xl mx-auto">
-                 <p className="text-lg text-foreground leading-relaxed mb-12 text-left sm:text-center ml-4 sm:ml-0 pr-4 sm:pr-0">
-                   Verkkorikollisuus, tietovuodot ja identiteettivarkaudet ovat yleistyneet merkittävästi viime vuosina. Jo pelkän sähköpostiosoitteen ja salasanan avulla rikolliset voivat saada pääsyn henkilökohtaisiin tileihisi, tehdä ostoksia nimissäsi tai hakea lainaa luvattomasti. Digitaalinen identiteetti on nyky-yhteiskunnassa arvokas resurssi ja sen väärinkäyttö voi aiheuttaa vakavia taloudellisia sekä juridisia seurauksia. Siksi yksilön tunnistetietojen suojaaminen tulisi nähdä yhtä tärkeänä kuin pankkitunnusten turvaaminen.
-                 </p>
-                 
-                 <div className="flex flex-col lg:flex-row justify-center space-y-6 lg:space-y-0 lg:space-x-6">
+                        <div className="mb-16">
+              <div className="max-w-3xl mx-auto mb-8">
+                <h2 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight text-center">
+                  Identiteetti on nykyajan valuutta
+                </h2>
+                <h3 className="text-2xl lg:text-3xl font-semibold text-foreground mt-6 mb-24 text-center">
+                  Yksi tietovuoto voi maksaa tuhansia euroja
+                </h3>
+              </div>
+              <div className="max-w-6xl mx-auto">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                  <div className="max-w-3xl">
+                    <div className="space-y-6 text-left">
+                      <p className="text-lg text-foreground leading-relaxed">
+                        Verkkorikollisuus, tietovuodot ja identiteettivarkaudet ovat yleistyneet merkittävästi viime vuosina. Jo pelkän sähköpostiosoitteen ja salasanan avulla rikolliset voivat saada pääsyn henkilökohtaisiin tileihisi, tehdä ostoksia nimissäsi tai hakea lainaa luvattomasti.
+                      </p>
+                      
+                      <p className="text-lg text-foreground leading-relaxed">
+                        Digitaalinen identiteetti on nyky-yhteiskunnassa arvokas resurssi ja sen väärinkäyttö voi aiheuttaa vakavia taloudellisia sekä juridisia seurauksia.
+                      </p>
+                      
+                      <p className="text-lg text-foreground leading-relaxed mb-16">
+                        Siksi yksilön tunnistetietojen suojaaminen tulisi nähdä yhtä tärkeänä kuin pankkitunnusten turvaaminen.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="hidden lg:flex lg:justify-end lg:items-start">
+                    <img 
+                      src="/kuvapankki/Kappaleen teksti (60).png" 
+                      alt="Identiteettiturva kuva" 
+                      className="w-[500px] h-auto max-w-[500px] lg:max-w-[600px] xl:max-w-[700px] -mt-16"
+                      style={{ 
+                        background: 'transparent', 
+                        backgroundColor: 'transparent'
+                      }}
+                    />
+                  </div>
+                </div>
+              </div>
+              
+              <div className="max-w-4xl mx-auto mt-16">
+                <div className="flex flex-col lg:flex-row justify-center space-y-6 lg:space-y-0 lg:space-x-6">
                    <div className="bg-gradient-to-br from-blue-950 to-blue-900 rounded-2xl py-8 px-4 text-center max-w-md mx-auto lg:mx-0">
                     <div className="text-3xl lg:text-4xl font-bold text-white mb-2">
                       62,9M €
@@ -720,7 +755,7 @@ const Identiteettiturva = () => {
           </div>
           
                      {/* Pricing section */}
-           <div className="container mx-auto py-24 relative">
+           <div className="w-full py-24 relative">
              {/* Background image for this section only */}
              <div className="absolute inset-0 w-full h-full z-0">
                <img 
@@ -732,7 +767,7 @@ const Identiteettiturva = () => {
              </div>
              
              {/* Content with higher z-index */}
-             <div className="relative z-20">
+             <div className="relative z-20 container mx-auto px-4">
             
             <div className="text-center mb-16 relative z-10">
               <h2 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-6">
@@ -880,7 +915,7 @@ const Identiteettiturva = () => {
                         </motion.p>
                       )}
                     </div>
-              </div>
+                  </div>
                 </motion.div>
                 
                 {/* FAQ Item 3 */}
@@ -994,6 +1029,7 @@ const Identiteettiturva = () => {
             </div>
           </div>
         </div>
-      </PageLayout>
+    </PageLayout>
+  );
 };
 export default Identiteettiturva;
