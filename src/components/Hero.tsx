@@ -1272,7 +1272,7 @@ const Hero = memo(() => {
             {/* Text section */}
             <div className="text-left">
               <h2 className="text-2xl md:text-3xl font-bold text-black mb-6">
-                Voit myös kokeilla identiteettisuojaa ilman sitoumuksia
+                Voit myös kokeilla henkilösuojaa ilman sitoumuksia
               </h2>
               <p className="text-base text-black leading-relaxed mb-6">
                 Kokeiluversio sisältää henkilötietojen tarkastuksen sekä monipuoliset työkalut, joilla voit ehkäistä tietojesi väärinkäyttöä ja havaita mahdollisia uhkia ajoissa. Saat 30 päivän ilmaisen käyttöjakson, jonka aikana voit rauhassa tutustua palvelun hyötyihin ja varmistaa, että tietosi ovat turvassa.

@@ -76,7 +76,7 @@ const Identiteettiturva = () => {
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left side content */}
-            <div className="space-y-8 pl-10 lg:pl-20">
+            <div className="space-y-8 pl-0 lg:pl-20">
               {/* Title section */}
               <div className="mb-8">
                 <h1 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight">

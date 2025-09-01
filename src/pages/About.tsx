@@ -19,9 +19,12 @@ const About = () => {
               <h1 className="text-6xl lg:text-7xl font-bold text-gray-900 mb-6">
                 Meistä
               </h1>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Haluamme, että verkkoturva on sinulle yhtä helppoa ja arkeen sopivaa kuin mikä tahansa muu palvelu.
+              </p>
             </div>
             
-            <h2 className="text-2xl font-semibold text-gray-900 mt-20 mb-2">Kuka olemme?</h2>
+            <h2 className="text-2xl font-semibold text-gray-900 mt-20 mb-2">Kulissien takaa</h2>
 
             <div className="space-y-8 text-gray-700 leading-relaxed">
               {/* Osa 1 - vasen */}
