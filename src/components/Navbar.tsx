@@ -120,13 +120,29 @@ const Navbar = () => {
                     </Link>
                   </NavigationMenuItem>
                   
-                  <NavigationMenuItem>
-                    <Link to="/artikkelit">
-                      <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "text-white hover:text-gray-200 bg-transparent hover:bg-white/10")}>
-                        Artikkelit
-                      </NavigationMenuLink>
-                    </Link>
-                  </NavigationMenuItem>
+                  <NavigationMenu>
+                    <NavigationMenuList>
+                      <NavigationMenuItem>
+                        <NavigationMenuTrigger className="text-white hover:text-gray-200 bg-transparent hover:bg-white/10">
+                          Julkaisut
+                        </NavigationMenuTrigger>
+                        <NavigationMenuContent>
+                          <ul className="grid gap-1 p-2 w-[200px] bg-white shadow-lg border rounded-md">
+                            <li>
+                              <Link to="/artikkelit" className="block px-3 py-2 rounded-md hover:bg-gray-100 text-gray-900 font-medium">
+                                Artikkelit
+                              </Link>
+                            </li>
+                            <li>
+                              <Link to="/blog" className="block px-3 py-2 rounded-md hover:bg-gray-100 text-gray-900 font-medium">
+                                Blogi
+                              </Link>
+                            </li>
+                          </ul>
+                        </NavigationMenuContent>
+                      </NavigationMenuItem>
+                    </NavigationMenuList>
+                  </NavigationMenu>
                   
                   <NavigationMenuItem>
                     <Link to="/ota-yhteytta">
@@ -201,6 +217,12 @@ const Navbar = () => {
                 setIsMenuOpen(false);
               }}>
                 Artikkelit
+              </Link>
+              
+              <Link to="/blog" className="block px-3 py-1.5 rounded-md text-sm text-white hover:bg-white/10" onClick={() => {
+                setIsMenuOpen(false);
+              }}>
+                Blogi
               </Link>
               
               <Link to="/ota-yhteytta" className="block px-3 py-1.5 rounded-md text-sm text-white hover:bg-white/10" onClick={() => {

@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PageLayout from '@/components/PageLayout';
 import SEO from '@/components/SEO';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { FileText, Calendar, Clock } from 'lucide-react';
+import { FileText, Calendar, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const Blog = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const postsPerPage = 6;
+  
   const blogPosts = [
     {
       slug: 'identiteettivarkauden-estaminen',
@@ -78,33 +81,82 @@ const Blog = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="text-center mb-16">
-            <Badge variant="secondary" className="mb-4">
-              <FileText className="w-4 h-4 mr-2" />
-              Blog
-            </Badge>
-            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              Identiteettisuoja ja verkkoturva
-            </h1>
+                         <h1 className="text-6xl lg:text-7xl font-bold text-gray-900 mb-6">
+               Blogi
+             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Ajankohtaisia artikkeleita, vinkkejä ja ohjeita identiteettisuojasta ja verkkoturvallisuudesta. 
-              Pysy ajan tasalla tietoturvassa ja suojaa henkilötietojasi.
+              Ajankohtaisia vinkkejä ja ohjeita identiteettisuojasta sekä verkkoturvallisuudesta. Pysy ajan tasalla tietoturvassa ja suojaa henkilötietojasi.
             </p>
           </div>
 
-          {/* Blog posts grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {blogPosts.map((post, index) => (
+                     {/* Blog posts grid */}
+           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+             {blogPosts
+               .slice((currentPage - 1) * postsPerPage, currentPage * postsPerPage)
+               .map((post, index) => (
               <Card key={post.slug} className="h-full hover:shadow-lg transition-shadow duration-300 bg-white/80 backdrop-blur-sm">
                 <CardHeader className="pb-4">
                   <div className="flex items-center justify-between mb-3">
                     <Badge variant="outline" className="text-xs">
                       {post.category}
                     </Badge>
-                    <div className="flex items-center text-sm text-gray-500">
-                      <Clock className="w-4 h-4 mr-1" />
-                      {post.readTime}
-                    </div>
                   </div>
+                                     {post.slug === 'verkkoturvallisuus-2025' && (
+                     <img 
+                       src="/kuvapankki/Cyper.jpg" 
+                       alt="Verkkoturvallisuus 2025" 
+                       className="w-full h-32 object-cover rounded-lg mb-4"
+                     />
+                   )}
+                                       {post.slug === 'identiteettivarkauden-estaminen' && (
+                      <img 
+                        src="/kuvapankki/identi.png" 
+                        alt="Identiteettivarkauden estäminen" 
+                        className="w-full h-32 object-cover rounded-lg mb-4"
+                      />
+                    )}
+                                         {post.slug === 'tietovuotojen-vaikutukset' && (
+                       <img 
+                         src="/kuvapankki/dataleak.png" 
+                         alt="Tietovuotojen vaikutukset" 
+                         className="w-full h-32 object-cover rounded-lg mb-4"
+                       />
+                     )}
+                                           {post.slug === 'salasanan-suojaus' && (
+                        <img 
+                          src="/kuvapankki/salasana.png" 
+                          alt="Salasanan suojaus" 
+                          className="w-full h-32 object-cover rounded-lg mb-4"
+                        />
+                      )}
+                                             {post.slug === 'kaksivaiheinen-tunnistus' && (
+                         <img 
+                           src="/kuvapankki/Kappaleen teksti (63).png" 
+                           alt="Kaksivaiheinen tunnistus" 
+                           className="w-full h-32 object-cover rounded-lg mb-4"
+                         />
+                       )}
+                                               {post.slug === 'tietojenkalastelun-estaminen' && (
+                          <img 
+                            src="/kuvapankki/Kappaleen teksti (64).png" 
+                            alt="Tietojenkalastelun estäminen" 
+                            className="w-full h-32 object-cover rounded-lg mb-4"
+                          />
+                        )}
+                                                 {post.slug === 'verkkokauppahuijaukset' && (
+                           <img 
+                             src="/kuvapankki/Kappaleen teksti (65).png" 
+                             alt="Verkkokauppahuijaukset" 
+                             className="w-full h-32 object-cover rounded-lg mb-4"
+                           />
+                         )}
+                         {post.slug === 'nettikiusaaminen' && (
+                           <img 
+                             src="/kuvapankki/Kappaleen teksti (66).png" 
+                             alt="Nettikiusaaminen" 
+                             className="w-full h-32 object-cover rounded-lg mb-4"
+                           />
+                         )}
                   <CardTitle className="text-xl font-semibold text-gray-900 leading-tight">
                     {post.title}
                   </CardTitle>
@@ -122,37 +174,49 @@ const Blog = () => {
                 </CardContent>
               </Card>
             ))}
-          </div>
+                     </div>
 
-          {/* Newsletter signup */}
-          <div className="mt-20 text-center">
-            <Card className="max-w-2xl mx-auto bg-gradient-to-r from-blue-900 to-blue-800 text-white">
-              <CardHeader>
-                <CardTitle className="text-2xl font-bold">
-                  Pysy ajan tasalla tietoturvassa
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-blue-100 mb-6">
-                  Tilaa uutiskirjeemme ja saat ensimmäisenä tiedossa uusista artikkeleista ja tietoturvavinkeistä.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-                  <input
-                    type="email"
-                    placeholder="Sähköpostiosoitteesi"
-                    className="flex-1 px-4 py-2 border border-blue-300 rounded-lg text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  />
-                  <button className="px-6 py-2 bg-white text-blue-900 rounded-lg hover:bg-blue-50 transition-colors font-medium">
-                    Tilaa
-                  </button>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </div>
-    </PageLayout>
-  );
-};
+           {/* Pagination */}
+           <div className="mt-16 flex justify-center items-center space-x-4">
+             <button
+               onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+               disabled={currentPage === 1}
+               className="flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-md hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+             >
+               <ChevronLeft className="w-4 h-4 mr-1" />
+               Edellinen
+             </button>
+             
+             <div className="flex items-center space-x-2">
+               {Array.from({ length: Math.ceil(blogPosts.length / postsPerPage) }, (_, i) => (
+                 <button
+                   key={i + 1}
+                   onClick={() => setCurrentPage(i + 1)}
+                   className={`px-3 py-2 text-sm font-medium rounded-md ${
+                     currentPage === i + 1
+                       ? 'bg-blue-600 text-white'
+                       : 'text-gray-500 bg-white border border-gray-300 hover:bg-gray-50'
+                   }`}
+                 >
+                   {i + 1}
+                 </button>
+               ))}
+             </div>
+             
+             <button
+               onClick={() => setCurrentPage(prev => Math.min(prev + 1, Math.ceil(blogPosts.length / postsPerPage)))}
+               disabled={currentPage === Math.ceil(blogPosts.length / postsPerPage)}
+               className="flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-md hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+             >
+               Seuraava
+               <ChevronRight className="w-4 h-4 ml-1" />
+             </button>
+           </div>
+
+         </div>
+       </div>
+     </PageLayout>
+   );
+ };
 
 export default Blog;

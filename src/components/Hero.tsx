@@ -919,7 +919,7 @@ const Hero = memo(() => {
                     repeatType: "reverse" 
                   } 
                 }}
-                onClick={() => openModal("Kuinka suojautua pankkitietojen ja verkkopankkitunnusten kalastelulta", "• Älä koskaan anna tunnuksia sähköpostissa tai puhelimessa: Pankit ja verottaja eivät pyydä tunnuksia näin.<br><br>• Varmista sivuston osoite: Tarkista, että verkkosivun osoite alkaa https:// ja on pankin/viranomaisen virallinen domain.<br><br>• Hallitse salasanoja ja tunnuksia huolellisesti: Käytä vahvoja salasanoja ja erillisiä tunnuksia eri palveluissa.<br><br>• Ilmoita epäilyttävästä viestistä pankille: Useimmat pankit tarjoavat osoitteet huijausviestien raportointiin.")}
+                onClick={() => openModal("Kuinka suojautua pankkitietojen ja verkkopankkitunnusten kalastelulta?", "• Älä koskaan anna tunnuksia sähköpostissa tai puhelimessa: Pankit ja verottaja eivät pyydä tunnuksia näin.<br><br>• Varmista sivuston osoite: Tarkista, että verkkosivun osoite alkaa https:// ja on pankin/viranomaisen virallinen domain.<br><br>• Hallitse salasanoja ja tunnuksia huolellisesti: Käytä vahvoja salasanoja ja erillisiä tunnuksia eri palveluissa.<br><br>• Ilmoita epäilyttävästä viestistä pankille: Useimmat pankit tarjoavat osoitteet huijausviestien raportointiin.")}
               >
                 <div className="flex items-center space-x-4 mb-4 md:mb-6">
                  <div className="w-8 h-8 bg-blue-900/80 rounded-lg flex items-center justify-center shadow-lg">
@@ -950,7 +950,7 @@ const Hero = memo(() => {
                     repeatType: "reverse" 
                   } 
                 }}
-                onClick={() => openModal("Kuinka suojautua veronpalautushuijauksilta", "• Älä täytä tietoja epäilyttävillä sivustoilla: Veroilmoitukset ja palautukset tehdään aina virallisella OmaVero-palvelulla (vero.fi).<br><br>• Tarkista lähde: Viranomaiset eivät koskaan lähetä sähköpostia, jossa pyydetään salasanaa tai pankkitunnuksia.<br><br>• Poista epäilyttävät viestit: Älä avaa liitteitä tai linkkejä.<br><br>• Raportoi huijauksesta: Traficomin Kyberturvallisuuskeskus vastaanottaa ilmoituksia huijausviesteistä.")}
+                onClick={() => openModal("Kuinka suojautua veronpalautushuijauksilta?", "• Älä täytä tietoja epäilyttävillä sivustoilla: Veroilmoitukset ja palautukset tehdään aina virallisella OmaVero-palvelulla (vero.fi).<br><br>• Tarkista lähde: Viranomaiset eivät koskaan lähetä sähköpostia, jossa pyydetään salasanaa tai pankkitunnuksia.<br><br>• Poista epäilyttävät viestit: Älä avaa liitteitä tai linkkejä.<br><br>• Raportoi huijauksesta: Traficomin Kyberturvallisuuskeskus vastaanottaa ilmoituksia huijausviesteistä.")}
               >
                 <div className="flex items-center space-x-4 mb-4 md:mb-6">
                  <div className="w-8 h-8 bg-blue-900/80 rounded-lg flex items-center justify-center shadow-lg">
@@ -1189,46 +1189,18 @@ const Hero = memo(() => {
               </button>
             </div>
             
-            {/* Video section */}
+            {/* Image section */}
             <div className="flex justify-center lg:justify-end">
               <div className="w-full max-w-md">
-                <video 
-                  ref={(el) => {
-                    if (el) {
-                      const observer = new IntersectionObserver(
-                        (entries) => {
-                          entries.forEach((entry) => {
-                            if (entry.isIntersecting) {
-                              el.play().catch(() => {
-                                // Autoplay failed, user needs to interact first
-                              });
-                            } else {
-                              el.pause();
-                            }
-                          });
-                        },
-                        { threshold: 0.5 }
-                      );
-                      observer.observe(el);
-                    }
-                  }}
-                  className="w-full h-auto rounded-lg shadow-lg"
-                  muted
-                  loop
-                  playsInline
-                  preload="metadata"
+                <img 
+                  src="/kuvapankki/Kappaleen teksti (62).png" 
+                  alt="Identiteettisuoja kuva" 
+                  className="w-full h-auto"
                   style={{ 
-                    pointerEvents: 'none'
+                    background: 'transparent', 
+                    backgroundColor: 'transparent'
                   }}
-                  onLoadedMetadata={(e) => {
-                    // Hide video controls completely
-                    const video = e.target as HTMLVideoElement;
-                    video.controls = false;
-                  }}
-                >
-                  <source src="/kuvapankki/Nimetön malli (1).mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
+                />
               </div>
             </div>
           </div>
@@ -1243,7 +1215,7 @@ const Hero = memo(() => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-left mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-black">
-              Artikkelit
+              Julkaisut
             </h2>
           </div>
           

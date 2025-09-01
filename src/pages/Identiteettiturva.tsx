@@ -556,7 +556,7 @@ const Identiteettiturva = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                  {/* Taloudelliset tappiot */}
                  <motion.div 
-                   className="bg-transparent border border-white/20 rounded-2xl p-8 cursor-pointer"
+                   className="bg-transparent border border-white rounded-2xl p-8 cursor-pointer"
                    initial={{ y: 0, scale: 1 }}
                    animate={{ y: 0, scale: 1 }}
                    whileHover={{ 
@@ -579,7 +579,7 @@ const Identiteettiturva = () => {
                  
                  {/* Suoja sovellusostoksille */}
                  <motion.div 
-                   className="bg-transparent border border-white/20 rounded-2xl p-8 cursor-pointer"
+                   className="bg-transparent border border-white rounded-2xl p-8 cursor-pointer"
                    initial={{ y: 0, scale: 1 }}
                    animate={{ y: 0, scale: 1 }}
                    whileHover={{ 
@@ -602,7 +602,7 @@ const Identiteettiturva = () => {
                  
                  {/* Turva verkko-ostoksille */}
                  <motion.div 
-                   className="bg-transparent border border-white/20 rounded-2xl p-8 cursor-pointer"
+                   className="bg-transparent border border-white rounded-2xl p-8 cursor-pointer"
                    initial={{ y: 0, scale: 1 }}
                    animate={{ y: 0, scale: 1 }}
                    whileHover={{ 
@@ -625,7 +625,7 @@ const Identiteettiturva = () => {
                  
                  {/* SIM-kortin väärinkäytön suoja */}
                  <motion.div 
-                   className="bg-transparent border border-white/20 rounded-2xl p-8 cursor-pointer"
+                   className="bg-transparent border border-white rounded-2xl p-8 cursor-pointer"
                    initial={{ y: 0, scale: 1 }}
                    animate={{ y: 0, scale: 1 }}
                    whileHover={{ 
@@ -653,7 +653,7 @@ const Identiteettiturva = () => {
            <div className="container mx-auto px-4 py-32">
              <div className="text-center mb-16">
                <h2 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight">
-                 Saat tukea myös muutenkin kuin taloudellisesti
+                 Saat tukea myös muutenkin<br />kuin taloudellisesti
                </h2>
                 </div>
 
@@ -661,7 +661,7 @@ const Identiteettiturva = () => {
                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                  {/* Tietojen suoja */}
                  <motion.div 
-                   className="bg-transparent border border-white/20 rounded-2xl p-8 cursor-pointer"
+                   className="bg-transparent border border-black rounded-2xl p-8 cursor-pointer"
                    initial={{ y: 0, scale: 1 }}
                    animate={{ y: 0, scale: 1 }}
                    whileHover={{ 
@@ -684,7 +684,7 @@ const Identiteettiturva = () => {
                  
                  {/* Psyykkinen tuki */}
                  <motion.div 
-                   className="bg-transparent border border-white/20 rounded-2xl p-8 cursor-pointer"
+                   className="bg-transparent border border-black rounded-2xl p-8 cursor-pointer"
                    initial={{ y: 0, scale: 1 }}
                    animate={{ y: 0, scale: 1 }}
                    whileHover={{ 
@@ -707,7 +707,7 @@ const Identiteettiturva = () => {
                  
                  {/* Nettikiusaamistuki */}
                  <motion.div 
-                   className="bg-transparent border border-white/20 rounded-2xl p-8 cursor-pointer"
+                   className="bg-transparent border border-black rounded-2xl p-8 cursor-pointer"
                    initial={{ y: 0, scale: 1 }}
                    animate={{ y: 0, scale: 1 }}
                    whileHover={{ 
@@ -730,7 +730,7 @@ const Identiteettiturva = () => {
                  
                  {/* Oikeusapu */}
                  <motion.div 
-                   className="bg-transparent border border-white/20 rounded-2xl p-8 cursor-pointer"
+                   className="bg-transparent border border-black rounded-2xl p-8 cursor-pointer"
                    initial={{ y: 0, scale: 1 }}
                    animate={{ y: 0, scale: 1 }}
                    whileHover={{ 

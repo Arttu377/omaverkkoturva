@@ -15,6 +15,15 @@ import GeneralTerms from "./pages/GeneralTerms";
 import TermsOfService from "./pages/TermsOfService";
 import Identiteettiturva from "./pages/Identiteettiturva";
 import Blog from "./pages/Blog";
+import Artikkelit from "./pages/Artikkelit";
+import IdentiteettivarkaudenEstaminen from "./pages/blog/IdentiteettivarkaudenEstaminen";
+import Verkkoturvallisuus2025 from "./pages/blog/Verkkoturvallisuus2025";
+import TietovuotojenVaikutukset from "./pages/blog/TietovuotojenVaikutukset";
+import SalasananSuojaus from "./pages/blog/SalasananSuojaus";
+import KaksivaiheinenTunnistus from "./pages/blog/KaksivaiheinenTunnistus";
+import TietojenkalastelunEstaminen from "./pages/blog/TietojenkalastelunEstaminen";
+import Verkkokauppahuijaukset from "./pages/blog/Verkkokauppahuijaukset";
+import Nettikiusaaminen from "./pages/blog/Nettikiusaaminen";
 import Irtisanomislomake from "./pages/Irtisanomislomake";
 import Contact from "./pages/Contact";
 import Verkkokauppa from "./pages/Verkkokauppa";
@@ -43,6 +52,15 @@ const App = () => {
               <Route path="/palvelusopimuksen-kayttoehdot" element={<TermsOfService />} />
               <Route path="/henkilosuoja" element={<Identiteettiturva />} />
               <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/identiteettivarkauden-estaminen" element={<IdentiteettivarkaudenEstaminen />} />
+              <Route path="/blog/verkkoturvallisuus-2025" element={<Verkkoturvallisuus2025 />} />
+              <Route path="/blog/tietovuotojen-vaikutukset" element={<TietovuotojenVaikutukset />} />
+              <Route path="/blog/salasanan-suojaus" element={<SalasananSuojaus />} />
+              <Route path="/blog/kaksivaiheinen-tunnistus" element={<KaksivaiheinenTunnistus />} />
+              <Route path="/blog/tietojenkalastelun-estaminen" element={<TietojenkalastelunEstaminen />} />
+              <Route path="/blog/verkkokauppahuijaukset" element={<Verkkokauppahuijaukset />} />
+              <Route path="/blog/nettikiusaaminen" element={<Nettikiusaaminen />} />
+              <Route path="/artikkelit" element={<Artikkelit />} />
               <Route path="/verkkokauppa" element={<Verkkokauppa />} />
               <Route path="/irtisanomislomake" element={<Irtisanomislomake />} />
               <Route path="/ota-yhteytta" element={<Contact />} />

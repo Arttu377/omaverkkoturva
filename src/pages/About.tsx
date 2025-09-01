@@ -14,9 +14,16 @@ const About = () => {
       <div className="min-h-screen bg-white">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-5xl mx-auto">
-            <h1 className="text-2xl font-semibold text-gray-900 mt-20 mb-2">Kuka olemme?</h1>
+            {/* Main heading */}
+            <div className="text-center mb-16 mt-16">
+              <h1 className="text-6xl lg:text-7xl font-bold text-gray-900 mb-6">
+                Meistä
+              </h1>
+            </div>
+            
+            <h2 className="text-2xl font-semibold text-gray-900 mt-20 mb-2">Kuka olemme?</h2>
 
-            <div className="space-y-16 text-gray-700 leading-relaxed">
+            <div className="space-y-8 text-gray-700 leading-relaxed">
               {/* Osa 1 - vasen */}
               <div className="md:grid md:grid-cols-2 md:gap-8 items-center">
                 <div className="md:col-start-1">
@@ -33,7 +40,7 @@ const About = () => {
               <div className="md:grid md:grid-cols-2 md:gap-8 items-center">
                 <div className="bg-transparent md:col-start-1">
                   <img
-                    src="/kuvapankki/Kappaleen teksti (49).png"
+                    src="/kuvapankki/Kappaleen teksti (67).png"
                     alt="Missiomme"
                     className="w-full max-w-[420px] h-auto object-contain bg-transparent"
                     style={{ background: 'transparent', backgroundColor: 'transparent' }}
@@ -57,7 +64,7 @@ const About = () => {
                 </div>
                 <div className="bg-transparent md:col-start-2">
                   <img
-                    src="/kuvapankki/Kappaleen teksti (46).png"
+                    src="/kuvapankki/Kappaleen teksti (68).png"
                     alt="Visiomme"
                     className="block ml-auto w-full max-w-[420px] h-auto object-contain bg-transparent"
                     style={{ background: 'transparent', backgroundColor: 'transparent' }}
@@ -65,8 +72,16 @@ const About = () => {
                 </div>
               </div>
 
-              {/* Osa 4 - oikea */}
+              {/* Osa 4 - vasen ja oikea */}
               <div className="md:grid md:grid-cols-2 md:gap-8 items-center">
+                <div className="bg-transparent md:col-start-1">
+                  <img
+                    src="/kuvapankki/Kappaleen teksti (69).png"
+                    alt="Lupaamme"
+                    className="w-full max-w-[320px] h-auto object-contain bg-transparent"
+                    style={{ background: 'transparent', backgroundColor: 'transparent' }}
+                  />
+                </div>
                 <div className="md:col-start-2">
                   <h2 className="text-2xl font-semibold text-gray-900">Lupaamme</h2>
                   <p className="mt-2">
