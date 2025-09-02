@@ -196,7 +196,7 @@ const Identiteettiturva = () => {
                {/* Right side - henkilösuoja 5.png image */}
                <div className="hidden lg:block lg:flex lg:justify-end lg:items-center mt-24 translate-x-32 lg:translate-x-48 xl:translate-x-64">
                  <img 
-                   src="/kuvapankki/Kappaleen teksti (40).png" 
+                   src="/kuvapankki/Kappaleen teksti (79).png" 
                    alt="Henkilösuoja 5 kuva" 
                    className="w-[800px] h-auto max-w-[800px] lg:max-w-[900px] xl:max-w-[1000px]"
                    style={{ 
@@ -210,7 +210,7 @@ const Identiteettiturva = () => {
             {/* Mobile image - shown after content on mobile */}
             <div className="lg:hidden flex justify-center items-center mt-16 mb-8 mx-auto">
               <img 
-                src="/kuvapankki/Kappaleen teksti (40).png" 
+                src="/kuvapankki/Kappaleen teksti (79).png" 
                 alt="Henkilösuoja 5 kuva" 
                 className="w-[600px] h-auto max-w-[600px] md:w-[800px] md:max-w-[800px]"
                 style={{ 
