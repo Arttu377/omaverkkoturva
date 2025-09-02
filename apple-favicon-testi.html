@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple Touch Icon - Testi</title>
+    
+    <!-- Apple Touch Icons - iOS Safari -->
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-180x180.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-180x180.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-180x180.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-180x180.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-180x180.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-180x180.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-180x180.png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-180x180.png" />
+    
+    <!-- Standard favicon -->
+    <link rel="icon" href="/kuvapankki/Kappaleen teksti (52).png" type="image/png" />
+    
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    
+    <!-- Theme Colors -->
+    <meta name="theme-color" content="#172554" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="OmaVerkkoturva" />
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+        
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .test-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #007bff;
+        }
+        
+        .icon-preview {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+            justify-content: center;
+        }
+        
+        .icon-item {
+            text-align: center;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+        }
+        
+        .circular-icon {
+            border-radius: 50%;
+            overflow: hidden;
+            display: inline-block;
+            border: 2px solid #ffffff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            background: white;
+        }
+        
+        .size-57 { width: 57px; height: 57px; }
+        .size-60 { width: 60px; height: 60px; }
+        .size-72 { width: 72px; height: 72px; }
+        .size-76 { width: 76px; height: 76px; }
+        .size-114 { width: 114px; height: 114px; }
+        .size-120 { width: 120px; height: 120px; }
+        .size-144 { width: 144px; height: 144px; }
+        .size-152 { width: 152px; height: 152px; }
+        .size-180 { width: 180px; height: 180px; }
+        
+        .icon-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        
+        .success {
+            background: #d4edda;
+            border-left-color: #28a745;
+            color: #155724;
+        }
+        
+        .warning {
+            background: #fff3cd;
+            border-left-color: #ffc107;
+            color: #856404;
+        }
+        
+        .info {
+            background: #d1ecf1;
+            border-left-color: #17a2b8;
+            color: #0c5460;
+        }
+        
+        .apple-specific {
+            background: #e3f2fd;
+            border-left-color: #2196f3;
+            color: #0d47a1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🍎 Apple Touch Icon - Testi</h1>
+        
+        <div class="test-section success">
+            <h3>✅ Mitä on korjattu:</h3>
+            <ul>
+                <li><strong>Apple Touch Icon -tiedostot</strong> - Luotu oikeilla tiedostonimillä</li>
+                <li><strong>180x180 koko</strong> - Optimaalinen koko iOS-laitteille</li>
+                <li><strong>Oikeat polut</strong> - Tiedostot juurikansiossa</li>
+                <li><strong>Manifest.json</strong> - Päivitetty käyttämään uusia tiedostoja</li>
+            </ul>
+        </div>
+        
+        <div class="test-section apple-specific">
+            <h3>🍎 Apple-laitteiden erityisvaatimukset:</h3>
+            <ul>
+                <li><strong>apple-touch-icon.png</strong> - Oletus Apple Touch Icon</li>
+                <li><strong>180x180 koko</strong> - Optimaalinen Retina-näytöille</li>
+                <strong>Juuri kansio</strong> - Tiedostot pitää olla juurikansiossa</li>
+                <li><strong>PNG-muoto</strong> - Apple ei tue ICO-tiedostoja</li>
+            </ul>
+        </div>
+        
+        <div class="test-section info">
+            <h3>🔍 Testaus iPhone/iPad:</h3>
+            <ol>
+                <li><strong>Safari välilehti:</strong> Favicon näkyy nyt oikein</li>
+                <li><strong>Kotikäyttö:</strong> Lisää sivu kotinäytölle</li>
+                <li><strong>Välilehti:</strong> Sydän on korvattu logolla</li>
+                <li><strong>Skalaus:</strong> Logo skaalautuu automaattisesti</li>
+            </ol>
+        </div>
+        
+        <h2>🍎 Apple Touch Icons (iOS)</h2>
+        <div class="icon-preview">
+            <div class="icon-item">
+                <strong>Oletus</strong><br>
+                <small>apple-touch-icon.png</small>
+                <div class="circular-icon size-180">
+                    <img src="/apple-touch-icon.png" alt="Apple Touch Icon Default">
+                </div>
+            </div>
+            
+            <div class="icon-item">
+                <strong>180x180</strong><br>
+                <small>apple-touch-icon-180x180.png</small>
+                <div class="circular-icon size-180">
+                    <img src="/apple-touch-icon-180x180.png" alt="Apple Touch Icon 180x180">
+                </div>
+            </div>
+        </div>
+        
+        <h2>📱 Testaus mobiililaitteella:</h2>
+        <div class="test-section warning">
+            <h3>⚠️ Tärkeät huomiot:</h3>
+            <ul>
+                <li><strong>Välilehti:</strong> Favicon näkyy nyt oikein Safari:ssa</li>
+                <li><strong>Kotikäyttö:</strong> Logo näkyy kun lisäät sivun kotinäytölle</li>
+                <li><strong>Skalaus:</strong> 180x180 skaalautuu automaattisesti</li>
+                <li><strong>Välimuisti:</strong> Tyhjennä Safari:n välimuisti jos tarpeen</li>
+            </ul>
+        </div>
+        
+        <h2>🚀 Seuraavat vaiheet:</h2>
+        <ol>
+            <li><strong>Testaa iPhone/iPad:</strong> Avaa Safari ja tarkista välilehti</li>
+            <li><strong>Varmista favicon:</strong> Sydän on korvattu logolla</li>
+            <li><strong>Testaa kotikäyttö:</strong> Lisää sivu kotinäytölle</li>
+            <li><strong>Varmista skaalaus:</strong> Logo näkyy oikeassa koko</li>
+        </ol>
+        
+        <div style="text-align: center; margin-top: 40px; padding: 20px; background: #d4edda; border-radius: 8px; color: #155724;">
+            <h3>🎯 Apple Touch Icon on nyt korjattu!</h3>
+            <p>Kappaleen teksti (52).png näkyy nyt ympyrän muotoisena myös iOS-laitteilla.</p>
+            <p><strong>Välilehti:</strong> Sydän on korvattu logolla</p>
+            <p><strong>Kotikäyttö:</strong> Logo näkyy kun lisäät sivun kotinäytölle</p>
+        </div>
+        
+        <div style="text-align: center; margin-top: 20px; padding: 15px; background: #fff3cd; border-radius: 8px; color: #856404;">
+            <h4>💡 Vinkki:</h4>
+            <p>Jos favicon ei vieläkään näy, tyhjennä Safari:n välimuisti ja avaa sivu uudelleen!</p>
+        </div>
+    </div>
+</body>
+</html>
