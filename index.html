@@ -2,61 +2,25 @@
 <!DOCTYPE html>
 <html lang="fi">
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K1K9PPGKY7"></script>
-    <script>
+    <!-- Cookiebot CMP -->
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="d8a68e33-ef0c-493a-93e4-045cad14bd22" data-blockingmode="auto" data-culture="FI" type="text/javascript"></script>
+    <!-- Google tag (gtag.js) - consent-gated by Cookiebot -->
+    <script type="text/plain" data-cookieconsent="statistics" src="https://www.googletagmanager.com/gtag/js?id=G-K1K9PPGKY7" async></script>
+    <script type="text/plain" data-cookieconsent="statistics">
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
       gtag('config', 'G-K1K9PPGKY7');
     </script>
-    
-    <!-- GDPR Compliant Consent Management -->
-    <script>
-      // Initialize the dataLayer
-      window.dataLayer = window.dataLayer || [];
-
-      // Create the gtag function that pushes to the dataLayer
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-
-      // GDPR compliant consent defaults - all tracking denied until consent given
-      gtag('consent', 'default', {
-        analytics_storage: 'denied',
-        ad_storage: 'denied',
-        ad_user_data: 'denied',
-        ad_personalization: 'denied',
-        functionality_storage: 'denied',
-        security_storage: 'granted'  // Security storage is always allowed
-      });
-
-      // Function to update consent when user gives permission
-      function updateConsent(consentGiven) {
-        if (consentGiven) {
-          gtag('consent', 'update', {
-            analytics_storage: 'granted',
-            ad_storage: 'granted',
-            ad_user_data: 'granted',
-            ad_personalization: 'granted',
-            functionality_storage: 'granted'
-          });
-        }
-      }
-
-      // Check if user has already given consent
-      const hasConsent = localStorage.getItem('gdpr_consent');
-      if (hasConsent === 'true') {
-        updateConsent(true);
-      }
+    <!-- Google Tag Manager - consent-gated by Cookiebot -->
+    <script type="text/plain" data-cookieconsent="marketing">
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-TZ8DHWCH');
     </script>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-TZ8DHWCH');</script>
     <!-- End Google Tag Manager -->
     
     <!-- Primary Meta Tags -->
@@ -277,75 +241,10 @@
   </head>
 
   <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TZ8DHWCH"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    
-
-
-    <!-- GDPR Consent Modal -->
-    <div id="gdpr-modal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 10000; display: flex; align-items: center; justify-content: center;">
-      <div style="background: white; padding: 2rem; border-radius: 1rem; max-width: 500px; margin: 1rem; text-align: center;">
-        <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #1e3a8a;">
-          Evästeet ja yksityisyys
-        </h3>
-        <p style="color: #6b7280; margin-bottom: 1.5rem; line-height: 1.6;">
-          Käytämme evästeitä ja muita tekniikoita parantaaksemme sivuston toimintaa ja tarjotaksemme sinulle henkilökohtaisempaa sisältöä. 
-          <a href="/tietosuojaseloste" style="color: #1e3a8a; text-decoration: underline;">Lue lisää tietosuojasta</a>
-        </p>
-        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-          <button 
-            onclick="acceptAllCookies()" 
-            style="background: #1e3a8a; color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 0.5rem; cursor: pointer; font-size: 1rem; font-weight: 500; width: 100%;"
-          >
-            Hyväksy kaikki evästeet
-          </button>
-          <button 
-            onclick="acceptEssentialCookies()" 
-            style="background: transparent; color: #1e3a8a; border: 1px solid #1e3a8a; padding: 0.75rem 1.5rem; border-radius: 0.5rem; cursor: pointer; font-size: 1rem; width: 100%;"
-          >
-            Vain välttämättömät evästeet
-          </button>
-        </div>
-      </div>
-    </div>
     
     <div id="root"></div>
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
     <script type="module" src="/src/main.tsx"></script>
     
-    <!-- GDPR Button Logic -->
-    <script>
-      // Show modal automatically if no consent has been given
-      if (!localStorage.getItem('gdpr_consent')) {
-        document.getElementById('gdpr-modal').style.display = 'flex';
-      }
-
-      function acceptAllCookies() {
-        localStorage.setItem('gdpr_consent', 'true');
-        localStorage.setItem('gdpr_consent_type', 'all');
-        updateConsent(true);
-        hideConsentModal();
-      }
-
-      function acceptEssentialCookies() {
-        localStorage.setItem('gdpr_consent', 'true');
-        localStorage.setItem('gdpr_consent_type', 'essential');
-        updateConsent(false);
-        hideConsentModal();
-      }
-
-      function hideConsentModal() {
-        document.getElementById('gdpr-modal').style.display = 'none';
-      }
-
-      // Close modal when clicking outside
-      document.getElementById('gdpr-modal').addEventListener('click', function(e) {
-        if (e.target === this) {
-          hideConsentModal();
-        }
-      });
-    </script>
   </body>
 </html>
