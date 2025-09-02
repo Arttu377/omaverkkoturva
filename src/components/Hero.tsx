@@ -1356,7 +1356,7 @@ const Hero = memo(() => {
               {currentPosts.map((post, index) => (
               <Link 
                 key={post.slug} 
-                to={post.type === 'blog' ? `/blog/${post.slug}` : `/artikkelit`}
+                to={post.type === 'blog' ? `/blog/${post.slug}` : `/blog/${post.slug}`}
                 className="block"
               >
                 <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">

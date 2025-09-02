@@ -203,6 +203,15 @@ const SEO: React.FC<SEOProps> = ({
       <meta name="keywords" content={keywordString} />
       <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
       
+      {/* Favicon and Apple Touch Icons */}
+      <link rel="icon" href="/kuvapankki/Kappaleen teksti (52).png" type="image/png" />
+      <link rel="icon" href="/kuvapankki/Kappaleen teksti (52).png" type="image/x-icon" />
+      <link rel="shortcut icon" href="/kuvapankki/Kappaleen teksti (52).png" type="image/x-icon" />
+      <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png" />
+      <link rel="icon" sizes="192x192" href="/favicon-192x192.png" type="image/png" />
+      <link rel="icon" sizes="512x512" href="/favicon-512x512.png" type="image/png" />
+      
       {/* Open Graph / Facebook */}
       <meta property="og:type" content={isBlogPost ? 'article' : type} />
       <meta property="og:url" content={currentUrl} />
