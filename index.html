@@ -3,7 +3,39 @@
 <html lang="fi">
   <head>
     <!-- Cookiebot CMP -->
-    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="d8a68e33-ef0c-493a-93e4-045cad14bd22" data-blockingmode="auto" data-culture="FI" type="text/javascript"></script>
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="d8a68e33-ef0c-493a-93e4-045cad14bd22" data-blockingmode="auto" data-culture="fi-FI" type="text/javascript"></script>
+    <!-- Google Consent Mode default signals (must precede gtag/GTM). Ignored by Cookiebot -->
+    <script data-cookieconsent="ignore">
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      gtag('consent', 'default', {
+        ad_personalization: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        analytics_storage: 'denied',
+        functionality_storage: 'denied',
+        personalization_storage: 'denied',
+        security_storage: 'granted',
+        wait_for_update: 500
+      });
+      gtag('set', 'ads_data_redaction', true);
+      gtag('set', 'url_passthrough', false);
+    </script>
+    <!-- Optional: brand color/style overrides for Cookiebot dialog -->
+    <style>
+      /* Adjust primary button and links to brand navy (matches tailwind #1e3a8a) */
+      #CybotCookiebotDialog #CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll,
+      #CybotCookiebotDialog #CybotCookiebotDialogBodyLevelButtonLevelOptinAllowallSelection,
+      #CybotCookiebotDialog .CybotCookiebotDialogBodyButton.CybotCookiebotDialogBodyButtonAccept {
+        background-color: #1e3a8a !important;
+        border-color: #1e3a8a !important;
+        color: #ffffff !important;
+      }
+      #CybotCookiebotDialog a,
+      #CybotCookiebotDialog .CybotCookiebotDialogBodyButton {
+        font-family: inherit !important;
+      }
+    </style>
     <!-- Google tag (gtag.js) - consent-gated by Cookiebot -->
     <script type="text/plain" data-cookieconsent="statistics" src="https://www.googletagmanager.com/gtag/js?id=G-K1K9PPGKY7" async></script>
     <script type="text/plain" data-cookieconsent="statistics">
