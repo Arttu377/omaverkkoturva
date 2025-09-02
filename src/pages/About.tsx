@@ -40,20 +40,22 @@ const About = () => {
               </div>
 
               {/* Osa 2 - oikea */}
-              <div className="md:grid md:grid-cols-2 md:gap-8 items-center">
-                <div className="bg-transparent md:col-start-1">
-                  <img
-                    src="/kuvapankki/Kappaleen teksti (67).png"
-                    alt="Missiomme"
-                    className="w-full max-w-[420px] h-auto object-contain bg-transparent"
-                    style={{ background: 'transparent', backgroundColor: 'transparent' }}
-                  />
-                </div>
-                <div className="md:col-start-2">
+              <div className="grid grid-cols-1 md:grid md:grid-cols-2 md:gap-8 items-center">
+                {/* Teksti ensin mobiilissa; desktopissa oikealla */}
+                <div className="md:col-start-2 md:order-2">
                   <h2 className="text-2xl font-semibold text-gray-900">Missiomme</h2>
                   <p className="mt-2">
                     Haluamme suojata suomalaisten nettikäyttöä ja antaa aidon turvallisuuden tunteen huijareita ja kehittyvää teknologiaa vastaan. Henkilötiedot ovat yksi arvokkaimmista resursseista, ja siksi panostamme niiden suojaamiseen täysillä.
                   </p>
+                </div>
+                {/* Kuva toisena mobiilissa; desktopissa vasemmalla */}
+                <div className="bg-transparent md:col-start-1 md:order-1">
+                  <img
+                    src="/kuvapankki/Kappaleen teksti (75).png"
+                    alt="Missiomme"
+                    className="w-full max-w-[420px] h-auto object-contain bg-transparent"
+                    style={{ background: 'transparent', backgroundColor: 'transparent' }}
+                  />
                 </div>
               </div>
 
@@ -67,7 +69,7 @@ const About = () => {
                 </div>
                 <div className="bg-transparent md:col-start-2">
                   <img
-                    src="/kuvapankki/Kappaleen teksti (68).png"
+                    src="/kuvapankki/Kappaleen teksti (76).png"
                     alt="Visiomme"
                     className="block ml-auto w-full max-w-[420px] h-auto object-contain bg-transparent"
                     style={{ background: 'transparent', backgroundColor: 'transparent' }}
@@ -76,20 +78,22 @@ const About = () => {
               </div>
 
               {/* Osa 4 - vasen ja oikea */}
-              <div className="md:grid md:grid-cols-2 md:gap-8 items-center">
-                <div className="bg-transparent md:col-start-1">
-                  <img
-                    src="/kuvapankki/Kappaleen teksti (69).png"
-                    alt="Lupaamme"
-                    className="w-full max-w-[320px] h-auto object-contain bg-transparent"
-                    style={{ background: 'transparent', backgroundColor: 'transparent' }}
-                  />
-                </div>
-                <div className="md:col-start-2">
+              <div className="grid grid-cols-1 md:grid md:grid-cols-2 md:gap-8 items-center">
+                {/* Teksti ensin mobiilissa; desktopissa oikealla */}
+                <div className="md:col-start-2 md:order-2">
                   <h2 className="text-2xl font-semibold text-gray-900">Lupaamme</h2>
                   <p className="mt-2">
-                    Tietoturvasta puhutaan usein monimutkaisesti, mutta haluamme tehdä siitä ymmärrettävää ja konkreettista. Palvelumme on helppokäyttöinen, tarjoaa oikeaa suojaa ja sopii jokaisen kotitalouden arkeen. Tavoitteemme on, että OmaVerkkoturvan avulla jokainen voi tuntea olevansa turvassa digitaalisessa maailmassa.
+                    Tietoturvasta puhutaan usein monimutkaisesti, mutta haluamme tehdä siitä ymmärrettävää ja konkreettista. Palvelumme on helppokäyttöinen, tarjoaa oikeaa suojaa ja sopii jokaisen kotitalouden arkeen. Tavoitteemme on, että OmaVerkkoturvan avulla jokainen voi tuntea olevansa turvassa digitaalisessa maailmassa. Palvelumme on kuin arvopaketti: se tarjoaa kaiken tarvitsemasi turvan yhdessä helppokäyttöisessä kokonaisuudessa.
                   </p>
+                </div>
+                {/* Kuva toisena mobiilissa; desktopissa vasemmalla */}
+                <div className="bg-transparent md:col-start-1 md:order-1">
+                  <img
+                    src="/kuvapankki/Kappaleen teksti (74).png"
+                    alt="Lupaamme"
+                    className="w-full max-w-[380px] h-auto object-contain bg-transparent"
+                    style={{ background: 'transparent', backgroundColor: 'transparent' }}
+                  />
                 </div>
               </div>
             </div>
