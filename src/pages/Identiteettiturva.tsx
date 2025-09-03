@@ -119,19 +119,19 @@ const Identiteettiturva = () => {
                 </div>
               </div>
               
-                                    {/* Mobile image - shown before Verkkokauppaan button on mobile */}
-                      <div className="lg:hidden flex justify-center mb-6">
-                        <img 
-                          src="/kuvapankki/Kappaleen teksti (79).png" 
-                          alt="Henkilösuoja kuva" 
-                          className="h-auto w-[450px] md:w-[600px]"
-                          style={{ 
-                            background: 'transparent', 
-                            backgroundColor: 'transparent',
-                            maxWidth: 'none'
-                          }}
-                        />
-                      </div>
+              {/* Mobile image - shown before Verkkokauppaan button on mobile */}
+              <div className="lg:hidden mb-6 mx-[-1rem] sm:mx-auto sm:w-full sm:max-w-[520px] md:mx-0 md:w-full md:max-w-[600px] md:mx-auto">
+                <img 
+                  src="/kuvapankki/Kappaleen teksti (79).png" 
+                  alt="Henkilösuoja kuva" 
+                  className="block w-screen h-[80vw] object-cover object-center sm:w-full sm:h-auto sm:max-w-[520px] md:w-full md:h-auto md:max-w-[600px]"
+                  style={{ 
+                    background: 'transparent', 
+                    backgroundColor: 'transparent',
+                    display: 'block'
+                  }}
+                />
+              </div>
               
               {/* Verkkokauppaan button */}
               <div className="mt-8">
@@ -150,16 +150,16 @@ const Identiteettiturva = () => {
               <img 
                 src="/kuvapankki/Kappaleen teksti (79).png" 
                 alt="Henkilösuoja kuva" 
-                className="h-auto"
+                className="h-auto w-full max-w-[600px] xl:max-w-[650px]"
                 style={{ 
                   background: 'transparent', 
-                  backgroundColor: 'transparent',
-                  width: '750px',
-                  maxWidth: 'none'
+                  backgroundColor: 'transparent'
                 }}
               />
             </div>
           </div>
+          
+
         </div>
         </div>
         
