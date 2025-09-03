@@ -122,12 +122,13 @@ const Identiteettiturva = () => {
                                     {/* Mobile image - shown before Verkkokauppaan button on mobile */}
                       <div className="lg:hidden flex justify-center mb-6">
                         <img 
-                          src="/kuvapankki/Kappaleen teksti (41).png" 
+                          src="/kuvapankki/Kappaleen teksti (79).png" 
                           alt="Henkilösuoja kuva" 
-                          className="w-full h-auto max-w-sm"
+                          className="h-auto w-[450px] md:w-[600px]"
                           style={{ 
                             background: 'transparent', 
-                            backgroundColor: 'transparent'
+                            backgroundColor: 'transparent',
+                            maxWidth: 'none'
                           }}
                         />
                       </div>
@@ -145,14 +146,16 @@ const Identiteettiturva = () => {
             </div>
             
             {/* Right side - henkilösuoja 2.png image */}
-            <div className="hidden lg:block lg:flex lg:justify-end lg:items-center lg:-translate-x-10">
+            <div className="hidden lg:block lg:flex lg:justify-end lg:items-center lg:translate-x-20">
               <img 
-                src="/kuvapankki/Kappaleen teksti (41).png" 
+                src="/kuvapankki/Kappaleen teksti (79).png" 
                 alt="Henkilösuoja kuva" 
-                className="w-full h-auto max-w-xs lg:max-w-sm xl:max-w-md"
+                className="h-auto"
                 style={{ 
                   background: 'transparent', 
-                  backgroundColor: 'transparent'
+                  backgroundColor: 'transparent',
+                  width: '750px',
+                  maxWidth: 'none'
                 }}
               />
             </div>
@@ -194,11 +197,11 @@ const Identiteettiturva = () => {
                   </div>
                
                {/* Right side - henkilösuoja 5.png image */}
-               <div className="hidden lg:block lg:flex lg:justify-end lg:items-center mt-24 translate-x-32 lg:translate-x-48 xl:translate-x-64">
+               <div className="hidden lg:block lg:flex lg:justify-end lg:items-center mt-24 translate-x-16 lg:translate-x-20 xl:translate-x-24">
                  <img 
-                   src="/kuvapankki/Kappaleen teksti (79).png" 
+                   src="/kuvapankki/Kappaleen teksti (41).png" 
                    alt="Henkilösuoja 5 kuva" 
-                   className="w-[800px] h-auto max-w-[800px] lg:max-w-[900px] xl:max-w-[1000px]"
+                   className="w-[360px] h-auto max-w-[360px] lg:w-[420px] lg:max-w-[420px] xl:w-[480px] xl:max-w-[480px]"
                    style={{ 
                      background: 'transparent', 
                      backgroundColor: 'transparent'
@@ -208,14 +211,15 @@ const Identiteettiturva = () => {
             </div>
             
             {/* Mobile image - shown after content on mobile */}
-            <div className="lg:hidden flex justify-center items-center mt-16 mb-8 mx-auto">
+            <div className="lg:hidden flex justify-center items-center mt-16 mb-8">
               <img 
-                src="/kuvapankki/Kappaleen teksti (79).png" 
+                src="/kuvapankki/Kappaleen teksti (41).png" 
                 alt="Henkilösuoja 5 kuva" 
-                className="w-[600px] h-auto max-w-[600px] md:w-[800px] md:max-w-[800px]"
+                className="h-auto w-[450px] md:w-[600px]"
                 style={{ 
                   background: 'transparent', 
-                  backgroundColor: 'transparent'
+                  backgroundColor: 'transparent',
+                  maxWidth: 'none'
                 }}
               />
             </div>
