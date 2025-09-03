@@ -150,10 +150,12 @@ const Identiteettiturva = () => {
               <img 
                 src="/kuvapankki/Kappaleen teksti (79).png" 
                 alt="Henkilösuoja kuva" 
-                className="h-auto w-full max-w-[600px] xl:max-w-[650px]"
+                className="h-auto"
                 style={{ 
                   background: 'transparent', 
-                  backgroundColor: 'transparent'
+                  backgroundColor: 'transparent',
+                  width: '800px',
+                  maxWidth: 'none'
                 }}
               />
             </div>
