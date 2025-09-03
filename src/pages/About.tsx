@@ -112,7 +112,7 @@ const About = () => {
                 </div>
                 <div className="bg-transparent md:col-start-2">
                   <img
-                    src="/kuvapankki/Kappaleen teksti (76).png"
+                    src="/kuvapankki/Kappaleen teksti (80).png"
                     alt="Visiomme"
                     className="block ml-auto w-full max-w-[420px] h-auto object-contain bg-transparent"
                     style={{ background: 'transparent', backgroundColor: 'transparent' }}
