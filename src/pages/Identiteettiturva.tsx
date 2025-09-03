@@ -122,7 +122,7 @@ const Identiteettiturva = () => {
               {/* Mobile image - shown before Verkkokauppaan button on mobile */}
               <div className="lg:hidden mb-6 mx-[-1rem] sm:mx-auto sm:w-full sm:max-w-[520px] md:mx-0 md:w-full md:max-w-[600px] md:mx-auto">
                 <img 
-                  src="/kuvapankki/Kappaleen teksti (79).png" 
+                  src="/kuvapankki/Kappaleen teksti (81).png" 
                   alt="Henkilösuoja kuva" 
                   className="block w-screen h-[80vw] object-cover object-center sm:w-full sm:h-auto sm:max-w-[520px] md:w-full md:h-auto md:max-w-[600px]"
                   style={{ 
@@ -148,7 +148,7 @@ const Identiteettiturva = () => {
             {/* Right side - henkilösuoja 2.png image */}
             <div className="hidden lg:block lg:flex lg:justify-end lg:items-center lg:translate-x-20">
               <img 
-                src="/kuvapankki/Kappaleen teksti (79).png" 
+                src="/kuvapankki/Kappaleen teksti (81).png" 
                 alt="Henkilösuoja kuva" 
                 className="h-auto"
                 style={{ 
