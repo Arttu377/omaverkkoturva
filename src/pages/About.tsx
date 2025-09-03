@@ -136,7 +136,7 @@ const About = () => {
                 {/* Kuva toisena mobiilissa; desktopissa vasemmalla */}
                 <div className="bg-transparent md:col-start-1 md:order-1">
                   <img
-                    src="/kuvapankki/Kappaleen teksti (74).png"
+                    src="/kuvapankki/Kappaleen teksti (83).png"
                     alt="Lupaamme"
                     className="w-full max-w-[480px] h-auto object-contain bg-transparent"
                     style={{ background: 'transparent', backgroundColor: 'transparent' }}
