@@ -64,7 +64,7 @@ const About = () => {
               {/* Osa 1 - vasen */}
               <div className="grid grid-cols-1 md:grid md:grid-cols-2 md:gap-8 items-center -ml-4 md:-ml-16">
                 <div className="md:col-start-1">
-                  <div className="bg-blue-50 rounded-full p-12 md:p-20 lg:p-24 mt-32 md:py-24 md:px-12 lg:px-16" style={{ maxWidth: 'none', minHeight: '500px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                  <div className="bg-blue-50 rounded-full p-16 md:p-20 lg:p-24 mt-32 md:py-24 md:px-12 lg:px-16" style={{ maxWidth: 'none', minHeight: '500px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                     <h2 className="text-2xl font-semibold text-gray-900 mb-6">Kulissien takaa</h2>
                     <div className="space-y-4 max-w-2xl">
                       <p className="text-sm md:text-base leading-relaxed">
