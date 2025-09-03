@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PageLayout from '@/components/PageLayout';
 import SEO from '@/components/SEO';
+import FullWidthHero from '@/components/FullWidthHero';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { FileText, Calendar, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -77,146 +78,147 @@ const Blog = () => {
         keywords={['identiteettisuoja', 'verkkoturva', 'blog', 'tietoturva', 'identiteettivarkaus', 'verkkoturvallisuus']}
       />
       
-      <div className="min-h-screen bg-gradient-to-b from-white via-blue-50 to-blue-100 pt-32 pb-16">
+      {/* Full width hero section */}
+                   <FullWidthHero
+               backgroundImage="/kuvapankki/Kappaleen teksti (93).png"
+               title="Blogi"
+               subtitle="Ajankohtaisia vinkkejä ja ohjeita identiteettisuojasta sekä verkkoturvallisuudesta. Pysy ajan tasalla tietoturvassa ja suojaa henkilötietojasi."
+               height="400px"
+             />
+      
+
+      
+      <div className="min-h-screen bg-gradient-to-b from-white via-blue-50 to-blue-100 pt-8 md:pt-16 pb-8 md:pb-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Header */}
-          <div className="text-center mb-16">
-                         <h1 className="text-6xl lg:text-7xl font-bold text-gray-900 mb-6">
-               Blogi
-             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Ajankohtaisia vinkkejä ja ohjeita identiteettisuojasta sekä verkkoturvallisuudesta. Pysy ajan tasalla tietoturvassa ja suojaa henkilötietojasi.
-            </p>
-          </div>
 
                      {/* Blog posts grid */}
-           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-             {blogPosts
-               .slice((currentPage - 1) * postsPerPage, currentPage * postsPerPage)
-               .map((post, index) => (
-              <Card key={post.slug} className="h-full hover:shadow-lg transition-shadow duration-300 bg-white/80 backdrop-blur-sm">
-                <CardHeader className="pb-4">
-                  <div className="flex items-center justify-between mb-3">
-                    <Badge variant="outline" className="text-xs">
-                      {post.category}
-                    </Badge>
-                  </div>
-                                     {post.slug === 'verkkoturvallisuus-2025' && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            {blogPosts
+              .slice((currentPage - 1) * postsPerPage, currentPage * postsPerPage)
+              .map((post, index) => (
+             <Card key={post.slug} className="h-full hover:shadow-lg transition-shadow duration-300 bg-white/80 backdrop-blur-sm">
+               <CardHeader className="pb-4">
+                 <div className="flex items-center justify-between mb-3">
+                   <Badge variant="outline" className="text-xs">
+                     {post.category}
+                   </Badge>
+                 </div>
+                                    {post.slug === 'verkkoturvallisuus-2025' && (
+                    <img 
+                      src="/kuvapankki/Cyper.jpg" 
+                      alt="Verkkoturvallisuus 2025" 
+                      className="w-full h-32 object-cover rounded-lg mb-4"
+                    />
+                  )}
+                                      {post.slug === 'identiteettivarkauden-estaminen' && (
                      <img 
-                       src="/kuvapankki/Cyper.jpg" 
-                       alt="Verkkoturvallisuus 2025" 
+                       src="/kuvapankki/identi.png" 
+                       alt="Identiteettivarkauden estäminen" 
                        className="w-full h-32 object-cover rounded-lg mb-4"
                      />
                    )}
-                                       {post.slug === 'identiteettivarkauden-estaminen' && (
+                                        {post.slug === 'tietovuotojen-vaikutukset' && (
                       <img 
-                        src="/kuvapankki/identi.png" 
-                        alt="Identiteettivarkauden estäminen" 
+                        src="/kuvapankki/dataleak.png" 
+                        alt="Tietovuotojen vaikutukset" 
                         className="w-full h-32 object-cover rounded-lg mb-4"
                       />
                     )}
-                                         {post.slug === 'tietovuotojen-vaikutukset' && (
+                                          {post.slug === 'salasanan-suojaus' && (
                        <img 
-                         src="/kuvapankki/dataleak.png" 
-                         alt="Tietovuotojen vaikutukset" 
+                         src="/kuvapankki/salasana.png" 
+                         alt="Salasanan suojaus" 
                          className="w-full h-32 object-cover rounded-lg mb-4"
                        />
                      )}
-                                           {post.slug === 'salasanan-suojaus' && (
-                        <img 
-                          src="/kuvapankki/salasana.png" 
-                          alt="Salasanan suojaus" 
-                          className="w-full h-32 object-cover rounded-lg mb-4"
-                        />
-                      )}
-                                             {post.slug === 'kaksivaiheinen-tunnistus' && (
-                         <img 
-                           src="/kuvapankki/Kappaleen teksti (63).png" 
-                           alt="Kaksivaiheinen tunnistus" 
-                           className="w-full h-32 object-cover rounded-lg mb-4"
-                         />
-                       )}
-                                               {post.slug === 'tietojenkalastelun-estaminen' && (
+                                            {post.slug === 'kaksivaiheinen-tunnistus' && (
                           <img 
-                            src="/kuvapankki/Kappaleen teksti (64).png" 
-                            alt="Tietojenkalastelun estäminen" 
+                            src="/kuvapankki/Kappaleen teksti (63).png" 
+                            alt="Kaksivaiheinen tunnistus" 
                             className="w-full h-32 object-cover rounded-lg mb-4"
                           />
                         )}
-                                                 {post.slug === 'verkkokauppahuijaukset' && (
+                                                {post.slug === 'tietojenkalastelun-estaminen' && (
                            <img 
-                             src="/kuvapankki/Kappaleen teksti (65).png" 
-                             alt="Verkkokauppahuijaukset" 
+                             src="/kuvapankki/Kappaleen teksti (64).png" 
+                             alt="Tietojenkalastelun estäminen" 
                              className="w-full h-32 object-cover rounded-lg mb-4"
                            />
                          )}
-                         {post.slug === 'nettikiusaaminen' && (
-                           <img 
-                             src="/kuvapankki/Kappaleen teksti (66).png" 
-                             alt="Nettikiusaaminen" 
-                             className="w-full h-32 object-cover rounded-lg mb-4"
-                           />
-                         )}
-                  <CardTitle className="text-xl font-semibold text-gray-900 leading-tight">
-                    {post.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="pt-0">
-                  <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                    {post.description}
-                  </p>
-                  <Link 
-                    to={`/blog/${post.slug}`}
-                    className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium text-sm transition-colors"
-                  >
-                    Lue lisää →
-                  </Link>
-                </CardContent>
-              </Card>
-            ))}
-                     </div>
-
-           {/* Pagination */}
-           <div className="mt-16 flex justify-center items-center space-x-4">
-             <button
-               onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
-               disabled={currentPage === 1}
-               className="flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-md hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
-             >
-               <ChevronLeft className="w-4 h-4 mr-1" />
-               Edellinen
-             </button>
-             
-             <div className="flex items-center space-x-2">
-               {Array.from({ length: Math.ceil(blogPosts.length / postsPerPage) }, (_, i) => (
-                 <button
-                   key={i + 1}
-                   onClick={() => setCurrentPage(i + 1)}
-                   className={`px-3 py-2 text-sm font-medium rounded-md ${
-                     currentPage === i + 1
-                       ? 'bg-blue-600 text-white'
-                       : 'text-gray-500 bg-white border border-gray-300 hover:bg-gray-50'
-                   }`}
+                                                  {post.slug === 'verkkokauppahuijaukset' && (
+                            <img 
+                              src="/kuvapankki/Kappaleen teksti (65).png" 
+                              alt="Verkkokauppahuijaukset" 
+                              className="w-full h-32 object-cover rounded-lg mb-4"
+                            />
+                          )}
+                          {post.slug === 'nettikiusaaminen' && (
+                            <img 
+                              src="/kuvapankki/Kappaleen teksti (66).png" 
+                              alt="Nettikiusaaminen" 
+                              className="w-full h-32 object-cover rounded-lg mb-4"
+                            />
+                          )}
+                 <CardTitle className="text-xl font-semibold text-gray-900 leading-tight">
+                   {post.title}
+                 </CardTitle>
+               </CardHeader>
+               <CardContent className="pt-0">
+                 <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                   {post.description}
+                 </p>
+                 <Link 
+                   to={`/blog/${post.slug}`}
+                   className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium text-sm transition-colors"
                  >
-                   {i + 1}
-                 </button>
-               ))}
-             </div>
-             
-             <button
-               onClick={() => setCurrentPage(prev => Math.min(prev + 1, Math.ceil(blogPosts.length / postsPerPage)))}
-               disabled={currentPage === Math.ceil(blogPosts.length / postsPerPage)}
-               className="flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-md hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
-             >
-               Seuraava
-               <ChevronRight className="w-4 h-4 ml-1" />
-             </button>
-           </div>
+                   Lue lisää →
+                 </Link>
+               </CardContent>
+             </Card>
+           ))}
+                    </div>
 
-         </div>
-       </div>
-     </PageLayout>
-   );
- };
+          {/* Pagination */}
+          <div className="mt-16 flex justify-center items-center space-x-4">
+            <button
+              onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+              disabled={currentPage === 1}
+              className="flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-md hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              <ChevronLeft className="w-4 h-4 mr-1" />
+              Edellinen
+            </button>
+            
+            <div className="flex items-center space-x-2">
+              {Array.from({ length: Math.ceil(blogPosts.length / postsPerPage) }, (_, i) => (
+                <button
+                  key={i + 1}
+                  onClick={() => setCurrentPage(i + 1)}
+                  className={`px-3 py-2 text-sm font-medium rounded-md ${
+                    currentPage === i + 1
+                      ? 'bg-blue-600 text-white'
+                      : 'text-gray-500 bg-white border border-gray-300 hover:bg-gray-50'
+                  }`}
+                >
+                  {i + 1}
+                </button>
+              ))}
+            </div>
+            
+            <button
+              onClick={() => setCurrentPage(prev => Math.min(prev + 1, Math.ceil(blogPosts.length / postsPerPage)))}
+              disabled={currentPage === Math.ceil(blogPosts.length / postsPerPage)}
+              className="flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-md hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              Seuraava
+              <ChevronRight className="w-4 h-4 ml-1" />
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </PageLayout>
+  );
+};
 
 export default Blog;

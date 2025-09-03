@@ -165,22 +165,6 @@ main, .main-content {
   }
 }
 
-/* Mobile status bar styling with gradient to match header */
-@supports (-webkit-touch-callout: none) {
-  /* iOS Safari */
-  body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: env(safe-area-inset-top);
-    background: linear-gradient(to right, #172554, #1e3a8a, #172554); /* Same gradient as header */
-    z-index: 1; /* Lower z-index so it doesn't overlap header */
-    pointer-events: none; /* Prevents interference with header interactions */
-  }
-}
-
 /* Android Chrome and other mobile browsers */
 @media screen and (max-width: 768px) {
   body::before {
@@ -237,6 +221,14 @@ nav[class*="fixed"] {
   padding-top: 0 !important;
 }
 
+/* Blog hero section */
+@media (max-width: 767px) {
+  .full-width-hero { height: 280px !important; }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .full-width-hero { height: 360px !important; }
+}
+
 /* Ensure hero text elements maintain their original positioning */
 .banner-overlay, .hero-content, .hero-text {
   margin-top: 0 !important;
@@ -254,6 +246,33 @@ nav[class*="fixed"] {
 .banner-subtitle, .hero-subtitle, .hero-description {
   margin-top: 0 !important;
   padding-top: 0 !important;
+}
+
+/* Blog hero section full width */
+.blog-hero-fullwidth {
+  position: relative !important;
+  width: 100vw !important;
+  min-width: 100vw !important;
+  max-width: none !important;
+  height: 400px !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  z-index: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transform: none !important;
+  box-sizing: border-box !important;
+  overflow: visible !important;
+  display: block !important;
+  float: none !important;
+  clear: none !important;
+  left: 50% !important;
+  right: 50% !important;
+  margin-left: -50vw !important;
+  margin-right: -50vw !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 
 /* Hero button positioning */
@@ -275,7 +294,7 @@ nav[class*="fixed"] {
 }
 
 /* Fix for the text container positioning */
-.w-full.max-w-2xl.text-left.ml-4.sm\\:ml-8 {
+.w-full.max-w-2xl.text-left.ml-4.sm\:ml-8 {
   margin-top: 0 !important;
   padding-top: 0 !important;
 }
@@ -293,7 +312,7 @@ nav[class*="fixed"] {
 }
 
 /* Fix for the button container */
-.flex.justify-center.sm\\:justify-start.mt-6.sm\\:mt-8 {
+.flex.justify-center.sm\:justify-start.mt-6.sm\:mt-8 {
   margin-top: 1.5rem !important;
   padding-top: 0 !important;
 }
@@ -484,4 +503,22 @@ nav[class*="fixed"] {
 
 .animate-pulse-slow {
   animation: pulse-slow 4s ease-in-out infinite;
+}
+
+/* Mobile and tablet fine-tuning for blog hero */
+/* Very small phones */
+@media (max-width: 359px) {
+  .mobile-bg { transform: scale(2.0) !important; transform-origin: top center !important; background-position: center top !important; }
+}
+/* Small-to-medium phones */
+@media (min-width: 360px) and (max-width: 539px) {
+  .mobile-bg { transform: scale(2.2) !important; transform-origin: top center !important; background-position: center top !important; }
+}
+/* Large phones/phablets */
+@media (min-width: 540px) and (max-width: 767px) {
+  .mobile-bg { transform: scale(2.35) !important; transform-origin: top center !important; background-position: center top !important; }
+}
+/* Tablets */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .tablet-bg { transform: scale(2.1) !important; transform-origin: top center !important; background-position: center top !important; }
 }
