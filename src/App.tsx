@@ -31,6 +31,7 @@ import Irtisanomislomake from "./pages/Irtisanomislomake";
 import Contact from "./pages/Contact";
 import Verkkokauppa from "./pages/Verkkokauppa";
 import OrderConfirmation from "./pages/OrderConfirmation";
+import Vahvistus from "./pages/Vahvistus";
 
 const App = () => {
   const [queryClient] = useState(() => new QueryClient());
@@ -46,6 +47,7 @@ const App = () => {
             <Routes>
               {/* Julkiset sivut (eivät vaadi kirjautumista) */}
               <Route path="/vahvista-tilaus/:token" element={<OrderConfirmation />} />
+              <Route path="/vahvistus" element={<Vahvistus />} />
               
               {/* Pääsivuston sivut */}
               <Route path="/" element={<Index />} />

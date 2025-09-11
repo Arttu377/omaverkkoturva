@@ -29,8 +29,7 @@ const Footer = () => {
               
               <p>
                 Yrityksemme perustuu vahvaan suomalaiseen osaamiseen tietoturvassa ja asiakaspalvelussa. 
-                Kaikki asiakkaiden tiedot käsitellään Suomessa, ja noudatamme tiukkoja EU:n 
-                tietosuoja-asetuksen (GDPR) vaatimuksia.
+                Kaikki asiakkaiden tiedot käsitellään EU:n tietosuoja-asetuksen (GDPR) vaatimusten mukaisesti.
               </p>
             </div>
           </div>

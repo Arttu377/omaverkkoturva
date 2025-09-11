@@ -16,6 +16,7 @@ import ConfirmedOrders from "./pages/ConfirmedOrders";
 import OrderConfirmation from "./pages/OrderConfirmation";
 import Portaalinverkkokauppa from "./pages/Portaalinverkkokauppa";
 import NotFound from "./pages/NotFound";
+import Vahvistus from "./pages/Vahvistus";
 
 const PortalApp = () => {
   const [queryClient] = useState(() => new QueryClient());
@@ -30,6 +31,8 @@ const PortalApp = () => {
         <Sonner />
         <BrowserRouter>
           <Routes>
+            {/* Public route(s) */}
+            <Route path="/vahvistus" element={<Vahvistus />} />
             {/* Protected app under Auth/Shopping providers */}
             <Route element={<AuthProvider><ShoppingCartProvider><PortalAuthGuard /></ShoppingCartProvider></AuthProvider>}>
               <Route path="/" element={<PortalLogin />} />
