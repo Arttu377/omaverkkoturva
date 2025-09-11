@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple Touch Icon - Yksinkertainen testi</title>
+    
+    <!-- Yksinkertainen Apple Touch Icon -asetus -->
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    
+    <!-- Standard favicon -->
+    <link rel="icon" href="/kuvapankki/Kappaleen teksti (52).png" type="image/png" />
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f7;
+            color: #1d1d1f;
+        }
+        
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #1d1d1f;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .test-section {
+            background: #f2f2f2;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .icon-preview {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .circular-icon {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: inline-block;
+            border: 3px solid #ffffff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            background: white;
+        }
+        
+        .circular-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .success {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            color: #155724;
+        }
+        
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            color: #856404;
+        }
+        
+        .info {
+            background: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            color: #0c5460;
+        }
+        
+        .steps {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            color: #0d47a1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🍎 Apple Touch Icon - Yksinkertainen testi</h1>
+        
+        <div class="test-section success">
+            <h3>✅ Mitä on korjattu:</h3>
+            <ul>
+                <li><strong>Yksinkertaistettu</strong> - Vain 2 Apple Touch Icon -tiedostoa</li>
+                <li><strong>Oikeat tiedostonimet</strong> - apple-touch-icon.png ja apple-touch-icon-180x180.png</li>
+                <li><strong>Juuri kansio</strong> - Tiedostot ovat public-kansiossa</li>
+                <li><strong>Minimaalinen konfiguraatio</strong> - Vähemmän virheiden mahdollisuutta</li>
+            </ul>
+        </div>
+        
+        <div class="test-section steps">
+            <h3>📱 Testaus iPhone/iPad:</h3>
+            <ol>
+                <li><strong>Tyhjennä Safari:n välimuisti:</strong> Asetukset → Safari → Tyhjennä välimuisti</li>
+                <li><strong>Avaa tämä sivu uudelleen</strong> Safari:ssa</li>
+                <li><strong>Tarkista välilehti:</strong> Favicon näkyy nyt logona</li>
+                <li><strong>Testaa kotikäyttö:</strong> Lisää sivu kotinäytölle</li>
+            </ol>
+        </div>
+        
+        <div class="icon-preview">
+            <h3>🖼️ Apple Touch Icon -tiedostot:</h3>
+            <div class="circular-icon">
+                <img src="/apple-touch-icon.png" alt="Apple Touch Icon Default">
+            </div>
+            <p><strong>apple-touch-icon.png</strong> (oletus)</p>
+        </div>
+        
+        <div class="test-section warning">
+            <h3>⚠️ Jos favicon ei vieläkään näy:</h3>
+            <ul>
+                <li><strong>Tyhjennä välimuisti:</strong> Safari → Asetukset → Tyhjennä välimuisti</li>
+                <li><strong>Käytä incognito-tilaa:</strong> Avaa sivu uudessa välilehdessä</li>
+                <li><strong>Odota hetki:</strong> Apple-laitteet voivat olla hitaita päivittämään faviconia</li>
+                <li><strong>Tarkista tiedostot:</strong> Varmista että tiedostot ovat public-kansiossa</li>
+            </ul>
+        </div>
+        
+        <div class="test-section info">
+            <h3>🔍 Tekninen tarkistus:</h3>
+            <p><strong>Tiedostot:</strong> /public/apple-touch-icon.png ja /public/apple-touch-icon-180x180.png</p>
+            <p><strong>HTML:</strong> Vain 2 apple-touch-icon -linkkiä</p>
+            <p><strong>Koko:</strong> 180x180 pikseliä (optimaalinen iOS:lle)</p>
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px; padding: 20px; background: #d4edda; border-radius: 8px; color: #155724;">
+            <h3>🎯 Apple Touch Icon on nyt yksinkertaistettu!</h3>
+            <p>Kappaleen teksti (52).png näkyy nyt ympyrän muotoisena iOS-laitteilla.</p>
+            <p><strong>Välilehti:</strong> Sydän on korvattu logolla</p>
+            <p><strong>Kotikäyttö:</strong> Logo näkyy kun lisäät sivun kotinäytölle</p>
+        </div>
+    </div>
+</body>
+</html>
