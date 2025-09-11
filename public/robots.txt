@@ -29,3 +29,4 @@ Allow: /public/
 # Optimize for search engines
 Allow: /sitemap.xml
 Allow: /robots.txt
+Disallow: /vahvistus

@@ -1,17 +1,21 @@
 import React from 'react';
 import PageLayout from '@/components/PageLayout';
+import { Helmet } from 'react-helmet-async';
 import { CheckCircle2, Mail, ShieldCheck, Bell, IdCard, Building2, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Vahvistus: React.FC = () => {
   return (
     <PageLayout>
+      <Helmet>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       <div className="bg-gradient-to-b from-white via-blue-50 to-blue-100">
         <div className="max-w-3xl mx-auto px-4 py-12 md:py-16">
           <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-sm border border-blue-100 p-6 md:p-8">
-            <div className="mt-8 md:mt-12 flex items-start md:items-center gap-4 md:gap-5">
-              <CheckCircle2 className="text-green-600 w-8 h-8 flex-shrink-0" />
-              <h1 className="text-2xl md:text-3xl font-bold text-gray-900">
+            <div className="mt-8 md:mt-12 flex items-start md:items-baseline gap-4 md:gap-5">
+              <CheckCircle2 className="text-green-600 w-8 h-8 flex-shrink-0 -mt-1 md:-mt-2" />
+              <h1 className="text-2xl md:text-3xl font-bold text-gray-900 leading-tight mb-8 md:mb-10 lg:mb-12">
                 Kiitos tilauksesi vahvistamisesta!
               </h1>
             </div>
