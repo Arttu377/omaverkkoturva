@@ -528,7 +528,7 @@ const Hero = memo(() => {
                       </div>
                       
                       <button 
-                        className="px-6 py-3 bg-blue-900 text-white rounded-md hover:bg-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl font-medium text-base"
+                        className="mt-8 md:mt-10 px-6 py-3 bg-blue-900 text-white rounded-md hover:bg-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl font-medium text-base"
                         onClick={() => {
                           navigate('/henkilosuoja');
                         }}
@@ -539,11 +539,11 @@ const Hero = memo(() => {
                   </div>
                   
                   {/* Desktop/Tablet image - shown on medium screens and up */}
-                  <div className="hidden md:flex md:w-1/2 md:justify-center md:items-start">
+                  <div className="hidden md:flex md:w-1/2 md:justify-end md:items-start md:pr-0 lg:pr-0 xl:pr-0 md:mr-[-24px] lg:mr-[-64px] xl:mr-[-96px]">
                     <img 
                       src="/kuvapankki/Kappaleen teksti (15).png" 
                       alt="Kappaleen teksti kuva" 
-                      className="w-full h-auto max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl mt-8 md:mt-16 lg:mt-24 xl:mt-40"
+                      className="w-full h-auto max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl mt-8 md:mt-16 lg:mt-24 xl:mt-40 transform md:translate-x-8 lg:translate-x-20 xl:translate-x-28"
                       loading="eager"
                       decoding="async"
                       style={{ 
