@@ -64,7 +64,7 @@ const About = () => {
               {/* Osa 1 - vasen */}
               <div className="grid grid-cols-1 md:grid md:grid-cols-2 md:gap-8 items-center -ml-4 md:-ml-16">
                 <div className="md:col-start-1">
-                  <div className="bg-blue-50 rounded-full p-16 md:p-20 lg:p-24 mt-32 md:py-24 md:px-12 lg:px-16" style={{ maxWidth: 'none', minHeight: '500px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                  <div className="bg-blue-50 rounded-full p-20 md:py-28 md:px-16 lg:py-32 lg:px-20 mt-32" style={{ maxWidth: 'none', minHeight: '560px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                     <h2 className="text-2xl font-semibold text-gray-900 mb-6">Kulissien takaa</h2>
                     <div className="space-y-4 max-w-2xl">
                       <p className="text-sm md:text-base leading-relaxed">
@@ -112,7 +112,7 @@ const About = () => {
               <div className="grid grid-cols-1 md:grid md:grid-cols-2 md:gap-8 items-center">
                 {/* Teksti ensin mobiilissa; desktopissa vasemmalla */}
                 <div className="md:col-start-1 md:order-1">
-                  <div className="bg-blue-50 rounded-full p-16 -ml-4">
+                  <div className="bg-blue-50 rounded-full p-20 md:p-24 lg:p-28 -ml-4">
                     <h2 className="text-2xl font-semibold text-gray-900">Lupaamme</h2>
                     <p className="mt-2">
                       Tietoturvasta puhutaan usein monimutkaisesti, mutta haluamme tehdä siitä ymmärrettävää ja konkreettista. Palvelumme on helppokäyttöinen, tarjoaa oikeaa suojaa ja sopii jokaisen kotitalouden arkeen. Tavoitteemme on, että OmaVerkkoturvan avulla jokainen voi tuntea olevansa turvassa digitaalisessa maailmassa. Palvelumme on kuin arvopaketti: se tarjoaa kaiken tarvitsemasi turvan yhdessä helppokäyttöisessä kokonaisuudessa.
