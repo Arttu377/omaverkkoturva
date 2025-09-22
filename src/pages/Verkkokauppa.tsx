@@ -3,9 +3,12 @@ import PublicPageLayout from '@/components/PublicPageLayout';
 import SEO from '@/components/SEO';
 import { useShoppingCart } from '@/contexts/ShoppingCartContext';
 import FloatingCart from '@/components/FloatingCart';
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const Verkkokauppa = () => {
   const { addToCart } = useShoppingCart();
+  const location = useLocation();
 
   const packages = [
     {
@@ -40,9 +43,26 @@ const Verkkokauppa = () => {
   ];
 
   const freeTrial = {
-    title: "Henkilösuoja - Ilmainen kokeilujakso 30pv",
+    title: "Henkilösuoja - Veloitukseton kokeilujakso 14pv",
     price: "0€"
   };
+
+  useEffect(() => {
+    // Jos tultiin etusivulta napilta ja mukana state scrollTo
+    if (location.state && (location.state as any).scrollTo === 'free-trial') {
+      // Odota seuraavaan tikkiin, jotta layout on valmis
+      setTimeout(() => {
+        const el = document.getElementById('free-trial');
+        if (el) {
+          const isMobile = window.innerWidth < 768;
+          const navbarOffsetPx = isMobile ? 100 : 160; // mobiilissa hieman pienempi offset
+          const rect = el.getBoundingClientRect();
+          const targetTop = rect.top + window.scrollY - navbarOffsetPx;
+          window.scrollTo({ top: Math.max(0, targetTop), behavior: 'smooth' });
+        }
+      }, 0);
+    }
+  }, [location.state]);
 
 
   return (
@@ -52,7 +72,7 @@ const Verkkokauppa = () => {
         description="Valitse sinulle sopiva identiteettiturva paketti. Suojaa itsesi ja läheisesi verkkorikollisuudelta."
       />
       
-      <div className="min-h-screen bg-background pt-44 pb-12">
+      <div className="min-h-screen bg-gradient-to-b from-white via-blue-50 to-blue-200 pt-44 pb-12">
         {/* Floating ostoskori */}
         <FloatingCart />
         
@@ -67,27 +87,6 @@ const Verkkokauppa = () => {
             <p className="text-sm text-muted-foreground">
               Jokaisessa tilauksessa on 14vrk maksuton peruutusoikeus.
             </p>
-          </div>
-
-          {/* Ilmainen kokeilujakso */}
-          <div className="mb-16 flex justify-center">
-            <div className="w-full max-w-md">
-              <div className="bg-white/90 backdrop-blur-sm rounded-2xl border border-gray-200 p-8 shadow-lg text-center hover:shadow-xl transition-shadow">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  {freeTrial.title}
-                </h3>
-                <div className="text-4xl font-bold text-gray-900 mb-6">
-                  {freeTrial.price}
-                </div>
-                
-                <button 
-                  onClick={() => addToCart(freeTrial)}
-                  className="w-full bg-blue-900 text-white py-3 px-6 rounded-lg font-medium hover:bg-blue-800 transition-colors"
-                >
-                  Aloita ilmainen kokeilu
-                </button>
-              </div>
-            </div>
           </div>
 
           {/* Maksulliset paketit */}
@@ -167,6 +166,45 @@ const Verkkokauppa = () => {
                 </button>
               </div>
             ))}
+          </div>
+
+          {/* Ilmainen kokeilujakso - moved below paid packages */}
+          <div id="free-trial" className="mt-16 flex justify-center scroll-mt-40">
+            <div className="w-full max-w-md">
+              <div className="bg-white/90 backdrop-blur-sm rounded-2xl border border-gray-200 p-8 shadow-lg text-center hover:shadow-xl transition-shadow">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  {freeTrial.title}
+                </h3>
+                <div className="text-4xl font-bold text-gray-900 mb-6">
+                  {freeTrial.price}
+                </div>
+                {/* Image for free trial card */}
+                <div className="flex justify-center mb-2">
+                  <img 
+                    src="/kuvapankki/Kappaleen teksti (15).png" 
+                    alt="Kokeilujakso kuva" 
+                    className="w-full h-auto max-w-[180px] md:max-w-[260px]"
+                    style={{ 
+                      background: 'transparent', 
+                      backgroundColor: 'transparent'
+                    }}
+                  />
+                </div>
+                {/* Features under free trial image */}
+                <ul className="space-y-2 mb-6 text-left">
+                  <li className="flex items-start"><span className="text-gray-700">• Tietojen monitorointi ja ilmoitus tietovuodoista</span></li>
+                  <li className="flex items-start"><span className="text-gray-700">• Ei sitoumuksia eikä avausmaksuja</span></li>
+                  <li className="flex items-start"><span className="text-gray-700">• Mahdollisuus tutustua palvelun ominaisuuksiin</span></li>
+                </ul>
+                
+                <button 
+                  onClick={() => addToCart(freeTrial)}
+                  className="w-full bg-blue-900 text-white py-3 px-6 rounded-lg font-medium hover:bg-blue-800 transition-colors"
+                >
+                  Aloita ilmainen kokeilu
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

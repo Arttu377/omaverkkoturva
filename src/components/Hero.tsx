@@ -1275,7 +1275,7 @@ const Hero = memo(() => {
                 Voit myös kokeilla henkilösuojaa ilman sitoumuksia
               </h2>
               <p className="text-base text-black leading-relaxed mb-6">
-                Kokeiluversio sisältää henkilötietojen tarkastuksen sekä monipuoliset työkalut, joilla voit ehkäistä tietojesi väärinkäyttöä ja havaita mahdollisia uhkia ajoissa. Saat 30 päivän ilmaisen käyttöjakson, jonka aikana voit rauhassa tutustua palvelun hyötyihin ja varmistaa, että tietosi ovat turvassa.
+                Kokeiluversio sisältää henkilötietojen tarkastuksen sekä monipuoliset työkalut, joilla voit ehkäistä tietojesi väärinkäyttöä ja havaita mahdollisia uhkia ajoissa. Saat 14 päivän veloituksettoman käyttöjakson, jonka aikana voit rauhassa tutustua palvelun hyötyihin ja varmistaa, että tietosi ovat turvassa.
               </p>
               {/* CTA Button */}
               <button 
@@ -1283,15 +1283,15 @@ const Hero = memo(() => {
                 onClick={() => {
                   // Lisää ilmaisjakso ostoskoriin
                   const freeTrial = {
-                    title: "Henkilösuoja - Ilmainen kokeilujakso 30pv",
+                    title: "Henkilösuoja - Veloitukseton kokeilujakso 14pv",
                     price: "0€"
                   };
                   // Tallenna ostoskoriin localStorageen
                   const cart = JSON.parse(localStorage.getItem('cart') || '[]');
                   cart.push(freeTrial);
                   localStorage.setItem('cart', JSON.stringify(cart));
-                  // Siirry verkkokauppa-sivulle
-                  navigate('/verkkokauppa');
+                  // Siirry verkkokauppaan ja pyydä scrollaus ilmaisjaksoon location statella
+                  navigate('/verkkokauppa', { state: { scrollTo: 'free-trial' } });
                 }}
               >
                 Kokeile

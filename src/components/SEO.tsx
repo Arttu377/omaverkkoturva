@@ -26,7 +26,24 @@ const SEO: React.FC<SEOProps> = ({
   modifiedDate,
   author,
   category,
-  keywords = ['identiteettisuoja', 'verkkoturvallisuus', 'henkilötietojen suojaus', 'tietovuoto', 'identiteettivarkaus', 'verkkorikollisuus', 'tietoturva', 'suomalainen palvelu'],
+  keywords = [
+    'verkkoturva',
+    'verkkoturva palvelu',
+    'verkkoturva yrityksille',
+    'verkkoturvan suojaus',
+    'verkkoturva ratkaisut',
+    'internet-turva',
+    'kyberturva',
+    'kyberturvallisuus',
+    'identiteettisuoja',
+    'verkkoturvallisuus',
+    'henkilötietojen suojaus',
+    'tietovuoto',
+    'identiteettivarkaus',
+    'verkkorikollisuus',
+    'tietoturva',
+    'suomalainen palvelu'
+  ],
   isBlogPost = false
 }) => {
   const location = useLocation();
@@ -72,9 +89,11 @@ const SEO: React.FC<SEOProps> = ({
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'OmaVerkkoturva',
+    alternateName: ['Verkkoturva', 'Oma Verkkoturva'],
     url: 'https://omaverkkoturva.fi',
     logo: 'https://omaverkkoturva.fi/kuvapankki/Kappaleen teksti (52).png', // Ympyrän muotoinen logo
     description: 'Suomalainen identiteettisuoja ja verkkoturvallisuuspalvelu',
+    keywords: enhancedKeywords.join(', '),
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'customer service',
@@ -84,7 +103,45 @@ const SEO: React.FC<SEOProps> = ({
       'https://www.linkedin.com/company/omaverkkoturva',
       'https://twitter.com/omaverkkoturva'
     ]
-  };
+  } as const;
+
+  // Service JSON-LD to target "Verkkoturva" intent
+  const serviceStructuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'OmaVerkkoturva',
+    alternateName: ['Verkkoturva', 'Verkkoturva-palvelu'],
+    serviceType: 'Verkkoturva',
+    areaServed: {
+      '@type': 'Country',
+      name: 'Finland'
+    },
+    provider: {
+      '@type': 'Organization',
+      name: 'Telendor Oy',
+      brand: 'OmaVerkkoturva',
+      url: 'https://omaverkkoturva.fi'
+    },
+    url: currentUrl,
+    description,
+    keywords: enhancedKeywords.join(', ')
+  } as const;
+
+  // WebSite JSON-LD with SearchAction and keyword focus
+  const webSiteStructuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'OmaVerkkoturva',
+    alternateName: ['Verkkoturva', 'Oma Verkkoturva'],
+    url: 'https://omaverkkoturva.fi',
+    inLanguage: 'fi-FI',
+    keywords: enhancedKeywords.join(', '),
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: 'https://omaverkkoturva.fi/?s={search_term_string}',
+      'query-input': 'required name=search_term_string'
+    }
+  } as const;
 
   // Enhanced BlogPosting JSON-LD structured data
   const blogPostStructuredData = isBlogPost && publishDate ? {
@@ -221,7 +278,8 @@ const SEO: React.FC<SEOProps> = ({
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:site_name" content="WRLDS Technologies" />
-      <meta property="og:locale" content="en_US" />
+      <meta property="og:locale" content="fi_FI" />
+      <meta property="og:locale:alternate" content="en_US" />
       {isBlogPost && category && <meta property="article:section" content={category} />}
       {isBlogPost && publishDate && <meta property="article:published_time" content={publishDate} />}
       {isBlogPost && modifiedDate && <meta property="article:modified_time" content={modifiedDate} />}
@@ -258,9 +316,15 @@ const SEO: React.FC<SEOProps> = ({
       <meta name="theme-color" content="#1e3a8a" media="(prefers-color-scheme: dark)" />
       <meta name="msapplication-navbutton-color" content="#1e3a8a" />
         
-        {/* JSON-LD structured data */}
+      {/* JSON-LD structured data */}
       <script type="application/ld+json">
         {JSON.stringify(organizationStructuredData)}
+      </script>
+      <script type="application/ld+json">
+        {JSON.stringify(serviceStructuredData)}
+      </script>
+      <script type="application/ld+json">
+        {JSON.stringify(webSiteStructuredData)}
       </script>
       
       {blogPostStructuredData && (

@@ -82,11 +82,16 @@ const About = () => {
               <div className="grid grid-cols-1 md:grid md:grid-cols-2 md:gap-8 items-center">
                 {/* Teksti ensin mobiilissa; desktopissa oikealla */}
                 <div className="md:col-start-2 md:order-2">
-                  <div className="bg-blue-50 rounded-full p-12">
-                    <h2 className="text-2xl font-semibold text-gray-900">Missiomme</h2>
-                    <p className="mt-2">
-                      Haluamme suojata suomalaisten nettikäyttöä ja antaa aidon turvallisuuden tunteen huijareita ja kehittyvää teknologiaa vastaan. Henkilötiedot ovat yksi arvokkaimmista resursseista, ja siksi panostamme niiden suojaamiseen täysillä.
-                    </p>
+                  <div className="bg-blue-50 rounded-full p-16 md:p-20 lg:p-24">
+                    <h2 className="text-2xl font-semibold text-gray-900">Missiomme & Visiomme</h2>
+                    <div className="mt-2 space-y-4">
+                      <p>
+                        Haluamme suojata suomalaisten nettikäyttöä ja antaa aidon turvallisuuden tunteen huijareita ja kehittyvää teknologiaa vastaan. Henkilötiedot ovat yksi arvokkaimmista resursseista, ja siksi panostamme niiden suojaamiseen täysillä.
+                      </p>
+                      <p>
+                        Näemme, että identiteetti tulisi suojata samalla tavoin kuin kotivakuutus suojaa kotia, autovakuutus autoa ja lemmikkivakuutus lemmikkiä. Emme tyydy vain nykyiseen, vaan kehitämme palveluamme jatkuvasti huijareiden mukana, sillä uhat muuttuvat nopeasti.
+                      </p>
+                    </div>
                   </div>
                 </div>
                 {/* Kuva toisena mobiilissa; desktopissa vasemmalla */}
@@ -100,32 +105,13 @@ const About = () => {
                 </div>
               </div>
 
-              {/* Osa 3 - vasen */}
-              <div className="md:grid md:grid-cols-2 md:gap-8 items-center">
-                <div className="md:col-start-1">
-                  <div className="bg-blue-50 rounded-full p-12">
-                    <h2 className="text-2xl font-semibold text-gray-900">Visiomme</h2>
-                    <p className="mt-2">
-                      Näemme, että identiteetti tulisi suojata samalla tavoin kuin kotivakuutus suojaa kotia, autovakuutus autoa ja lemmikkivakuutus lemmikkiä. Emme tyydy vain nykyiseen, vaan kehitämme palveluamme jatkuvasti huijareiden mukana, sillä uhat muuttuvat nopeasti.
-                    </p>
-                  </div>
-                </div>
-                <div className="bg-transparent md:col-start-2">
-                  <img
-                    src="/kuvapankki/Kappaleen teksti (80).png"
-                    alt="Visiomme"
-                    className="block ml-auto w-full max-w-[420px] h-auto object-contain bg-transparent"
-                    style={{ background: 'transparent', backgroundColor: 'transparent' }}
-                  />
-                </div>
-              </div>
             </div>
 
             {/* Osa 4 - Lupaamme osio erillisenä */}
             <div className="mt-32 text-gray-700 leading-relaxed">
               <div className="grid grid-cols-1 md:grid md:grid-cols-2 md:gap-8 items-center">
-                {/* Teksti ensin mobiilissa; desktopissa oikealla */}
-                <div className="md:col-start-2 md:order-2">
+                {/* Teksti ensin mobiilissa; desktopissa vasemmalla */}
+                <div className="md:col-start-1 md:order-1">
                   <div className="bg-blue-50 rounded-full p-16 -ml-4">
                     <h2 className="text-2xl font-semibold text-gray-900">Lupaamme</h2>
                     <p className="mt-2">
@@ -133,8 +119,8 @@ const About = () => {
                     </p>
                   </div>
                 </div>
-                {/* Kuva toisena mobiilissa; desktopissa vasemmalla */}
-                <div className="bg-transparent md:col-start-1 md:order-1">
+                {/* Kuva toisena mobiilissa; desktopissa oikealla */}
+                <div className="bg-transparent md:col-start-2 md:order-2">
                   <img
                     src="/kuvapankki/Kappaleen teksti (85).png"
                     alt="Lupaamme"

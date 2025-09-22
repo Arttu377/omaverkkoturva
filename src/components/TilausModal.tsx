@@ -179,8 +179,8 @@ Tämä viesti on lähetetty automaattisesti OmaVerkkoturva-tilausjärjestelmäst
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+    <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-start justify-center p-4 pt-16 md:pt-24 pb-8 md:pb-12">
+      <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[80vh] overflow-y-auto mb-8">
         {/* Header */}
         <div className="flex justify-between items-center p-6 border-b border-gray-200">
           <h2 className="text-2xl font-bold text-gray-900">Tee tilaus</h2>
@@ -193,7 +193,7 @@ Tämä viesti on lähetetty automaattisesti OmaVerkkoturva-tilausjärjestelmäst
         </div>
 
         {/* Sisältö */}
-        <div className="p-6">
+        <div className="p-6 pb-10">
           {step === 'summary' ? (
             /* Tilausyhteenveto */
             <div className="space-y-6">
@@ -252,7 +252,8 @@ Tämä viesti on lähetetty automaattisesti OmaVerkkoturva-tilausjärjestelmäst
 
               <Button 
                 onClick={() => setStep('form')}
-                className="w-full py-3 text-lg"
+                className="w-full py-3 text-lg text-white"
+                style={{ background: 'var(--gradient-navy)' }}
               >
                 Jatka tietojen täyttämiseen
               </Button>
@@ -426,7 +427,8 @@ Tämä viesti on lähetetty automaattisesti OmaVerkkoturva-tilausjärjestelmäst
                 </Button>
                 <Button 
                   type="submit" 
-                  className="flex-1"
+                  className="flex-1 text-white"
+                  style={{ background: 'var(--gradient-navy)' }}
                   disabled={loading}
                 >
                   {loading ? 'Käsitellään...' : 'Tee tilaus'}

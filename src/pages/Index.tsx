@@ -17,10 +17,20 @@ const Index = () => {
   return (
     <PageLayout>
       <SEO 
-        title="OmaVerkkoturva - Suojaa identiteettisi verkossa" 
-        description="OmaVerkkoturva: Estä identiteettivarkaus ennen kuin se ehtii tapahtua. Suojaa rahasi ja henkilötietosi helposti yhdellä ratkaisulla."
+        title="Verkkoturva – OmaVerkkoturva | Suojaa identiteettisi verkossa" 
+        description="Verkkoturva- ja identiteettisuoja Suomessa: OmaVerkkoturva auttaa estämään identiteettivarkaudet ja suojaa henkilötietosi helposti yhdellä ratkaisulla." 
         imageUrl="/kuvapankki/8e39c5ba-0ce6-4338-9dbb-3c3c9b33cbb7.png"
-        keywords={['identiteettisuoja', 'verkkoturva', 'identiteettivarkaus', 'henkilötietojen suoja', 'tietoturva', 'verkkohuijaukset', 'puhelinhuijaukset']}
+        keywords={[
+          'verkkoturva',
+          'verkkoturva palvelu',
+          'verkkoturva yrityksille',
+          'identiteettisuoja',
+          'identiteettivarkaus',
+          'henkilötietojen suoja',
+          'tietoturva',
+          'verkkohuijaukset',
+          'puhelinhuijaukset'
+        ]}
       />
       <Hero />
     </PageLayout>

@@ -23,8 +23,8 @@ const ShoppingCart: React.FC<ShoppingCartProps> = ({ items, onContinueOrder, onC
   }, 0);
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-2xl p-8 max-w-lg w-full space-y-6 max-h-[80vh] overflow-y-auto">
+    <div className="fixed inset-0 bg-black/50 flex items-start justify-center z-50 p-4 pt-24 md:pt-40">
+      <div className="bg-white rounded-2xl p-8 max-w-lg w-full space-y-6 max-h-[80vh] overflow-y-auto mt-0 mb-8">
         <div className="flex justify-between items-center">
           <h2 className="text-2xl font-bold text-foreground">Ostoskori</h2>
           <button onClick={onClose} className="text-muted-foreground hover:text-foreground">

@@ -147,8 +147,8 @@ const OrderForm: React.FC<OrderFormProps> = ({
       setLoading(false);
     }
   };
-  return <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4 overflow-y-auto">
-      <div className="bg-white rounded-2xl p-8 max-w-2xl w-full my-8 space-y-6">
+  return <div className="fixed inset-0 bg-black/50 flex items-start justify-center z-50 p-4 pt-24 md:pt-40 overflow-y-auto">
+      <div className="bg-white rounded-2xl p-8 max-w-2xl w-full mt-0 mb-8 space-y-6">
         <div className="flex justify-between items-center">
           <h2 className="text-2xl font-bold text-foreground">Tilaustiedot</h2>
           <button onClick={onClose} className="text-muted-foreground hover:text-foreground">
