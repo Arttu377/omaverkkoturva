@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 import { useToast } from '@/hooks/use-toast';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface CartItem {
   id: string;
@@ -33,6 +34,7 @@ interface ShoppingCartProviderProps {
 export const ShoppingCartProvider: React.FC<ShoppingCartProviderProps> = ({ children }) => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const { toast } = useToast();
+  const isMobile = useIsMobile();
 
   const addToCart = (pkg: any) => {
     const existingItemIndex = cartItems.findIndex(item => item.title === pkg.title);
@@ -50,11 +52,14 @@ export const ShoppingCartProvider: React.FC<ShoppingCartProviderProps> = ({ chil
       };
       setCartItems([...cartItems, newItem]);
     }
-    
-    toast({
-      title: "Tuote lisätty ostoskoriin",
-      description: `${pkg.title} on lisätty ostoskoriisi.`,
-    });
+
+    // Show toast only on desktop/tablet; hide on mobile to avoid obstruction
+    if (!isMobile) {
+      toast({
+        title: "Tuote lisätty ostoskoriin",
+        description: `${pkg.title} on lisätty ostoskoriisi.`,
+      });
+    }
   };
 
   const updateQuantity = (id: string, newQuantity: number) => {
