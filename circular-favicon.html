@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ympyrän muotoinen favicon - Kappaleen teksti (52)</title>
+    
+    <!-- Ympyrän muotoinen favicon käyttäen CSS:ää -->
+    <style>
+        .circular-favicon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: inline-block;
+            border: 2px solid #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .circular-favicon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        
+        .favicon-preview {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin: 20px 0;
+            padding: 20px;
+            background: #f5f5f5;
+            border-radius: 8px;
+        }
+        
+        .size-16 { width: 16px; height: 16px; }
+        .size-32 { width: 32px; height: 32px; }
+        .size-48 { width: 48px; height: 48px; }
+        .size-64 { width: 64px; height: 64px; }
+        .size-128 { width: 128px; height: 128px; }
+    </style>
+</head>
+<body>
+    <h1>Ympyrän muotoinen favicon - Kappaleen teksti (52)</h1>
+    
+    <p>Tämä on esimerkki miten tehdä ympyrän muotoinen favicon kuvasta "Kappaleen teksti (52).png"</p>
+    
+    <div class="favicon-preview">
+        <div>
+            <strong>16x16 (favicon.ico)</strong>
+            <div class="circular-favicon size-16">
+                <img src="/kuvapankki/Kappaleen teksti (52).png" alt="Ympyrän muotoinen logo 16x16">
+            </div>
+        </div>
+        
+        <div>
+            <strong>32x32 (favicon)</strong>
+            <div class="circular-favicon size-32">
+                <img src="/kuvapankki/Kappaleen teksti (52).png" alt="Ympyrän muotoinen logo 32x32">
+            </div>
+        </div>
+        
+        <div>
+            <strong>48x48 (apple-touch-icon)</strong>
+            <div class="circular-favicon size-48">
+                <img src="/kuvapankki/Kappaleen teksti (52).png" alt="Ympyrän muotoinen logo 48x48">
+            </div>
+        </div>
+        
+        <div>
+            <strong>64x64</strong>
+            <div class="circular-favicon size-64">
+                <img src="/kuvapankki/Kappaleen teksti (52).png" alt="Ympyrän muotoinen logo 64x64">
+            </div>
+        </div>
+        
+        <div>
+            <strong>128x128</strong>
+            <div class="circular-favicon size-128">
+                <img src="/kuvapankki/Kappaleen teksti (52).png" alt="Ympyrän muotoinen logo 128x128">
+            </div>
+        </div>
+    </div>
+    
+    <h2>Käyttöohjeet:</h2>
+    
+    <h3>1. CSS-ympyrä (suositteeltu)</h3>
+    <p>Käytä CSS:ää tehdäksesi kuvasta ympyrän:</p>
+    <pre><code>
+.circular-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.circular-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+    </code></pre>
+    
+    <h3>2. React-komponentti</h3>
+    <p>Käytä CircularLogo-komponenttia:</p>
+    <pre><code>
+import { CircularLogo } from './components/CircularLogo';
+
+&lt;CircularLogo 
+    imageUrl="/kuvapankki/Kappaleen teksti (52).png"
+    alt="Ympyrän muotoinen logo"
+    size={40}
+    borderWidth={2}
+    borderColor="#ffffff"
+/&gt;
+    </code></pre>
+    
+    <h3>3. Favicon-käyttö</h3>
+    <p>Voit käyttää ympyrän muotoista kuvaa faviconina:</p>
+    <pre><code>
+&lt;link rel="icon" href="/kuvapankki/Kappaleen teksti (52).png" type="image/png" /&gt;
+    </code></pre>
+    
+    <p><strong>Huomio:</strong> Favicon näkyy ympyrän muotoisena vain jos selain tukee sitä. Useimmat selaimet näyttävät faviconin neliön muotoisena.</p>
+</body>
+</html>
