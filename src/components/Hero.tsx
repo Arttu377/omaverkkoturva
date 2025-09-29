@@ -168,17 +168,13 @@ const Hero = memo(() => {
     setSearchResult(null);
 
     try {
-      // Debug: Tarkista environment-variables
-      const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-      console.log('Supabase key available:', !!supabaseKey);
-      console.log('Supabase key length:', supabaseKey?.length || 0);
-      
       let data;
-      
-      if (supabaseKey) {
-        // Käytä Supabase-funktiota
-        console.log('Käytetään Supabase-funktiota');
-        const response = await fetch('https://fsirlcxhtyppecjjdqbp.supabase.co/functions/v1/check-email-breach', {
+      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+      const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+      if (supabaseUrl && supabaseKey) {
+        // Kutsu Supabasen Edge Functionia
+        const response = await fetch(`${supabaseUrl}/functions/v1/check-email-breach`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -187,40 +183,44 @@ const Hero = memo(() => {
           body: JSON.stringify({ email })
         });
 
-        console.log('Response status:', response.status);
-        console.log('Response headers:', response.headers);
-
-        if (!response.ok) {
-          const errorText = await response.text();
-          console.error('API error response:', errorText);
-          throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
-        }
-
-        data = await response.json();
-      } else {
-        // Fallback: Kutsu Have I Been Pwned API:a suoraan
-        console.log('Käytetään fallback-API:a (ilman Supabase-avainta)');
-        const response = await fetch(`https://haveibeenpwned.com/api/v3/breachedaccount/${encodeURIComponent(email)}?truncateResponse=false`, {
-          headers: {
-            'hibp-api-key': '4b94686e2e8740fb82ae6106cffddcd5',
-            'user-agent': 'OmaVerkkoturva-Identity-Protection'
-          }
-        });
-
         if (response.status === 404) {
           data = { 
             found: false, 
             message: 'Sähköpostiosoitteesi ei ole esiintynyt tunnettujen tietovuotojen tiedoissa.' 
           };
         } else if (response.ok) {
-          const breaches = await response.json();
-          data = { 
-            found: true, 
-            breaches, 
-            count: breaches.length 
-          };
+          data = await response.json();
         } else {
-          throw new Error(`Have I Been Pwned API error: ${response.status}`);
+          const errorText = await response.text();
+          throw new Error(`Supabase function error: ${response.status} ${errorText}`);
+        }
+      } else {
+        // Yritä suoraa HIBP-kutsua (saattaa epäonnistua CORS-rajoituksiin selaimessa)
+        try {
+          const response = await fetch(`https://haveibeenpwned.com/api/v3/breachedaccount/${encodeURIComponent(email)}?truncateResponse=false`, {
+            headers: {
+              'hibp-api-key': '4b94686e2e8740fb82ae6106cffddcd5',
+              'user-agent': 'OmaVerkkoturva-Identity-Protection'
+            }
+          });
+
+          if (response.status === 404) {
+            data = { 
+              found: false, 
+              message: 'Sähköpostiosoitteesi ei ole esiintynyt tunnettujen tietovuotojen tiedoissa.' 
+            };
+          } else if (response.ok) {
+            const breaches = await response.json();
+            data = { 
+              found: true, 
+              breaches, 
+              count: breaches.length 
+            };
+          } else {
+            throw new Error(`Have I Been Pwned API error: ${response.status}`);
+          }
+        } catch (e) {
+          throw new Error('Selaimesta suora HIBP-kutsu estetty (CORS). Ota Supabase käyttöön.');
         }
       }
 
