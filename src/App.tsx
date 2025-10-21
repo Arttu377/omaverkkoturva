@@ -3,8 +3,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { ShoppingCartProvider } from "@/contexts/ShoppingCartContext";
 import Index from "./pages/Index";
@@ -33,6 +33,22 @@ import Verkkokauppa from "./pages/Verkkokauppa";
 import OrderConfirmation from "./pages/OrderConfirmation";
 import Vahvistus from "./pages/Vahvistus";
 
+// Component to handle redirects from 404 page
+const RedirectHandler = () => {
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+    // Check if we have a stored redirect path from 404.html
+    const redirectPath = sessionStorage.getItem('redirectPath');
+    if (redirectPath) {
+      sessionStorage.removeItem('redirectPath');
+      navigate(redirectPath, { replace: true });
+    }
+  }, [navigate]);
+  
+  return null;
+};
+
 const App = () => {
   const [queryClient] = useState(() => new QueryClient());
 
@@ -44,6 +60,7 @@ const App = () => {
           <Toaster />
           <Sonner />
           <BrowserRouter>
+            <RedirectHandler />
             <Routes>
               {/* Julkiset sivut (eivät vaadi kirjautumista) */}
               <Route path="/vahvista-tilaus/:token" element={<OrderConfirmation />} />

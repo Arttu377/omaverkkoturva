@@ -155,10 +155,10 @@ ${emailData.message}`,
                  <Phone className="w-5 h-5 text-gray-600" />
                  <div>
                    <a 
-                     href="tel:0451211663" 
+                     href="tel:029002323" 
                      className="text-xl font-medium text-gray-900 underline hover:no-underline"
                    >
-                     0451211663
+                     029002323
                    </a>
                    <p className="text-sm text-gray-600">
                      Asiakaspalvelumme palvelee puhelimitse jokaisena arkipäivänä klo. 10:00-16:00. Puhelun hinta: mpm/pvm

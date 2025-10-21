@@ -6,12 +6,11 @@
     <title>OmaVerkkoturva</title>
     <meta name="robots" content="noindex,nofollow">
     <script>
-      // Main site (BrowserRouter) fallback: send users to the root.
-      // The SPA will mount and handle client-side routing.
+      // SPA fallback: redirect to root and let React Router handle the routing
       (function(){
-        if (window.location.pathname !== '/') {
-          window.location.replace('/');
-        }
+        // Store the current path and redirect to root
+        sessionStorage.setItem('redirectPath', window.location.pathname + window.location.search + window.location.hash);
+        window.location.replace('/');
       })();
     </script>
 </head>
