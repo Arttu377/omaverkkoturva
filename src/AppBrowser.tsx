@@ -8,15 +8,9 @@ import { AuthProvider } from "@/contexts/AuthContext";
 import { ShoppingCartProvider } from "@/contexts/ShoppingCartContext";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import About from "./pages/About";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import GeneralTerms from "./pages/GeneralTerms";
 import TermsOfService from "./pages/TermsOfService";
-import Identiteettiturva from "./pages/Identiteettiturva";
-import Blog from "./pages/Blog";
-import Artikkelit from "./pages/Artikkelit";
-import Contact from "./pages/Contact";
-import Verkkokauppa from "./pages/Verkkokauppa";
 import Irtisanomislomake from "./pages/Irtisanomislomake";
 import OrderConfirmation from "./pages/OrderConfirmation";
 import Vahvistus from "./pages/Vahvistus";
@@ -35,7 +29,6 @@ const AppBrowser = () => {
             <Routes>
               {/* Pääsivu */}
               <Route path="/" element={<Index />} />
-              
               
               {/* Oikeudelliset sivut - ilman hastagia */}
               <Route path="/tietosuojaseloste" element={<PrivacyPolicy />} />
