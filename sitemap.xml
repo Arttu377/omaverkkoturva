@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Etusivu -->
+  <url>
+    <loc>https://omaverkkoturva.fi/</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- Palvelut -->
+  <url>
+    <loc>https://omaverkkoturva.fi/henkilosuoja</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Meistä -->
+  <url>
+    <loc>https://omaverkkoturva.fi/meista</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Artikkelit -->
+  <url>
+    <loc>https://omaverkkoturva.fi/artikkelit</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Ota yhteyttä -->
+  <url>
+    <loc>https://omaverkkoturva.fi/ota-yhteytta</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Blog postit -->
+  <url>
+    <loc>https://omaverkkoturva.fi/blog</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Blog post: Identiteettivarkauden estäminen -->
+  <url>
+    <loc>https://omaverkkoturva.fi/blog/identiteettivarkauden-estaminen</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Blog post: Verkkoturvallisuus 2025 -->
+  <url>
+    <loc>https://omaverkkoturva.fi/blog/verkkoturvallisuus-2025</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Blog post: Tietovuotojen vaikutukset -->
+  <url>
+    <loc>https://omaverkkoturva.fi/blog/tietovuotojen-vaikutukset</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Blog post: Salasanan suojaus -->
+  <url>
+    <loc>https://omaverkkoturva.fi/blog/salasanan-suojaus</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Blog post: Kaksivaiheinen tunnistus -->
+  <url>
+    <loc>https://omaverkkoturva.fi/blog/kaksivaiheinen-tunnistus</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Blog post: Tietojenkalastelun estäminen -->
+  <url>
+    <loc>https://omaverkkoturva.fi/blog/tietojenkalastelun-estaminen</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Blog post: Verkkokauppahuijaukset -->
+  <url>
+    <loc>https://omaverkkoturva.fi/blog/verkkokauppahuijaukset</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Blog post: Nettikiusaaminen -->
+  <url>
+    <loc>https://omaverkkoturva.fi/blog/nettikiusaaminen</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+
+</urlset>
