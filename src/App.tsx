@@ -3,7 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+import { HashRouter, Routes, Route, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { ShoppingCartProvider } from "@/contexts/ShoppingCartContext";
@@ -38,6 +38,19 @@ const RedirectHandler = () => {
   const navigate = useNavigate();
   
   useEffect(() => {
+    // Check for redirect parameter from 404.html
+    const urlParams = new URLSearchParams(window.location.search);
+    const redirectPath = urlParams.get('redirect');
+    
+    if (redirectPath) {
+      // Remove the redirect parameter and navigate to the correct path
+      const newUrl = new URL(window.location);
+      newUrl.searchParams.delete('redirect');
+      window.history.replaceState({}, '', newUrl.toString());
+      navigate(redirectPath, { replace: true });
+      return;
+    }
+    
     // GitHub Pages SPA redirect handling
     const pathSegmentsToKeep = 1;
     const l = window.location;
@@ -52,10 +65,10 @@ const RedirectHandler = () => {
     }
     
     // Also check for stored redirect path from old method
-    const redirectPath = sessionStorage.getItem('redirectPath');
-    if (redirectPath) {
+    const storedRedirectPath = sessionStorage.getItem('redirectPath');
+    if (storedRedirectPath) {
       sessionStorage.removeItem('redirectPath');
-      navigate(redirectPath, { replace: true });
+      navigate(storedRedirectPath, { replace: true });
     }
   }, [navigate]);
   
@@ -72,7 +85,7 @@ const App = () => {
           <TooltipProvider>
           <Toaster />
           <Sonner />
-          <BrowserRouter>
+          <HashRouter>
             <RedirectHandler />
             <Routes>
               {/* Julkiset sivut (eivät vaadi kirjautumista) */}
@@ -104,7 +117,7 @@ const App = () => {
               <Route path="/ota-yhteytta" element={<Contact />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
-          </BrowserRouter>
+          </HashRouter>
           </TooltipProvider>
         </ShoppingCartProvider>
       </AuthProvider>

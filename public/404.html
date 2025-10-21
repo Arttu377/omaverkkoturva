@@ -7,17 +7,41 @@
     <title>OmaVerkkoturva</title>
     <meta name="robots" content="noindex,nofollow">
     <script>
-      // GitHub Pages SPA fallback - redirect to root
+      // GitHub Pages SPA fallback - try to serve the correct page
       (function(){
-        var pathSegmentsToKeep = 1;
-        var l = window.location;
-        l.replace(
-          l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-          l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
-          l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
-          (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-          l.hash
-        );
+        // Get the current path
+        var path = window.location.pathname;
+        
+        // List of valid routes
+        var validRoutes = [
+          '/henkilosuoja',
+          '/meista', 
+          '/artikkelit',
+          '/blog',
+          '/ota-yhteytta',
+          '/verkkokauppa',
+          '/tietosuojaseloste',
+          '/yleiset-sopimusehdot',
+          '/palvelusopimuksen-kayttoehdot',
+          '/irtisanomislomake'
+        ];
+        
+        // Check if current path is a valid route
+        if (validRoutes.includes(path)) {
+          // Redirect to root with the path as a query parameter
+          window.location.replace('/?redirect=' + encodeURIComponent(path));
+        } else {
+          // For other paths, try the GitHub Pages SPA method
+          var pathSegmentsToKeep = 1;
+          var l = window.location;
+          l.replace(
+            l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+            l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+            l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+            (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+            l.hash
+          );
+        }
       })();
     </script>
   </head>
