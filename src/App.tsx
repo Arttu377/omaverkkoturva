@@ -38,7 +38,20 @@ const RedirectHandler = () => {
   const navigate = useNavigate();
   
   useEffect(() => {
-    // Check if we have a stored redirect path from 404.html
+    // GitHub Pages SPA redirect handling
+    const pathSegmentsToKeep = 1;
+    const l = window.location;
+    
+    // Check if we're on GitHub Pages and need to redirect
+    if (l.pathname.includes('/?/')) {
+      const p = l.pathname.split('/?/')[1];
+      if (p) {
+        const newPath = '/' + p.split('/').slice(pathSegmentsToKeep).join('/').replace(/~and~/g, '&');
+        navigate(newPath, { replace: true });
+      }
+    }
+    
+    // Also check for stored redirect path from old method
     const redirectPath = sessionStorage.getItem('redirectPath');
     if (redirectPath) {
       sessionStorage.removeItem('redirectPath');
