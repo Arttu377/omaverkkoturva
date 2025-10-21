@@ -33,6 +33,12 @@
         'allow_ad_personalization_signals': false
       });
     </script>
+    <script>
+      // Poista hastag URL:sta kun lataamme oikeudellisia sivuja
+      if (window.location.hash) {
+        window.history.replaceState(null, null, window.location.pathname);
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
