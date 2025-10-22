@@ -116,7 +116,7 @@ const PrivacyPolicy = () => {
                 Telendor Oy (OmaVerkkoturva)<br />
                 Ytunnus: 3475096-9<br />
                 Osoite: Yliopistonkatu 21 A<br />
-                Puhelin: 029002323
+                Puhelin: 0290023232
               </p>
 
               <h3 className="text-xl font-semibold mt-6 mb-3">2. TIETOSUOJAVASTAAVA</h3>

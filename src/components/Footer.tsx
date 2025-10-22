@@ -46,7 +46,7 @@ const Footer = () => {
                 </div>
                 <p className="text-black text-xs ml-10">
                   tuki@omaverkkoturva.fi<br />
-                  029002323
+                  0290023232
                 </p>
               </div>
               
