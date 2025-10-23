@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Phone } from 'lucide-react';
+import { Phone, Mail, Clock, MapPin, Send, Shield, CheckCircle, Headphones } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
@@ -134,232 +134,281 @@ ${emailData.message}`,
   };
 
   return (
-    <section id="contact" className="pt-32 pb-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Left side - Contact info */}
-          <div className="space-y-8">
-            <div>
-              <h1 className="text-4xl font-bold text-gray-900 mb-6">Ota yhteyttä</h1>
-              
-                             <div className="mb-8">
-                 <a 
-                   href="mailto:tuki@omaverkkoturva.fi" 
-                   className="text-xl text-black hover:underline font-medium"
-                 >
-                   tuki@omaverkkoturva.fi
-                 </a>
-               </div>
-               
-               <div className="flex items-center space-x-3 mb-8">
-                 <Phone className="w-5 h-5 text-gray-600" />
-                 <div>
-                   <a 
-                     href="tel:0290023232" 
-                     className="text-xl font-medium text-gray-900 underline hover:no-underline"
-                   >
-                     0290023232
-                   </a>
-                   <p className="text-sm text-gray-600">
-                     Asiakaspalvelumme palvelee puhelimitse jokaisena arkipäivänä klo. 10:00-16:00. Puhelun hinta: mpm/pvm
-                   </p>
-                 </div>
-               </div>
-               
-               
-               
-               <div className="space-y-4 text-gray-700">
-                 <p>
-                   Pyrimme vastaamaan sähköpostiyhteydenottoihin 1-2 arkipäivän sisällä. Asiakkaanamme olet oikeutettu nopeaan sekä veloituksettomaan apuun ja tukeen.
-                 </p>
-               </div>
-               
-               <div className="mt-32">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Haluatko irtisanoa tuotteen?</h3>
-                <button 
-                  onClick={() => navigate('/irtisanomislomake')}
-                  className="px-6 py-3 border border-gray-300 rounded-full text-gray-700 hover:bg-gray-100 transition-colors"
-                >
-                  Irtisanomislomake
-                </button>
-                <p className="text-sm text-gray-600 mt-4">
-                  <strong>HUOM:</strong> Irtisanomiset käsitellään vain puhelimitse tai irtisanomislomakkeella.
-                </p>
+    <section id="contact" className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-blue-50/30">
+      <div className="max-w-7xl mx-auto">
+        {/* Header Section */}
+        <div className="text-center mb-16">
+          <h1 className="text-5xl font-bold text-gray-900 mb-4">Ota yhteyttä</h1>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Olemme täällä auttamassa sinua. Pyrimme vastaamaan yhteydenottoihin nopeasti ja tarjoamaan sinulle parhaan mahdollisen palvelun.
+          </p>
+        </div>
+
+        {/* Main content - Service Promise and Contact Form side by side */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
+          {/* Left side - Service Promise and Contact Cards */}
+          <div className="space-y-8 mt-16">
+            {/* Service Promise */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 h-fit">
+              <div className="mb-4">
+                <div className="flex items-center space-x-3">
+                  <div className="rounded-xl p-3" style={{
+                    background: `linear-gradient(135deg, #1e2a5e 0%, #1e3a8a 100%)`
+                  }}>
+                    <Headphones className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900">Asiakaspalvelu</h3>
+                </div>
+              </div>
+              <p className="text-gray-700 leading-relaxed">
+                Asiakkaanamme olet oikeutettu nopeaan sekä veloituksettomaan apuun ja tukeen. Pyrimme vastaamaan sähköpostiyhteydenottoihin 1–2 arkipäivän sisällä.
+                <br /><br />
+                Ystävällisesti huomioithan, että palveluiden irtisanomiset hoidetaan puhelimitse, jotta voimme varmistaa asian sujuvan hoidon.
+              </p>
+            </div>
+
+            {/* Contact info cards */}
+            <div className="grid grid-cols-1 gap-6">
+              {/* Email Card */}
+              <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
+                <div className="flex items-start space-x-4">
+                  <div className="rounded-xl p-3 flex-shrink-0" style={{
+                    background: `linear-gradient(135deg, #1e2a5e 0%, #1e3a8a 100%)`
+                  }}>
+                    <Mail className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Sähköposti</h3>
+                    <a 
+                      href="mailto:tuki@omaverkkoturva.fi" 
+                      className="text-gray-900 hover:text-gray-700 font-medium text-lg hover:underline transition-colors"
+                    >
+                      tuki@omaverkkoturva.fi
+                    </a>
+                    <p className="text-gray-600 mt-2 text-sm">
+                      Vastaamme sähköposteihin 1-2 arkipäivän sisällä
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Phone Card */}
+              <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
+                <div className="flex items-start space-x-4">
+                  <div className="rounded-xl p-3 flex-shrink-0" style={{
+                    background: `linear-gradient(135deg, #1e2a5e 0%, #1e3a8a 100%)`
+                  }}>
+                    <Phone className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Puhelin</h3>
+                    <a 
+                      href="tel:0290023232" 
+                      className="text-gray-900 hover:text-gray-700 font-medium text-lg hover:underline transition-colors"
+                    >
+                      0290023232
+                    </a>
+                    <div className="flex items-center mt-2 text-gray-600 text-sm">
+                      <Clock className="w-4 h-4 mr-2" />
+                      <span>Ma-Pe 10:00-16:00</span>
+                    </div>
+                    <p className="text-gray-600 mt-1 text-sm">
+                      Puhelun hinta: mpm/pvm
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-                     {/* Right side - Contact form */}
-                       <div className="rounded-lg p-8 text-white" style={{
-              background: `linear-gradient(
-                to bottom,
-                rgba(30, 58, 138, 1) 0%,
-                rgba(30, 58, 138, 0.95) 25%,
-                rgba(30, 58, 138, 0.9) 50%,
-                rgba(30, 58, 138, 0.85) 75%,
-                rgba(30, 58, 138, 0.8) 100%
-              )`
-            }}>
-            <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                <FormField 
-                  control={form.control} 
-                  name="subject" 
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-white font-medium">Yhteydenoton aihe *</FormLabel>
-                      <Select onValueChange={field.onChange} defaultValue={field.value}>
-                        <FormControl>
-                          <SelectTrigger className="bg-white text-gray-900">
-                            <SelectValue placeholder="Valitse aihe" />
-                          </SelectTrigger>
-                        </FormControl>
-                        <SelectContent>
-                          <SelectItem value="tuki">Tuki ja apu</SelectItem>
-                          <SelectItem value="laskutus">Laskutus</SelectItem>
-                          <SelectItem value="tekninen">Tekninen ongelma</SelectItem>
-                          <SelectItem value="muu">Muu aihe</SelectItem>
-                        </SelectContent>
-                      </Select>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                
-                <FormField 
-                  control={form.control} 
-                  name="name" 
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-white font-medium">Etu- ja sukunimi *</FormLabel>
-                      <FormControl>
-                        <Input 
-                          placeholder="Etu- ja sukunimi" 
-                          className="bg-white text-gray-900 placeholder-gray-500"
-                          {...field} 
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                
-                <FormField 
-                  control={form.control} 
-                  name="phone" 
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-white font-medium">Puhelinnumero *</FormLabel>
-                      <FormControl>
-                        <Input 
-                          placeholder="044 123 4567" 
-                          className="bg-white text-gray-900 placeholder-gray-500"
-                          {...field} 
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                
-                <FormField 
-                  control={form.control} 
-                  name="email" 
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-white font-medium">Sähköpostiosoite *</FormLabel>
-                      <FormControl>
-                        <Input 
-                          type="email" 
-                          placeholder="esimerkki@esimerkki.fi" 
-                          className="bg-white text-gray-900 placeholder-gray-500"
-                          {...field} 
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                
-                <FormField 
-                  control={form.control} 
-                  name="message" 
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-white font-medium">Viesti *</FormLabel>
-                      <FormControl>
-                        <Textarea 
-                          placeholder="Kerro lisätietoja yhteydenottosi liittyen" 
-                          className="min-h-[120px] bg-white text-gray-900 placeholder-gray-500 resize-none"
-                          {...field} 
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                
-                <FormField
-                  control={form.control}
-                  name="privacy"
-                  render={({ field }) => (
-                    <FormItem className="flex flex-row items-start space-x-3 space-y-0">
-                      <FormControl>
-                        <Checkbox
-                          checked={field.value}
-                          onCheckedChange={field.onChange}
-                          className="bg-white"
-                        />
-                      </FormControl>
-                      <div className="space-y-1 leading-none">
-                        <FormLabel className="text-sm text-white">
-                          Lähettämällä tämän lomakkeen vakuutan, että antamani tiedot ovat oikeita. Lisäksi hyväksyn henkilötietojeni käsittelyn OmaVerkkoturvan{' '}
-                          <a href="/tietosuojaseloste" className="underline hover:no-underline">
-                            tietosuojaselosteen
-                          </a>{' '}
-                          mukaisesti.
-                        </FormLabel>
+          {/* Contact form - Right side */}
+          <div className="bg-white rounded-3xl p-10 shadow-2xl border border-gray-100 relative overflow-hidden">
+            {/* Background decoration */}
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-full -translate-y-16 translate-x-16"></div>
+            <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-green-500/10 to-blue-500/10 rounded-full translate-y-12 -translate-x-12"></div>
+            
+            <div className="relative z-10">
+              <div className="text-center mb-8">
+                <h2 className="text-3xl font-bold text-gray-900 mb-2">Lähetä viesti</h2>
+                <p className="text-gray-600">Täytä lomake ja otamme sinuun yhteyttä pian</p>
+              </div>
+              
+              <Form {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                  <FormField 
+                    control={form.control} 
+                    name="subject" 
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-gray-900 font-semibold text-base">Yhteydenoton aihe *</FormLabel>
+                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                          <FormControl>
+                            <SelectTrigger className="bg-gray-50 text-gray-900 border-gray-200 h-12 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+                              <SelectValue placeholder="Valitse aihe" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            <SelectItem value="tuki">Tuki ja apu</SelectItem>
+                            <SelectItem value="laskutus">Laskutus</SelectItem>
+                            <SelectItem value="tekninen">Tekninen ongelma</SelectItem>
+                            <SelectItem value="muu">Muu aihe</SelectItem>
+                          </SelectContent>
+                        </Select>
                         <FormMessage />
-                      </div>
-                    </FormItem>
-                  )}
-                />
-                
-                {/* Honeypot field */}
-                <FormField 
-                  control={form.control} 
-                  name="honeypot" 
-                  render={({ field }) => (
-                    <FormItem className="hidden">
-                      <FormControl>
-                        <Input {...field} tabIndex={-1} />
-                      </FormControl>
-                    </FormItem>
-                  )}
-                />
-                
-                {/* Hidden timestamp field */}
-                <FormField 
-                  control={form.control} 
-                  name="timestamp" 
-                  render={({ field }) => (
-                    <FormItem className="hidden">
-                      <FormControl>
-                        <Input type="hidden" {...field} />
-                      </FormControl>
-                    </FormItem>
-                  )}
-                />
-                
-                <button 
-                  type="submit" 
-                  disabled={isSubmitting} 
-                  className="w-full bg-white hover:bg-gray-100 text-black py-3 px-6 rounded-full transition-colors font-medium disabled:opacity-70"
-                >
-                  {isSubmitting ? "Lähetetään..." : "Lähetä yhteydenotto"}
-                </button>
-              </form>
-            </Form>
+                      </FormItem>
+                    )}
+                  />
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <FormField 
+                      control={form.control} 
+                      name="name" 
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-gray-900 font-semibold text-base">Etu- ja sukunimi *</FormLabel>
+                          <FormControl>
+                            <Input 
+                              placeholder="Etu- ja sukunimi" 
+                              className="bg-gray-50 text-gray-900 placeholder-gray-500 border-gray-200 h-12 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                              {...field} 
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    
+                    <FormField 
+                      control={form.control} 
+                      name="phone" 
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-gray-900 font-semibold text-base">Puhelinnumero *</FormLabel>
+                          <FormControl>
+                            <Input 
+                              placeholder="044 123 4567" 
+                              className="bg-gray-50 text-gray-900 placeholder-gray-500 border-gray-200 h-12 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                              {...field} 
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+                  
+                  <FormField 
+                    control={form.control} 
+                    name="email" 
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-gray-900 font-semibold text-base">Sähköpostiosoite *</FormLabel>
+                        <FormControl>
+                          <Input 
+                            type="email" 
+                            placeholder="esimerkki@esimerkki.fi" 
+                            className="bg-gray-50 text-gray-900 placeholder-gray-500 border-gray-200 h-12 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                            {...field} 
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  
+                  <FormField 
+                    control={form.control} 
+                    name="message" 
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-gray-900 font-semibold text-base">Viesti *</FormLabel>
+                        <FormControl>
+                          <Textarea 
+                            placeholder="Kerro lisätietoja yhteydenottosi liittyen" 
+                            className="min-h-[140px] bg-gray-50 text-gray-900 placeholder-gray-500 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none"
+                            {...field} 
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  
+                  <FormField
+                    control={form.control}
+                    name="privacy"
+                    render={({ field }) => (
+                      <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+                        <FormControl>
+                          <Checkbox
+                            checked={field.value}
+                            onCheckedChange={field.onChange}
+                            className="bg-gray-50 border-gray-200 data-[state=checked]:bg-blue-600 data-[state=checked]:border-blue-600"
+                          />
+                        </FormControl>
+                        <div className="space-y-1 leading-none">
+                          <FormLabel className="text-sm text-gray-700 leading-relaxed">
+                            Lähettämällä tämän lomakkeen vakuutan, että antamani tiedot ovat oikeita. Lisäksi hyväksyn henkilötietojeni käsittelyn OmaVerkkoturvan{' '}
+                            <a href="https://omaverkkoturva.fi/#/tietosuojaseloste" className="text-blue-600 hover:text-blue-700 underline font-medium" target="_blank" rel="noopener noreferrer">
+                              tietosuojaselosteen
+                            </a>{' '}
+                            mukaisesti.
+                          </FormLabel>
+                          <FormMessage />
+                        </div>
+                      </FormItem>
+                    )}
+                  />
+                  
+                  {/* Honeypot field */}
+                  <FormField 
+                    control={form.control} 
+                    name="honeypot" 
+                    render={({ field }) => (
+                      <FormItem className="hidden">
+                        <FormControl>
+                          <Input {...field} tabIndex={-1} />
+                        </FormControl>
+                      </FormItem>
+                    )}
+                  />
+                  
+                  {/* Hidden timestamp field */}
+                  <FormField 
+                    control={form.control} 
+                    name="timestamp" 
+                    render={({ field }) => (
+                      <FormItem className="hidden">
+                        <FormControl>
+                          <Input type="hidden" {...field} />
+                        </FormControl>
+                      </FormItem>
+                    )}
+                  />
+                  
+                  <button 
+                    type="submit" 
+                    disabled={isSubmitting} 
+                    className="w-full text-white py-4 px-8 rounded-xl transition-all duration-300 font-semibold text-lg disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                    style={{
+                      background: `linear-gradient(135deg, #1e2a5e 0%, #1e3a8a 100%)`
+                    }}
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                        <span>Lähetetään...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-5 h-5" />
+                        <span>Lähetä yhteydenotto</span>
+                      </>
+                    )}
+                  </button>
+                </form>
+              </Form>
+            </div>
           </div>
         </div>
       </div>
