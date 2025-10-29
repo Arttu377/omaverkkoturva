@@ -11,7 +11,7 @@ const About = () => {
         keywords={['meistä', 'omaverkkoturva']}
       />
       
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen" style={{ background: 'linear-gradient(to bottom, rgba(147, 197, 253, 0.03) 0%, rgba(147, 197, 253, 0.06) 100%)' }}>
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-5xl mx-auto">
             {/* Main heading with background video */}
@@ -64,9 +64,9 @@ const About = () => {
               {/* Osa 1 - vasen */}
               <div className="grid grid-cols-1 md:grid md:grid-cols-2 md:gap-8 items-center -ml-4 md:-ml-16">
                 <div className="md:col-start-1">
-                  <div className="bg-blue-50 rounded-full p-20 md:py-28 md:px-16 lg:py-32 lg:px-20 mt-32" style={{ maxWidth: 'none', minHeight: '560px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                    <h2 className="text-2xl font-semibold text-gray-900 mb-6">Kulissien takaa</h2>
-                    <div className="space-y-4 max-w-2xl">
+                  <div className="rounded-2xl p-8 md:p-12 mt-32 bg-white shadow-sm border-l-4" style={{ borderLeftColor: 'rgb(30, 42, 94)' }}>
+                    <h2 className="text-3xl font-bold text-gray-900 mb-5 tracking-tight">Kulissien takaa</h2>
+                    <div className="space-y-4 max-w-2xl text-gray-700">
                       <p className="text-sm md:text-base leading-relaxed">
                         Olemme Arttu Ruotsalainen ja Arttu Simanainen. Taustamme on tietoliikennepalveluissa, ja työssämme huomasimme nopeasti, kuinka paljon huijauksia oikeasti tapahtuu. Huijaukset eivät olleet koskettaneet suoraan lähipiiriämme, joten niiden kokonaismäärä oli todella yllättävä. Jopa enemmän yllätti se, kuinka ovelia huijaukset todellisuudessa ovat, eivätkä ne aina rajoitu pelkkiin huijauslinkkeihin tai huijauspuheluihin.
                       </p>
@@ -82,9 +82,9 @@ const About = () => {
               <div className="grid grid-cols-1 md:grid md:grid-cols-2 md:gap-8 items-center">
                 {/* Teksti ensin mobiilissa; desktopissa oikealla */}
                 <div className="md:col-start-2 md:order-2">
-                  <div className="bg-blue-50 rounded-full p-16 md:p-20 lg:p-24">
-                    <h2 className="text-2xl font-semibold text-gray-900">Missiomme & Visiomme</h2>
-                    <div className="mt-2 space-y-4">
+                  <div className="rounded-2xl p-8 md:p-12 bg-white shadow-sm border-l-4" style={{ borderLeftColor: 'rgb(30, 42, 94)' }}>
+                    <h2 className="text-3xl font-bold text-gray-900 tracking-tight">Missiomme & Visiomme</h2>
+                    <div className="mt-3 space-y-4 text-gray-700">
                       <p>
                         Haluamme suojata suomalaisten nettikäyttöä ja antaa aidon turvallisuuden tunteen huijareita ja kehittyvää teknologiaa vastaan. Henkilötiedot ovat yksi arvokkaimmista resursseista, ja siksi panostamme niiden suojaamiseen täysillä.
                       </p>
@@ -112,9 +112,9 @@ const About = () => {
               <div className="grid grid-cols-1 md:grid md:grid-cols-2 md:gap-8 items-center">
                 {/* Teksti ensin mobiilissa; desktopissa vasemmalla */}
                 <div className="md:col-start-1 md:order-1">
-                  <div className="bg-blue-50 rounded-full p-20 md:p-24 lg:p-28 -ml-4">
-                    <h2 className="text-2xl font-semibold text-gray-900">Lupaamme</h2>
-                    <p className="mt-2">
+                  <div className="rounded-2xl p-8 md:p-12 bg-white shadow-sm border-l-4 -ml-4" style={{ borderLeftColor: 'rgb(30, 42, 94)' }}>
+                    <h2 className="text-3xl font-bold text-gray-900 tracking-tight">Lupaamme</h2>
+                    <p className="mt-3 text-gray-700">
                       Tietoturvasta puhutaan usein monimutkaisesti, mutta haluamme tehdä siitä ymmärrettävää ja konkreettista. Palvelumme on helppokäyttöinen, tarjoaa oikeaa suojaa ja sopii jokaisen kotitalouden arkeen. Tavoitteemme on, että OmaVerkkoturvan avulla jokainen voi tuntea olevansa turvassa digitaalisessa maailmassa. Palvelumme on kuin arvopaketti: se tarjoaa kaiken tarvitsemasi turvan yhdessä helppokäyttöisessä kokonaisuudessa.
                     </p>
                   </div>
