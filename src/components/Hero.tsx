@@ -13,6 +13,16 @@ const Hero = memo(() => {
   
   // Ref for the features section to track scroll position
   const featuresRef = useRef<HTMLDivElement>(null);
+  // Horizontal carousel ref for phishing/use-cases cards
+  const phishingCarouselRef = useRef<HTMLDivElement>(null);
+
+  const scrollPhishing = (direction: 'prev' | 'next') => {
+    const container = phishingCarouselRef.current;
+    if (!container) return;
+    const delta = Math.round(container.clientWidth * 0.8);
+    const left = direction === 'next' ? container.scrollLeft + delta : container.scrollLeft - delta;
+    container.scrollTo({ left, behavior: 'smooth' });
+  };
   
   // Initial page load state for showing a modern loader
   const [isHeroLoading, setIsHeroLoading] = useState(true);
@@ -364,8 +374,7 @@ const Hero = memo(() => {
           aria-busy="true"
           role="status"
           style={{
-            background:
-              'linear-gradient(135deg, rgba(8,12,24,0.98) 0%, rgba(10,16,32,0.98) 100%)',
+            background: 'linear-gradient(135deg, rgba(30,42,94,0.98) 0%, rgba(30,42,94,0.98) 100%)',
             backdropFilter: 'blur(24px)'
           }}
         >
@@ -473,11 +482,11 @@ const Hero = memo(() => {
                     </h2>
                     <div className="relative pl-6 border-l-4 rounded-r-lg bg-gradient-to-r from-blue-50/50 to-transparent py-5 pr-5" style={{ borderLeftColor: 'rgb(30, 42, 94)' }}>
                       <p className="text-gray-800 leading-relaxed">
-                        Nykyään henkilökohtaisia tietoja kertyy lukemattomiin paikkoihin, kuten some-tileihin, verkkokauppoihin, suoratoistopalveluihin ja viranomaisrekistereihin. Nämä tiedot voivat sisältää kaikkea sähköpostista, salasanoista ja maksukorteista aina terveystietoihin ja biometrisiin tunnisteisiin.
-                      </p>
+                      Nykyään henkilökohtaisia tietoja kertyy lukemattomiin paikkoihin, kuten some-tileihin, verkkokauppoihin, suoratoistopalveluihin ja viranomaisrekistereihin. Nämä tiedot voivat sisältää kaikkea sähköpostista, salasanoista ja maksukorteista aina terveystietoihin ja biometrisiin tunnisteisiin.
+                    </p>
                       <p className="text-gray-800 leading-relaxed mt-4">
-                        Jos tiedot vuotavat tai päätyvät rikollisten käsiin, seuraukset voivat olla vakavia: identiteettivarkaudet, väärinkäytökset ja taloudelliset menetykset.
-                      </p>
+                      Jos tiedot vuotavat tai päätyvät rikollisten käsiin, seuraukset voivat olla vakavia: identiteettivarkaudet, väärinkäytökset ja taloudelliset menetykset.
+                    </p>
                     </div>
                   </div>
                 </div>
@@ -515,7 +524,7 @@ const Hero = memo(() => {
                     <div className="text-left max-w-lg mt-6 md:mt-8 lg:mt-16 relative pl-6 border-l-4 rounded-r-lg bg-gradient-to-r from-blue-50/50 to-transparent py-4 pr-4" style={{ borderLeftColor: 'rgb(30, 42, 94)' }}>
                       <div className="mb-4">
                         <h3 className="text-xl font-bold text-gray-900">Reaaliaikainen hälytys</h3>
-                      </div>
+                        </div>
                       <p className="text-gray-700 leading-relaxed">
                         Saat välittömän ilmoituksen, jos tietosi vuotavat verkkoon. Palvelu suojaa sähköpostisi, henkilötunnuksesi ja maksukorttitietosi sekä valvoo epäilyttäviä luotonhakuja ja osoitteenmuutoksia, jotka voivat viitata huijaukseen.
                       </p>
@@ -524,7 +533,7 @@ const Hero = memo(() => {
                     <div className="text-left max-w-lg relative pl-6 border-l-4 rounded-r-lg bg-gradient-to-r from-blue-50/50 to-transparent py-4 pr-4" style={{ borderLeftColor: 'rgb(30, 42, 94)' }}>
                       <div className="mb-4">
                         <h3 className="text-xl font-bold text-gray-900">Saat ohjeet</h3>
-                      </div>
+                        </div>
                       <p className="text-gray-700 leading-relaxed">
                         Jos riski havaitaan, saat heti selkeät ohjeet seuraaviin toimiin, kuten kortin sulkemiseen tai salasanan vaihtoon.
                       </p>
@@ -533,7 +542,7 @@ const Hero = memo(() => {
                     <div className="text-left max-w-lg relative pl-6 border-l-4 rounded-r-lg bg-gradient-to-r from-blue-50/50 to-transparent py-4 pr-4" style={{ borderLeftColor: 'rgb(30, 42, 94)' }}>
                       <div className="mb-4">
                         <h3 className="text-xl font-bold text-gray-900">Vakuutus</h3>
-                      </div>
+                        </div>
                       <p className="text-gray-700 leading-relaxed">
                         Kun identiteettisi joutuu vaaraan, tilanteen ratkaiseminen voi kestää viikkoja ja maksaa tuhansia euroja. Tuotteeseen sisältyvä vakuutus tuo mielenrauhaa myös pahimman sattuessa.
                       </p>
@@ -542,17 +551,21 @@ const Hero = memo(() => {
                     <div className="text-left max-w-lg relative pl-6 border-l-4 rounded-r-lg bg-gradient-to-r from-blue-50/50 to-transparent py-4 pr-4" style={{ borderLeftColor: 'rgb(30, 42, 94)' }}>
                       <div className="mb-4">
                         <h3 className="text-xl font-bold text-gray-900">Jatkuva valvonta</h3>
-                      </div>
+                        </div>
                       <p className="text-gray-700 leading-relaxed mb-4">
                         Valvomme automaattisesti Dark Webiä, sosiaalista mediaa ja tietovuototietokantoja, jotta tietosi pysyvät turvassa vuorokauden jokaisena hetkenä.
                       </p>
                       
-                      {/* Mobile image - shown only on very small screens (below medium) */}
-                      <div className="md:hidden flex justify-center mb-6">
+                      
+                    </div>
+                  </div>
+                  
+                  {/* Desktop/Tablet image - shown on medium screens and up */}
+                  <div className="hidden md:flex md:w-1/2 md:justify-end md:items-start md:pr-0 lg:pr-0 xl:pr-0 md:mr-[-24px] lg:mr-[-64px] xl:mr-[-96px]">
                         <img 
                           src="/kuvapankki/Kappaleen teksti (15).png" 
                           alt="Kappaleen teksti kuva" 
-                          className="w-full h-auto max-w-md"
+                      className="w-full h-auto max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl mt-8 md:mt-16 lg:mt-24 xl:mt-40 transform md:translate-x-8 lg:translate-x-20 xl:translate-x-28"
                           loading="eager"
                           decoding="async"
                           style={{ 
@@ -561,17 +574,12 @@ const Hero = memo(() => {
                           }}
                         />
                       </div>
-                      
-                      
-                    </div>
-                  </div>
-                  
-                  {/* Desktop/Tablet image - shown on medium screens and up */}
-                  <div className="hidden md:flex md:w-1/2 md:justify-end md:items-start md:pr-0 lg:pr-0 xl:pr-0 md:mr-[-24px] lg:mr-[-64px] xl:mr-[-96px]">
+                  {/* Mobile image - moved outside the card */}
+                  <div className="md:hidden w-full flex justify-center mt-2 mb-6 px-4">
                     <img 
                       src="/kuvapankki/Kappaleen teksti (15).png" 
                       alt="Kappaleen teksti kuva" 
-                      className="w-full h-auto max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl mt-8 md:mt-16 lg:mt-24 xl:mt-40 transform md:translate-x-8 lg:translate-x-20 xl:translate-x-28"
+                      className="w-full h-auto max-w-md"
                       loading="eager"
                       decoding="async"
                       style={{ 
@@ -1017,15 +1025,39 @@ const Hero = memo(() => {
             className="hidden lg:block absolute -left-20 top-1/3 transform -translate-y-1/2 w-48 h-48 md:w-64 md:h-64 object-contain opacity-60"
           />
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-4xl mx-auto mb-24">
-                                                       <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
-                              Nykypäivän yleisimpiä<br />huijausmuotoja
-                            </h2>
+            <div className="text-center max-w-4xl mx-auto mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+                Katso nykypäivän yleisimmät huijausmuodot
+              </h2>
+            </div>
+            {/* Carousel navigation arrows */}
+            <div className="flex justify-center items-center gap-2 mb-12">
+              <button
+                type="button"
+                aria-label="Edellinen"
+                onClick={() => scrollPhishing('prev')}
+                className="h-9 w-9 rounded-full bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 shadow flex items-center justify-center"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"/></svg>
+              </button>
+              <button
+                type="button"
+                aria-label="Seuraava"
+                onClick={() => scrollPhishing('next')}
+                className="h-9 w-9 rounded-full bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 shadow flex items-center justify-center"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"/></svg>
+              </button>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto">
+            <div
+              ref={phishingCarouselRef}
+              className="flex overflow-x-auto gap-4 pb-2 snap-x snap-mandatory max-w-6xl mx-auto scrollbar-hide"
+              style={{ scrollBehavior: 'smooth', scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            >
+              <div className="flex-shrink-0 snap-start" style={{ width: '8px', minWidth: '8px' }} />
               <motion.div
-                className="bg-gradient-to-r from-blue-950 via-blue-900 to-blue-950 p-6 md:p-8 rounded-2xl border border-blue-200/30 shadow-lg backdrop-blur-sm cursor-pointer"
+                className="min-w-[280px] sm:min-w-[360px] md:min-w-[500px] min-h-[380px] bg-gradient-to-r from-blue-950 via-blue-900 to-blue-950 p-6 md:p-8 pt-8 md:pt-10 rounded-2xl border border-blue-200/30 shadow-lg backdrop-blur-sm cursor-pointer snap-start flex flex-col"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ opacity: { duration: 0.8, ease: "easeOut" } }}
@@ -1036,17 +1068,33 @@ const Hero = memo(() => {
                   { tip: "Käytä kaksivaiheista tunnistautumista (2FA)", description: "Sähköpostin ja pankkitilien suojaaminen 2FA:lla vähentää riskin, vaikka tunnukset vuotaisivat." }
                 ]))}
               >
-                <div className="mb-4 md:mb-6">
+                <div className="mt-2 md:mt-4 mb-6 md:mb-8">
                   <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight">Kohdennettu kalastelu</h3>
                   <div className="h-0.5 w-12 bg-blue-300/50 mt-2 rounded-full"></div>
-                </div>
-               <div className="text-sm text-blue-100/90 leading-relaxed">
+                 </div>
+               <div className="text-sm text-blue-100/90 leading-relaxed mt-2 md:mt-3">
                  Yleisempien huijausten lisäksi voi esiintyä myös kohdennetumpaa kalastelua, jossa hyödynnetään esimerkiksi aikaisemmista vuodoista saatuja tietoja uskottavuuden lisäämiseksi.
+               </div>
+               <div className="mt-auto pt-6 flex justify-start pl-1">
+                 <button
+                   className="inline-flex items-center px-4 py-2 rounded-lg border border-blue-200/40 text-blue-100 hover:bg-white/10 transition-colors"
+                   onClick={(e) => {
+                     e.stopPropagation();
+                     openModal("Kuinka suojatua kohdennetulta kalastelulta?", JSON.stringify([
+                       { tip: "Tarkista lähettäjän tiedot", description: "Ole epäilevä, jos viesti tulee tuntemattomalta tai henkilöltä, jonka sähköposti tai puhelinnumero ei näytä oikealta." },
+                       { tip: "Älä klikkaa linkkejä tai liitteitä suoraan", description: "Jos viestissä on linkki, kirjoita URL itse selaimeen tai käytä virallista sovellusta." },
+                       { tip: "Vahvista pyyntöjä erikseen", description: "Jos viesti pyytää rahaa tai tietoja, ota yhteyttä organisaatioon virallisen kanavan kautta ennen toimimista." },
+                       { tip: "Käytä kaksivaiheista tunnistautumista (2FA)", description: "Sähköpostin ja pankkitilien suojaaminen 2FA:lla vähentää riskin, vaikka tunnukset vuotaisivat." }
+                     ]));
+                   }}
+                 >
+                   Kuinka suojautua?
+                 </button>
                </div>
               </motion.div>
               
               <motion.div
-                className="bg-gradient-to-r from-blue-950 via-blue-900 to-blue-950 p-6 md:p-8 rounded-2xl border border-blue-200/30 shadow-lg backdrop-blur-sm cursor-pointer"
+                className="min-w-[280px] sm:min-w-[360px] md:min-w-[500px] min-h-[380px] bg-gradient-to-r from-blue-950 via-blue-900 to-blue-950 p-6 md:p-8 pt-8 md:pt-10 rounded-2xl border border-blue-200/30 shadow-lg backdrop-blur-sm cursor-pointer snap-start flex flex-col"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ opacity: { duration: 0.8, ease: "easeOut", delay: 0.2 } }}
@@ -1057,17 +1105,33 @@ const Hero = memo(() => {
                   { tip: "Ilmoita epäilyttävästä viestistä pankille", description: "Useimmat pankit tarjoavat osoitteet huijausviestien raportointiin." }
                 ]))}
               >
-                <div className="mb-4 md:mb-6">
+                <div className="mt-2 md:mt-4 mb-6 md:mb-8">
                   <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight">Pankkitietojen ja verkkopankkitunnusten kalastelu</h3>
                   <div className="h-0.5 w-12 bg-blue-300/50 mt-2 rounded-full"></div>
-                </div>
-               <div className="text-sm text-blue-100/90 leading-relaxed">
+                 </div>
+               <div className="text-sm text-blue-100/90 leading-relaxed mt-2 md:mt-3">
                  Näissä tapauksissa uhrilta pyydetään verkkopankkitunnuksia tai muita henkilökohtaisia tietoja, usein tekaistun "OmaVero"-sivuston tai muiden uskottavilta näyttävien tahojen nimissä.
+               </div>
+               <div className="mt-auto pt-6 flex justify-start pl-1">
+                 <button
+                   className="inline-flex items-center px-4 py-2 rounded-lg border border-blue-200/40 text-blue-100 hover:bg-white/10 transition-colors"
+                   onClick={(e) => {
+                     e.stopPropagation();
+                     openModal("Kuinka suojautua pankkitietojen ja verkkopankkitunnusten kalastelulta?", JSON.stringify([
+                       { tip: "Älä koskaan anna tunnuksia sähköpostissa tai puhelimessa", description: "Pankit ja verottaja eivät pyydä tunnuksia näin." },
+                       { tip: "Varmista sivuston osoite", description: "Tarkista, että verkkosivun osoite alkaa https:// ja on pankin/viranomaisen virallinen domain." },
+                       { tip: "Hallitse salasanoja ja tunnuksia huolellisesti", description: "Käytä vahvoja salasanoja ja erillisiä tunnuksia eri palveluissa." },
+                       { tip: "Ilmoita epäilyttävästä viestistä pankille", description: "Useimmat pankit tarjoavat osoitteet huijausviestien raportointiin." }
+                     ]));
+                   }}
+                 >
+                   Kuinka suojautua?
+                 </button>
                </div>
               </motion.div>
               
               <motion.div
-                className="bg-gradient-to-r from-blue-950 via-blue-900 to-blue-950 p-6 md:p-8 rounded-2xl border border-blue-200/30 shadow-lg backdrop-blur-sm cursor-pointer"
+                className="min-w-[280px] sm:min-w-[360px] md:min-w-[500px] min-h-[380px] bg-gradient-to-r from-blue-950 via-blue-900 to-blue-950 p-6 md:p-8 pt-8 md:pt-10 rounded-2xl border border-blue-200/30 shadow-lg backdrop-blur-sm cursor-pointer snap-start flex flex-col"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ opacity: { duration: 0.8, ease: "easeOut", delay: 0.4 } }}
@@ -1078,17 +1142,33 @@ const Hero = memo(() => {
                   { tip: "Raportoi huijauksesta", description: "Traficomin Kyberturvallisuuskeskus vastaanottaa ilmoituksia huijausviesteistä." }
                 ]))}
               >
-                <div className="mb-4 md:mb-6">
+                <div className="mt-2 md:mt-4 mb-6 md:mb-8">
                   <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight">Veronpalautushuijaukset</h3>
                   <div className="h-0.5 w-12 bg-blue-300/50 mt-2 rounded-full"></div>
-                </div>
-               <div className="text-sm text-blue-100/90 leading-relaxed">
+                 </div>
+               <div className="text-sm text-blue-100/90 leading-relaxed mt-2 md:mt-3">
                  Traficomin Kyberturvallisuuskeskus on varoittanut veronpalautuksiin liittyvistä huijausviesteistä, joissa väitetään rahan olevan saatavilla täyttämällä tiedot huijaussivustolla.
+               </div>
+               <div className="mt-auto pt-6 flex justify-start pl-1">
+                 <button
+                   className="inline-flex items-center px-4 py-2 rounded-lg border border-blue-200/40 text-blue-100 hover:bg-white/10 transition-colors"
+                   onClick={(e) => {
+                     e.stopPropagation();
+                     openModal("Kuinka suojautua veronpalautushuijauksilta?", JSON.stringify([
+                       { tip: "Älä täytä tietoja epäilyttävillä sivustoilla", description: "Veroilmoitukset ja palautukset tehdään aina virallisella OmaVero-palvelulla (vero.fi)." },
+                       { tip: "Tarkista lähde", description: "Viranomaiset eivät koskaan lähetä sähköpostia, jossa pyydetään salasanaa tai pankkitunnuksia." },
+                       { tip: "Poista epäilyttävät viestit", description: "Älä avaa liitteitä tai linkkejä." },
+                       { tip: "Raportoi huijauksesta", description: "Traficomin Kyberturvallisuuskeskus vastaanottaa ilmoituksia huijausviesteistä." }
+                     ]));
+                   }}
+                 >
+                   Kuinka suojautua?
+                 </button>
                </div>
               </motion.div>
               
               <motion.div
-                className="bg-gradient-to-r from-blue-950 via-blue-900 to-blue-950 p-6 md:p-8 rounded-2xl border border-blue-200/30 shadow-lg backdrop-blur-sm cursor-pointer"
+                className="min-w-[280px] sm:min-w-[360px] md:min-w-[500px] min-h-[380px] bg-gradient-to-r from-blue-950 via-blue-900 to-blue-950 p-6 md:p-8 pt-8 md:pt-10 rounded-2xl border border-blue-200/30 shadow-lg backdrop-blur-sm cursor-pointer snap-start flex flex-col"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ opacity: { duration: 0.8, ease: "easeOut", delay: 0.6 } }}
@@ -1099,14 +1179,31 @@ const Hero = memo(() => {
                   { tip: "Poista viesti ja raportoi", description: "Useimmat kuriiripalvelut tarjoavat ohjeet huijausviestien raportointiin." }
                 ]))}
               >
-                <div className="mb-4 md:mb-6">
+                <div className="mt-2 md:mt-4 mb-6 md:mb-8">
                   <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight">Pakettihuijaukset</h3>
                   <div className="h-0.5 w-12 bg-blue-300/50 mt-2 rounded-full"></div>
-                </div>
-               <div className="text-sm text-blue-100/90 leading-relaxed">
+                 </div>
+               <div className="text-sm text-blue-100/90 leading-relaxed mt-2 md:mt-3">
                  Huijausviesteissä väitetään usein, että jokin paketti on jumissa tai että sinun tulee maksaa jotain pakettiin liittyen, ohjaten sinut huijaussivustolle pankkitunnistamisen toivossa.
                </div>
+               <div className="mt-auto pt-6 flex justify-start pl-1">
+                 <button
+                   className="inline-flex items-center px-4 py-2 rounded-lg border border-blue-200/40 text-blue-100 hover:bg-white/10 transition-colors"
+                   onClick={(e) => {
+                     e.stopPropagation();
+                     openModal("Kuinka suojautua pakettihuijauksilta?", JSON.stringify([
+                       { tip: "Älä seuraa linkkejä epäilyttäviin sivustoihin", description: "Jos viestissä väitetään paketin olevan jumissa, tarkista tilaus suoraan verkkokaupan tai kuriirin viralliselta sivulta." },
+                       { tip: "Tarkista lähettäjä", description: "Katso, vastaako lähettäjän sähköposti tai numero oikeaa palvelua." },
+                       { tip: "Älä maksa ylimääräisiä maksuja tuntemattomille", description: "Huijarit usein pyytävät ylimääräisiä 'maksuja' huijaussivustolla." },
+                       { tip: "Poista viesti ja raportoi", description: "Useimmat kuriiripalvelut tarjoavat ohjeet huijausviestien raportointiin." }
+                     ]));
+                   }}
+                 >
+                   Kuinka suojautua?
+                 </button>
+               </div>
               </motion.div>
+              <div className="flex-shrink-0 snap-start" style={{ width: '8px', minWidth: '8px' }} />
             </div>
           </div>
         </div>
@@ -1125,136 +1222,104 @@ const Hero = memo(() => {
             <p className="text-lg text-gray-700 mb-2">
               Valitse parhaiten sopiva suojaus.
             </p>
-            <p className="text-sm text-gray-600">
-              Jokaisessa tilauksessa on 14vrk maksuton peruutusoikeus.
-            </p>
+            
           </div>
           
           {/* Pricing cards - horizontal layout */}
           <div className="flex justify-center">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl">
               
-              {/* Pricing card 1 */}
-              <div className="bg-white/90 backdrop-blur-sm rounded-2xl border border-gray-200 p-8 shadow-lg text-center">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  Henkilösuoja Yhdelle
-                </h3>
-                <div className="text-4xl font-bold text-gray-900 mb-6">
-                  21,99 €/kk
+              {/* Product card 1 - new style */}
+              <div className="rounded-2xl bg-white/90 backdrop-blur-sm text-left border border-gray-200 shadow-lg hover:shadow-xl transition-shadow overflow-hidden">
+                <div className="h-2 w-full bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-500"></div>
+                <div className="p-7">
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="text-2xl font-bold text-gray-900 tracking-tight">Henkilösuoja Yhdelle</h3>
+                    <span className="text-[11px] uppercase tracking-wide text-gray-500 bg-gray-100 px-2 py-1 rounded-md">Yhdelle</span>
+                  </div>
+                  <div className="text-sm text-gray-600 mb-5">Sisältää vakuutusturvan</div>
+                  <ul className="space-y-3 mb-7">
+                    {[
+                      'Tietojen monitorointi ja ilmoitus tietovuodoista',
+                      'Vakuutus, joka turvaa sinut vahinkojen varalta',
+                      'Apu ja tuki',
+                    ].map((feature, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <span className="mt-2 h-2 w-2 rounded-full bg-black inline-block shrink-0"></span>
+                        <span className="text-gray-800 leading-6">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <button 
+                    className="w-full text-white py-3 px-6 rounded-lg font-medium hover:opacity-90 transition-opacity"
+                    style={{ background: 'var(--gradient-navy)' }}
+                    onClick={() => navigate('/verkkokauppa/tuote/henkilosuoja-yhdelle')}
+                  >
+                    Valitse paketti
+                  </button>
                 </div>
-                <ul className="space-y-3 mb-8 text-left">
-                  <li className="flex items-start">
-                    <span className="text-gray-700">• Tietojen monitorointi ja ilmoitus tietovuodoista</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-gray-700">• Vakuutus, joka turvaa sinut vahinkojen varalta</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-gray-700">• Apu ja tuki</span>
-                  </li>
-                </ul>
-                <button 
-                  className="w-full bg-blue-900 text-white py-3 px-6 rounded-lg font-medium hover:bg-blue-800 transition-colors"
-                  onClick={() => {
-                    // Lisää tuote ostoskoriin (Henkilösuoja Yhdelle)
-                    const product = {
-                      id: 'henkilosuoja-yhdelle',
-                      name: 'Henkilösuoja Yhdelle',
-                      price: 21.99,
-                      type: 'subscription'
-                    };
-                    // Tallenna ostoskoriin localStorageen
-                    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-                    cart.push(product);
-                    localStorage.setItem('cart', JSON.stringify(cart));
-                    // Siirry verkkokauppa-sivulle
-                    navigate('/verkkokauppa');
-                  }}
-                >
-                  Suojaa laite
-                </button>
               </div>
 
-              {/* Pricing card 2 */}
-              <div className="bg-white/90 backdrop-blur-sm rounded-2xl border border-gray-200 p-8 shadow-lg text-center">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  Henkilösuoja Tupla
-                </h3>
-                <div className="text-4xl font-bold text-gray-900 mb-6">
-                  28,99 €/kk
+              {/* Product card 2 - new style */}
+              <div className="rounded-2xl bg-white/90 backdrop-blur-sm text-left border border-gray-200 shadow-lg hover:shadow-xl transition-shadow overflow-hidden">
+                <div className="h-2 w-full bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-500"></div>
+                <div className="p-7">
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="text-2xl font-bold text-gray-900 tracking-tight">Henkilösuoja Tupla</h3>
+                    <span className="text-[11px] uppercase tracking-wide text-gray-500 bg-gray-100 px-2 py-1 rounded-md">Kahdelle</span>
+                  </div>
+                  <div className="text-sm text-gray-600 mb-5">Sisältää vakuutusturvan kahdelle</div>
+                  <ul className="space-y-3 mb-7">
+                    {[
+                      'Tietojen monitorointi ja ilmoitus tietovuodoista sinulle sekä läheisellesi',
+                      'Vakuutus, joka turvaa sinut ja läheisesi vahinkojen varalta',
+                      'Apu ja tuki',
+                    ].map((feature, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <span className="mt-2 h-2 w-2 rounded-full bg-black inline-block shrink-0"></span>
+                        <span className="text-gray-800 leading-6">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <button 
+                    className="w-full text-white py-3 px-6 rounded-lg font-medium hover:opacity-90 transition-opacity"
+                    style={{ background: 'var(--gradient-navy)' }}
+                    onClick={() => navigate('/verkkokauppa/tuote/henkilosuoja-tupla')}
+                  >
+                    Valitse paketti
+                  </button>
                 </div>
-                <ul className="space-y-3 mb-8 text-left">
-                  <li className="flex items-start">
-                    <span className="text-gray-700">• Tietojen monitorointi ja ilmoitus tietovuodoista sinulle sekä läheisellesi</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-gray-700">• Vakuutus, joka turvaa sinut ja läheisesi vahinkojen varalta</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-gray-700">• Apu ja tuki</span>
-                  </li>
-                </ul>
-                <button 
-                  className="w-full bg-blue-900 text-white py-3 px-6 rounded-lg font-medium hover:bg-blue-800 transition-colors"
-                  onClick={() => {
-                    // Lisää tuote ostoskoriin (Henkilösuoja Tupla)
-                    const product = {
-                      id: 'henkilosuoja-tupla',
-                      name: 'Henkilösuoja Tupla',
-                      price: 28.99,
-                      type: 'subscription'
-                    };
-                    // Tallenna ostoskoriin localStorageen
-                    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-                    cart.push(product);
-                    localStorage.setItem('cart', JSON.stringify(cart));
-                    // Siirry verkkokauppa-sivulle
-                    navigate('/verkkokauppa');
-                  }}
-                >
-                  Suojaa laite
-                </button>
               </div>
 
-              {/* Pricing card 3 */}
-              <div className="bg-white/90 backdrop-blur-sm rounded-2xl border border-gray-200 p-8 shadow-lg text-center">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  Henkilösuoja Perhe
-                </h3>
-                <div className="text-4xl font-bold text-gray-900 mb-6">
-                  32,99 €/kk
+              {/* Product card 3 - new style */}
+              <div className="rounded-2xl bg-white/90 backdrop-blur-sm text-left border border-gray-200 shadow-lg hover:shadow-xl transition-shadow overflow-hidden">
+                <div className="h-2 w-full bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-500"></div>
+                <div className="p-7">
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="text-2xl font-bold text-gray-900 tracking-tight">Henkilösuoja Perhe</h3>
+                    <span className="text-[11px] uppercase tracking-wide text-gray-500 bg-gray-100 px-2 py-1 rounded-md">Perhe</span>
+                  </div>
+                  <div className="text-sm text-gray-600 mb-5">Sisältää vakuutusturvan viidelle</div>
+                  <ul className="space-y-3 mb-7">
+                    {[
+                      'Tietojen monitorointi ja ilmoitus tietovuodoista sinulle sekä koko perheellesi',
+                      'Vakuutus, joka turvaa sinut ja koko perheesi vahinkojen varalta',
+                      'Apu ja tuki',
+                    ].map((feature, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <span className="mt-2 h-2 w-2 rounded-full bg-black inline-block shrink-0"></span>
+                        <span className="text-gray-800 leading-6">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <button 
+                    className="w-full text-white py-3 px-6 rounded-lg font-medium hover:opacity-90 transition-opacity"
+                    style={{ background: 'var(--gradient-navy)' }}
+                    onClick={() => navigate('/verkkokauppa/tuote/henkilosuoja-perhe')}
+                  >
+                    Valitse paketti
+                  </button>
                 </div>
-                <ul className="space-y-3 mb-8 text-left">
-                  <li className="flex items-start">
-                    <span className="text-gray-700">• Tietojen monitorointi ja ilmoitus tietovuodoista sinulle sekä koko perheellesi</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-gray-700">• Vakuutus, joka turvaa sinut ja koko perheesi vahinkojen varalta</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-gray-700">• Apu ja tuki</span>
-                  </li>
-                </ul>
-                <button 
-                  className="w-full bg-blue-900 text-white py-3 px-6 rounded-lg font-medium hover:bg-blue-800 transition-colors"
-                  onClick={() => {
-                    // Lisää tuote ostoskoriin (Henkilösuoja Perhe)
-                    const product = {
-                      id: 'henkilosuoja-perhe',
-                      name: 'Henkilösuoja Perhe',
-                      price: 32.99,
-                      type: 'subscription'
-                    };
-                    // Tallenna ostoskoriin localStorageen
-                    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-                    cart.push(product);
-                    localStorage.setItem('cart', JSON.stringify(cart));
-                    // Siirry verkkokauppa-sivulle
-                    navigate('/verkkokauppa');
-                  }}
-                >
-                  Suojaa laite
-                </button>
               </div>
             </div>
           </div>
@@ -1432,8 +1497,8 @@ const Hero = memo(() => {
                   <div className="flex-1">
                     <h4 className="text-lg font-bold text-gray-900 mb-2 tracking-tight">Käytä vahvaa ja uniikkia salasanaa kyseiselle palvelulle</h4>
                     <p className="text-base text-gray-700 leading-relaxed">
-                      Vältä samaa salasanaa useassa palvelussa. Harkitse salasanamanagerin käyttöä, jotta voit luoda ja hallita vahvoja salasanoja.
-                    </p>
+                  Vältä samaa salasanaa useassa palvelussa. Harkitse salasanamanagerin käyttöä, jotta voit luoda ja hallita vahvoja salasanoja.
+                </p>
                   </div>
                 </div>
               </div>
@@ -1446,8 +1511,8 @@ const Hero = memo(() => {
                   <div className="flex-1">
                     <h4 className="text-lg font-bold text-gray-900 mb-2 tracking-tight">Ota kaksivaiheinen tunnistautuminen (2FA) käyttöön</h4>
                     <p className="text-base text-gray-700 leading-relaxed">
-                      Aktivoi 2FA kaikissa palveluissa, joissa se on mahdollista. Tämä lisää merkittävästi tilisi turvallisuutta, vaikka salasana olisi vuotanut.
-                    </p>
+                  Aktivoi 2FA kaikissa palveluissa, joissa se on mahdollista. Tämä lisää merkittävästi tilisi turvallisuutta, vaikka salasana olisi vuotanut.
+                </p>
                   </div>
                 </div>
               </div>
@@ -1460,8 +1525,8 @@ const Hero = memo(() => {
                   <div className="flex-1">
                     <h4 className="text-lg font-bold text-gray-900 mb-2 tracking-tight">Tarkista muut tilisi</h4>
                     <p className="text-base text-gray-700 leading-relaxed">
-                      Jos käytät samaa sähköpostia ja salasanaa muissa palveluissa, vaihda myös niissä salasanat. Seuraa tilitapahtumia epäilyttävän toiminnan varalta.
-                    </p>
+                  Jos käytät samaa sähköpostia ja salasanaa muissa palveluissa, vaihda myös niissä salasanat. Seuraa tilitapahtumia epäilyttävän toiminnan varalta.
+                </p>
                   </div>
                 </div>
               </div>
@@ -1474,8 +1539,8 @@ const Hero = memo(() => {
                   <div className="flex-1">
                     <h4 className="text-lg font-bold text-gray-900 mb-2 tracking-tight">Varo huijauksia (phishing)</h4>
                     <p className="text-base text-gray-700 leading-relaxed">
-                      Ole erityisen tarkkana epäilyttävien sähköpostien ja linkkien kanssa. Älä klikkaa linkkejä, älä avaa liitteitä tuntemattomista lähteistä.
-                    </p>
+                  Ole erityisen tarkkana epäilyttävien sähköpostien ja linkkien kanssa. Älä klikkaa linkkejä, älä avaa liitteitä tuntemattomista lähteistä.
+                </p>
                   </div>
                 </div>
               </div>

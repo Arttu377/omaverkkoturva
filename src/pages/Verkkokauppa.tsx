@@ -2,12 +2,12 @@ import React from 'react';
 import PublicPageLayout from '@/components/PublicPageLayout';
 import SEO from '@/components/SEO';
 import { useShoppingCart } from '@/contexts/ShoppingCartContext';
-import FloatingCart from '@/components/FloatingCart';
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Verkkokauppa = () => {
   const { addToCart } = useShoppingCart();
+  const navigate = useNavigate();
   const location = useLocation();
 
   const packages = [
@@ -73,8 +73,7 @@ const Verkkokauppa = () => {
       />
       
       <div className="min-h-screen bg-gradient-to-b from-white via-blue-50 to-blue-200 pt-44 pb-12">
-        {/* Floating ostoskori */}
-        <FloatingCart />
+        {/* Floating ostoskori poistettu tämän sivun yläreunasta pyynnöstä */}
         
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -92,117 +91,97 @@ const Verkkokauppa = () => {
           {/* Maksulliset paketit */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {packages.map((pkg, index) => (
-              <div 
-                key={index}
-                className="bg-white/90 backdrop-blur-sm rounded-2xl border border-gray-200 p-8 shadow-lg text-center hover:shadow-xl transition-shadow"
-              >
-                <div className="text-center">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                    {pkg.title}
-                  </h3>
-                  <div className="text-4xl font-bold text-gray-900 mb-6">
-                    {pkg.price}
+              <div key={index} className="relative rounded-2xl p-0">
+                <div className="rounded-2xl bg-white/90 backdrop-blur-sm text-left h-full border border-gray-200 shadow-lg hover:shadow-xl transition-shadow overflow-hidden">
+                  {/* Accent bar */}
+                  <div className="h-2 w-full bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-500"></div>
+                  <div className="p-7">
+                    <div className="flex items-center justify-between mb-2">
+                      <h3 className="text-2xl font-bold text-gray-900 tracking-tight">
+                        {pkg.title}
+                      </h3>
+                      <span className="text-[11px] uppercase tracking-wide text-gray-500 bg-gray-100 px-2 py-1 rounded-md">
+                        {index === 0 && 'Yhdelle'}
+                        {index === 1 && 'Kahdelle'}
+                        {index === 2 && 'Perhe'}
+                      </span>
+                    </div>
+                    {/* Descriptor */}
+                    <div className="text-sm text-gray-600">
+                      {index === 0 && 'Sisältää vakuutusturvan'}
+                      {index === 1 && 'Sisältää vakuutusturvan kahdelle'}
+                      {index === 2 && 'Sisältää vakuutusturvan viidelle'}
+                    </div>
+                    {/* Starting price */}
+                    <div className="text-sm font-semibold text-gray-900 mb-5">
+                      {index === 0 && 'Alk. 129€/vuosi'}
+                      {index === 1 && 'Alk. 179€/vuosi'}
+                      {index === 2 && 'Alk. 219€/vuosi'}
+                    </div>
+                
+                {/* Package images removed per request */}
+                
+                    <ul className="space-y-3 mb-7">
+                      {pkg.features
+                        .filter((feature) => !feature.startsWith('Sisältää '))
+                        .map((feature, featureIndex) => (
+                        <li key={featureIndex} className="flex items-start gap-3">
+                          <span className="mt-2 h-2 w-2 rounded-full bg-black inline-block shrink-0"></span>
+                          <span className="text-gray-800 leading-6">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <button 
+                      onClick={() => navigate(`/verkkokauppa/tuote/${index === 0 ? 'henkilosuoja-yhdelle' : index === 1 ? 'henkilosuoja-tupla' : 'henkilosuoja-perhe'}`)}
+                      className="w-full text-white py-3 px-6 rounded-lg font-medium hover:opacity-90 transition-opacity"
+                      style={{ background: 'var(--gradient-navy)' }}
+                    >
+                      Valitse paketti
+                    </button>
                   </div>
                 </div>
-                
-                {/* Image for Henkilösuoja Yhdelle package */}
-                {index === 0 && (
-                  <div className="flex justify-center mb-2">
-                    <img 
-                      src="/kuvapankki/viisi 1.png" 
-                      alt="Henkilösuoja Yhdelle kuva" 
-                      className="w-full h-auto max-w-sm lg:max-w-md xl:max-w-lg"
-                      style={{ 
-                        background: 'transparent', 
-                        backgroundColor: 'transparent'
-                      }}
-                    />
-                  </div>
-                )}
-                
-                {/* Image for Henkilösuoja Tupla package */}
-                {index === 1 && (
-                  <div className="flex justify-center mb-2">
-                    <img 
-                      src="/kuvapankki/kaksi 1.png" 
-                      alt="Henkilösuoja Tupla kuva" 
-                      className="w-full h-auto max-w-sm lg:max-w-md xl:max-w-lg"
-                      style={{ 
-                        background: 'transparent', 
-                        backgroundColor: 'transparent'
-                      }}
-                    />
-                  </div>
-                )}
-                
-                {/* Image for Henkilösuoja Perhe package */}
-                {index === 2 && (
-                  <div className="flex justify-center mb-2">
-                    <img 
-                      src="/kuvapankki/yksi 1.png" 
-                      alt="Henkilösuoja Perhe kuva" 
-                      className="w-full h-auto max-w-sm lg:max-w-md xl:max-w-lg"
-                      style={{ 
-                        background: 'transparent', 
-                        backgroundColor: 'transparent'
-                      }}
-                    />
-                  </div>
-                )}
-                
-                <ul className="space-y-3 mb-8 text-left">
-                  {pkg.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-start">
-                      <span className="text-gray-700">• {feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                
-                <button 
-                  onClick={() => addToCart(pkg)}
-                  className="w-full bg-blue-900 text-white py-3 px-6 rounded-lg font-medium hover:bg-blue-800 transition-colors"
-                >
-                  Valitse paketti
-                </button>
               </div>
             ))}
           </div>
 
           {/* Ilmainen kokeilujakso - moved below paid packages */}
           <div id="free-trial" className="mt-16 flex justify-center scroll-mt-40">
-            <div className="w-full max-w-md">
-              <div className="bg-white/90 backdrop-blur-sm rounded-2xl border border-gray-200 p-8 shadow-lg text-center hover:shadow-xl transition-shadow">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  {freeTrial.title}
-                </h3>
-                <div className="text-4xl font-bold text-gray-900 mb-6">
-                  {freeTrial.price}
+            <div className="w-full max-w-2xl">
+              <div className="rounded-2xl bg-white/90 backdrop-blur-sm text-left border border-gray-200 shadow-lg hover:shadow-xl transition-shadow overflow-hidden">
+                <div className="h-2 w-full bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-500"></div>
+                <div className="p-7">
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="text-2xl font-bold text-gray-900 tracking-tight">
+                      {freeTrial.title}
+                    </h3>
+                    <span className="text-[11px] uppercase tracking-wide text-gray-500 bg-gray-100 px-2 py-1 rounded-md">Kokeile</span>
+                  </div>
+                  <div className="text-sm text-gray-600">Tutustu palveluun maksutta</div>
+                  <div className="text-3xl font-extrabold text-gray-900 mt-2 mb-5">{freeTrial.price}</div>
+
+                  <ul className="space-y-3 mb-5">
+                    <li className="flex items-start gap-3">
+                      <span className="mt-2 h-2 w-2 rounded-full bg-black inline-block shrink-0"></span>
+                      <span className="text-gray-800 leading-6">Tietojen monitorointi ja ilmoitus tietovuodoista</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="mt-2 h-2 w-2 rounded-full bg-black inline-block shrink-0"></span>
+                      <span className="text-gray-800 leading-6">Ei sitoumuksia eikä avausmaksuja</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="mt-2 h-2 w-2 rounded-full bg-black inline-block shrink-0"></span>
+                      <span className="text-gray-800 leading-6">Mahdollisuus tutustua palvelun ominaisuuksiin</span>
+                    </li>
+                  </ul>
+                  <div className="text-sm text-gray-600 mb-5">(huom. Ei sisällä vakuutusta)</div>
+
+                  <button 
+                    onClick={() => navigate('/verkkokauppa/ilmainen-kokeilu')}
+                    className="w-full bg-blue-900 text-white py-3 px-6 rounded-lg font-medium hover:bg-blue-800 transition-colors"
+                  >
+                    Aloita ilmainen kokeilu
+                  </button>
                 </div>
-                {/* Image for free trial card */}
-                <div className="flex justify-center mb-2">
-                  <img 
-                    src="/kuvapankki/Kappaleen teksti (15).png" 
-                    alt="Kokeilujakso kuva" 
-                    className="w-full h-auto max-w-[180px] md:max-w-[260px]"
-                    style={{ 
-                      background: 'transparent', 
-                      backgroundColor: 'transparent'
-                    }}
-                  />
-                </div>
-                {/* Features under free trial image */}
-                <ul className="space-y-2 mb-6 text-left">
-                  <li className="flex items-start"><span className="text-gray-700">• Tietojen monitorointi ja ilmoitus tietovuodoista</span></li>
-                  <li className="flex items-start"><span className="text-gray-700">• Ei sitoumuksia eikä avausmaksuja</span></li>
-                  <li className="flex items-start"><span className="text-gray-700">• Mahdollisuus tutustua palvelun ominaisuuksiin</span></li>
-                </ul>
-                
-                <button 
-                  onClick={() => addToCart(freeTrial)}
-                  className="w-full bg-blue-900 text-white py-3 px-6 rounded-lg font-medium hover:bg-blue-800 transition-colors"
-                >
-                  Aloita ilmainen kokeilu
-                </button>
               </div>
             </div>
           </div>

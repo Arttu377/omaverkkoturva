@@ -290,29 +290,29 @@ const Identiteettiturva = () => {
               <div className="space-y-8">
                 <div className="relative pl-6 bg-gradient-to-r from-blue-50/50 to-transparent py-4 rounded-r-lg" style={{ borderLeft: '4px solid rgb(30, 42, 94)' }}>
                   <h3 className="text-2xl font-bold text-foreground mb-3 tracking-tight">
-                    Havaitsee jos tietosi joutuvat vääriin käsiin
-                  </h3>
+                      Havaitsee jos tietosi joutuvat vääriin käsiin
+                    </h3>
                   <p className="text-base text-muted-foreground leading-relaxed pr-2">
-                    Palvelu monitoroi ja ilmoittaa, mikäli tietojasi päätyy verkossa vääriin käsiin.
-                  </p>
+                      Palvelu monitoroi ja ilmoittaa, mikäli tietojasi päätyy verkossa vääriin käsiin.
+                    </p>
                 </div>
                 
                 <div className="relative pl-6 bg-gradient-to-r from-blue-50/50 to-transparent py-4 rounded-r-lg" style={{ borderLeft: '4px solid rgb(30, 42, 94)' }}>
                   <h3 className="text-2xl font-bold text-foreground mb-3 tracking-tight">
-                    Vakuutusturva 13 500 € asti
-                  </h3>
+                      Vakuutusturva 13 500 € asti
+                    </h3>
                   <p className="text-base text-muted-foreground leading-relaxed pr-2">
-                    Korvaa taloudelliset vahingot ilman omavastuuta.
-                  </p>
+                      Korvaa taloudelliset vahingot ilman omavastuuta.
+                    </p>
                 </div>
                 
                 <div className="relative pl-6 bg-gradient-to-r from-blue-50/50 to-transparent py-4 rounded-r-lg" style={{ borderLeft: '4px solid rgb(30, 42, 94)' }}>
                   <h3 className="text-2xl font-bold text-foreground mb-3 tracking-tight">
-                    Kattaa myös huijaukset
-                  </h3>
+                      Kattaa myös huijaukset
+                    </h3>
                   <p className="text-base text-muted-foreground leading-relaxed pr-2">
-                    Suojaa tietojenkalastelun, petosten ja väärinkäytösten seurauksilta, 0 € omavastuu.
-                  </p>
+                      Suojaa tietojenkalastelun, petosten ja väärinkäytösten seurauksilta, 0 € omavastuu.
+                    </p>
                 </div>
               </div>
               
@@ -356,7 +356,7 @@ const Identiteettiturva = () => {
                 }}
               />
             </div>
-          </div>
+            </div>
           </div>
           
 
@@ -473,18 +473,18 @@ const Identiteettiturva = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
                   <div className="max-w-3xl pt-8">
                     <div className="relative pl-6 border-l-4 rounded-r-lg bg-gradient-to-r from-blue-50/30 to-transparent py-6 pr-6" style={{ borderLeftColor: 'rgb(30, 42, 94)' }}>
-                      <div className="space-y-6 text-left">
+                    <div className="space-y-6 text-left">
+                      <p className="text-lg text-foreground leading-relaxed">
+                        Verkkorikollisuus, tietovuodot ja identiteettivarkaudet ovat yleistyneet merkittävästi viime vuosina. Jo pelkän sähköpostiosoitteen ja salasanan avulla rikolliset voivat saada pääsyn henkilökohtaisiin tileihisi, tehdä ostoksia nimissäsi tai hakea lainaa luvattomasti.
+                      </p>
+                      
+                      <p className="text-lg text-foreground leading-relaxed">
+                        Digitaalinen identiteetti on nyky-yhteiskunnassa arvokas resurssi ja sen väärinkäyttö voi aiheuttaa vakavia taloudellisia sekä juridisia seurauksia.
+                      </p>
+                      
                         <p className="text-lg text-foreground leading-relaxed">
-                          Verkkorikollisuus, tietovuodot ja identiteettivarkaudet ovat yleistyneet merkittävästi viime vuosina. Jo pelkän sähköpostiosoitteen ja salasanan avulla rikolliset voivat saada pääsyn henkilökohtaisiin tileihisi, tehdä ostoksia nimissäsi tai hakea lainaa luvattomasti.
-                        </p>
-                        
-                        <p className="text-lg text-foreground leading-relaxed">
-                          Digitaalinen identiteetti on nyky-yhteiskunnassa arvokas resurssi ja sen väärinkäyttö voi aiheuttaa vakavia taloudellisia sekä juridisia seurauksia.
-                        </p>
-                        
-                        <p className="text-lg text-foreground leading-relaxed">
-                          Siksi yksilön tunnistetietojen suojaaminen tulisi nähdä yhtä tärkeänä kuin pankkitunnusten turvaaminen.
-                        </p>
+                        Siksi yksilön tunnistetietojen suojaaminen tulisi nähdä yhtä tärkeänä kuin pankkitunnusten turvaaminen.
+                      </p>
                       </div>
                     </div>
                   </div>
@@ -1025,9 +1025,9 @@ const Identiteettiturva = () => {
               </div>
                  {/* End spacer so the last card can be centered */}
                 <div className="flex-shrink-0 snap-start" style={{ width: 'calc(50vw - 325px)', minWidth: 'calc(50vw - 325px)' }} />
-              </div>
             </div>
-          </div>
+            </div>
+                </div>
 
            {/* Support Services */}
            <div className="relative" style={{ width: '100vw', marginLeft: 'calc(50% - 50vw)', marginRight: 'calc(50% - 50vw)' }}>
@@ -1052,9 +1052,9 @@ const Identiteettiturva = () => {
              }}></div>
            <div className="container mx-auto px-4 py-32 relative" style={{ zIndex: 10 }}>
              <div className="text-center mb-16">
-               <h2 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight">
-                 Tukee muutekin kuin taloudellista
-               </h2>
+              <h2 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight">
+                Tukee muullakin tavoin kuin taloudellisesti
+              </h2>
                 </div>
 
              <div className="max-w-7xl mx-auto">
@@ -1105,12 +1105,12 @@ const Identiteettiturva = () => {
                   style={{ 
                     scrollSnapAlign: 'start',
                     scrollMarginLeft: 'calc(50vw - 325px)',
-                    background: 'rgb(219, 228, 240)', 
-                    border: '1px solid rgb(186, 200, 228)',
+                    background: 'rgb(240, 246, 255)', 
+                    border: '1px solid rgb(208, 222, 252)',
                     marginRight: '-150px'
                   }}
-                  onMouseEnter={(e) => { (e.currentTarget as HTMLDivElement).style.background = 'rgb(210, 218, 234)'; }}
-                  onMouseLeave={(e) => { (e.currentTarget as HTMLDivElement).style.background = 'rgb(221, 225, 237)'; }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLDivElement).style.background = 'rgb(232, 240, 255)'; }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLDivElement).style.background = 'rgb(240, 246, 255)'; }}
                 >
                   <div className="mb-2">
                      <h3 className="text-2xl font-bold text-foreground mb-2">Tietojen suoja</h3>
@@ -1126,14 +1126,14 @@ const Identiteettiturva = () => {
                   data-card="true"
                   className="min-w-[300px] sm:min-w-[400px] md:min-w-[650px] min-h-[400px] rounded-3xl p-6 md:p-8 cursor-pointer transition-all duration-300 snap-start relative shadow-xl flex flex-col"
                   style={{ 
-                    background: 'rgb(219, 228, 240)', 
-                    border: '1px solid rgb(186, 200, 228)',
+                    background: 'rgb(240, 246, 255)', 
+                    border: '1px solid rgb(208, 222, 252)',
                     scrollMarginLeft: 'calc(50vw - 325px)',
                     marginRight: '-150px',
                     marginLeft: '-150px'
                   }}
-                   onMouseEnter={(e) => { (e.currentTarget as HTMLDivElement).style.background = 'rgb(210, 218, 234)'; }}
-                   onMouseLeave={(e) => { (e.currentTarget as HTMLDivElement).style.background = 'rgb(221, 225, 237)'; }}
+                   onMouseEnter={(e) => { (e.currentTarget as HTMLDivElement).style.background = 'rgb(232, 240, 255)'; }}
+                   onMouseLeave={(e) => { (e.currentTarget as HTMLDivElement).style.background = 'rgb(240, 246, 255)'; }}
                  >
                   <div className="mb-2">
                      <h3 className="text-2xl font-bold text-foreground mb-2">Psyykkinen tuki</h3>
@@ -1149,14 +1149,14 @@ const Identiteettiturva = () => {
                   data-card="true"
                   className="min-w-[300px] sm:min-w-[400px] md:min-w-[650px] min-h-[400px] rounded-3xl p-6 md:p-8 cursor-pointer transition-all duration-300 snap-start relative shadow-xl flex flex-col"
                   style={{ 
-                    background: 'rgb(219, 228, 240)', 
-                    border: '1px solid rgb(186, 200, 228)',
+                    background: 'rgb(240, 246, 255)', 
+                    border: '1px solid rgb(208, 222, 252)',
                     scrollMarginLeft: 'calc(50vw - 325px)',
                     marginRight: '-150px',
                     marginLeft: '-150px'
                   }}
-                   onMouseEnter={(e) => { (e.currentTarget as HTMLDivElement).style.background = 'rgb(210, 218, 234)'; }}
-                   onMouseLeave={(e) => { (e.currentTarget as HTMLDivElement).style.background = 'rgb(221, 225, 237)'; }}
+                   onMouseEnter={(e) => { (e.currentTarget as HTMLDivElement).style.background = 'rgb(232, 240, 255)'; }}
+                   onMouseLeave={(e) => { (e.currentTarget as HTMLDivElement).style.background = 'rgb(240, 246, 255)'; }}
                  >
                   <div className="mb-2">
                      <h3 className="text-2xl font-bold text-foreground mb-2">Nettikiusaamistuki</h3>
@@ -1172,14 +1172,14 @@ const Identiteettiturva = () => {
                   data-card="true"
                   className="min-w-[300px] sm:min-w-[400px] md:min-w-[650px] min-h-[400px] rounded-3xl p-6 md:p-8 cursor-pointer transition-all duration-300 snap-start relative shadow-xl flex flex-col"
                   style={{ 
-                    background: 'rgb(219, 228, 240)', 
-                    border: '1px solid rgb(186, 200, 228)',
+                    background: 'rgb(240, 246, 255)', 
+                    border: '1px solid rgb(208, 222, 252)',
                     scrollMarginLeft: 'calc(50vw - 325px)',
                     scrollMarginRight: 'calc(50vw - 325px)',
                     marginLeft: '-150px'
                   }}
-                   onMouseEnter={(e) => { (e.currentTarget as HTMLDivElement).style.background = 'rgb(210, 218, 234)'; }}
-                   onMouseLeave={(e) => { (e.currentTarget as HTMLDivElement).style.background = 'rgb(221, 225, 237)'; }}
+                   onMouseEnter={(e) => { (e.currentTarget as HTMLDivElement).style.background = 'rgb(232, 240, 255)'; }}
+                   onMouseLeave={(e) => { (e.currentTarget as HTMLDivElement).style.background = 'rgb(240, 246, 255)'; }}
                  >
                   <div className="mb-2">
                      <h3 className="text-2xl font-bold text-foreground mb-2">Oikeusapu</h3>
@@ -1191,8 +1191,8 @@ const Identiteettiturva = () => {
                  </motion.div>
                  {/* End spacer so the last card can be centered */}
                 <div className="flex-shrink-0 snap-start" style={{ width: 'calc(50vw - 325px)', minWidth: 'calc(50vw - 325px)' }} />
-              </div>
             </div>
+          </div>
           </div>
           
                      {/* Pricing section */}
@@ -1213,66 +1213,105 @@ const Identiteettiturva = () => {
             
             <div className="text-center mb-16 relative z-10">
               <h2 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-6">
-                Valitse suojaksesi
+                Valitse suojauksesi
               </h2>
               <p className="text-lg text-foreground/80">
-                Jokaisessa tilauksessa on 14vrk maksuton peruutusoikeus.
+                Valitse parhaiten sopiva suojaus.
               </p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto relative z-10">
-              {/* Plan 1 */}
-              <div className="bg-card border border-border rounded-2xl p-8 text-center">
-                <h3 className="text-2xl font-bold text-foreground mb-4">Henkilösuoja Yhdelle</h3>
-                <div className="text-4xl font-bold text-primary mb-6">21,99 €/kk</div>
-                <ul className="space-y-3 text-muted-foreground mb-8">
-                  <li>• Tietojen monitorointi ja ilmoitus tietovuodoista</li>
-                  <li>• Vakuutus, joka turvaa sinut vahinkojen varalta</li>
-                  <li>• Apu ja tuki</li>
-                </ul>
-                <Link 
-                  to="/verkkokauppa" 
-                  className="inline-flex items-center justify-center px-6 py-3 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity cursor-pointer"
-                  style={{ background: 'var(--gradient-navy)' }}
-                >
-                  Suojaa laite
-                </Link>
+              {/* Card 1 */}
+              <div className="rounded-2xl bg-white/90 backdrop-blur-sm text-left border border-gray-200 shadow-lg hover:shadow-xl transition-shadow overflow-hidden">
+                <div className="h-2 w-full bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-500"></div>
+                <div className="p-7">
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="text-2xl font-bold text-gray-900 tracking-tight">Henkilösuoja Yhdelle</h3>
+                    <span className="text-[11px] uppercase tracking-wide text-gray-500 bg-gray-100 px-2 py-1 rounded-md">Yhdelle</span>
+                  </div>
+                  <div className="text-sm text-gray-600 mb-5">Sisältää vakuutusturvan</div>
+                  <ul className="space-y-3 mb-7">
+                    {[
+                      'Tietojen monitorointi ja ilmoitus tietovuodoista',
+                      'Vakuutus, joka turvaa sinut vahinkojen varalta',
+                      'Apu ja tuki',
+                    ].map((feature, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <span className="mt-2 h-2 w-2 rounded-full bg-black inline-block shrink-0"></span>
+                        <span className="text-gray-800 leading-6">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Link 
+                    to="/verkkokauppa/tuote/henkilosuoja-yhdelle" 
+                    className="inline-flex w-full items-center justify-center px-6 py-3 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity cursor-pointer"
+                    style={{ background: 'var(--gradient-navy)' }}
+                  >
+                    Valitse paketti
+                  </Link>
+                </div>
               </div>
-                
-              {/* Plan 2 */}
-              <div className="bg-card border border-border rounded-2xl p-8 text-center">
-                <h3 className="text-2xl font-bold text-foreground mb-4">Henkilösuoja Tupla</h3>
-                <div className="text-4xl font-bold text-primary mb-6">28,99 €/kk</div>
-                <ul className="space-y-3 text-muted-foreground mb-8">
-                  <li>• Tietojen monitorointi ja ilmoitus tietovuodoista sinulle sekä läheisellesi</li>
-                  <li>• Vakuutus, joka turvaa sinut ja läheisesi vahinkojen varalta</li>
-                  <li>• Apu ja tuki</li>
-                </ul>
-                <Link 
-                  to="/verkkokauppa" 
-                  className="inline-flex items-center justify-center px-6 py-3 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity cursor-pointer"
-                  style={{ background: 'var(--gradient-navy)' }}
-                >
-                  Suojaa laite
-                </Link>
+
+              {/* Card 2 */}
+              <div className="rounded-2xl bg-white/90 backdrop-blur-sm text-left border border-gray-200 shadow-lg hover:shadow-xl transition-shadow overflow-hidden">
+                <div className="h-2 w-full bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-500"></div>
+                <div className="p-7">
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="text-2xl font-bold text-gray-900 tracking-tight">Henkilösuoja Tupla</h3>
+                    <span className="text-[11px] uppercase tracking-wide text-gray-500 bg-gray-100 px-2 py-1 rounded-md">Kahdelle</span>
+                  </div>
+                  <div className="text-sm text-gray-600 mb-5">Sisältää vakuutusturvan kahdelle</div>
+                  <ul className="space-y-3 mb-7">
+                    {[
+                      'Tietojen monitorointi ja ilmoitus tietovuodoista sinulle sekä läheisellesi',
+                      'Vakuutus, joka turvaa sinut ja läheisesi vahinkojen varalta',
+                      'Apu ja tuki',
+                    ].map((feature, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <span className="mt-2 h-2 w-2 rounded-full bg-black inline-block shrink-0"></span>
+                        <span className="text-gray-800 leading-6">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Link 
+                    to="/verkkokauppa/tuote/henkilosuoja-tupla" 
+                    className="inline-flex w-full items-center justify-center px-6 py-3 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity cursor-pointer"
+                    style={{ background: 'var(--gradient-navy)' }}
+                  >
+                    Valitse paketti
+                  </Link>
+                </div>
               </div>
-              
-              {/* Plan 3 */}
-              <div className="bg-card border border-border rounded-2xl p-8 text-center">
-                <h3 className="text-2xl font-bold text-foreground mb-4">Henkilösuoja Perhe</h3>
-                <div className="text-4xl font-bold text-primary mb-6">32,99 €/kk</div>
-                <ul className="space-y-3 text-muted-foreground mb-8">
-                  <li>• Tietojen monitorointi ja ilmoitus tietovuodoista sinulle sekä koko perheellesi</li>
-                  <li>• Vakuutus, joka turvaa sinut ja koko perheesi vahinkojen varalta</li>
-                  <li>• Apu ja tuki</li>
-                </ul>
-                <Link 
-                  to="/verkkokauppa" 
-                  className="inline-flex items-center justify-center px-6 py-3 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity cursor-pointer"
-                  style={{ background: 'var(--gradient-navy)' }}
-                >
-                  Suojaa laite
-                </Link>
+
+              {/* Card 3 */}
+              <div className="rounded-2xl bg-white/90 backdrop-blur-sm text-left border border-gray-200 shadow-lg hover:shadow-xl transition-shadow overflow-hidden">
+                <div className="h-2 w-full bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-500"></div>
+                <div className="p-7">
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="text-2xl font-bold text-gray-900 tracking-tight">Henkilösuoja Perhe</h3>
+                    <span className="text-[11px] uppercase tracking-wide text-gray-500 bg-gray-100 px-2 py-1 rounded-md">Perhe</span>
+                  </div>
+                  <div className="text-sm text-gray-600 mb-5">Sisältää vakuutusturvan viidelle</div>
+                  <ul className="space-y-3 mb-7">
+                    {[
+                      'Tietojen monitorointi ja ilmoitus tietovuodoista sinulle sekä koko perheellesi',
+                      'Vakuutus, joka turvaa sinut ja koko perheesi vahinkojen varalta',
+                      'Apu ja tuki',
+                    ].map((feature, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <span className="mt-2 h-2 w-2 rounded-full bg-black inline-block shrink-0"></span>
+                        <span className="text-gray-800 leading-6">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Link 
+                    to="/verkkokauppa/tuote/henkilosuoja-perhe" 
+                    className="inline-flex w-full items-center justify-center px-6 py-3 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity cursor-pointer"
+                    style={{ background: 'var(--gradient-navy)' }}
+                  >
+                    Valitse paketti
+                  </Link>
+                </div>
               </div>
             </div>
             </div>
@@ -1284,7 +1323,7 @@ const Identiteettiturva = () => {
               <h2 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight">
                 Usein kysyttyjä kysymyksiä
               </h2>
-            </div>
+                </div>
                 
             <div className="max-w-4xl mx-auto">
               <div className="space-y-6">
@@ -1304,12 +1343,12 @@ const Identiteettiturva = () => {
                       <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center transition-all duration-300 group-hover:bg-blue-100">
                         <svg 
                           className={`w-5 h-5 text-blue-600 transition-transform duration-300 ${openCards['faq1'] ? 'rotate-180' : ''}`} 
-                          fill="none" 
-                          stroke="currentColor" 
-                          viewBox="0 0 24 24"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                        </svg>
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
                       </div>
                     </div>
                     <div className="overflow-hidden">
@@ -1321,7 +1360,7 @@ const Identiteettiturva = () => {
                           transition={{ duration: 0.3 }}
                         >
                           <p className="text-muted-foreground leading-relaxed mt-4 pr-2">
-                            Ei, henkilötietojen suojaaminen ei ole lain mukaan pakollista yksityishenkilöille, mutta se on erittäin suositeltavaa, koska tietomurrot ja huijaukset ovat yleistyneet merkittävästi.
+                          Ei, henkilötietojen suojaaminen ei ole lain mukaan pakollista yksityishenkilöille, mutta se on erittäin suositeltavaa, koska tietomurrot ja huijaukset ovat yleistyneet merkittävästi.
                           </p>
                         </motion.div>
                       )}
@@ -1345,12 +1384,12 @@ const Identiteettiturva = () => {
                       <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center transition-all duration-300 group-hover:bg-blue-100">
                         <svg 
                           className={`w-5 h-5 text-blue-600 transition-transform duration-300 ${openCards['faq2'] ? 'rotate-180' : ''}`} 
-                          fill="none" 
-                          stroke="currentColor" 
-                          viewBox="0 0 24 24"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                        </svg>
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
                       </div>
                     </div>
                     <div className="overflow-hidden">
@@ -1362,7 +1401,7 @@ const Identiteettiturva = () => {
                           transition={{ duration: 0.3 }}
                         >
                           <p className="text-muted-foreground leading-relaxed mt-4 pr-2">
-                            Ilmaiset palvelut tarjoavat yleensä vain rajallista seurantaa, eivätkä sisällä esimerkiksi vakuutusturvaa, reaaliaikaista hälytystä tai asiantuntijan toimintaohjeita. Maksullinen palvelu tarjoaa laajemman suojan ja konkreettista apua vahinkotilanteissa.
+                          Ilmaiset palvelut tarjoavat yleensä vain rajallista seurantaa, eivätkä sisällä esimerkiksi vakuutusturvaa, reaaliaikaista hälytystä tai asiantuntijan toimintaohjeita. Maksullinen palvelu tarjoaa laajemman suojan ja konkreettista apua vahinkotilanteissa.
                           </p>
                         </motion.div>
                       )}
@@ -1386,12 +1425,12 @@ const Identiteettiturva = () => {
                       <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center transition-all duration-300 group-hover:bg-blue-100">
                         <svg 
                           className={`w-5 h-5 text-blue-600 transition-transform duration-300 ${openCards['faq3'] ? 'rotate-180' : ''}`} 
-                          fill="none" 
-                          stroke="currentColor" 
-                          viewBox="0 0 24 24"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                        </svg>
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
                       </div>
                     </div>
                     <div className="overflow-hidden">
@@ -1403,7 +1442,7 @@ const Identiteettiturva = () => {
                           transition={{ duration: 0.3 }}
                         >
                           <p className="text-muted-foreground leading-relaxed mt-4 pr-2">
-                            Kaikkia tietoja ei valitettavasti voida poistaa, jos ne ovat jo päätyneet rikollisille. Palvelumme kuitenkin opastaa, miten minimoit riskit ja estät tietojen väärinkäytön.
+                          Kaikkia tietoja ei valitettavasti voida poistaa, jos ne ovat jo päätyneet rikollisille. Palvelumme kuitenkin opastaa, miten minimoit riskit ja estät tietojen väärinkäytön.
                           </p>
                         </motion.div>
                       )}
@@ -1427,12 +1466,12 @@ const Identiteettiturva = () => {
                       <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center transition-all duration-300 group-hover:bg-blue-100">
                         <svg 
                           className={`w-5 h-5 text-blue-600 transition-transform duration-300 ${openCards['faq4'] ? 'rotate-180' : ''}`} 
-                          fill="none" 
-                          stroke="currentColor" 
-                          viewBox="0 0 24 24"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                        </svg>
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
                       </div>
                     </div>
                     <div className="overflow-hidden">
@@ -1444,7 +1483,7 @@ const Identiteettiturva = () => {
                           transition={{ duration: 0.3 }}
                         >
                           <p className="text-muted-foreground leading-relaxed mt-4 pr-2">
-                            Tietoja seurataan jatkuvasti eri lähteistä, ja mahdollisista havainnoista ilmoitetaan heti.
+                          Tietoja seurataan jatkuvasti eri lähteistä, ja mahdollisista havainnoista ilmoitetaan heti.
                           </p>
                         </motion.div>
                       )}
@@ -1468,12 +1507,12 @@ const Identiteettiturva = () => {
                       <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center transition-all duration-300 group-hover:bg-blue-100">
                         <svg 
                           className={`w-5 h-5 text-blue-600 transition-transform duration-300 ${openCards['faq5'] ? 'rotate-180' : ''}`} 
-                          fill="none" 
-                          stroke="currentColor" 
-                          viewBox="0 0 24 24"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                        </svg>
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
                       </div>
                     </div>
                     <div className="overflow-hidden">
@@ -1485,7 +1524,7 @@ const Identiteettiturva = () => {
                           transition={{ duration: 0.3 }}
                         >
                           <p className="text-muted-foreground leading-relaxed mt-4 pr-2">
-                            Palvelu ei voi estää kaikkia hyökkäyksiä, mutta se voi havaita riskit ajoissa ja antaa selkeät ohjeet, joilla voit estää tai minimoida vahingot.
+                          Palvelu ei voi estää kaikkia hyökkäyksiä, mutta se voi havaita riskit ajoissa ja antaa selkeät ohjeet, joilla voit estää tai minimoida vahingot.
                           </p>
                         </motion.div>
                       )}

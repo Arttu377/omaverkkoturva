@@ -23,10 +23,13 @@ const ShoppingCart: React.FC<ShoppingCartProps> = ({ items, onContinueOrder, onC
   }, 0);
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-start justify-center z-50 p-4 pt-24 md:pt-40">
-      <div className="bg-white rounded-2xl p-8 max-w-lg w-full space-y-6 max-h-[80vh] overflow-y-auto mt-0 mb-8">
+    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+      <div className="bg-white rounded-2xl p-8 max-w-2xl w-full space-y-6 max-h-[80vh] overflow-y-auto my-0">
         <div className="flex justify-between items-center">
-          <h2 className="text-2xl font-bold text-foreground">Ostoskori</h2>
+          <div>
+            <h2 className="text-2xl font-bold text-foreground">Tilausyhteenveto</h2>
+            <p className="text-sm text-muted-foreground mt-1">Tarkista tilatut tuotteet ja hinta ennen tietojen täyttämistä</p>
+          </div>
           <button onClick={onClose} className="text-muted-foreground hover:text-foreground">
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -40,14 +43,16 @@ const ShoppingCart: React.FC<ShoppingCartProps> = ({ items, onContinueOrder, onC
           </div>
         ) : (
           <div className="space-y-4">
+            <div>
+              <h3 className="text-sm font-semibold text-foreground mb-2">Tilatut tuotteet:</h3>
+            </div>
             {items.map((item) => (
               <div key={item.id} className="border border-border rounded-lg p-4">
                 <div className="flex justify-between items-start mb-3">
                   <div className="flex-1">
-                    <h3 className="font-semibold text-foreground whitespace-pre-line">
-                      {item.title}
-                    </h3>
-                    <p className="font-bold text-primary">{item.price}</p>
+                    <div className="font-semibold text-foreground whitespace-pre-line">{item.title}</div>
+                    <div className="text-sm text-muted-foreground mt-1">Määrä: 1</div>
+                    <div className="font-bold text-primary mt-1">{item.price}</div>
                   </div>
                   <button
                     onClick={() => onRemoveItem(item.id)}
@@ -60,24 +65,7 @@ const ShoppingCart: React.FC<ShoppingCartProps> = ({ items, onContinueOrder, onC
                   </button>
                 </div>
                 
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-muted-foreground">Määrä:</span>
-                  <div className="flex items-center space-x-2">
-                    <button
-                      onClick={() => onUpdateQuantity(item.id, item.quantity - 1)}
-                      className="w-8 h-8 rounded-full border border-border flex items-center justify-center hover:bg-accent"
-                    >
-                      -
-                    </button>
-                    <span className="w-8 text-center font-semibold">{item.quantity}</span>
-                    <button
-                      onClick={() => onUpdateQuantity(item.id, item.quantity + 1)}
-                      className="w-8 h-8 rounded-full border border-border flex items-center justify-center hover:bg-accent"
-                    >
-                      +
-                    </button>
-                  </div>
-                </div>
+                <div className="flex items-center justify-between"></div>
               </div>
             ))}
           </div>
@@ -85,6 +73,16 @@ const ShoppingCart: React.FC<ShoppingCartProps> = ({ items, onContinueOrder, onC
         
         {items.length > 0 && (
           <>
+            {/* Terms summary */}
+            <div className="space-y-3 text-sm text-foreground border-t border-border pt-4">
+              <div className="font-semibold">Tilaus- ja käyttöehdot tiivistetysti</div>
+              <p>Lähettämällä tämän tilauksen sitoudut OmaVerkkoturva-palvelun jatkuvaan tilaukseen, josta veloitetaan säännöllisesti. (Ilmaiskokeilut, jotka eivät vaadi sitoutumista, poikkeavat tästä.)</p>
+              <p>Tilauksen hinta ja kesto näkyy tilauksen yhteenvedossa. Tilaus on voimassa toistaiseksi ja sen voi irtisanoa kuluvan kauden loppuun. Irtisanominen tulee tehdä vähintään 14 päivää ennen seuraavan kauden alkua.</p>
+              <p>Tilatuilla palveluilla on 14 päivän peruutusoikeus.</p>
+              <p>Palvelun käyttö edellyttää, että maksu on suoritettu. OmaVerkkoturva pidättää oikeuden keskeyttää palvelun, mikäli maksua ei ole vastaanotettu.</p>
+              <p>Lähettämällä tilauksen hyväksyt myös OmaVerkkoturvan yleiset sopimusehdot ja palvelukohtaiset käyttöehdot, jotka löytyvät verkkosivuiltamme ja toimitetaan tilausvahvistuksen yhteydessä ilmoitettuun sähköpostiosoitteeseen.</p>
+              <p>OmaVerkkoturva voi käyttää asiakkaan henkilötietoja ja tunnistamistietoja myös omaan suoramarkkinointiinsa tietosuojaselosteen mukaisesti.</p>
+            </div>
             <div className="border-t border-border pt-4">
               <div className="flex justify-between items-center text-lg font-bold">
                 <span>Yhteensä:</span>

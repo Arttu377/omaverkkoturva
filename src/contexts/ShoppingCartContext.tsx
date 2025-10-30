@@ -37,29 +37,32 @@ export const ShoppingCartProvider: React.FC<ShoppingCartProviderProps> = ({ chil
   const isMobile = useIsMobile();
 
   const addToCart = (pkg: any) => {
-    const existingItemIndex = cartItems.findIndex(item => item.title === pkg.title);
-    
+    // If the title encodes duration like "Henkilösuoja Yhdelle – 12 kk", ensure only one duration per product
+    const baseTitle = typeof pkg.title === 'string' && pkg.title.includes(' – ')
+      ? pkg.title.split(' – ')[0]
+      : undefined;
+
+    // Remove any existing items – allow only one package in cart at a time
+    let nextItems: CartItem[] = [];
+
+    // Prevent duplicates of the exact same title as well
+    const existingItemIndex = nextItems.findIndex(item => item.title === pkg.title);
     if (existingItemIndex > -1) {
-      const updatedItems = [...cartItems];
-      updatedItems[existingItemIndex].quantity += 1;
+      const updatedItems = [...nextItems];
+      updatedItems[existingItemIndex].quantity = 1;
       setCartItems(updatedItems);
-    } else {
-      const newItem = {
-        id: Date.now().toString(),
-        title: pkg.title,
-        price: pkg.price,
-        quantity: 1
-      };
-      setCartItems([...cartItems, newItem]);
+      return;
     }
 
-    // Show toast only on desktop/tablet; hide on mobile to avoid obstruction
-    if (!isMobile) {
-      toast({
-        title: "Tuote lisätty ostoskoriin",
-        description: `${pkg.title} on lisätty ostoskoriisi.`,
-      });
-    }
+    const newItem = {
+      id: Date.now().toString(),
+      title: pkg.title,
+      price: pkg.price,
+      quantity: 1
+    };
+    setCartItems([...nextItems, newItem]);
+
+    // Toast notifications disabled per request
   };
 
   const updateQuantity = (id: string, newQuantity: number) => {
@@ -77,10 +80,7 @@ export const ShoppingCartProvider: React.FC<ShoppingCartProviderProps> = ({ chil
   const removeFromCart = (id: string) => {
     const updatedItems = cartItems.filter(item => item.id !== id);
     setCartItems(updatedItems);
-    toast({
-      title: "Tuote poistettu",
-      description: "Tuote on poistettu ostoskorista.",
-    });
+    // Toast notifications disabled per request
   };
 
   const clearCart = () => {

@@ -30,6 +30,8 @@ import VerkkorikollisuusSuomessaJaPohjoismaissa from "./pages/blog/Verkkorikolli
 import Irtisanomislomake from "./pages/Irtisanomislomake";
 import Contact from "./pages/Contact";
 import Verkkokauppa from "./pages/Verkkokauppa";
+import ProductDetail from "./pages/ProductDetail";
+import FreeTrial from "./pages/FreeTrial";
 import OrderConfirmation from "./pages/OrderConfirmation";
 import Vahvistus from "./pages/Vahvistus";
 
@@ -113,6 +115,8 @@ const App = () => {
             <Route path="/blog/verkkorikollisuus-suomessa-ja-pohjoismaissa" element={<VerkkorikollisuusSuomessaJaPohjoismaissa />} />
             <Route path="/artikkelit" element={<Artikkelit />} />
               <Route path="/verkkokauppa" element={<Verkkokauppa />} />
+              <Route path="/verkkokauppa/tuote/:slug" element={<ProductDetail />} />
+              <Route path="/verkkokauppa/ilmainen-kokeilu" element={<FreeTrial />} />
               <Route path="/irtisanomislomake" element={<Irtisanomislomake />} />
               <Route path="/ota-yhteytta" element={<Contact />} />
               <Route path="*" element={<NotFound />} />

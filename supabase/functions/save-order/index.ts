@@ -27,42 +27,9 @@ serve(async (req) => {
   }
 
   try {
-    // Check authorization header
-    const authHeader = req.headers.get('authorization')
-    if (!authHeader || !authHeader.startsWith('Bearer ')) {
-      return new Response(
-        JSON.stringify({
-          success: false,
-          error: 'Missing authorization header'
-        }),
-        {
-          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-          status: 401,
-        }
-      )
-    }
-
-    const token = authHeader.replace('Bearer ', '')
-    
-    // Verify token with Supabase
+    // Public endpoint: no auth required (ensure you trust the caller or protect at network level)
     const supabaseUrl = Deno.env.get('SUPABASE_URL')!
-    const supabaseAnonKey = Deno.env.get('SUPABASE_ANON_KEY')!
-    const supabaseAuth = createClient(supabaseUrl, supabaseAnonKey)
-    
-    const { data: { user }, error: authError } = await supabaseAuth.auth.getUser(token)
-    
-    if (authError || !user) {
-      return new Response(
-        JSON.stringify({
-          success: false,
-          error: 'Invalid or expired token'
-        }),
-        {
-          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-          status: 401,
-        }
-      )
-    }
+    const supabaseServiceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
 
     const { orderData } = await req.json()
 
@@ -80,7 +47,6 @@ serve(async (req) => {
     }
 
     // Create Supabase client for database operations
-    const supabaseServiceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
     const supabase = createClient(supabaseUrl, supabaseServiceKey)
 
     // Generate unique order ID and confirmation token

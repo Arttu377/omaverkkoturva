@@ -149,7 +149,7 @@ ${emailData.message}`,
           {/* Left side - Service Promise and Contact Cards */}
           <div className="space-y-8 mt-16">
             {/* Service Promise */}
-            <div className="bg-blue-50/40 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-blue-200/40 h-fit">
+            <div className="bg-blue-50/40 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-blue-200/40 h-fit relative pl-6 border-l-4" style={{ borderLeftColor: 'rgb(30, 42, 94)' }}>
               <div className="mb-4">
                 <div className="flex items-center space-x-3">
                   <div className="rounded-xl p-3" style={{
@@ -160,11 +160,14 @@ ${emailData.message}`,
                   <h3 className="text-xl font-semibold text-gray-900">Asiakaspalvelu</h3>
                 </div>
               </div>
-              <p className="text-gray-700 leading-relaxed">
-                Asiakkaanamme olet oikeutettu nopeaan sekä veloituksettomaan apuun ja tukeen. Pyrimme vastaamaan sähköpostiyhteydenottoihin 1–2 arkipäivän sisällä.
-                <br /><br />
-                Ystävällisesti huomioithan, että palveluiden irtisanomiset hoidetaan puhelimitse, jotta voimme varmistaa asian sujuvan hoidon.
-              </p>
+              <div className="space-y-4 text-gray-700 leading-relaxed">
+                <p>
+                  Asiakkaanamme olet oikeutettu nopeaan sekä veloituksettomaan apuun ja tukeen. Pyrimme vastaamaan sähköpostiyhteydenottoihin 1–2 arkipäivän sisällä.
+                </p>
+                <p className="text-gray-700/90">
+                  Ystävällisesti huomioithan, että palveluiden irtisanomiset hoidetaan puhelimitse, jotta voimme varmistaa asian sujuvan hoidon.
+                </p>
+              </div>
             </div>
 
             {/* Contact info cards */}
@@ -178,16 +181,19 @@ ${emailData.message}`,
                     <Mail className="w-6 h-6 text-white" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Sähköposti</h3>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2 tracking-tight">Sähköposti</h3>
                     <a 
                       href="mailto:tuki@omaverkkoturva.fi" 
-                      className="text-gray-900 hover:text-gray-700 font-medium text-lg hover:underline transition-colors"
+                      className="text-gray-900 hover:text-gray-700 font-semibold text-lg hover:underline transition-colors"
                     >
                       tuki@omaverkkoturva.fi
                     </a>
-                    <p className="text-gray-600 mt-2 text-sm">
-                      Vastaamme sähköposteihin 1-2 arkipäivän sisällä
-                    </p>
+                    <div className="mt-3 block w-fit">
+                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-blue-200/60 text-blue-900 bg-white/60 text-xs align-middle">
+                        <Clock className="w-3.5 h-3.5" />
+                        <span>Vastausaika 1–2 arkipäivää</span>
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -201,20 +207,21 @@ ${emailData.message}`,
                     <Phone className="w-6 h-6 text-white" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Puhelin</h3>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2 tracking-tight">Puhelin</h3>
                     <a 
                       href="tel:0290023232" 
                       className="text-gray-900 hover:text-gray-700 font-medium text-lg hover:underline transition-colors"
                     >
                       0290023232
                     </a>
-                    <div className="flex items-center mt-2 text-gray-600 text-sm">
-                      <Clock className="w-4 h-4 mr-2" />
-                      <span>Ma-Pe 10:00-16:00</span>
+                    <div className="mt-3 flex flex-wrap items-center gap-2">
+                      <span className="inline-flex items-center px-2.5 py-1 rounded-full border border-blue-200/60 text-blue-900 bg-white/60 text-xs">
+                        <Clock className="w-3.5 h-3.5 mr-1" /> Ma–Pe 10:00–16:00
+                      </span>
+                      <span className="inline-flex items-center px-2.5 py-1 rounded-full border border-gray-300/60 text-gray-700 bg-white/60 text-xs">
+                        Puhelun hinta: mpm/pvm
+                      </span>
                     </div>
-                    <p className="text-gray-600 mt-1 text-sm">
-                      Puhelun hinta: mpm/pvm
-                    </p>
                   </div>
                 </div>
               </div>

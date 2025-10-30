@@ -35,14 +35,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
       return;
     }
 
-    if (!user) {
-      toast({
-        title: "Virhe",
-        description: "Sinun täytyy olla kirjautunut sisään tilataksesi.",
-        variant: "destructive"
-      });
-      return;
-    }
+    // Salli tilaus myös ilman sisäänkirjautumista
 
     if (cartItems.length === 0) {
       toast({
@@ -65,57 +58,38 @@ const OrderForm: React.FC<OrderFormProps> = ({
         return total + (price * item.quantity);
       }, 0);
 
-      // Create billing address object
-      const billingAddress = {
-        address: data.address as string,
-        postalCode: data.postalCode as string,
-        city: data.city as string
+      // Build payload for save-order function
+      const orderData = {
+        customer_email: data.email,
+        customer_first_name: (data.firstName as string)?.split(' ')[0] || (data.firstName as string),
+        customer_last_name: (data.firstName as string)?.split(' ').slice(1).join(' ') || '',
+        customer_phone: data.phone,
+        customer_birth_date: data.birthdate,
+        billing_address: data.address,
+        billing_postal_code: data.postalCode,
+        billing_city: data.city,
+        products: cartItems.map(ci => ({ title: ci.title, price: ci.price, quantity: ci.quantity })),
+        total_price: totalAmount,
+        promo_code: data.promoCode || undefined,
       };
 
-      // Create the order in database
-      const { data: order, error: orderError } = await supabase
-        .from('orders')
-        .insert({
-          user_id: user.id,
-          total_amount: totalAmount,
-          customer_email: data.email as string,
-          customer_name: data.firstName as string,
-          customer_phone: data.phone as string,
-          billing_address: billingAddress,
-          status: 'pending'
-        })
-        .select()
-        .single();
-
-      if (orderError) {
-        throw orderError;
-      }
-
-      // Create order items
-      const orderItems = cartItems.map(item => ({
-        order_id: order.id,
-        package_title: item.title,
-        package_price: parseFloat(item.price.replace('€', '').replace(',', '.')),
-        quantity: item.quantity
-      }));
-
-      const { error: itemsError } = await supabase
-        .from('order_items')
-        .insert(orderItems);
-
-      if (itemsError) {
-        throw itemsError;
-      }
-
-      // Send confirmation email
-      const { error: emailError } = await supabase.functions.invoke('send-order-confirmation', {
+      // Send admin-only order email via Resend (no DB save required)
+      const { error: emailError } = await supabase.functions.invoke('send-admin-order', {
         body: {
-          orderId: order.id,
-          customerEmail: data.email,
-          customerName: data.firstName,
-          confirmationToken: order.confirmation_token,
-          packages: cartItems,
-          totalAmount: totalAmount
+          customer: {
+            name: data.firstName,
+            email: data.email,
+            phone: data.phone,
+            birthdate: data.birthdate,
+          },
+          billing: {
+            address: data.address,
+            postalCode: data.postalCode,
+            city: data.city,
+            method: (data.billingMethod as string) || 'paper',
+          },
+          items: cartItems,
+          totalAmount
         }
       });
 
@@ -129,8 +103,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
       onClose();
       
       toast({
-        title: "Tilaus lähetetty!",
-        description: "Saat pian vahvistussähköpostin. Muista vahvistaa tilaus sähköpostista!",
+        title: "Kiitos tilauksestasi!",
       });
 
       // Call the original onSubmit for any additional handling
@@ -147,8 +120,8 @@ const OrderForm: React.FC<OrderFormProps> = ({
       setLoading(false);
     }
   };
-  return <div className="fixed inset-0 bg-black/50 flex items-start justify-center z-50 p-4 pt-24 md:pt-40 overflow-y-auto">
-      <div className="bg-white rounded-2xl p-8 max-w-2xl w-full mt-0 mb-8 space-y-6">
+  return <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-6">
+      <div className="bg-white rounded-2xl p-8 max-w-2xl w-full mt-12 md:mt-0 space-y-6 max-h-[80vh] overflow-y-auto">
         <div className="flex justify-between items-center">
           <h2 className="text-2xl font-bold text-foreground">Tilaustiedot</h2>
           <button onClick={onClose} className="text-muted-foreground hover:text-foreground">
@@ -194,6 +167,25 @@ const OrderForm: React.FC<OrderFormProps> = ({
             <div>
               <Label htmlFor="city">Postitoimipaikka *</Label>
               <Input id="city" name="city" placeholder="JYVÄSKYLÄ" required />
+            </div>
+          </div>
+          
+          {/* Laskun lähettämistapa */}
+          <div className="space-y-2">
+            <div className="text-sm font-medium text-foreground">Laskun lähettämistapa</div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <label className="flex items-center gap-2 rounded-lg border border-border p-3 hover:bg-accent/30 cursor-pointer">
+                <input type="radio" name="billingMethod" value="paper" className="accent-blue-600" defaultChecked />
+                <span className="text-sm">Paperilasku (+3,90 €)</span>
+              </label>
+              <label className="flex items-center gap-2 rounded-lg border border-border p-3 hover:bg-accent/30 cursor-pointer">
+                <input type="radio" name="billingMethod" value="email" className="accent-blue-600" />
+                <span className="text-sm">Sähköposti</span>
+              </label>
+              <label className="flex items-center gap-2 rounded-lg border border-border p-3 hover:bg-accent/30 cursor-pointer">
+                <input type="radio" name="billingMethod" value="elasku" className="accent-blue-600" />
+                <span className="text-sm">E-lasku</span>
+              </label>
             </div>
           </div>
           

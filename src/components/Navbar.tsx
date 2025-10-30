@@ -108,6 +108,12 @@ const Navbar = () => {
                             <p className="text-sm text-gray-500">Suojaa henkilöllisyytesi verkossa</p>
                           </Link>
                         </li>
+                        <li>
+                          <Link to="/verkkokauppa" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
+                            <div className="font-medium text-gray-900">Verkkokauppa</div>
+                            <p className="text-sm text-gray-500">Siirry verkkokaupan etusivulle</p>
+                          </Link>
+                        </li>
                       </ul>
                     </NavigationMenuContent>
                   </NavigationMenuItem>
@@ -207,6 +213,11 @@ const Navbar = () => {
                 setIsMenuOpen(false);
               }}>
                 Henkilösuoja
+              </Link>
+              <Link to="/verkkokauppa" className="block px-3 py-1.5 rounded-md text-sm text-white hover:bg-white/10" onClick={() => {
+                setIsMenuOpen(false);
+              }}>
+                Verkkokauppa
               </Link>
               
               <Link to="/meista" className="block px-3 py-1.5 rounded-md text-sm text-white hover:bg-white/10" onClick={() => {
