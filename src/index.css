@@ -246,6 +246,11 @@ nav[class*="fixed"] {
 /* iOS Safari: light blur only behind status bar, do not change page background */
 @supports (-webkit-touch-callout: none) {
   @media screen and (max-width: 768px) {
+    /* Shift the navy header below the safe area so the blur in the status bar is visible */
+    nav[class*="fixed"] {
+      padding-top: env(safe-area-inset-top, 0px) !important;
+      height: calc(64px + env(safe-area-inset-top, 0px)) !important;
+    }
     body::before {
       content: '';
       position: fixed;
