@@ -7,6 +7,7 @@ import FloatingContactButton from '@/components/FloatingContactButton';
 import SecondaryNavbar from '@/components/SecondaryNavbar';
 import ShoppingCart from '@/components/ShoppingCart';
 import OrderForm from '@/components/OrderForm';
+import StatusBarOverlay from '@/components/StatusBarOverlay';
 import { useAuth } from '@/contexts/AuthContext';
 import { useShoppingCart } from '@/contexts/ShoppingCartContext';
 import { useToast } from '@/hooks/use-toast';
@@ -96,6 +97,8 @@ const PageLayout = ({ children, showContact = true }: PageLayoutProps) => {
 
   return (
     <div className="min-h-screen bg-transparent w-full max-w-[100vw] overflow-x-hidden">
+      {/* iOS-like fake status bar overlay on mobile */}
+      <StatusBarOverlay />
       <Navbar />
       {user && location.pathname !== '/dashboard' && (
         <SecondaryNavbar 

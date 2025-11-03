@@ -234,19 +234,7 @@ nav[class*="fixed"] {
   }
 }
 
-/* iOS Safari: make header translucent with blur and account for safe area */
-@supports (-webkit-touch-callout: none) {
-  @media screen and (max-width: 768px) {
-    nav[class*="fixed"] {
-      background: rgba(255, 255, 255, 0.60) !important;
-      -webkit-backdrop-filter: saturate(180%) blur(12px);
-      backdrop-filter: blur(12px);
-      height: calc(64px + env(safe-area-inset-top, 0px)) !important;
-      padding-top: env(safe-area-inset-top, 0px) !important;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.06) !important;
-    }
-  }
-}
+/* (Reverted) Keep header original navy style; only status bar overlay is adjusted above */
 
 /* Additional header layering for mobile */
 @media screen and (max-width: 768px) {
