@@ -42,6 +42,12 @@ const PageLayout = ({ children, showContact = true }: PageLayoutProps) => {
         const clamped = Math.max(0, Math.min(y, 112)); // 64px main + 48px secondary
         setHeaderHidePx(clamped);
         document.documentElement.style.setProperty('--header-hide-px', clamped + 'px');
+        // Update status bar blur illusion strength based on scroll (fade out when scrolling)
+        const maxBlurPx = 100; // px after which overlay becomes fully transparent
+        const opacity = Math.max(0, 0.6 - Math.min(y, maxBlurPx) / maxBlurPx * 0.6);
+        const extra = Math.min(44, Math.round((1 - opacity / 0.6) * 24)); // extend height slightly as it fades
+        document.documentElement.style.setProperty('--status-blur-opacity', opacity.toString());
+        document.documentElement.style.setProperty('--status-blur-extra', extra + 'px');
         if (y > 2) {
           document.documentElement.classList.add('nav-hidden');
         } else {
@@ -50,6 +56,8 @@ const PageLayout = ({ children, showContact = true }: PageLayoutProps) => {
       } else {
         setHeaderHidePx(0);
         document.documentElement.style.setProperty('--header-hide-px', '0px');
+        document.documentElement.style.setProperty('--status-blur-opacity', '0.6');
+        document.documentElement.style.setProperty('--status-blur-extra', '44px');
         document.documentElement.classList.remove('nav-hidden');
       }
     };

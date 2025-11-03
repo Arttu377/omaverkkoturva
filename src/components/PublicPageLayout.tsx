@@ -25,6 +25,12 @@ const PublicPageLayout = ({ children }: PublicPageLayoutProps) => {
       if (isMobile) {
         const clamped = Math.max(0, Math.min(y, 112));
         document.documentElement.style.setProperty('--header-hide-px', clamped + 'px');
+        // Update status bar blur illusion strength based on scroll
+        const maxBlurPx = 100;
+        const opacity = Math.max(0, 0.6 - Math.min(y, maxBlurPx) / maxBlurPx * 0.6);
+        const extra = Math.min(44, Math.round((1 - opacity / 0.6) * 24));
+        document.documentElement.style.setProperty('--status-blur-opacity', opacity.toString());
+        document.documentElement.style.setProperty('--status-blur-extra', extra + 'px');
         if (y === 0) {
           document.body.classList.remove('hide-mobile-status-bar');
           document.documentElement.classList.remove('nav-hidden');
@@ -35,6 +41,8 @@ const PublicPageLayout = ({ children }: PublicPageLayoutProps) => {
       } else {
         document.documentElement.style.setProperty('--header-hide-px', '0px');
         document.body.classList.remove('hide-mobile-status-bar');
+        document.documentElement.style.setProperty('--status-blur-opacity', '0.6');
+        document.documentElement.style.setProperty('--status-blur-extra', '44px');
         document.documentElement.classList.remove('nav-hidden');
       }
     };

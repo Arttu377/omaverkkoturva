@@ -106,6 +106,8 @@
 
   :root {
     --header-hide-px: 0px;
+  --status-blur-opacity: 0.6;
+  --status-blur-extra: 44px;
   }
 
 /* Add padding only to main content areas, not to hero sections */
@@ -246,34 +248,21 @@ nav[class*="fixed"] {
 /* iOS Safari: light blur only behind status bar, do not change page background */
 @supports (-webkit-touch-callout: none) {
   @media screen and (max-width: 768px) {
-    /* Make the area above the nav (safe area) not covered by the gradient */
+    /* Revert: keep original navy background on nav; do not alter nav background */
     nav[class*="fixed"] {
-      position: fixed !important;
-      top: 0; left: 0; right: 0;
-      padding-top: env(safe-area-inset-top, 0px) !important;
-      height: calc(64px + env(safe-area-inset-top, 0px)) !important;
-      background: transparent !important; /* reveal blur in safe area */
-      z-index: 9999 !important;
-    }
-    nav[class*="fixed"]::after {
-      content: '';
-      position: absolute;
-      top: env(safe-area-inset-top, 0px);
-      left: 0; right: 0;
-      height: 64px;
-      background: linear-gradient(to right, #172554, #1e3a8a, #172554);
-      z-index: 0; /* sits above body blur but within nav */
-      pointer-events: none;
+      padding-top: 0 !important;
+      height: 64px !important;
+      background: linear-gradient(to right, #172554, #1e3a8a, #172554) !important;
     }
     body::before {
       content: '';
       position: fixed;
       top: 0; left: 0; right: 0;
-      height: calc(env(safe-area-inset-top, 20px) + 44px);
+      height: calc(env(safe-area-inset-top, 20px) + var(--status-blur-extra, 44px));
       background: linear-gradient(
         to bottom,
-        rgba(255,255,255,0.60) 0%,
-        rgba(255,255,255,0.36) 40%,
+        rgba(255,255,255,var(--status-blur-opacity, 0.60)) 0%,
+        rgba(255,255,255,calc(var(--status-blur-opacity, 0.60) * 0.6)) 40%,
         rgba(255,255,255,0.00) 100%
       );
       -webkit-backdrop-filter: saturate(180%) blur(20px);
