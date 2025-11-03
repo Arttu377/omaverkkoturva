@@ -195,6 +195,24 @@ main, .main-content {
   body.hide-mobile-status-bar::before {
     display: none !important;
   }
+  /* iOS Safari blend overlay under the header to soften the top edge */
+  @supports (-webkit-touch-callout: none) {
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: calc(max(env(safe-area-inset-top, 20px), 16px) + 32px);
+      background: linear-gradient(to bottom,
+        rgba(23,37,84,0.85) 0%,
+        rgba(30,58,138,0.60) 40%,
+        rgba(23,37,84,0.00) 100%
+      );
+      pointer-events: none;
+      z-index: 8; /* below header (z 9999), above page bg */
+    }
+  }
 }
 
 /* Ensure header stays visible at all times */
