@@ -99,7 +99,9 @@ const PageLayout = ({ children, showContact = true }: PageLayoutProps) => {
     <div className="min-h-screen bg-transparent w-full max-w-[100vw] overflow-x-hidden">
       {/* iOS-like fake status bar overlay on mobile */}
       <StatusBarOverlay />
-      <Navbar />
+      <header className="ios-blur-header md:static md:bg-transparent">
+        <Navbar />
+      </header>
       {user && location.pathname !== '/dashboard' && (
         <SecondaryNavbar 
           cartItems={cartItems}

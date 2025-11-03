@@ -234,7 +234,28 @@ nav[class*="fixed"] {
   }
 }
 
-/* (Reverted) Keep header original navy style; only status bar overlay is adjusted above */
+/* iOS mobile: use wrapper header with blur; make inner nav non-fixed & transparent */
+@supports (-webkit-touch-callout: none) {
+  @media screen and (max-width: 768px) {
+    .ios-blur-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 9999;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: rgba(255,255,255,0.6);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      padding-top: env(safe-area-inset-top);
+      height: calc(env(safe-area-inset-top, 0px) + 64px);
+    }
+    .ios-blur-header nav[class*="fixed"] {
+      position: static !important;
+      background: transparent !important;
+      box-shadow: none !important;
+      height: 64px !important;
+    }
+  }
+}
 
 /* Additional header layering for mobile */
 @media screen and (max-width: 768px) {
