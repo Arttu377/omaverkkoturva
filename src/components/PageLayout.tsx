@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import ContactInfo from '@/components/ContactInfo';
 import FloatingContactButton from '@/components/FloatingContactButton';
 import SecondaryNavbar from '@/components/SecondaryNavbar';
 import ShoppingCart from '@/components/ShoppingCart';
@@ -24,11 +23,61 @@ const PageLayout = ({ children, showContact = true }: PageLayoutProps) => {
   const [showCart, setShowCart] = useState(false);
   const [showOrderForm, setShowOrderForm] = useState(false);
   const { toast } = useToast();
+  const [isAtTop, setIsAtTop] = useState(true);
+  const [headerHidePx, setHeaderHidePx] = useState(0);
 
   // Effect to scroll to top when route changes
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location]);
+
+  // Mobile: compute progressive hide amount for headers based on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const y = window.scrollY || 0;
+      setIsAtTop(y === 0);
+      const isMobile = window.matchMedia('(max-width: 768px)').matches;
+      if (isMobile) {
+        const clamped = Math.max(0, Math.min(y, 112)); // 64px main + 48px secondary
+        setHeaderHidePx(clamped);
+        document.documentElement.style.setProperty('--header-hide-px', clamped + 'px');
+      } else {
+        setHeaderHidePx(0);
+        document.documentElement.style.setProperty('--header-hide-px', '0px');
+      }
+    };
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    const handleResize = () => handleScroll();
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  // Also hide any mobile status bar gradient overlay when scrolled (looks like part of the menu)
+  useEffect(() => {
+    const updateBodyClass = () => {
+      const isMobile = window.matchMedia('(max-width: 768px)').matches;
+      if (isMobile) {
+        if (window.scrollY === 0) {
+          document.body.classList.remove('hide-mobile-status-bar');
+        } else {
+          document.body.classList.add('hide-mobile-status-bar');
+        }
+      } else {
+        document.body.classList.remove('hide-mobile-status-bar');
+      }
+    };
+    updateBodyClass();
+    window.addEventListener('scroll', updateBodyClass, { passive: true });
+    window.addEventListener('resize', updateBodyClass);
+    return () => {
+      window.removeEventListener('scroll', updateBodyClass);
+      window.removeEventListener('resize', updateBodyClass);
+    };
+  }, []);
 
   const handleContinueOrder = () => {
     setShowCart(false);

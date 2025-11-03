@@ -186,6 +186,10 @@ main, .main-content {
     z-index: 1; /* Lower z-index so it doesn't overlap header */
     pointer-events: none; /* Prevents interference with header interactions */
   }
+  /* Hide the mobile status bar gradient when we hide the header on scroll */
+  body.hide-mobile-status-bar::before {
+    display: none !important;
+  }
 }
 
 /* Ensure header stays visible at all times */
@@ -208,6 +212,20 @@ nav[class*="fixed"] {
   left: 0 !important;
   right: 0 !important;
   z-index: 9999 !important;
+}
+
+/* Secondary fixed bar (at top: 64px). Translate based on remaining hide beyond 64px */
+@media screen and (max-width: 768px) {
+  nav[class*="fixed"] {
+    transform: translateY(calc(-1 * min(var(--header-hide-px, 0px), 64px)));
+    will-change: transform;
+    transition: transform 120ms linear;
+  }
+  .fixed.top-16 {
+    transform: translateY(calc(-1 * max(min(var(--header-hide-px, 0px), 112px) - 64px, 0px)));
+    will-change: transform;
+    transition: transform 120ms linear;
+  }
 }
 
 /* Additional header layering for mobile */

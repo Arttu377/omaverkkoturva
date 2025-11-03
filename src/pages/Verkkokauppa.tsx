@@ -1,4 +1,5 @@
 import React from 'react';
+import { User, Users } from 'lucide-react';
 import PublicPageLayout from '@/components/PublicPageLayout';
 import SEO from '@/components/SEO';
 import { useShoppingCart } from '@/contexts/ShoppingCartContext';
@@ -98,12 +99,20 @@ const Verkkokauppa = () => {
                   <div className="p-7">
                     <div className="flex items-center justify-between mb-2">
                       <h3 className="text-2xl font-bold text-gray-900 tracking-tight">
-                        {pkg.title}
+                        {index === 1 || index === 2 ? (
+                          <>
+                            Henkilösuoja<br />{index === 1 ? 'Tupla' : 'Perhe'}
+                          </>
+                        ) : (
+                          pkg.title
+                        )}
                       </h3>
-                      <span className="text-[11px] uppercase tracking-wide text-gray-500 bg-gray-100 px-2 py-1 rounded-md">
+                      <span className="inline-flex items-center gap-1.5 text-[10px] md:text-[11px] font-semibold uppercase tracking-wider text-blue-900/90 bg-blue-50/90 px-2.5 py-1 rounded-full border border-blue-100">
+                        {index === 0 && <User className="w-3 h-3" />}
+                        {index !== 0 && <Users className="w-3 h-3" />}
                         {index === 0 && 'Yhdelle'}
                         {index === 1 && 'Kahdelle'}
-                        {index === 2 && 'Perhe'}
+                        {index === 2 && 'Viidelle'}
                       </span>
                     </div>
                     {/* Descriptor */}

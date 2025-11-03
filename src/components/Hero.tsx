@@ -1,5 +1,5 @@
 
-import { ArrowRight, Bell, FileText, Shield, Clock, Search, AlertTriangle, CheckCircle, Loader2, ChevronDown } from "lucide-react";
+import { ArrowRight, Bell, FileText, Shield, Clock, Search, AlertTriangle, CheckCircle, Loader2, ChevronDown, User, Users } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -1235,7 +1235,10 @@ const Hero = memo(() => {
                 <div className="p-7">
                   <div className="flex items-center justify-between mb-2">
                     <h3 className="text-2xl font-bold text-gray-900 tracking-tight">Henkilösuoja Yhdelle</h3>
-                    <span className="text-[11px] uppercase tracking-wide text-gray-500 bg-gray-100 px-2 py-1 rounded-md">Yhdelle</span>
+                    <span className="inline-flex items-center gap-1.5 text-[10px] md:text-[11px] font-semibold uppercase tracking-wider text-blue-900/90 bg-blue-50/90 px-2.5 py-1 rounded-full border border-blue-100">
+                      <User className="w-3 h-3" />
+                      Yhdelle
+                    </span>
                   </div>
                   <div className="text-sm text-gray-600 mb-5">Sisältää vakuutusturvan</div>
                   <ul className="space-y-3 mb-7">
@@ -1265,8 +1268,11 @@ const Hero = memo(() => {
                 <div className="h-2 w-full bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-500"></div>
                 <div className="p-7">
                   <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-2xl font-bold text-gray-900 tracking-tight">Henkilösuoja Tupla</h3>
-                    <span className="text-[11px] uppercase tracking-wide text-gray-500 bg-gray-100 px-2 py-1 rounded-md">Kahdelle</span>
+                    <h3 className="text-2xl font-bold text-gray-900 tracking-tight">Henkilösuoja<br />Tupla</h3>
+                    <span className="inline-flex items-center gap-1.5 text-[10px] md:text-[11px] font-semibold uppercase tracking-wider text-blue-900/90 bg-blue-50/90 px-2.5 py-1 rounded-full border border-blue-100">
+                      <Users className="w-3 h-3" />
+                      Kahdelle
+                    </span>
                   </div>
                   <div className="text-sm text-gray-600 mb-5">Sisältää vakuutusturvan kahdelle</div>
                   <ul className="space-y-3 mb-7">
@@ -1296,8 +1302,11 @@ const Hero = memo(() => {
                 <div className="h-2 w-full bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-500"></div>
                 <div className="p-7">
                   <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-2xl font-bold text-gray-900 tracking-tight">Henkilösuoja Perhe</h3>
-                    <span className="text-[11px] uppercase tracking-wide text-gray-500 bg-gray-100 px-2 py-1 rounded-md">Perhe</span>
+                    <h3 className="text-2xl font-bold text-gray-900 tracking-tight">Henkilösuoja<br />Perhe</h3>
+                    <span className="inline-flex items-center gap-1.5 text-[10px] md:text-[11px] font-semibold uppercase tracking-wider text-blue-900/90 bg-blue-50/90 px-2.5 py-1 rounded-full border border-blue-100">
+                      <Users className="w-3 h-3" />
+                      Viidelle
+                    </span>
                   </div>
                   <div className="text-sm text-gray-600 mb-5">Sisältää vakuutusturvan viidelle</div>
                   <ul className="space-y-3 mb-7">
@@ -1397,11 +1406,34 @@ const Hero = memo(() => {
           </div>
           
           <div className="relative max-w-6xl mx-auto">
+                  {/* Mobile controls: arrows below heading, above articles */}
+                  <div className="md:hidden flex items-center justify-between mb-6">
+                    <button
+                      onClick={goToPrevious}
+                      disabled={currentPublicationIndex === 0}
+                      className={`h-9 w-9 rounded-full bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 shadow flex items-center justify-center ${
+                        currentPublicationIndex === 0 ? 'opacity-50 cursor-not-allowed' : ''
+                      }`}
+                      aria-label="Edellinen"
+                    >
+                      <ChevronDown className="w-6 h-6 text-gray-600 rotate-90" />
+                    </button>
+                    <button
+                      onClick={goToNext}
+                      disabled={currentPublicationIndex >= publishedPosts.length - 3}
+                      className={`h-9 w-9 rounded-full bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 shadow flex items-center justify-center ${
+                        currentPublicationIndex >= publishedPosts.length - 3 ? 'opacity-50 cursor-not-allowed' : ''
+                      }`}
+                      aria-label="Seuraava"
+                    >
+                      <ChevronDown className="w-6 h-6 text-gray-600 -rotate-90" />
+                    </button>
+                  </div>
                               {/* Left arrow */}
                   <button
                     onClick={goToPrevious}
                     disabled={currentPublicationIndex === 0}
-                    className={`absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-8 z-10 bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg hover:bg-white transition-colors ${
+                    className={`hidden md:block absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-16 z-10 bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg hover:bg-white transition-colors ${
                       currentPublicationIndex === 0 ? 'opacity-50 cursor-not-allowed' : ''
                     }`}
                   >
@@ -1412,7 +1444,7 @@ const Hero = memo(() => {
                   <button
                     onClick={goToNext}
                     disabled={currentPublicationIndex >= publishedPosts.length - 3}
-                    className={`absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-8 z-10 bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg hover:bg-white transition-colors ${
+                    className={`hidden md:block absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-16 z-10 bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg hover:bg-white transition-colors ${
                       currentPublicationIndex >= publishedPosts.length - 3 ? 'opacity-50 cursor-not-allowed' : ''
                     }`}
                   >

@@ -7,7 +7,10 @@ interface SecondaryNavbarProps {
 
 const SecondaryNavbar = ({ cartItems, onCartClick }: SecondaryNavbarProps) => {
   return (
-    <div className="fixed top-16 left-0 right-0 z-40 bg-white border-b border-gray-200 shadow-sm">
+    <div className="fixed top-16 left-0 right-0 z-40 bg-white border-b border-gray-200 shadow-sm" style={{
+      transform: 'translateY(calc(-1 * max(min(var(--header-hide-px, 0px), 112px) - 64px, 0px)))',
+      transition: 'transform 120ms linear'
+    }}>
       <div className="container mx-auto px-4">
         <div className="flex justify-end items-center h-12">
           <button 

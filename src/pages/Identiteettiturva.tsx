@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useLayoutEffect } from 'react';
 import { motion } from 'framer-motion';
+import { User, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import PageLayout from '@/components/PageLayout';
 import SEO from '@/components/SEO';
@@ -1227,7 +1228,10 @@ const Identiteettiturva = () => {
                 <div className="p-7">
                   <div className="flex items-center justify-between mb-2">
                     <h3 className="text-2xl font-bold text-gray-900 tracking-tight">Henkilösuoja Yhdelle</h3>
-                    <span className="text-[11px] uppercase tracking-wide text-gray-500 bg-gray-100 px-2 py-1 rounded-md">Yhdelle</span>
+                    <span className="inline-flex items-center gap-1.5 text-[10px] md:text-[11px] font-semibold uppercase tracking-wider text-blue-900/90 bg-blue-50/90 px-2.5 py-1 rounded-full border border-blue-100">
+                      <User className="w-3 h-3" />
+                      Yhdelle
+                    </span>
                   </div>
                   <div className="text-sm text-gray-600 mb-5">Sisältää vakuutusturvan</div>
                   <ul className="space-y-3 mb-7">
@@ -1257,8 +1261,11 @@ const Identiteettiturva = () => {
                 <div className="h-2 w-full bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-500"></div>
                 <div className="p-7">
                   <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-2xl font-bold text-gray-900 tracking-tight">Henkilösuoja Tupla</h3>
-                    <span className="text-[11px] uppercase tracking-wide text-gray-500 bg-gray-100 px-2 py-1 rounded-md">Kahdelle</span>
+                    <h3 className="text-2xl font-bold text-gray-900 tracking-tight">Henkilösuoja<br />Tupla</h3>
+                    <span className="inline-flex items-center gap-1.5 text-[10px] md:text-[11px] font-semibold uppercase tracking-wider text-blue-900/90 bg-blue-50/90 px-2.5 py-1 rounded-full border border-blue-100">
+                      <Users className="w-3 h-3" />
+                      Kahdelle
+                    </span>
                   </div>
                   <div className="text-sm text-gray-600 mb-5">Sisältää vakuutusturvan kahdelle</div>
                   <ul className="space-y-3 mb-7">
@@ -1288,8 +1295,11 @@ const Identiteettiturva = () => {
                 <div className="h-2 w-full bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-500"></div>
                 <div className="p-7">
                   <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-2xl font-bold text-gray-900 tracking-tight">Henkilösuoja Perhe</h3>
-                    <span className="text-[11px] uppercase tracking-wide text-gray-500 bg-gray-100 px-2 py-1 rounded-md">Perhe</span>
+                    <h3 className="text-2xl font-bold text-gray-900 tracking-tight">Henkilösuoja<br />Perhe</h3>
+                    <span className="inline-flex items-center gap-1.5 text-[10px] md:text-[11px] font-semibold uppercase tracking-wider text-blue-900/90 bg-blue-50/90 px-2.5 py-1 rounded-full border border-blue-100">
+                      <Users className="w-3 h-3" />
+                      Viidelle
+                    </span>
                   </div>
                   <div className="text-sm text-gray-600 mb-5">Sisältää vakuutusturvan viidelle</div>
                   <ul className="space-y-3 mb-7">
