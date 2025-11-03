@@ -467,7 +467,7 @@ const Hero = memo(() => {
           style={{ position: 'relative', zIndex: 10 }}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.08, margin: '-10% 0px -10% 0px' }}
           variants={staggerContainer}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

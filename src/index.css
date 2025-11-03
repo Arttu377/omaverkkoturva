@@ -104,6 +104,10 @@
   @apply bg-white text-foreground font-space;
 }
 
+  :root {
+    --header-hide-px: 0px;
+  }
+
 /* Add padding only to main content areas, not to hero sections */
 main, .main-content {
   padding-top: 64px; /* Add top padding to account for fixed header height */
@@ -234,21 +238,23 @@ nav[class*="fixed"] {
   }
 }
 
-/* iOS Safari: add blur only behind the status bar area, keep navy header intact */
+/* iOS Safari: body-backed blur illusion under status bar, keep navy header */
 @supports (-webkit-touch-callout: none) {
   @media screen and (max-width: 768px) {
-    nav[class*="fixed"]::before {
+    html, body {
+      background: #0a1a2f; /* match navy header so Safari blends */
+      height: 100%;
+    }
+    body::before {
       content: '';
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       height: env(safe-area-inset-top, 0px);
-      background: linear-gradient(to bottom, rgba(255,255,255,0.5), rgba(255,255,255,0));
-      -webkit-backdrop-filter: blur(20px);
-      backdrop-filter: blur(20px);
+      background: rgba(255,255,255,0.25);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
       pointer-events: none;
-      z-index: 9998; /* just under the header (z 9999) */
+      z-index: 9998; /* below navbar (z 9999) */
     }
   }
 }

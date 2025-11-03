@@ -17,7 +17,9 @@ const PublicPageLayout = ({ children }: PublicPageLayoutProps) => {
 
   return (
     <div className="min-h-screen bg-transparent w-full max-w-[100vw] overflow-x-hidden">
-      <Navbar />
+      <div className="relative z-[10000]">
+        <Navbar />
+      </div>
       {children}
       <Footer />
     </div>
