@@ -238,23 +238,19 @@ nav[class*="fixed"] {
   }
 }
 
-/* iOS Safari: body-backed blur illusion under status bar, keep navy header */
+/* iOS Safari: light blur only behind status bar, do not change page background */
 @supports (-webkit-touch-callout: none) {
   @media screen and (max-width: 768px) {
-    html, body {
-      background: #0a1a2f; /* match navy header so Safari blends */
-      height: 100%;
-    }
     body::before {
       content: '';
       position: fixed;
       top: 0; left: 0; right: 0;
       height: env(safe-area-inset-top, 0px);
-      background: rgba(255,255,255,0.25);
+      background: linear-gradient(to bottom, rgba(255,255,255,0.35), rgba(255,255,255,0));
       -webkit-backdrop-filter: blur(12px);
       backdrop-filter: blur(12px);
       pointer-events: none;
-      z-index: 9998; /* below navbar (z 9999) */
+      z-index: 9; /* under navbar (z 9999) */
     }
   }
 }
