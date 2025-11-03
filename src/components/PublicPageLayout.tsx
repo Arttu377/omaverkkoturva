@@ -27,12 +27,15 @@ const PublicPageLayout = ({ children }: PublicPageLayoutProps) => {
         document.documentElement.style.setProperty('--header-hide-px', clamped + 'px');
         if (y === 0) {
           document.body.classList.remove('hide-mobile-status-bar');
+          document.documentElement.classList.remove('nav-hidden');
         } else {
           document.body.classList.add('hide-mobile-status-bar');
+          document.documentElement.classList.add('nav-hidden');
         }
       } else {
         document.documentElement.style.setProperty('--header-hide-px', '0px');
         document.body.classList.remove('hide-mobile-status-bar');
+        document.documentElement.classList.remove('nav-hidden');
       }
     };
     handleScroll();

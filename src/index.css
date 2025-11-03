@@ -231,10 +231,16 @@ nav[class*="fixed"] {
     will-change: transform;
     transition: transform 120ms linear;
   }
+  .nav-hidden nav[class*="fixed"] {
+    transform: translateY(-64px);
+  }
   .fixed.top-16 {
     transform: translateY(calc(-1 * max(min(var(--header-hide-px, 0px), 112px) - 64px, 0px)));
     will-change: transform;
     transition: transform 120ms linear;
+  }
+  .nav-hidden .fixed.top-16 {
+    transform: translateY(-48px);
   }
 }
 
@@ -245,10 +251,15 @@ nav[class*="fixed"] {
       content: '';
       position: fixed;
       top: 0; left: 0; right: 0;
-      height: env(safe-area-inset-top, 0px);
-      background: linear-gradient(to bottom, rgba(255,255,255,0.35), rgba(255,255,255,0));
-      -webkit-backdrop-filter: blur(12px);
-      backdrop-filter: blur(12px);
+      height: calc(env(safe-area-inset-top, 0px) + 18px);
+      background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.60) 0%,
+        rgba(255,255,255,0.30) 50%,
+        rgba(255,255,255,0.00) 100%
+      );
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      backdrop-filter: blur(20px);
       pointer-events: none;
       z-index: 9; /* under navbar (z 9999) */
     }

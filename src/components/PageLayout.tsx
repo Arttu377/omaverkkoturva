@@ -42,9 +42,15 @@ const PageLayout = ({ children, showContact = true }: PageLayoutProps) => {
         const clamped = Math.max(0, Math.min(y, 112)); // 64px main + 48px secondary
         setHeaderHidePx(clamped);
         document.documentElement.style.setProperty('--header-hide-px', clamped + 'px');
+        if (y > 2) {
+          document.documentElement.classList.add('nav-hidden');
+        } else {
+          document.documentElement.classList.remove('nav-hidden');
+        }
       } else {
         setHeaderHidePx(0);
         document.documentElement.style.setProperty('--header-hide-px', '0px');
+        document.documentElement.classList.remove('nav-hidden');
       }
     };
     handleScroll();
