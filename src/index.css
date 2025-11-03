@@ -185,14 +185,13 @@ main, .main-content {
     top: 0;
     left: 0;
     right: 0;
-    height: max(env(safe-area-inset-top, 20px), 16px); /* iOS safe area */
-    /* Make overlay fully transparent so content is always visible under status bar */
-    background: transparent !important;
-    -webkit-backdrop-filter: none !important;
-    backdrop-filter: none !important;
-    z-index: 0; /* Behind content and header */
-    pointer-events: none; /* Prevent interactions */
-    -webkit-transform: translateZ(0); /* Force compositing on iOS */
+    height: max(env(safe-area-inset-top, 20px), 16px);
+    background: transparent;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    z-index: 0;
+    pointer-events: none;
+    -webkit-transform: translateZ(0);
     transform: translateZ(0);
   }
   /* Hide the mobile status bar gradient when we hide the header on scroll */
@@ -251,11 +250,11 @@ nav[class*="fixed"] {
       content: '';
       position: fixed;
       top: 0; left: 0; right: 0;
-      height: calc(env(safe-area-inset-top, 0px) + 18px);
+      height: calc(env(safe-area-inset-top, 20px) + 44px);
       background: linear-gradient(
         to bottom,
         rgba(255,255,255,0.60) 0%,
-        rgba(255,255,255,0.30) 50%,
+        rgba(255,255,255,0.36) 40%,
         rgba(255,255,255,0.00) 100%
       );
       -webkit-backdrop-filter: saturate(180%) blur(20px);
