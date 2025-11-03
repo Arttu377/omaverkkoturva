@@ -14,6 +14,11 @@ const PublicPageLayout = ({ children }: PublicPageLayoutProps) => {
   // Effect to scroll to top when route changes
   useEffect(() => {
     window.scrollTo(0, 0);
+    // Reset status bar illusion at top
+    document.documentElement.style.setProperty('--status-blur-opacity', '0');
+    document.documentElement.style.setProperty('--status-blur-extra', '0px');
+    document.documentElement.style.setProperty('--header-hide-px', '0px');
+    document.documentElement.classList.remove('nav-hidden');
   }, [location]);
 
   // Mobile: compute progressive hide amount for headers based on scroll (mirror PageLayout)
@@ -27,8 +32,8 @@ const PublicPageLayout = ({ children }: PublicPageLayoutProps) => {
         document.documentElement.style.setProperty('--header-hide-px', clamped + 'px');
         // Update status bar blur illusion strength based on scroll
         const maxBlurPx = 100;
-        const opacity = Math.max(0, 0.6 - Math.min(y, maxBlurPx) / maxBlurPx * 0.6);
-        const extra = Math.min(44, Math.round((1 - opacity / 0.6) * 24));
+        const opacity = y === 0 ? 0 : Math.min(0.6, (Math.min(y, maxBlurPx) / maxBlurPx) * 0.6);
+        const extra = y === 0 ? 0 : Math.min(44, Math.round((opacity / 0.6) * 24));
         document.documentElement.style.setProperty('--status-blur-opacity', opacity.toString());
         document.documentElement.style.setProperty('--status-blur-extra', extra + 'px');
         if (y === 0) {

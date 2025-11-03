@@ -106,8 +106,8 @@
 
   :root {
     --header-hide-px: 0px;
-  --status-blur-opacity: 0.6;
-  --status-blur-extra: 44px;
+  --status-blur-opacity: 0;
+  --status-blur-extra: 0px;
   }
 
 /* Add padding only to main content areas, not to hero sections */

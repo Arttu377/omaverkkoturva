@@ -30,6 +30,11 @@ const PageLayout = ({ children, showContact = true }: PageLayoutProps) => {
   // Effect to scroll to top when route changes
   useEffect(() => {
     window.scrollTo(0, 0);
+    // Reset status bar illusion at top
+    document.documentElement.style.setProperty('--status-blur-opacity', '0');
+    document.documentElement.style.setProperty('--status-blur-extra', '0px');
+    document.documentElement.style.setProperty('--header-hide-px', '0px');
+    document.documentElement.classList.remove('nav-hidden');
   }, [location]);
 
   // Mobile: compute progressive hide amount for headers based on scroll
@@ -43,9 +48,9 @@ const PageLayout = ({ children, showContact = true }: PageLayoutProps) => {
         setHeaderHidePx(clamped);
         document.documentElement.style.setProperty('--header-hide-px', clamped + 'px');
         // Update status bar blur illusion strength based on scroll (fade out when scrolling)
-        const maxBlurPx = 100; // px after which overlay becomes fully transparent
-        const opacity = Math.max(0, 0.6 - Math.min(y, maxBlurPx) / maxBlurPx * 0.6);
-        const extra = Math.min(44, Math.round((1 - opacity / 0.6) * 24)); // extend height slightly as it fades
+        const maxBlurPx = 100; // px after which overlay reaches max opacity
+        const opacity = y === 0 ? 0 : Math.min(0.6, (Math.min(y, maxBlurPx) / maxBlurPx) * 0.6);
+        const extra = y === 0 ? 0 : Math.min(44, Math.round((opacity / 0.6) * 24));
         document.documentElement.style.setProperty('--status-blur-opacity', opacity.toString());
         document.documentElement.style.setProperty('--status-blur-extra', extra + 'px');
         if (y > 2) {
@@ -56,8 +61,8 @@ const PageLayout = ({ children, showContact = true }: PageLayoutProps) => {
       } else {
         setHeaderHidePx(0);
         document.documentElement.style.setProperty('--header-hide-px', '0px');
-        document.documentElement.style.setProperty('--status-blur-opacity', '0.6');
-        document.documentElement.style.setProperty('--status-blur-extra', '44px');
+        document.documentElement.style.setProperty('--status-blur-opacity', '0');
+        document.documentElement.style.setProperty('--status-blur-extra', '0px');
         document.documentElement.classList.remove('nav-hidden');
       }
     };
