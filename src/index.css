@@ -234,6 +234,25 @@ nav[class*="fixed"] {
   }
 }
 
+/* iOS Safari: add blur only behind the status bar area, keep navy header intact */
+@supports (-webkit-touch-callout: none) {
+  @media screen and (max-width: 768px) {
+    nav[class*="fixed"]::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: env(safe-area-inset-top, 0px);
+      background: linear-gradient(to bottom, rgba(255,255,255,0.5), rgba(255,255,255,0));
+      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(20px);
+      pointer-events: none;
+      z-index: 9998; /* just under the header (z 9999) */
+    }
+  }
+}
+
 /* iOS mobile: use wrapper header with blur; make inner nav non-fixed & transparent */
 /* removed iOS blur wrapper to keep navy menu */
 
