@@ -195,24 +195,7 @@ main, .main-content {
   body.hide-mobile-status-bar::before {
     display: none !important;
   }
-  /* iOS Safari blend overlay under the header to soften the top edge */
-  @supports (-webkit-touch-callout: none) {
-    body::after {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: calc(max(env(safe-area-inset-top, 20px), 16px) + 32px);
-      background: linear-gradient(to bottom,
-        rgba(23,37,84,0.85) 0%,
-        rgba(30,58,138,0.60) 40%,
-        rgba(23,37,84,0.00) 100%
-      );
-      pointer-events: none;
-      z-index: 8; /* below header (z 9999), above page bg */
-    }
-  }
+  /* remove blue blur band under Safari top bar */
 }
 
 /* Ensure header stays visible at all times */
@@ -248,6 +231,20 @@ nav[class*="fixed"] {
     transform: translateY(calc(-1 * max(min(var(--header-hide-px, 0px), 112px) - 64px, 0px)));
     will-change: transform;
     transition: transform 120ms linear;
+  }
+}
+
+/* iOS Safari: make header translucent with blur and account for safe area */
+@supports (-webkit-touch-callout: none) {
+  @media screen and (max-width: 768px) {
+    nav[class*="fixed"] {
+      background: rgba(255, 255, 255, 0.60) !important;
+      -webkit-backdrop-filter: saturate(180%) blur(12px);
+      backdrop-filter: blur(12px);
+      height: calc(64px + env(safe-area-inset-top, 0px)) !important;
+      padding-top: env(safe-area-inset-top, 0px) !important;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06) !important;
+    }
   }
 }
 
