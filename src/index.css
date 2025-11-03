@@ -182,11 +182,14 @@ main, .main-content {
     left: 0;
     right: 0;
     height: max(env(safe-area-inset-top, 20px), 16px); /* iOS safe area */
-    background: linear-gradient(to right, rgba(23,37,84,0.75), rgba(30,58,138,0.75), rgba(23,37,84,0.75));
-    -webkit-backdrop-filter: blur(8px);
-    backdrop-filter: blur(8px);
-    z-index: 9; /* Under header, above content */
+    /* Make overlay fully transparent so content is always visible under status bar */
+    background: transparent !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    z-index: 0; /* Behind content and header */
     pointer-events: none; /* Prevent interactions */
+    -webkit-transform: translateZ(0); /* Force compositing on iOS */
+    transform: translateZ(0);
   }
   /* Hide the mobile status bar gradient when we hide the header on scroll */
   body.hide-mobile-status-bar::before {
